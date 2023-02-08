@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: flex-end;">
+        <ui:VisualElement style="flex-direction: column; background-image: url(&apos;project://database/Assets/UI/Basket/BasketGameUIGUI/Time.png?fileID=2800000&amp;guid=890c4896f0faf024fb8c84f71619782b&amp;type=3#Time&apos;); width: 250px; height: 155px; align-items: center; justify-content: center; flex-basis: auto;">
+            <ui:Label text="Time" display-tooltip-when-elided="true" style="font-size: 32px; color: rgb(255, 255, 255);" />
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/BasketGameUIGUI/TimeContainer.png?fileID=2800000&amp;guid=d008ac62008e38c4cb650273f2fe31c9&amp;type=3#TimeContainer&apos;); align-items: center; justify-content: center; width: auto; height: auto; font-size: 32px;">
+                <ui:Label text="00:00" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 48px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
