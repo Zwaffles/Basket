@@ -6910,7 +6910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac07804e75ae583448d45033cd139d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 50
+  pullForce: 75
   vacuumDistance: 1
 --- !u!1 &1119141120
 GameObject:
@@ -38121,7 +38121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac07804e75ae583448d45033cd139d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullForce: 50
+  pullForce: 75
   vacuumDistance: 1
 --- !u!1 &2122936224
 GameObject:
