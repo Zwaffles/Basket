@@ -7,16 +7,17 @@ TagManager:
   - Ground
   - Block
   - Ball
+  - Vacuum
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
+  - PushBall
+  - middleLine
+  - AI
   - 
   - 
   - 

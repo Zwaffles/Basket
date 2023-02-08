@@ -21,7 +21,7 @@ public class AutoPushCornerBall : MonoBehaviour
         {
             isPushing = true;
             StartCoroutine(BounceUpAndDown());
-            Debug.Log("Push");
+            //Debug.Log("Push");
         }
     }
     
@@ -53,7 +53,7 @@ public class AutoPushCornerBall : MonoBehaviour
             StopCoroutine(BounceUpAndDown());
             transform.position = startPos;
             
-            Debug.Log("NotPushing");
+            //Debug.Log("NotPushing");
         }
     }
 }

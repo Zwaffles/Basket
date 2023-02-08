@@ -67,7 +67,7 @@ public class BouncingBall : MonoBehaviour
             playerMoveDirection = playerController.moveDirection;
         }
         if(cubeMover != null)
-        AIMoveDirection = cubeMover.AImoveDirection;
+        AIMoveDirection = cubeMover.moveDirection;
         if(player2Controller != null)
         {
             player2MoveDirection = player2Controller.player2MoveDirection;
@@ -97,12 +97,12 @@ public class BouncingBall : MonoBehaviour
             if (playerMoveDirection > 0 || AIMoveDirection > 0 || player2MoveDirection > 0)
             {
                 rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
-                Debug.Log("+ " + ballInclination);
+                //Debug.Log("+ " + ballInclination);
             }
             else if (playerMoveDirection < 0 || AIMoveDirection < 0 || player2MoveDirection < 0)
             {
                 rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
-                Debug.Log("- " + ballInclination);
+                //Debug.Log("- " + ballInclination);
             }
             // Get the normal vector of the collision
             Vector3 normal = collision.contacts[0].normal;
@@ -121,8 +121,12 @@ public class BouncingBall : MonoBehaviour
     //HarderHitOnEdges
     private void OnTriggerEnter(Collider other)
     {
-        rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
-        Debug.Log("+ edgeBoost" + edgesBoost);
+        if(other.tag == "Block")
+        {
+            rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
+            Debug.Log("+ edgeBoost" + edgesBoost);
+        }
+        
     }
     void OnDrawGizmosSelected()
     {

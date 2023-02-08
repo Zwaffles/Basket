@@ -7,8 +7,12 @@ public class CubeMover : MonoBehaviour
     public float speed;
     private float deviation;
     [SerializeField] private float deviationMin;
+    [SerializeField] private float deviationFarTargetMin;
+    [SerializeField] private float deviationFarTargetMax;
     [SerializeField] private float deviationMax;
-    [HideInInspector] public int AImoveDirection; // The variable to keep track of the move direction
+    [HideInInspector] public int moveDirection; // The variable to keep track of the move direction
+    private Vector3 previousPosition;
+    public float targetDistanceThreshold;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -16,27 +20,37 @@ public class CubeMover : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 direction = (target.transform.position - transform.position).normalized;
-        deviation = Random.Range(deviationMin, deviationMax);
-        rb.velocity = new Vector3((direction.x + deviation) * speed, rb.velocity.y, rb.velocity.y);
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        if (distance >= targetDistanceThreshold)
+        {
+            deviation = Random.Range(deviationFarTargetMin, deviationFarTargetMax);
+            // when the target is far from the cube, add random deviation along x, y and z axes
+            rb.velocity = new Vector3((deviation) * speed, (deviation) * speed, (deviation) * speed);
+        }
+        else
+        {
+            Vector3 direction = (target.transform.position - transform.position).normalized;
+            deviation = Random.Range(deviationMin, deviationMax);
+            // to make movement more realistic, we add the deviation along x, y and z axes
+            rb.velocity = new Vector3((direction.x + deviation) * speed, (direction.y + deviation) * speed, (direction.z + deviation) * speed);
+        }
     }
 
     private void Update()
     {
         //Cube Move Direction
-        if (rb.velocity.x > 0)
+        if (transform.position.x > previousPosition.x)
         {
-            AImoveDirection = 1;
-            Debug.Log("Moving Right");
+            moveDirection = 1;
         }
-        else if (rb.velocity.x < 0)
+        else if (transform.position.x < previousPosition.x)
         {
-            AImoveDirection = -1;
-            Debug.Log("Moving Left");
+            moveDirection = -1;
         }
         else
         {
-            AImoveDirection = 0;
+            moveDirection = 0;
         }
+        previousPosition = transform.position;
     }
-}
+    }
