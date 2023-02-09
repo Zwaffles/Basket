@@ -5912,8 +5912,11 @@ MonoBehaviour:
   target: {fileID: 862492125}
   speed: 21.7
   deviationMin: -0.06
+  deviationFarTargetMin: 0
+  deviationFarTargetMax: 0
   deviationMax: 0.06
-  AImoveDirection: 0
+  moveDirection: 0
+  targetDistanceThreshold: 0
 --- !u!54 &693474716
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6634,6 +6637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee443deeea796343b471682c9931118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftBorder: -5
+  rightBorder: 5
+  topBorder: 5
+  bottomBorder: -5
+  radius: 0.5
   speed: 12.29
   moveDirection: 0
 --- !u!114 &1049402367
@@ -36657,6 +36665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d2f4d9fcf59404fae3e1f0336f7d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftBorder: -5
+  rightBorder: 5
+  topBorder: 5
+  bottomBorder: -5
+  radius: 0.5
   speed: 12.29
   player2MoveDirection: 0
 --- !u!114 &2097784391
