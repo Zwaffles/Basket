@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; flex-direction: column; align-items: center; justify-content: space-between; margin-top: 0; width: auto; height: auto;">
+        <ui:VisualElement style="width: 100%; flex-direction: row; justify-content: center; align-items: flex-start; flex-basis: 16%; margin-top: 0; height: auto; flex-grow: 0;">
+            <ui:VisualElement style="width: 50%; background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/LeftNambeBar.png?fileID=2800000&amp;guid=1d545cbb4b390d14b8f7d1606a0ba10b&amp;type=3#LeftNambeBar&apos;); flex-direction: row-reverse; -unity-slice-top: 0; align-items: flex-start; height: 50%; -unity-background-image-tint-color: rgba(255, 94, 92, 0); background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/LeftScoreSection.png?fileID=2800000&amp;guid=b1c8e07d82e428e4da606fd666102e55&amp;type=3#LeftScoreSection&apos;); width: 40%; height: 200%; align-items: flex-start; justify-content: center; color: rgb(236, 59, 59); -unity-background-image-tint-color: rgb(255, 94, 91);">
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ScoreContainer.png?fileID=2800000&amp;guid=b7d5e03db6cff904abb50ebb68379730&amp;type=3#ScoreContainer&apos;); width: 32%; height: 64%; justify-content: center; align-items: center; margin-left: 20%; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; flex-direction: column-reverse;">
+                        <ui:Label text="99" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 64px; align-items: center; justify-content: center; flex-shrink: 0; flex-grow: 0; width: 90%; height: 90%; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 50%; background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/RightNameBar.png?fileID=2800000&amp;guid=ff85bf4629048e9498a0cef34790b1a0&amp;type=3#RightNameBar&apos;); flex-direction: row; height: 50%; align-items: flex-start; -unity-background-image-tint-color: rgba(91, 180, 255, 0);">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/RightScoreSection.png?fileID=2800000&amp;guid=fb45529bfb3733c43a225654bd000dbc&amp;type=3#RightScoreSection&apos;); width: 40%; height: 200%; align-items: center; justify-content: flex-end; flex-direction: row; color: rgb(72, 176, 229); -unity-background-image-tint-color: rgb(90, 179, 255);">
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ScoreContainer.png?fileID=2800000&amp;guid=b7d5e03db6cff904abb50ebb68379730&amp;type=3#ScoreContainer&apos;); width: 32%; height: 64%; align-items: center; justify-content: center; margin-right: 20%; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; flex-direction: column-reverse;">
+                        <ui:Label text="99" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 64px; color: rgb(236, 59, 59); align-items: center; justify-content: center; width: 90%; height: 90%; -unity-text-align: middle-center;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
