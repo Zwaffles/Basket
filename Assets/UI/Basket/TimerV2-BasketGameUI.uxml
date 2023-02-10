@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: flex-start;">
+        <ui:VisualElement style="width: 100%; flex-direction: row; justify-content: center; align-items: flex-start; flex-basis: 16%; margin-top: 0; height: auto; flex-grow: 0;">
+            <ui:VisualElement focusable="false" style="flex-direction: column; background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Time.png?fileID=2800000&amp;guid=890c4896f0faf024fb8c84f71619782b&amp;type=3#Time&apos;); width: 16%; height: 100%; align-items: center; justify-content: flex-end; flex-basis: auto; opacity: 1; display: flex; visibility: visible; overflow: visible; -unity-font: none; -unity-text-align: upper-left; rotate: 180deg;">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/TimeContainer.png?fileID=2800000&amp;guid=d008ac62008e38c4cb650273f2fe31c9&amp;type=3#TimeContainer&apos;); align-items: center; justify-content: center; width: 56%; height: 40%; font-size: 32px; rotate: 180deg; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 4px; border-bottom-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
+                    <ui:Label text="00:00" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 40%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-shrink: 0; flex-grow: 0; align-items: center; justify-content: center; -unity-text-align: middle-center;" />
+                </ui:VisualElement>
+                <ui:Label text="Time" display-tooltip-when-elided="true" style="font-size: 32px; color: rgb(255, 255, 255); rotate: 180deg;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
