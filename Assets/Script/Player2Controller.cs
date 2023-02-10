@@ -52,11 +52,11 @@ public class Player2Controller : MonoBehaviour
     private void Update()
     {
         //Cube Move Direction
-        if (moveInput.x > 0)
+        if (moveInput.x < 0)
         {
             player2MoveDirection = 1;
         }
-        else if (moveInput.x < 0)
+        else if (moveInput.x > 0)
         {
             player2MoveDirection = -1;
         }
