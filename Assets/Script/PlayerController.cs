@@ -1,19 +1,30 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[AddComponentMenu("Player/Player Controller")]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement Bounds")]
+    [Tooltip("The left border for player movement")]
     public float leftBorder = -5.0f;
+    [Tooltip("The right border for player movement")]
     public float rightBorder = 5.0f;
+    [Tooltip("The top border for player movement")]
     public float topBorder = 5.0f;
+    [Tooltip("The bottom border for player movement")]
     public float bottomBorder = -5.0f;
+    [Tooltip("The radius of border sphere")]
     public float radius = .5f;
-
     private Rigidbody rb; // Reference to the Rigidbody component
+    [Header("Movement Settings")]
+    [Tooltip("The speed at which the player moves")]
     public float speed; // The speed at which the player moves
     private Vector2 moveInput; // The input value for movement
     [HideInInspector]
+    [Tooltip("The variable to keep track of the move direction")]
     public int moveDirection; // The variable to keep track of the move direction
+
     void Start()
     {
         rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
@@ -76,4 +87,3 @@ public class PlayerController : MonoBehaviour
     }
 
 }
-

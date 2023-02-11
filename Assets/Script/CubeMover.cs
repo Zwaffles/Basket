@@ -1,18 +1,39 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// This script moves a cube towards a target game object while considering the velocity of the target.
+/// </summary>
 public class CubeMover : MonoBehaviour
 {
     private Rigidbody rb;
+    /// <summary>
+    /// The target game object to move towards.
+    /// </summary>
+    [Tooltip("The target that the cube will follow")]
     public GameObject target;
-    public float speed;
-    public float targetDistanceThreshold;
-    private Vector3 targetVelocity;
-    [HideInInspector] public int moveDirection;
-    private Vector3 previousPosition;
-    public Vector3 targetGoalPosition;
-    
 
+    /// <summary>
+    /// The speed at which the cube moves towards the target.
+    /// </summary>
+    [Tooltip("The speed at which the cube moves towards the target.")]
+    public float speed;
+
+    /// <summary>
+    /// The minimum distance from the target that the cube will start predicting its movement.
+    /// </summary>
+    [Tooltip("The minimum distance from the target that the cube will start predicting its movement.")]
+    public float targetDistanceThreshold;
+
+    private Vector3 targetVelocity;
+
+    /// <summary>
+    /// The direction the cube is moving in.
+    /// 1 is right, -1 is left, 0 is not moving in the X axis.
+    /// </summary>
+    [HideInInspector] public int moveDirection;
+
+    private Vector3 previousPosition;
 
     void Awake()
     {
@@ -56,4 +77,4 @@ public class CubeMover : MonoBehaviour
         }
         previousPosition = transform.position;
     }
-}
+    }

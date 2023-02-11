@@ -4,30 +4,50 @@ using UnityEngine;
 
 public class BouncingBall : MonoBehaviour
 {
-    // Variables for ball speed and bouncing force
+    #region Speed and Bouncing Variables
+    [Header("Speed and Bouncing Variables")]
+    [Tooltip("Initial speed of the ball when it is first launched")]
     public float initialSpeed = 5.0f;
+    [Tooltip("Force added to the ball on each bounce")]
     public float bounceForce = 10.0f;
+    #endregion
 
-    // Variables for the borders
+    #region Border Variables
+    [Header("Border Variables")]
+    [Tooltip("Left border of the play area")]
     public float leftBorder = -5.0f;
+    [Tooltip("Right border of the play area")]
     public float rightBorder = 5.0f;
+    [Tooltip("Top border of the play area")]
     public float topBorder = 5.0f;
+    [Tooltip("Bottom border of the play area")]
     public float bottomBorder = -5.0f;
+    #endregion
 
+    #region Ball Variables
+    [Header("Ball Variables")]
+    [Tooltip("Radius of the ball collider")]
     public float radius = .5f;
-
+    [Tooltip("Multiplier for the velocity of the ball after it hits a block")]
     [SerializeField] private float blockerBoost = 1.5f;
-    // Rigidbody component of the ball
-    private Rigidbody rb;
+    #endregion
+
+    #region Inclination Variables
+    [Header("Inclination Variables")]
+    [Tooltip("The speed at which the ball moves in the direction of the paddle")]
     [SerializeField] float ballInclination = 1f;
+    [Tooltip("Multiplier for the velocity of the ball after it hits the edges of the play area")]
     [SerializeField] float edgesBoost = 1f;
-    PlayerController playerController;
-    Player2Controller player2Controller;
-    CubeMover cubeMover;
+    #endregion
+
+    private Rigidbody rb;
+    private PlayerController playerController;
+    private Player2Controller player2Controller;
+    private CubeMover cubeMover;
     private int playerMoveDirection;
     private int AIMoveDirection;
     private int player2MoveDirection;
-    
+
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();

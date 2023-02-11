@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class AutoPushCornerBall : MonoBehaviour
 {
+    [Header("Bouncer Settings")]
+    [Tooltip("Tag of the object that will trigger the bouncer.")]
     public string triggerTag;
+    [Tooltip("Speed of the bouncer animation.")]
     public float speed = 1f;
+    [Tooltip("Distance that the bouncer will move up and down.")]
     public float distance = 1f;
-
     private Vector3 startPos;
 
     bool isPushing;
+
     private void Start()
     {
         startPos = transform.position;
@@ -21,10 +25,9 @@ public class AutoPushCornerBall : MonoBehaviour
         {
             isPushing = true;
             StartCoroutine(BounceUpAndDown());
-            //Debug.Log("Push");
         }
     }
-    
+
     IEnumerator BounceUpAndDown()
     {
         while (isPushing)
@@ -52,8 +55,6 @@ public class AutoPushCornerBall : MonoBehaviour
             isPushing = false;
             StopCoroutine(BounceUpAndDown());
             transform.position = startPos;
-            
-            //Debug.Log("NotPushing");
         }
     }
-}
+    }
