@@ -38,6 +38,8 @@ public class BouncingBall : MonoBehaviour
     [SerializeField] float ballInclination = 1f;
     [Tooltip("Multiplier for the velocity of the ball after it hits the edges of the play area")]
     [SerializeField] float edgesBoost = 1f;
+    [Tooltip("The down force of the roof when the ball hits it")]
+    [SerializeField] float roofBounciness;
     #endregion
 
     private Rigidbody rb;
@@ -47,6 +49,8 @@ public class BouncingBall : MonoBehaviour
     private int playerMoveDirection;
     private int AIMoveDirection;
     private int player2MoveDirection;
+
+    
 
     private void Awake()
     {
@@ -95,6 +99,20 @@ public class BouncingBall : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.CompareTag("Roof"))
+        {
+            // Get the normal vector of the collision
+            Vector3 normal = collision.contacts[0].normal;
+
+            // Calculate the reflection vector using the normal and the incoming velocity vector
+            Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            // Set the ball's velocity to the reflection vector
+            rb.velocity = reflection*1.3f ;
+
+            // Add an upward force to make the ball jump
+            rb.AddForce(Vector3.down * (rb .velocity.y * roofBounciness), ForceMode.Impulse);
+        }
         // Check if the ball has collided with an object with the "Ground" tag
         if (collision.collider.CompareTag("Ground"))
         {
@@ -110,32 +128,87 @@ public class BouncingBall : MonoBehaviour
             // Add an upward force to make the ball jump
             rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
         }
-        // Check if the ball has collided with an object with the "Block" tag
-        if (collision.collider.CompareTag("Block"))
+        if (collision.collider.CompareTag("PlayerTwo"))
         {
             //The inclination of the ball according to the movement of the cube
-            if (playerMoveDirection > 0 || AIMoveDirection > 0 || player2MoveDirection > 0)
+            if (player2MoveDirection > 0)
             {
                 rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
                 //Debug.Log("+ " + ballInclination);
             }
-            else if (playerMoveDirection < 0 || AIMoveDirection < 0 || player2MoveDirection < 0)
+
+            if (player2MoveDirection < 0)
             {
                 rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
                 //Debug.Log("- " + ballInclination);
             }
             // Get the normal vector of the collision
-            Vector3 normal = collision.contacts[0].normal;
+            //Vector3 normal = collision.contacts[0].normal;
 
             // Calculate the reflection vector using the normal and the incoming velocity vector
-            Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
 
             // Set the ball's velocity to the reflection vector multiplied by the blockerBoost value
-            rb.velocity = reflection * blockerBoost;
+            //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
             rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
         }
+        // Check if the ball has collided with an object with the "Block" tag
+        if (collision.collider.CompareTag("PlayerOne"))
+        {
+            //The inclination of the ball according to the movement of the cube
+            if (playerMoveDirection > 0)
+            {
+                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                //Debug.Log("+ " + ballInclination);
+            }
+
+            if (playerMoveDirection < 0)
+            {
+                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                //Debug.Log("- " + ballInclination);
+            }
+            // Get the normal vector of the collision
+            //Vector3 normal = collision.contacts[0].normal;
+
+            // Calculate the reflection vector using the normal and the incoming velocity vector
+            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            // Set the ball's velocity to the reflection vector multiplied by the blockerBoost value
+            //rb.velocity = reflection * blockerBoost;
+
+            // Add an upward force to make the ball jump
+            rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
+        }
+        
+        if (collision.collider.CompareTag("AI"))
+        {
+            //The inclination of the ball according to the movement of the cube
+            if (AIMoveDirection > 0)
+            {
+                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                //Debug.Log("+ " + ballInclination);
+            }
+
+            if (AIMoveDirection < 0)
+            {
+                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                //Debug.Log("- " + ballInclination);
+            }
+            // Get the normal vector of the collision
+            //Vector3 normal = collision.contacts[0].normal;
+
+            // Calculate the reflection vector using the normal and the incoming velocity vector
+            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            // Set the ball's velocity to the reflection vector multiplied by the blockerBoost value
+            //rb.velocity = reflection * blockerBoost;
+
+            // Add an upward force to make the ball jump
+            rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
+        }
+
     }
 
     //HarderHitOnEdges

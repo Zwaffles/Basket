@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject AI;
     [SerializeField] GameObject playerTwo;
+    [SerializeField] TextMeshProUGUI score;
+
+    private void Start()
+    {
+        playerTwo.SetActive(false);
+    }
 
     public void SwitchPlayers()
     {
@@ -13,10 +20,12 @@ public class GameManager : MonoBehaviour
         {
             AI.SetActive(false);
             playerTwo.SetActive(true);
+            score.color = Color.blue;
         }else if (!AI.activeSelf)
         {
             AI.SetActive(true);
             playerTwo.SetActive(false);
+            score.color = Color.red;
         }
     }
 }

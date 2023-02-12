@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class HoopBehavior : MonoBehaviour
 {
@@ -7,10 +10,14 @@ public class HoopBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Physics.IgnoreCollision(other, _collider, true);
+        StartCoroutine("ActivateCollider", other);
     }
 
-    private void OnTriggerExit(Collider other)
+    IEnumerator ActivateCollider(Collider other)
     {
+        //Debug.Log("Ignored");
+        yield return new WaitForSeconds(.5f);
         Physics.IgnoreCollision(other, _collider, false);
     }
+    
 }

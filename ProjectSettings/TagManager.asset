@@ -8,6 +8,10 @@ TagManager:
   - Block
   - Ball
   - Vacuum
+  - AI
+  - PlayerOne
+  - PlayerTwo
+  - Roof
   layers:
   - Default
   - TransparentFX
