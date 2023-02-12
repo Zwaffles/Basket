@@ -16,7 +16,7 @@ public class HoopBehavior : MonoBehaviour
     IEnumerator ActivateCollider(Collider other)
     {
         //Debug.Log("Ignored");
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.9f);
         Physics.IgnoreCollision(other, _collider, false);
     }
     
