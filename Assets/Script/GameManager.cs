@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform ballRightSpawn;
     [SerializeField] Transform ballLeftSpawn;
     Rigidbody ballRigidbody;
-
+    ChangeCameraColor changeCameraColor;
     public CinemachineVirtualCamera virtualCamera;
     private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
     public float shakeDuration = 2f;
@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     private float timeSlowElapsedTime = 0f;
 
     private float originalTimeScale;
+
+    private void Awake()
+    {
+        changeCameraColor = FindObjectOfType<ChangeCameraColor>();
+    }
     private void Start()
     {
         if (virtualCamera != null)
@@ -53,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void RespawnBall(int value)
     {
-        
+        changeCameraColor.changeBGColor = true;
         timeSlowElapsedTime = timeSlowDuration;
         Time.timeScale = originalTimeScale * 0.25f;
         StartCoroutine("Respawn", value);

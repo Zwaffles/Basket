@@ -9,7 +9,7 @@ public class HoopBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Physics.IgnoreCollision(other, _collider, true);
+        //Physics.IgnoreCollision(other, _collider, true);
         StartCoroutine("ActivateCollider", other);
     }
 

@@ -122,11 +122,11 @@ public class BouncingBall : MonoBehaviour
     {
         if(bounceForce < 23 && on)
         {
-            bounceForce += 4;
+            bounceForce += 8;
         }
         else if(bounceForce > 24 && !on)
         {
-            bounceForce -= 4;
+            bounceForce -= 8;
         }
     }
     private void Update()
