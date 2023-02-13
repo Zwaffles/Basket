@@ -49,8 +49,14 @@ public class BouncingBall : MonoBehaviour
     private int playerMoveDirection;
     private int AIMoveDirection;
     private int player2MoveDirection;
+    [SerializeField] ParticleSystem fireBallFlash;
+    [SerializeField] ParticleSystem fireBallSmoke;
+    [SerializeField] ParticleSystem fireBallSpark;
+    float fireBallTimer = 5;
+    public float fireBallTime = 12;
+    bool stopFire;
 
-    
+
 
     private void Awake()
     {
@@ -82,6 +88,45 @@ public class BouncingBall : MonoBehaviour
         {
             // Reverse the vertical velocity of the ball
             rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
+        }
+        
+        if(rb.velocity.magnitude >= 70 && fireBallTimer < fireBallTime)
+        {
+            fireBallFlash.Play();
+            fireBallSmoke.Play();
+            fireBallSpark.Play();
+            stopFire = true;
+            if (fireBallTime > 7)
+            IncreaseForce(true);
+            
+        }
+        if (stopFire)
+        {
+            fireBallTime -= Time.deltaTime;
+        }
+        if(fireBallTime <= 7)
+        {
+            IncreaseForce(false);
+        }
+        if(fireBallTimer > fireBallTime)
+        {
+            fireBallFlash.Stop();
+            fireBallSmoke.Stop();
+            fireBallSpark.Stop();
+            stopFire = false;
+            fireBallTime = 12;
+        }
+    }
+
+    void IncreaseForce(bool on)
+    {
+        if(bounceForce < 23 && on)
+        {
+            bounceForce += 4;
+        }
+        else if(bounceForce > 24 && !on)
+        {
+            bounceForce -= 4;
         }
     }
     private void Update()
