@@ -99,6 +99,18 @@ public class BouncingBall : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.CompareTag("Block"))
+        {
+            // Get the normal vector of the collision
+            Vector3 normal = collision.contacts[0].normal;
+
+            // Calculate the reflection vector using the normal and the incoming velocity vector
+            Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            // Set the ball's velocity to the reflection vector
+            rb.velocity = reflection;
+        }
+
         if (collision.collider.CompareTag("Roof"))
         {
             // Get the normal vector of the collision
@@ -212,15 +224,15 @@ public class BouncingBall : MonoBehaviour
     }
 
     //HarderHitOnEdges
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Block")
-        {
-            rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
-            Debug.Log("+ edgeBoost" + edgesBoost);
-        }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.tag == "Block")
+    //    {
+    //        rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
+    //        Debug.Log("+ edgeBoost" + edgesBoost);
+    //    }
         
-    }
+    //}
     void OnDrawGizmosSelected()
     {
         // Draw lines for the borders in the Unity editor
