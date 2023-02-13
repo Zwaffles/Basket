@@ -11,8 +11,10 @@ public class Vacuum : MonoBehaviour
     private Rigidbody rb;
     ScoreManager scoreManager;
     CubeMover cubeMover;
+    GameManager gameManager;
     private void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
         cubeMover = FindObjectOfType<CubeMover>();
         scoreManager = FindObjectOfType<ScoreManager>();
     }
@@ -36,7 +38,7 @@ public class Vacuum : MonoBehaviour
                 if(this.gameObject.name == "Vacuum1")
                 {
                     scoreManager.PlayerOneScore();
-
+                    gameManager.RespawnBall(1);
                     //if (cubeMover.speed < 20 && cubeMover != null)
                     //{
                     //    cubeMover.speed += 1f;
@@ -46,7 +48,7 @@ public class Vacuum : MonoBehaviour
                 if(this.gameObject.name == "Vacuum2")
                 {
                     scoreManager.PlayerTwoScore();
-
+                    gameManager.RespawnBall(-1);
                     //if (cubeMover.speed > 6 && cubeMover != null)
                     //{
                     //    cubeMover.speed -= 1f;
