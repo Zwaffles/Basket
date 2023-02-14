@@ -65,11 +65,11 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Respawn(int rightorLeft)
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.3889f);
         shakeElapsedTime = shakeDuration;
-        ball.SetActive(false);
+        ball.SetActive(false);    
         ballRigidbody.velocity = new Vector3(0, 0, 0);
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(1f);
         if (rightorLeft == 1)
         {
             ball.transform.position = ballRightSpawn.position;

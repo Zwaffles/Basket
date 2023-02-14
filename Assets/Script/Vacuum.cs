@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class Vacuum : MonoBehaviour
 {
     [Header("Vacuum Properties")]
@@ -12,8 +13,12 @@ public class Vacuum : MonoBehaviour
     ScoreManager scoreManager;
     CubeMover cubeMover;
     GameManager gameManager;
+    BouncingBall bouncingBall;
+    
+
     private void Awake()
     {
+        bouncingBall = FindObjectOfType<BouncingBall>();
         gameManager = FindObjectOfType<GameManager>();
         cubeMover = FindObjectOfType<CubeMover>();
         scoreManager = FindObjectOfType<ScoreManager>();
@@ -37,27 +42,44 @@ public class Vacuum : MonoBehaviour
             {
                 if(this.gameObject.name == "Vacuum1")
                 {
-                    scoreManager.PlayerOneScore();
+                    if (!bouncingBall.fireBallSmoke.isPlaying)
+                    {
+                        scoreManager.PlayerOneScore(1);
+                    }
+                        
+                    else if (bouncingBall.fireBallSmoke.isPlaying)
+                    { 
+                        scoreManager.PlayerOneScore(2);
+                        scoreManager.ShowDoublePointsText();
+                        gameManager.shakeFrequency += 1.7f;
+                        Invoke("ResetShakeFrequency", 1);
+                    }
                     gameManager.RespawnBall(1);
-                    //if (cubeMover.speed < 20 && cubeMover != null)
-                    //{
-                    //    cubeMover.speed += 1f;
-                    //}
-                rb = null;
+                    rb = null;
                 }
+
                 if(this.gameObject.name == "Vacuum2")
-                {
-                    scoreManager.PlayerTwoScore();
+                {                   
+                    if (!bouncingBall.fireBallSmoke.isPlaying)
+                    {
+                        scoreManager.PlayerTwoScore(1);
+                    }
+                        
+                    else if (bouncingBall.fireBallSmoke.isPlaying)
+                    {
+                        scoreManager.PlayerTwoScore(2);
+                        scoreManager.ShowDoublePointsText();
+                        gameManager.shakeFrequency += 1.7f;
+                        Invoke("ResetShakeFrequency", 1);
+                    }
                     gameManager.RespawnBall(-1);
-                    //if (cubeMover.speed > 6 && cubeMover != null)
-                    //{
-                    //    cubeMover.speed -= 1f;
-                    //}
-                rb = null;
+                    rb = null;
             }
         }
-    }
-    // Update the average reward and adjust speed
-    
+    }  
 }
+    private void ResetShakeFrequency()
+    {
+        gameManager.shakeFrequency -= 1.7f;
+    }
 }

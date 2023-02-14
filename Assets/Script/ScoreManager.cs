@@ -7,14 +7,15 @@ public class ScoreManager : MonoBehaviour
     public int player2Score;
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
+    [SerializeField] Animator doublePointsAnim;
 
-    public void PlayerOneScore()
+    public void PlayerOneScore(int value)
     {
-        player1Score++;
+        player1Score += value;
     }
-    public void PlayerTwoScore()
+    public void PlayerTwoScore(int value)
     {
-        player2Score++;
+        player2Score += value;
     }
 
     private void Update()
@@ -22,5 +23,9 @@ public class ScoreManager : MonoBehaviour
         player1ScoreText.text = player1Score.ToString();
         player2ScoreText.text = player2Score.ToString();
 
+    }
+    public void ShowDoublePointsText()
+    {
+        doublePointsAnim.SetTrigger("DoublePointsTrigger");
     }
 }

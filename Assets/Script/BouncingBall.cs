@@ -50,11 +50,11 @@ public class BouncingBall : MonoBehaviour
     private int AIMoveDirection;
     private int player2MoveDirection;
     [SerializeField] ParticleSystem fireBallFlash;
-    [SerializeField] ParticleSystem fireBallSmoke;
+    [SerializeField] public ParticleSystem fireBallSmoke;
     [SerializeField] ParticleSystem fireBallSpark;
     float fireBallTimer = 5;
     public float fireBallTime = 12;
-    bool stopFire;
+    bool onFire;
 
 
 
@@ -95,12 +95,12 @@ public class BouncingBall : MonoBehaviour
             fireBallFlash.Play();
             fireBallSmoke.Play();
             fireBallSpark.Play();
-            stopFire = true;
+            onFire = false;
             if (fireBallTime > 7)
             IncreaseForce(true);
             
         }
-        if (stopFire)
+        if (!onFire)
         {
             fireBallTime -= Time.deltaTime;
         }
@@ -113,7 +113,7 @@ public class BouncingBall : MonoBehaviour
             fireBallFlash.Stop();
             fireBallSmoke.Stop();
             fireBallSpark.Stop();
-            stopFire = false;
+            onFire = true;
             fireBallTime = 12;
         }
     }
