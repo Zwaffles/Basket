@@ -24,7 +24,10 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     [Tooltip("The variable to keep track of the move direction")]
     public int moveDirection; // The variable to keep track of the move direction
-
+    [Header("Sliding")]
+    [SerializeField]
+    [Range(0, 1)]
+    float lerpConstant;
     void Start()
     {
         rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
@@ -57,7 +60,8 @@ public class PlayerController : MonoBehaviour
             float distanceToRightBorder = rightBorder - transform.position.x;
             playerVelocity.x = distanceToRightBorder / Time.fixedDeltaTime;
         }
-        rb.velocity = playerVelocity; // Set the player's velocity
+        //rb.velocity = playerVelocity; // Set the player's velocity
+        rb.velocity = Vector2.Lerp(rb.velocity, playerVelocity, lerpConstant);
     }
 
     private void Update()

@@ -12,6 +12,7 @@ TagManager:
   - PlayerOne
   - PlayerTwo
   - Roof
+  - Edges
   layers:
   - Default
   - TransparentFX
