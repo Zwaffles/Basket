@@ -37,11 +37,8 @@ public class BouncingBall : MonoBehaviour
     [Tooltip("The speed at which the ball moves in the direction of the paddle")]
     [SerializeField] float ballInclination = 1f;
     [Tooltip("Multiplier for the velocity of the ball after it hits the edges of the play area")]
-    [SerializeField] float edgesBoost = 1f;
-    [Tooltip("The down force of the roof when the ball hits it")]
-    [SerializeField] float roofBounciness;
+    [SerializeField] float edgesBoost = 1f;   
     #endregion
-
     private Rigidbody rb;
     private PlayerController playerController;
     private Player2Controller player2Controller;
@@ -56,7 +53,10 @@ public class BouncingBall : MonoBehaviour
     public float fireBallTime = 12;
     bool onFire;
     float DefaultBouncingForce;
-
+    [Header("Roof")]
+    [Tooltip("The down force of the roof when the ball hits it")]
+    [SerializeField] float roofBounciness;
+    [SerializeField] float roofReflection = 1.5f;
 
     private void Awake()
     {
@@ -165,7 +165,7 @@ public class BouncingBall : MonoBehaviour
             Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
 
             // Set the ball's velocity to the reflection vector
-            rb.velocity = reflection * 1.3f;
+            rb.velocity = reflection * roofReflection;
 
             // Add an upward force to make the ball jump
             rb.AddForce(Vector3.down * (rb.velocity.y * roofBounciness), ForceMode.Impulse);
