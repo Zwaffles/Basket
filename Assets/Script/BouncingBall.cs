@@ -37,11 +37,8 @@ public class BouncingBall : MonoBehaviour
     [Tooltip("The speed at which the ball moves in the direction of the paddle")]
     [SerializeField] float ballInclination = 1f;
     [Tooltip("Multiplier for the velocity of the ball after it hits the edges of the play area")]
-    [SerializeField] float edgesBoost = 1f;
-    [Tooltip("The down force of the roof when the ball hits it")]
-    [SerializeField] float roofBounciness;
+    [SerializeField] float edgesBoost = 1f;   
     #endregion
-
     private Rigidbody rb;
     private PlayerController playerController;
     private Player2Controller player2Controller;
@@ -55,8 +52,11 @@ public class BouncingBall : MonoBehaviour
     float fireBallTimer = 5;
     public float fireBallTime = 12;
     bool onFire;
-
-
+    float DefaultBouncingForce;
+    [Header("Roof")]
+    [Tooltip("The down force of the roof when the ball hits it")]
+    [SerializeField] float roofBounciness;
+    [SerializeField] float roofReflection = 1.5f;
 
     private void Awake()
     {
@@ -65,8 +65,8 @@ public class BouncingBall : MonoBehaviour
         cubeMover = FindObjectOfType<CubeMover>();
     }
     void Start()
-    {        
-        
+    {
+        DefaultBouncingForce = bounceForce;
         // Get the rigidbody component
         rb = GetComponent<Rigidbody>();
 
@@ -89,26 +89,26 @@ public class BouncingBall : MonoBehaviour
             // Reverse the vertical velocity of the ball
             rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
         }
-        
-        if(rb.velocity.magnitude >= 70 && fireBallTimer < fireBallTime)
+
+        if (rb.velocity.magnitude >= 70 && fireBallTimer < fireBallTime)
         {
             fireBallFlash.Play();
             fireBallSmoke.Play();
             fireBallSpark.Play();
             onFire = false;
             if (fireBallTime > 7)
-            IncreaseForce(true);
-            
+                IncreaseForce(true);
+
         }
         if (!onFire)
         {
             fireBallTime -= Time.deltaTime;
         }
-        if(fireBallTime <= 7)
+        if (fireBallTime <= 7)
         {
             IncreaseForce(false);
         }
-        if(fireBallTimer > fireBallTime)
+        if (fireBallTimer > fireBallTime)
         {
             fireBallFlash.Stop();
             fireBallSmoke.Stop();
@@ -117,27 +117,27 @@ public class BouncingBall : MonoBehaviour
             fireBallTime = 12;
         }
     }
-
+    [SerializeField] float extraAddedForceToFireball = 4.5f;
     void IncreaseForce(bool on)
     {
-        if(bounceForce < 23 && on)
+        if (bounceForce < DefaultBouncingForce - 0.5f && on)
         {
-            bounceForce += 8;
+            bounceForce += extraAddedForceToFireball;
         }
-        else if(bounceForce > 24 && !on)
+        else if (bounceForce > DefaultBouncingForce + 0.5 && !on)
         {
-            bounceForce -= 8;
+            bounceForce -= extraAddedForceToFireball;
         }
     }
     private void Update()
     {
-        if(playerController != null)
+        if (playerController != null)
         {
             playerMoveDirection = playerController.moveDirection;
         }
-        if(cubeMover != null)
-        AIMoveDirection = cubeMover.moveDirection;
-        if(player2Controller != null)
+        if (cubeMover != null)
+            AIMoveDirection = cubeMover.moveDirection;
+        if (player2Controller != null)
         {
             player2MoveDirection = player2Controller.player2MoveDirection;
         }
@@ -165,10 +165,10 @@ public class BouncingBall : MonoBehaviour
             Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
 
             // Set the ball's velocity to the reflection vector
-            rb.velocity = reflection*1.3f ;
+            rb.velocity = reflection * roofReflection;
 
             // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.down * (rb .velocity.y * roofBounciness), ForceMode.Impulse);
+            rb.AddForce(Vector3.down * (rb.velocity.y * roofBounciness), ForceMode.Impulse);
         }
         // Check if the ball has collided with an object with the "Ground" tag
         if (collision.collider.CompareTag("Ground"))
@@ -238,7 +238,7 @@ public class BouncingBall : MonoBehaviour
             // Add an upward force to make the ball jump
             rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
         }
-        
+
         if (collision.collider.CompareTag("AI"))
         {
             //The inclination of the ball according to the movement of the cube
@@ -269,22 +269,23 @@ public class BouncingBall : MonoBehaviour
     }
 
     //HarderHitOnEdges
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.tag == "Block")
-    //    {
-    //        rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
-    //        Debug.Log("+ edgeBoost" + edgesBoost);
-    //    }
-        
-    //}
-    void OnDrawGizmosSelected()
+    private void OnTriggerEnter(Collider other)
     {
-        // Draw lines for the borders in the Unity editor
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(new Vector3(leftBorder, topBorder, 0), radius);
-        Gizmos.DrawWireSphere(new Vector3(rightBorder, topBorder, 0), radius);
-        Gizmos.DrawWireSphere(new Vector3(rightBorder, bottomBorder, 0), radius);
-        Gizmos.DrawWireSphere(new Vector3(leftBorder, bottomBorder, 0), radius);
+        if (other.tag == "PlayerOne" || other.tag == "PlayerTwo" || other.tag == "AI")
+        {
+            rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
+            Debug.Log("+ edgeBoost" + edgesBoost);
+        }
+
+        //}
+        void OnDrawGizmosSelected()
+        {
+            // Draw lines for the borders in the Unity editor
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(new Vector3(leftBorder, topBorder, 0), radius);
+            Gizmos.DrawWireSphere(new Vector3(rightBorder, topBorder, 0), radius);
+            Gizmos.DrawWireSphere(new Vector3(rightBorder, bottomBorder, 0), radius);
+            Gizmos.DrawWireSphere(new Vector3(leftBorder, bottomBorder, 0), radius);
+        }
     }
 }
