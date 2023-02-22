@@ -30,6 +30,14 @@ public class Player2Controller : MonoBehaviour
     [SerializeField]
     [Range(0, 1)]
     float lerpConstant;
+
+    [Header("Rotation Settings")]
+    [SerializeField]
+    float leanAngle = 5f;
+    [SerializeField]
+    float leanSpeed = 10f;
+
+    Quaternion targetRotation;
     void Start()
     {
         rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
@@ -38,6 +46,7 @@ public class Player2Controller : MonoBehaviour
     void FixedUpdate()
     {
         Move(); // Call the Move() function
+        Rotate(); // Call the Rotate() function
     }
 
     void OnMove2(InputValue value)
@@ -66,7 +75,23 @@ public class Player2Controller : MonoBehaviour
         //rb.velocity = playerVelocity; // Set the player's velocity
         rb.velocity = Vector2.Lerp(rb.velocity, playerVelocity, lerpConstant);
     }
+    void Rotate()
+    {
+        if (moveInput.x > 0)
+        {
+            targetRotation = Quaternion.Euler(0f, 0f, -leanAngle);
+        }
+        else if (moveInput.x < 0)
+        {
+            targetRotation = Quaternion.Euler(0f, 0f, leanAngle);
+        }
+        else
+        {
+            targetRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
 
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, leanSpeed * Time.deltaTime);
+    }
     private void Update()
     {
         // Cube Move Direction

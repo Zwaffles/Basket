@@ -35,12 +35,19 @@ public class CubeMover : MonoBehaviour
 
     private Vector3 previousPosition;
 
+    [Header("Rotation Settings")]
+    [SerializeField]
+    float leanAngle = 5f;
+    [SerializeField]
+    float leanSpeed = 10f;
+
+    Quaternion targetRotation;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
         targetVelocity = (target.transform.position - previousPosition) / Time.fixedDeltaTime;
@@ -59,9 +66,26 @@ public class CubeMover : MonoBehaviour
             rb.velocity = direction * speed;
         }
     }
-
-    private void Update()
+    void Rotate()
     {
+        if (moveDirection > 0)
+        {
+            targetRotation = Quaternion.Euler(0f, 0f, -leanAngle);
+        }
+        else if (moveDirection < 0)
+        {
+            targetRotation = Quaternion.Euler(0f, 0f, leanAngle);
+        }
+        else
+        {
+            targetRotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, leanSpeed * Time.deltaTime);
+    }
+    private void FixedUpdate()
+    {
+        Rotate();
         // Cube move direction
         if (transform.position.x > previousPosition.x)
         {

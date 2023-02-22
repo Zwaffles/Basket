@@ -51,6 +51,7 @@ public class BouncingBall : MonoBehaviour
     [SerializeField] ParticleSystem fireBallSpark;
     float fireBallTimer = 5;
     public float fireBallTime = 12;
+    [SerializeField] float extraAddedForceToFireball = 4.5f;
     bool onFire;
     float DefaultBouncingForce;
     [Header("Roof")]
@@ -117,7 +118,7 @@ public class BouncingBall : MonoBehaviour
             fireBallTime = 12;
         }
     }
-    [SerializeField] float extraAddedForceToFireball = 4.5f;
+    
     void IncreaseForce(bool on)
     {
         if (bounceForce < DefaultBouncingForce - 0.5f && on)
