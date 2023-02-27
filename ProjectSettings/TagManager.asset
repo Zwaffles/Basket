@@ -13,6 +13,10 @@ TagManager:
   - PlayerTwo
   - Roof
   - Edges
+  - RightSide
+  - LeftSide
+  - Vacuum1
+  - Vacuum2
   layers:
   - Default
   - TransparentFX

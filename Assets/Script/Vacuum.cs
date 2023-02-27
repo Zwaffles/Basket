@@ -31,6 +31,17 @@ public class Vacuum : MonoBehaviour
             // Apply a force to the rigidbody that pulls it towards the vacuum
             rb.AddForce((transform.position - rb.transform.position).normalized * pullForce, ForceMode.Force);
         }
+
+        //if (this.gameObject.tag == "Vacuum1")
+        //{
+        //    rb = other.GetComponent<Rigidbody>();
+        //    rb.AddForce(Vector3.right * pullForce, ForceMode.Impulse);
+        //}
+        //if (this.gameObject.tag == "Vacuum2")
+        //{
+        //    rb = other.GetComponent<Rigidbody>();
+        //    rb.AddForce(Vector3.left * pullForce, ForceMode.Impulse);
+        //}
     }
 
     private void FixedUpdate()

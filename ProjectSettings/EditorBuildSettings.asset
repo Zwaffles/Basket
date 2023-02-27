@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Taher.unity
+  - enabled: 0
+    path: Assets/Scenes/Version 01.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Version 02.unity
+    guid: 846dec659521d4a4aae4b24cd0cf6d1d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 62ebf74b965b42c4180a6f4ad8a99abb,
       type: 2}

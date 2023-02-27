@@ -10,6 +10,8 @@ public class BouncingBall : MonoBehaviour
     public float initialSpeed = 5.0f;
     [Tooltip("Force added to the ball on each bounce")]
     public float bounceForce = 10.0f;
+    [Tooltip("Force added to the ball on side bounces")]
+    [SerializeField] float sidesBouncingForce;
     #endregion
 
     #region Border Variables
@@ -148,13 +150,14 @@ public class BouncingBall : MonoBehaviour
         if (collision.collider.CompareTag("Block"))
         {
             // Get the normal vector of the collision
-            Vector3 normal = collision.contacts[0].normal;
+            //Vector3 normal = collision.contacts[0].normal;
 
-            // Calculate the reflection vector using the normal and the incoming velocity vector
-            Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+            //// Calculate the reflection vector using the normal and the incoming velocity vector
+            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
 
-            // Set the ball's velocity to the reflection vector
-            rb.velocity = reflection;
+            //// Set the ball's velocity to the reflection vector
+            //rb.velocity = reflection;
+            rb.AddForce(Vector3.down * bounceForce, ForceMode.Impulse);
         }
 
         if (collision.collider.CompareTag("Roof"))
@@ -166,13 +169,29 @@ public class BouncingBall : MonoBehaviour
             Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
 
             // Set the ball's velocity to the reflection vector
-            rb.velocity = reflection * roofReflection;
+            //rb.velocity = reflection * roofReflection;
 
             // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.down * (rb.velocity.y * roofBounciness), ForceMode.Impulse);
+            //rb.AddForce(Vector3.down * (rb.velocity.y * roofBounciness), ForceMode.Impulse);
         }
         // Check if the ball has collided with an object with the "Ground" tag
         if (collision.collider.CompareTag("Ground"))
+        {
+            // Get the normal vector of the collision
+            //Vector3 normal = collision.contacts[0].normal;
+
+            //// Calculate the reflection vector using the normal and the incoming velocity vector
+            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            //// Set the ball's velocity to the reflection vector
+            //rb.velocity = reflection;
+
+            // Add an upward force to make the ball jump
+            rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+        }
+        
+        // Check if the ball has collided with an object with the "Ground" tag
+        if (collision.collider.CompareTag("RightSide"))
         {
             // Get the normal vector of the collision
             Vector3 normal = collision.contacts[0].normal;
@@ -184,7 +203,21 @@ public class BouncingBall : MonoBehaviour
             rb.velocity = reflection;
 
             // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.left * sidesBouncingForce, ForceMode.Impulse);
+        }
+        if (collision.collider.CompareTag("LeftSide"))
+        {
+            // Get the normal vector of the collision
+            Vector3 normal = collision.contacts[0].normal;
+
+            // Calculate the reflection vector using the normal and the incoming velocity vector
+            Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            // Set the ball's velocity to the reflection vector
+            rb.velocity = reflection;
+
+            // Add an upward force to make the ball jump
+            rb.AddForce(Vector3.right * sidesBouncingForce, ForceMode.Impulse);
         }
         if (collision.collider.CompareTag("PlayerTwo"))
         {
@@ -210,7 +243,7 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
         // Check if the ball has collided with an object with the "Block" tag
         if (collision.collider.CompareTag("PlayerOne"))
@@ -237,7 +270,7 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
 
         if (collision.collider.CompareTag("AI"))
@@ -264,7 +297,7 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.up * bounceForce * blockerBoost, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
 
     }
