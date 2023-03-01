@@ -62,14 +62,14 @@ public class GameManager : MonoBehaviour
         timeSlowElapsedTime = timeSlowDuration;
         Time.timeScale = originalTimeScale * 0.25f;
         StartCoroutine("Respawn", value);
+        ball.SetActive(false);
     }
     IEnumerator Respawn(int rightorLeft)
     {
-        yield return new WaitForSeconds(.3889f);
-        shakeElapsedTime = shakeDuration;
-        ball.SetActive(false);    
+        yield return new WaitForSeconds(.17f);
+        shakeElapsedTime = shakeDuration;  
         ballRigidbody.velocity = new Vector3(0, 0, 0);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.74f);
         if (rightorLeft == 1)
         {
             ball.transform.position = ballRightSpawn.position;

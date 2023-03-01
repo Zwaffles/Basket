@@ -18,9 +18,13 @@ public class PlayerController : MonoBehaviour
     public float radius = .5f;
     private Rigidbody rb; // Reference to the Rigidbody component
     [Header("Movement Settings")]
-    [Tooltip("The speed at which the player moves")]
-    public float speed; // The speed at which the player moves
+    [Tooltip("Adjustable")]
+    public float speedAcceleration; // The speed at which the player moves
     private Vector2 moveInput; // The input value for movement
+    [Tooltip("For View Only")]
+    [SerializeField] float step = 0;
+    [Tooltip("The speed at which the player moves")]
+    [SerializeField] float speed = 0;
     [HideInInspector]
     [Tooltip("The variable to keep track of the move direction")]
     public int moveDirection; // The variable to keep track of the move direction
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
     float leanAngle = 5f;
     [SerializeField]
     float leanSpeed = 10f;
+    
 
     Quaternion targetRotation;
 
@@ -52,14 +57,15 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = value.Get<Vector2>(); // Get the input value for movement
     }
-
+    
     void Move()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * speed, rb.velocity.y); // Calculate the player's velocity
+        Vector2 playerVelocity = new Vector2(moveInput.x * step, rb.velocity.y); // Calculate the player's velocity
 
         // restrict movement to the left border
         if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime < leftBorder && moveInput.x < 0)
         {
+            step = speed;
             float distanceToLeftBorder = leftBorder - transform.position.x;
             playerVelocity.x = distanceToLeftBorder / Time.fixedDeltaTime;
         }
@@ -67,6 +73,7 @@ public class PlayerController : MonoBehaviour
         // restrict movement to the right border
         if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime > rightBorder && moveInput.x > 0)
         {
+            step = speed;
             float distanceToRightBorder = rightBorder - transform.position.x;
             playerVelocity.x = distanceToRightBorder / Time.fixedDeltaTime;
         }
@@ -94,6 +101,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        step += speedAcceleration * (speed + (Time.deltaTime/ speed));
+        if (moveInput.x == 0)
+            step = speed;
+
         // Cube Move Direction
         if (moveInput.x > 0)
         {

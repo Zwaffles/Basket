@@ -58,8 +58,10 @@ public class BouncingBall : MonoBehaviour
     float DefaultBouncingForce;
     [Header("Roof")]
     [Tooltip("The down force of the roof when the ball hits it")]
-    [SerializeField] float roofBounciness;
-    [SerializeField] float roofReflection = 1.5f;
+    //[SerializeField] float roofBounciness;
+    //[SerializeField] float roofReflection = 1.5f;
+    [SerializeField] float slowdownFactorTop = .5f;
+    [SerializeField] float slowdownFactorBottom = .7f;
 
     private void Awake()
     {
@@ -92,8 +94,8 @@ public class BouncingBall : MonoBehaviour
             // Reverse the vertical velocity of the ball
             rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y);
         }
-
-        if (rb.velocity.magnitude >= 70 && fireBallTimer < fireBallTime)
+        //it was 70 so the fire ball will be triggered
+        if (rb.velocity.magnitude >= 700 && fireBallTimer < fireBallTime)
         {
             fireBallFlash.Play();
             fireBallSmoke.Play();
@@ -145,8 +147,36 @@ public class BouncingBall : MonoBehaviour
             player2MoveDirection = player2Controller.player2MoveDirection;
         }
     }
+    [SerializeField] bool collidingWithPlayerOne = false;
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.CompareTag("PlayerOne"))
+        {
+            collidingWithPlayerOne = true;
+            //The inclination of the ball according to the movement of the cube
+            if (playerMoveDirection > 0)
+            {
+                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                //Debug.Log("+ " + ballInclination);
+            }
+
+            if (playerMoveDirection < 0)
+            {
+                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                //Debug.Log("- " + ballInclination);
+            }
+            // Get the normal vector of the collision
+            //Vector3 normal = collision.contacts[0].normal;
+
+            // Calculate the reflection vector using the normal and the incoming velocity vector
+            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
+
+            // Set the ball's velocity to the reflection vector multiplied by the blockerBoost value
+            //rb.velocity = reflection * blockerBoost;
+
+            // Add an upward force to make the ball jump
+            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+        }
         if (collision.collider.CompareTag("Block"))
         {
             // Get the normal vector of the collision
@@ -159,7 +189,14 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection;
             rb.AddForce(Vector3.down * bounceForce, ForceMode.Impulse);
         }
-
+        if (collision.collider.CompareTag("Edges"))
+        {
+            rb.velocity *= slowdownFactorTop;
+        }
+        if (collision.collider.CompareTag("DownSides"))
+        {
+            rb.velocity *= slowdownFactorBottom;
+        }
         if (collision.collider.CompareTag("Roof"))
         {
             // Get the normal vector of the collision
@@ -202,7 +239,7 @@ public class BouncingBall : MonoBehaviour
             // Set the ball's velocity to the reflection vector
             rb.velocity = reflection;
 
-            // Add an upward force to make the ball jump
+            // Add a turn force to make the ball jump
             rb.AddForce(Vector3.left * sidesBouncingForce, ForceMode.Impulse);
         }
         if (collision.collider.CompareTag("LeftSide"))
@@ -216,7 +253,7 @@ public class BouncingBall : MonoBehaviour
             // Set the ball's velocity to the reflection vector
             rb.velocity = reflection;
 
-            // Add an upward force to make the ball jump
+            // Add a turn force to make the ball jump
             rb.AddForce(Vector3.right * sidesBouncingForce, ForceMode.Impulse);
         }
         if (collision.collider.CompareTag("PlayerTwo"))
@@ -243,35 +280,11 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
+            if(!collidingWithPlayerOne)
             rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
         // Check if the ball has collided with an object with the "Block" tag
-        if (collision.collider.CompareTag("PlayerOne"))
-        {
-            //The inclination of the ball according to the movement of the cube
-            if (playerMoveDirection > 0)
-            {
-                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
-                //Debug.Log("+ " + ballInclination);
-            }
-
-            if (playerMoveDirection < 0)
-            {
-                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
-                //Debug.Log("- " + ballInclination);
-            }
-            // Get the normal vector of the collision
-            //Vector3 normal = collision.contacts[0].normal;
-
-            // Calculate the reflection vector using the normal and the incoming velocity vector
-            //Vector3 reflection = Vector3.Reflect(rb.velocity, normal);
-
-            // Set the ball's velocity to the reflection vector multiplied by the blockerBoost value
-            //rb.velocity = reflection * blockerBoost;
-
-            // Add an upward force to make the ball jump
-            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
-        }
+        
 
         if (collision.collider.CompareTag("AI"))
         {
@@ -297,29 +310,48 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
+            if(!collidingWithPlayerOne)
             rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
 
+    }
+    
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("PlayerOne"))
+        {
+            collidingWithPlayerOne = false;
+        }
     }
 
     //HarderHitOnEdges
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PlayerOne" || other.tag == "PlayerTwo" || other.tag == "AI")
+        //if (other.tag == "PlayerOne" || other.tag == "PlayerTwo" || other.tag == "AI")
+        //{
+        //    rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
+        //    Debug.Log("+ edgeBoost" + edgesBoost);
+        //}
+
+        if(other.tag == "RightEdge")
         {
-            rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
-            Debug.Log("+ edgeBoost" + edgesBoost);
+            rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
+            //Debug.Log("+ RightedgeBoost" + edgesBoost);
+        }
+        if (other.tag == "LeftEdge")
+        {
+            rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
+            //Debug.Log("+ LeftedgeBoost" + edgesBoost);
         }
 
-        //}
-        void OnDrawGizmosSelected()
-        {
-            // Draw lines for the borders in the Unity editor
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(new Vector3(leftBorder, topBorder, 0), radius);
-            Gizmos.DrawWireSphere(new Vector3(rightBorder, topBorder, 0), radius);
-            Gizmos.DrawWireSphere(new Vector3(rightBorder, bottomBorder, 0), radius);
-            Gizmos.DrawWireSphere(new Vector3(leftBorder, bottomBorder, 0), radius);
-        }
+    }
+    void OnDrawGizmosSelected()
+    {
+         // Draw lines for the borders in the Unity editor
+         Gizmos.color = Color.red;
+         Gizmos.DrawWireSphere(new Vector3(leftBorder, topBorder, 0), radius);
+         Gizmos.DrawWireSphere(new Vector3(rightBorder, topBorder, 0), radius);
+         Gizmos.DrawWireSphere(new Vector3(rightBorder, bottomBorder, 0), radius);
+         Gizmos.DrawWireSphere(new Vector3(leftBorder, bottomBorder, 0), radius);
     }
 }

@@ -41,14 +41,25 @@ public class CubeMover : MonoBehaviour
     [SerializeField]
     float leanSpeed = 10f;
 
+    public float targetXPosMin = 6f;
+    public float targetXPosMax = 20f;
+    public float waitTime = .5f;
+
     Quaternion targetRotation;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    [SerializeField]
+    float timer = 5;
+    //bool hasLeft = false;
     void Update()
     {
+        if (transform.position.x < 1.5f)
+        {
+            transform.position = new Vector3 (1.5f,transform.position.y,transform.position.z);
+        }
         float distance = Vector3.Distance(transform.position, target.transform.position);
         targetVelocity = (target.transform.position - previousPosition) / Time.fixedDeltaTime;
 
@@ -57,6 +68,7 @@ public class CubeMover : MonoBehaviour
             // move towards the target
             Vector3 direction = (target.transform.position - transform.position).normalized;
             rb.velocity = direction * speed;
+
         }
         else
         {

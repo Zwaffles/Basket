@@ -17,6 +17,9 @@ TagManager:
   - LeftSide
   - Vacuum1
   - Vacuum2
+  - RightEdge
+  - LeftEdge
+  - DownSides
   layers:
   - Default
   - TransparentFX
