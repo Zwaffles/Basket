@@ -333,16 +333,16 @@ public class BouncingBall : MonoBehaviour
         //    Debug.Log("+ edgeBoost" + edgesBoost);
         //}
 
-        if(other.tag == "RightEdge")
-        {
-            rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
-            //Debug.Log("+ RightedgeBoost" + edgesBoost);
-        }
-        if (other.tag == "LeftEdge")
-        {
-            rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
-            //Debug.Log("+ LeftedgeBoost" + edgesBoost);
-        }
+        //if(other.tag == "RightEdge")
+        //{
+        //    rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
+        //    //Debug.Log("+ RightedgeBoost" + edgesBoost);
+        //}
+        //if (other.tag == "LeftEdge")
+        //{
+        //    rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
+        //    //Debug.Log("+ LeftedgeBoost" + edgesBoost);
+        //}
 
     }
     void OnDrawGizmosSelected()
