@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Cinemachine;
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     private float originalTimeScale;
 
+    Scene currentScene;
     private void Awake()
     {
         changeCameraColor = FindObjectOfType<ChangeCameraColor>();
@@ -39,10 +41,25 @@ public class GameManager : MonoBehaviour
         playerTwo.SetActive(false);
 
         originalTimeScale = Time.timeScale;
+
+        currentScene = SceneManager.GetActiveScene();
     }
 
-    public void SwitchPlayers()
-    {
+        public void ChangeScene()
+        {
+            
+        if (currentScene.name == "Version 02")
+        {
+        SceneManager.LoadScene("Version 03");
+        }
+
+        else if(currentScene.name == "Version 03")
+        {
+            SceneManager.LoadScene("Version 02");
+        }
+        }
+        public void SwitchPlayers()
+        {
         if (AI.activeSelf)
         {
             AI.SetActive(false);
