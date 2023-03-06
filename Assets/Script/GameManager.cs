@@ -53,11 +53,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Version 03");
         }
 
-        else if(currentScene.name == "Version 03")
+        if(currentScene.name == "Version 03")
+        {
+            SceneManager.LoadScene("Version 04");
+        }
+        if (currentScene.name == "Version 04")
         {
             SceneManager.LoadScene("Version 02");
         }
-        }
+    }
         public void SwitchPlayers()
         {
         if (AI.activeSelf)
