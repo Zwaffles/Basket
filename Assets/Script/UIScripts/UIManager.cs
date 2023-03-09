@@ -7,27 +7,30 @@ public class UIManager : MonoBehaviour
 {
     public VisualTreeAsset myVisualTreeAsset;
     public UIDocument UIDoc;
-
+    Label labelElement;
     void Start()
     {
         VisualElement rootElement = myVisualTreeAsset.CloneTree();
-        FindAndSetText(rootElement, "Number", "05:00");
         UIDoc.rootVisualElement.RemoveAt(0);
-        UIDoc.rootVisualElement.Insert(0, rootElement);
+        FindAndSetText(rootElement, "Number", "05:00");
+        
+        
     }
 
-    void FindAndSetText(VisualElement element, string elementName, string textValue)
+    void FindAndSetText(VisualElement rootElement,string labelName, string textValue)
     {
-        foreach (VisualElement childElement in element.Children())
+        foreach (VisualElement childElement in rootElement.Children())
         {
-            if (childElement is TextElement textElement && textElement.name == elementName)
+            
+            if (childElement.Q<Label>().name == "Number")
             {
-                textElement.text = textValue;
+                childElement.Q<Label>().text = textValue;
+                UIDoc.rootVisualElement.Insert(0, childElement);
                 return;
             }
             else if (childElement.childCount > 0)
             {
-                FindAndSetText(childElement, elementName, textValue);
+                FindAndSetText(childElement, labelName, textValue);
             }
         }
     }
