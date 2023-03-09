@@ -148,23 +148,42 @@ public class BouncingBall : MonoBehaviour
         }
     }
     [SerializeField] bool collidingWithPlayerOne = false;
+    [SerializeField] bool isReversed = false;
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("PlayerOne"))
         {
             collidingWithPlayerOne = true;
             //The inclination of the ball according to the movement of the cube
-            if (playerMoveDirection > 0)
+            if (!isReversed)
             {
-                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
-                //Debug.Log("+ " + ballInclination);
-            }
+                if (playerMoveDirection > 0)
+                {
+                    rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("+ " + ballInclination);
+                }
 
-            if (playerMoveDirection < 0)
-            {
-                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
-                //Debug.Log("- " + ballInclination);
+                if (playerMoveDirection < 0)
+                {
+                    rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("- " + ballInclination);
+                }
             }
+            else if (isReversed)
+            {
+                if (playerMoveDirection > 0)
+                {
+                    rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("+ " + ballInclination);
+                }
+
+                if (playerMoveDirection < 0)
+                {
+                    rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("- " + ballInclination);
+                }
+            }
+            
             // Get the normal vector of the collision
             //Vector3 normal = collision.contacts[0].normal;
 
@@ -258,17 +277,33 @@ public class BouncingBall : MonoBehaviour
         }
         if (collision.collider.CompareTag("PlayerTwo"))
         {
-            //The inclination of the ball according to the movement of the cube
-            if (player2MoveDirection > 0)
+            if (!isReversed)
             {
-                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
-                //Debug.Log("+ " + ballInclination);
-            }
+                if (player2MoveDirection > 0)
+                {
+                    rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("+ " + ballInclination);
+                }
 
-            if (player2MoveDirection < 0)
+                if (player2MoveDirection < 0)
+                {
+                    rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("- " + ballInclination);
+                }
+            }
+            else if (isReversed)
             {
-                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
-                //Debug.Log("- " + ballInclination);
+                if (player2MoveDirection > 0)
+                {
+                    rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("+ " + ballInclination);
+                }
+
+                if (player2MoveDirection < 0)
+                {
+                    rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("- " + ballInclination);
+                }
             }
             // Get the normal vector of the collision
             //Vector3 normal = collision.contacts[0].normal;
@@ -280,7 +315,7 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
-            if(!collidingWithPlayerOne)
+            if (!collidingWithPlayerOne)
             rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
         // Check if the ball has collided with an object with the "Block" tag
@@ -288,17 +323,33 @@ public class BouncingBall : MonoBehaviour
 
         if (collision.collider.CompareTag("AI"))
         {
-            //The inclination of the ball according to the movement of the cube
-            if (AIMoveDirection > 0)
+            if (!isReversed)
             {
-                rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
-                //Debug.Log("+ " + ballInclination);
-            }
+                if (AIMoveDirection > 0)
+                {
+                    rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("+ " + ballInclination);
+                }
 
-            if (AIMoveDirection < 0)
+                if (AIMoveDirection < 0)
+                {
+                    rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("- " + ballInclination);
+                }
+            }
+            else if (isReversed)
             {
-                rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
-                //Debug.Log("- " + ballInclination);
+                if (AIMoveDirection > 0)
+                {
+                    rb.AddForce(Vector3.left * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("+ " + ballInclination);
+                }
+
+                if (AIMoveDirection < 0)
+                {
+                    rb.AddForce(Vector3.right * ballInclination, ForceMode.Impulse);
+                    //Debug.Log("- " + ballInclination);
+                }
             }
             // Get the normal vector of the collision
             //Vector3 normal = collision.contacts[0].normal;
@@ -310,7 +361,7 @@ public class BouncingBall : MonoBehaviour
             //rb.velocity = reflection * blockerBoost;
 
             // Add an upward force to make the ball jump
-            if(!collidingWithPlayerOne)
+            if (!collidingWithPlayerOne)
             rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
 
