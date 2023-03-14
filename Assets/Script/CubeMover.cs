@@ -60,13 +60,13 @@ public class CubeMover : MonoBehaviour
         {
             transform.position = new Vector3 (1.5f,transform.position.y,transform.position.z);
         }
-        float distance = Vector3.Distance(transform.position, target.transform.position);
+        float distance = Vector3.Distance(transform.position , target.transform.position);
         targetVelocity = (target.transform.position - previousPosition) / Time.fixedDeltaTime;
 
         if (distance >= targetDistanceThreshold)
         {
             // move towards the target
-            Vector3 direction = (target.transform.position - transform.position).normalized;
+            Vector3 direction = ((target.transform.position + new Vector3(1, 0, 0)) - transform.position).normalized;
             rb.velocity = direction * speed;
 
         }

@@ -374,27 +374,101 @@ public class BouncingBall : MonoBehaviour
             collidingWithPlayerOne = false;
         }
     }
-
+    [SerializeField] float forcePower = 5;
+    bool enteredRightEdgeTrigger = false;
+    bool enteredLeftEdgeTrigger = false;
     //HarderHitOnEdges
+
+    [SerializeField] Rigidbody player1Rb;
+    [SerializeField] Rigidbody player2Rb;
+    [SerializeField] Rigidbody AIRb;
+
+    [SerializeField] float multiplyerValue = 8;
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.tag == "PlayerOne" || other.tag == "PlayerTwo" || other.tag == "AI")
-        //{
-        //    rb.AddForce(Vector3.up * edgesBoost, ForceMode.Impulse);
-        //    Debug.Log("+ edgeBoost" + edgesBoost);
-        //}
+        if(other.tag == "RightEdge" && rb.velocity.y < 0 && !enteredLeftEdgeTrigger)
+        {
+            enteredRightEdgeTrigger = true;
+            if (other.gameObject.name == "RightForce1")
+            {
+                if(player1Rb.velocity.x < 0)
+                rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player1Rb.velocity.x * .2f), ForceMode.Impulse);
+                else if(player1Rb.velocity.x > 0)
+                {
+                    rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                }
+            }
+            if (other.gameObject.name == "RightForce2")
+            {
+                if (player2Rb.velocity.x < 0)
+                    rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player2Rb.velocity.x *.2f), ForceMode.Impulse);
+                else if (player2Rb.velocity.x > 0)
+                {
+                    rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                }
+            }
+            if (other.gameObject.name == "RightForceAI")
+            {
+                if (AIRb.velocity.x < 0)
+                    rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(AIRb.velocity.x * .2f), ForceMode.Impulse);
+                else if (player1Rb.velocity.x > 0)
+                {
+                    rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                }
+            }
+        }
+        if (other.tag == "LeftEdge" && rb.velocity.y < 0 && !enteredRightEdgeTrigger)
+        {
+            enteredLeftEdgeTrigger = true;
+            if (other.gameObject.name == "LeftForce1")
+            {
+                if (player1Rb.velocity.x > 0)
+                    rb.AddForce(Vector3.right * edgesBoost * player1Rb.velocity.x, ForceMode.Impulse);
+                else if (player1Rb.velocity.x < 0)
+                {
+                    rb.AddForce(Vector3.right * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                }
+            }
+            if (other.gameObject.name == "LeftForce2")
+            {
+                if (player2Rb.velocity.x > 0)
+                    rb.AddForce(Vector3.right * edgesBoost * player2Rb.velocity.x, ForceMode.Impulse);
+                else if (player2Rb.velocity.x < 0)
+                {
+                    rb.AddForce(Vector3.right * edgesBoost * 10, ForceMode.Impulse);
+                }
+            }
+            if (other.gameObject.name == "LeftForceAI")
+            {
+                if (AIRb.velocity.x > 0)
+                    rb.AddForce(Vector3.right * edgesBoost * AIRb.velocity.x, ForceMode.Impulse);
+                else if (AIRb.velocity.x < 0)
+                {
+                    rb.AddForce(Vector3.right * edgesBoost * 10, ForceMode.Impulse);
+                }
+            }
 
+        }
+        if (other.tag == "RightForce" && rb.velocity.y < 0)
+        {          
+            rb.AddForce(Vector3.left * forcePower, ForceMode.Impulse);
+        }
+        if (other.tag == "LeftForce" && rb.velocity.y < 0)
+        {
+            
+            rb.AddForce(Vector3.right * forcePower, ForceMode.Impulse);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
         if(other.tag == "RightEdge")
         {
-            rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
-        //    //Debug.Log("+ RightedgeBoost" + edgesBoost);
+            enteredRightEdgeTrigger = false;
         }
-        if (other.tag == "LeftEdge")
+        if(other.tag == "LeftEdge")
         {
-            rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
-        //    //Debug.Log("+ LeftedgeBoost" + edgesBoost);
+            enteredLeftEdgeTrigger = false;
         }
-
     }
     void OnDrawGizmosSelected()
     {
