@@ -30,3 +30,34 @@ Basket {
     color: rgb(5, 5, 5);
     padding-bottom: 4%;
 }
+
+.ScoreText {
+    font-size: 32px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    justify-content: center;
+    align-items: stretch;
+    letter-spacing: 4px;
+    flex-grow: 1;
+}
+
+.ScoreAndTimerContainer {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(37, 40, 51, 0.13);
+    border-left-color: rgba(151, 157, 180, 0.13);
+    border-right-color: rgba(151, 157, 180, 0.13);
+    border-top-color: rgba(151, 157, 180, 0.13);
+    border-bottom-color: rgba(151, 157, 180, 0.13);
+    flex-direction: row;
+}
+
+.Box_Container {
+    opacity: 0.25;
+    transition-duration: 0.1s;
+}
+
+.Box_Container:hover {
+    opacity: 1;
+    transition-duration: 0.2s;
+}

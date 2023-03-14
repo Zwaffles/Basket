@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Basket/BasketStyleSheet.uss?fileID=7433441132597879392&amp;guid=19e73b561a796734c8578ad0e1848863&amp;type=3#BasketStyleSheet" />
+    <ui:VisualElement name="Canvas" style="flex-grow: 1; align-items: center; justify-content: flex-start;">
+        <ui:VisualElement name="VisualElement" class="Box_Container" style="flex-direction: row; margin-top: 64px;">
+            <ui:VisualElement class="ScoreAndTimerContainer" style="background-color: rgba(41, 41, 41, 0.13); width: 75px; height: 50px; align-items: stretch; justify-content: center; opacity: 1; border-left-width: 4px; border-right-width: 0; border-top-width: 4px; border-bottom-width: 4px; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                <ui:Label text="0" display-tooltip-when-elided="true" class="ScoreText" style="color: rgb(145, 255, 112); align-items: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+                    <ui:VisualElement style="align-items: stretch; justify-content: center; width: 75%; height: 90%;">
+                        <ui:VisualElement style="flex-grow: 1; border-left-color: rgba(0, 0, 0, 255); border-right-color: rgba(0, 0, 0, 255); border-top-color: rgba(0, 0, 0, 255); border-bottom-color: rgba(0, 0, 0, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 2px; background-color: rgba(241, 241, 241, 255);" />
+                        <ui:VisualElement style="flex-grow: 1; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 1px; border-right-width: 1px; border-top-width: 0; border-bottom-width: 1px; background-color: rgba(241, 241, 241, 255);" />
+                    </ui:VisualElement>
+                </ui:Label>
+                <ui:Label text="0" display-tooltip-when-elided="true" class="ScoreText" style="color: rgb(145, 255, 112); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: center;">
+                    <ui:VisualElement style="align-items: stretch; justify-content: center; width: 75%; height: 90%;">
+                        <ui:VisualElement style="flex-grow: 1; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 2px; background-color: rgba(241, 241, 241, 255);" />
+                        <ui:VisualElement style="flex-grow: 1; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 1px; border-right-width: 1px; border-top-width: 0; border-bottom-width: 1px; background-color: rgba(241, 241, 241, 255);" />
+                    </ui:VisualElement>
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:VisualElement class="ScoreAndTimerContainer" style="width: 100px; height: 50px; background-color: rgba(41, 41, 41, 0.13); margin-right: 0; margin-left: 0; align-items: stretch; justify-content: center; border-top-width: 4px; border-bottom-width: 4px; margin-top: 0; margin-bottom: 0; border-right-width: 0; border-left-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
+                <ui:Label text="00:00" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 1; align-items: center; justify-content: center; -unity-text-align: middle-center; font-size: 32px; -unity-font-style: normal; color: rgb(241, 241, 241); height: 42px;" />
+            </ui:VisualElement>
+            <ui:VisualElement class="ScoreAndTimerContainer" style="width: 75px; height: 50px; background-color: rgba(41, 41, 41, 0.13); align-items: stretch; justify-content: center; border-left-width: 0; border-right-width: 4px; border-top-width: 4px; border-bottom-width: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 16px; border-bottom-right-radius: 16px;">
+                <ui:Label text="0" display-tooltip-when-elided="true" class="ScoreText" style="color: rgb(255, 125, 112);" />
+                <ui:Label text="0" display-tooltip-when-elided="true" class="ScoreText" style="color: rgb(255, 125, 112);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
