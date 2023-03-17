@@ -40,43 +40,57 @@ public class CubeMover : MonoBehaviour
     float leanAngle = 5f;
     [SerializeField]
     float leanSpeed = 10f;
-
-    public float targetXPosMin = 6f;
-    public float targetXPosMax = 20f;
-    public float waitTime = .5f;
-
+    [SerializeField] float randomRangeFloat = .3f;
     Quaternion targetRotation;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    [SerializeField]
-    float timer = 5;
-    //bool hasLeft = false;
+    bool collidingWithBall = false;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            collidingWithBall = true;
+            Invoke("ChangeAIChase", 1.4f);
+            
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            collidingWithBall = false;
+        }
+    }
+    void ChangeAIChase()
+    {
+        if(!collidingWithBall)
+        randomRangeFloat = Random.Range(-0.5f, +0.5f);
+    }
     void Update()
     {
-        if (transform.position.x < 1.5f)
-        {
-            transform.position = new Vector3 (1.5f,transform.position.y,transform.position.z);
-        }
-        float distance = Vector3.Distance(transform.position , target.transform.position);
-        targetVelocity = (target.transform.position - previousPosition) / Time.fixedDeltaTime;
+        //if (transform.position.x < 1.5f)
+        //{
+        //    transform.position = new Vector3 (1.5f,transform.position.y,transform.position.z);
+        //}
+        //float distance = Vector3.Distance(transform.position , target.transform.position);
+        //targetVelocity = target.transform.position - previousPosition / randomRangeFloat;
 
-        if (distance >= targetDistanceThreshold)
-        {
+        //if (distance >= targetDistanceThreshold)
+        //{
             // move towards the target
-            Vector3 direction = ((target.transform.position + new Vector3(1, 0, 0)) - transform.position).normalized;
+            Vector3 direction = ((target.transform.position ) - transform.position + new Vector3(randomRangeFloat, 0, 0)).normalized;
             rb.velocity = direction * speed;
 
-        }
-        else
-        {
-            // predict where the target will be in the future and move towards that position
-            Vector3 targetFuturePosition = target.transform.position + targetVelocity * Time.fixedDeltaTime;
-            Vector3 direction = (targetFuturePosition - transform.position).normalized;
-            rb.velocity = direction * speed;
-        }
+        //}
+        //else
+        //{
+        //    // predict where the target will be in the future and move towards that position
+        //    Vector3 targetFuturePosition = target.transform.position + targetVelocity;
+        //    Vector3 direction = (targetFuturePosition - transform.position).normalized;
+        //    rb.velocity = direction * speed;
+        //}
     }
     void Rotate()
     {

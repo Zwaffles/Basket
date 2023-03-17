@@ -32,6 +32,8 @@ public class BouncingBall : MonoBehaviour
     public float radius = .5f;
     [Tooltip("Multiplier for the velocity of the ball after it hits a block")]
     [SerializeField] private float blockerBoost = 1.5f;
+    [Tooltip("Ball max speed")]
+    [SerializeField] float maxSpeed = 50;
     #endregion
 
     #region Inclination Variables
@@ -81,6 +83,15 @@ public class BouncingBall : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Get the current velocity of the Rigidbody
+        Vector3 velocity = rb.velocity;
+
+        // Clamp the magnitude of the velocity vector to the maximum speed
+        Vector3 clampedVelocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+
+        // Apply the clamped velocity to the Rigidbody
+        rb.velocity = clampedVelocity;
+
         // Check if the ball has crossed the left or right border
         if (transform.position.x < leftBorder || transform.position.x > rightBorder)
         {
@@ -136,6 +147,7 @@ public class BouncingBall : MonoBehaviour
     }
     private void Update()
     {
+
         if (playerController != null)
         {
             playerMoveDirection = playerController.moveDirection;
