@@ -396,6 +396,7 @@ public class BouncingBall : MonoBehaviour
     [SerializeField] Rigidbody AIRb;
 
     [SerializeField] float multiplyerValue = 8;
+    [SerializeField] float turningBySpeed = .15f;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "RightEdge" && rb.velocity.y < 0 && !enteredLeftEdgeTrigger)
@@ -404,7 +405,7 @@ public class BouncingBall : MonoBehaviour
             if (other.gameObject.name == "RightForce1")
             {
                 if(player1Rb.velocity.x < 0)
-                rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player1Rb.velocity.x * .2f), ForceMode.Impulse);
+                rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player1Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if(player1Rb.velocity.x > 0)
                 {
                     rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
@@ -413,7 +414,7 @@ public class BouncingBall : MonoBehaviour
             if (other.gameObject.name == "RightForce2")
             {
                 if (player2Rb.velocity.x < 0)
-                    rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player2Rb.velocity.x *.2f), ForceMode.Impulse);
+                    rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player2Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player2Rb.velocity.x > 0)
                 {
                     rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
@@ -422,7 +423,7 @@ public class BouncingBall : MonoBehaviour
             if (other.gameObject.name == "RightForceAI")
             {
                 if (AIRb.velocity.x < 0)
-                    rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(AIRb.velocity.x * .2f), ForceMode.Impulse);
+                    rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(AIRb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player1Rb.velocity.x > 0)
                 {
                     rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
