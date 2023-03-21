@@ -108,9 +108,9 @@ public class BouncingBall : MonoBehaviour
         //it was 70 so the fire ball will be triggered
         if (rb.velocity.magnitude >= 700 && fireBallTimer < fireBallTime)
         {
-            fireBallFlash.Play();
-            fireBallSmoke.Play();
-            fireBallSpark.Play();
+            //fireBallFlash.Play();
+            //fireBallSmoke.Play();
+            //fireBallSpark.Play();
             onFire = false;
             if (fireBallTime > 7)
                 IncreaseForce(true);
@@ -126,9 +126,9 @@ public class BouncingBall : MonoBehaviour
         }
         if (fireBallTimer > fireBallTime)
         {
-            fireBallFlash.Stop();
-            fireBallSmoke.Stop();
-            fireBallSpark.Stop();
+            //fireBallFlash.Stop();
+            //fireBallSmoke.Stop();
+            //fireBallSpark.Stop();
             onFire = true;
             fireBallTime = 12;
         }
