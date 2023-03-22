@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     private int numberOfSFXSources = 5; 
 
     public float SfxVolume { get; set; } = 1f;
-    public float MusicVolume { get; set; } = 0.4f;
+    public float MusicVolume { get; set; } = .4f;
     public float MasterVolume { get; set; } = 1f;
 
     private Dictionary<string, AudioClip> sfxClipsDict;
