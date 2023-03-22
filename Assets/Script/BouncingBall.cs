@@ -26,8 +26,6 @@ public class BouncingBall : MonoBehaviour
     [SerializeField] float turningBySpeed = .15f;
     [Tooltip("Boost for the velocity of the ball after it hits the edges of the paddle")]
     [SerializeField] float edgesBoost = 1f;
-    [Tooltip("Multiplier for the velocity of the ball after it hits the edges of the paddle")]
-    [SerializeField] float multiplyerValue = 8;
     #endregion
 
     #region General Variables
@@ -140,7 +138,7 @@ public class BouncingBall : MonoBehaviour
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player1Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player1Rb.velocity.x > 0)
                 {
-                    rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                    rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
                 }
             }
             if (other.gameObject.name == "RightForce2")
@@ -149,7 +147,7 @@ public class BouncingBall : MonoBehaviour
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player2Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player2Rb.velocity.x > 0)
                 {
-                    rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                    rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
                 }
             }
             if (other.gameObject.name == "RightForceAI")
@@ -158,7 +156,7 @@ public class BouncingBall : MonoBehaviour
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(AIRb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player1Rb.velocity.x > 0)
                 {
-                    rb.AddForce(Vector3.left * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                    rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
                 }
             }
         }
@@ -168,28 +166,28 @@ public class BouncingBall : MonoBehaviour
             if (other.gameObject.name == "LeftForce1")
             {
                 if (player1Rb.velocity.x > 0)
-                    rb.AddForce(Vector3.right * edgesBoost * player1Rb.velocity.x, ForceMode.Impulse);
+                    rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(player1Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player1Rb.velocity.x < 0)
                 {
-                    rb.AddForce(Vector3.right * edgesBoost * multiplyerValue, ForceMode.Impulse);
+                    rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
                 }
             }
             if (other.gameObject.name == "LeftForce2")
             {
                 if (player2Rb.velocity.x > 0)
-                    rb.AddForce(Vector3.right * edgesBoost * player2Rb.velocity.x, ForceMode.Impulse);
+                    rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(player2Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player2Rb.velocity.x < 0)
                 {
-                    rb.AddForce(Vector3.right * edgesBoost * 10, ForceMode.Impulse);
+                    rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
                 }
             }
             if (other.gameObject.name == "LeftForceAI")
             {
                 if (AIRb.velocity.x > 0)
-                    rb.AddForce(Vector3.right * edgesBoost * AIRb.velocity.x, ForceMode.Impulse);
+                    rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(AIRb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (AIRb.velocity.x < 0)
                 {
-                    rb.AddForce(Vector3.right * edgesBoost * 10, ForceMode.Impulse);
+                    rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
                 }
             }
 

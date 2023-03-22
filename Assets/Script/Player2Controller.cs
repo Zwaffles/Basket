@@ -19,8 +19,8 @@ public class Player2Controller : MonoBehaviour
 
     private Rigidbody rb;
     [Header("Movement Settings")]
-    [Tooltip("The speed at which the player moves")]
-    public float speedAcceleration; // The speed at which the player moves
+    [Tooltip("For acceleration")]
+    public float speedAcceleration;
     [Tooltip("For View Only")]
     [SerializeField] float step = 0;
     [Tooltip("The speed at which the player moves")]
