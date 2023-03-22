@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Version 03");
         }
 
-        if(currentScene.name == "Version 03")
+        if (currentScene.name == "Version 03")
         {
             SceneManager.LoadScene("Version 04");
         }
@@ -82,14 +82,15 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Version 02");
         }
     }
-        public void SwitchPlayers()
-        {
+    public void SwitchPlayers()
+    {
         if (AI.activeSelf)
         {
             AI.SetActive(false);
             playerTwo.SetActive(true);
             score.color = Color.blue;
-        }else if (!AI.activeSelf)
+        }
+        else if (!AI.activeSelf)
         {
             AI.SetActive(true);
             playerTwo.SetActive(false);
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
     IEnumerator Respawn(int rightorLeft)
     {
         yield return new WaitForSeconds(.17f);
-        shakeElapsedTime = shakeDuration;  
+        shakeElapsedTime = shakeDuration;
         ballRigidbody.velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(.74f);
         if (rightorLeft == 1)
@@ -116,7 +117,7 @@ public class GameManager : MonoBehaviour
             ball.transform.position = ballRightSpawn.position;
             ball.SetActive(true);
         }
-        else if(rightorLeft == -1)
+        else if (rightorLeft == -1)
         {
             ball.transform.position = ballLeftSpawn.position;
             ball.SetActive(true);

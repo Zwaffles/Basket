@@ -17,7 +17,7 @@ public class Player2Controller : MonoBehaviour
     [Tooltip("The radius of border sphere")]
     public float radius = .5f;
 
-    private Rigidbody rb; // Reference to the Rigidbody component
+    private Rigidbody rb;
     [Header("Movement Settings")]
     [Tooltip("The speed at which the player moves")]
     public float speedAcceleration; // The speed at which the player moves
@@ -26,7 +26,6 @@ public class Player2Controller : MonoBehaviour
     [Tooltip("The speed at which the player moves")]
     [SerializeField] float speed = 0;
     private Vector2 moveInput; // The input value for movement
-    //[HideInInspector]
     [Tooltip("The variable to keep track of the move direction")]
     [HideInInspector]
     public int player2MoveDirection; // The variable to keep track of the move direction
@@ -44,24 +43,24 @@ public class Player2Controller : MonoBehaviour
     Quaternion targetRotation;
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        Move(); // Call the Move() function
-        Rotate(); // Call the Rotate() function
+        Move();
+        Rotate();
     }
 
     void OnMove2(InputValue value)
     {
-        //Debug.Log("OnMove2");
         moveInput = value.Get<Vector2>(); // Get the input value for movement
     }
 
     void Move()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * step, rb.velocity.y); // Calculate the player's velocity
+        // Calculate the player's velocity
+        Vector2 playerVelocity = new Vector2(moveInput.x * step, rb.velocity.y);
 
         // restrict movement to the left border
         if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime < leftBorder && moveInput.x < 0)

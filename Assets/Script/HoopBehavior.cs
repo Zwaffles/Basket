@@ -9,15 +9,13 @@ public class HoopBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Physics.IgnoreCollision(other, _collider, true);
         StartCoroutine("ActivateCollider", other);
     }
 
     IEnumerator ActivateCollider(Collider other)
     {
-        //Debug.Log("Ignored");
         yield return new WaitForSeconds(2f);
         Physics.IgnoreCollision(other, _collider, false);
     }
-    
+
 }

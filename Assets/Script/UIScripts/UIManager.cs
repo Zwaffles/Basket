@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,22 +8,18 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         VisualElement rootElement = myVisualTreeAsset.CloneTree();
-        
+
+        // Testing purposes
+        FindAndSetText(rootElement, "UI-ScoreLeft-Text", "02");
+        FindAndSetText(rootElement, "UI-ScoreRight-Text", "04");
     }
 
-    public void FindAndSetText(VisualElement rootElement,string labelName, string textValue)
+    public void FindAndSetText(VisualElement rootElement, string labelName, string textValue)
     {
-        foreach (VisualElement childElement in rootElement.Children())
-        {          
-            if (childElement.Q<Label>().name == labelName)
-            {
-                UIDoc.rootVisualElement.Q<Label>().text = textValue;
-                return;
-            }
-            else if (childElement.childCount > 0)
-            {
-                FindAndSetText(childElement, labelName, textValue);
-            }
+        if (UIDoc.rootVisualElement.Q<Label>().name == labelName)
+        {
+            UIDoc.rootVisualElement.Q<Label>().text = textValue;
+            return;
         }
     }
 }
