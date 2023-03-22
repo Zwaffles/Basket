@@ -61,20 +61,22 @@ public class GameManager : MonoBehaviour
         originalTimeScale = Time.timeScale;
 
         currentScene = SceneManager.GetActiveScene();
+
+        audioManager.PlayMusic("taratata");
     }
 
-        public void ChangeScene()
-        {
-            
+    public void ChangeScene()
+    {      
         if (currentScene.name == "Version 02")
         {
-        SceneManager.LoadScene("Version 03");
+            SceneManager.LoadScene("Version 03");
         }
 
         if(currentScene.name == "Version 03")
         {
             SceneManager.LoadScene("Version 04");
         }
+
         if (currentScene.name == "Version 04")
         {
             SceneManager.LoadScene("Version 02");

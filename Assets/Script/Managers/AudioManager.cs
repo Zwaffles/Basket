@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     private int numberOfSFXSources = 5; 
 
     public float SfxVolume { get; set; } = 1f;
-    public float MusicVolume { get; set; } = 1f;
+    public float MusicVolume { get; set; } = 0.4f;
     public float MasterVolume { get; set; } = 1f;
 
     private Dictionary<string, AudioClip> sfxClipsDict;
@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
         // Populate the music clips dictionary
         musicClipsDict = new Dictionary<string, AudioClip>();
         AudioClip[] musicClips = Resources.LoadAll<AudioClip>("Audio/Music");
-        foreach (AudioClip clip in sfxClips)
+        foreach (AudioClip clip in musicClips)
         {
             musicClipsDict.Add(clip.name, clip);
         }
@@ -93,7 +93,7 @@ public class AudioManager : MonoBehaviour
     public void PlayMusic(string clipName, bool loop = true, float pitch = 1f)
     {
         AudioClip clip;
-        if (sfxClipsDict.TryGetValue(clipName, out clip))
+        if (musicClipsDict.TryGetValue(clipName, out clip))
         {
             musicSource.clip = clip;
             musicSource.loop = loop;

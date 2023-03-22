@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
     }
     public void PlayerOneScore(int value)
     {
+        GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+
         player1Score += value;
         if (player1Score < 10)
         uiManager.FindAndSetText(uiManager.myVisualTreeAsset.CloneTree(), "UI-ScoreRight-Text", "0" + (player1Score + 1).ToString());
@@ -27,6 +29,8 @@ public class ScoreManager : MonoBehaviour
     }
     public void PlayerTwoScore(int value)
     {
+        GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+
         player2Score += value;
         if (player2Score < 10)
             uiManager.FindAndSetText(uiManager.myVisualTreeAsset.CloneTree(), "UI-ScoreLeft-Text", "0" + (player2Score + 1).ToString());
