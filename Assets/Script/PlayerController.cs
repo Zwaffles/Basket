@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float bottomBorder = -5.0f;
     [Tooltip("The radius of border sphere")]
     public float radius = .5f;
-    private Rigidbody rb; // Reference to the Rigidbody component
+    private Rigidbody rb;
     [Header("Movement Settings")]
     [Tooltip("Adjustable")]
     public float speedAcceleration; // The speed at which the player moves
@@ -38,29 +38,30 @@ public class PlayerController : MonoBehaviour
     float leanAngle = 5f;
     [SerializeField]
     float leanSpeed = 10f;
-    
+
 
     Quaternion targetRotation;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
-        Move(); // Call the Move() function
-        Rotate(); // Call the Rotate() function
+        Move();
+        Rotate();
     }
 
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>(); // Get the input value for movement
     }
-    
+
     void Move()
     {
-        Vector2 playerVelocity = new Vector2(moveInput.x * step, rb.velocity.y); // Calculate the player's velocity
+        // Calculate the player's velocity
+        Vector2 playerVelocity = new Vector2(moveInput.x * step, rb.velocity.y);
 
         // restrict movement to the left border
         if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime < leftBorder && moveInput.x < 0)
@@ -101,11 +102,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        step += speedAcceleration * (speed + (Time.deltaTime/ speed));
+        step += speedAcceleration * (speed + (Time.deltaTime / speed));
         if (moveInput.x == 0)
             step = speed;
 
-        // Cube Move Direction
         if (moveInput.x > 0)
         {
             moveDirection = 1;
