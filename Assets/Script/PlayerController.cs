@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     public float radius = .5f;
     private Rigidbody rb;
     [Header("Movement Settings")]
-    [Tooltip("Adjustable")]
-    public float speedAcceleration; // The speed at which the player moves
+    [Tooltip("For acceleration")]
+    public float speedAcceleration;
     private Vector2 moveInput; // The input value for movement
     [Tooltip("For View Only")]
     [SerializeField] float step = 0;
