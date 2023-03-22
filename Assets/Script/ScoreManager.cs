@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
 
             float randValue = Random.value;
             if(randValue < .54f)
-                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
         }
         catch
         {
@@ -42,7 +42,7 @@ public class ScoreManager : MonoBehaviour
 
             float randValue = Random.value;
             if (randValue < .54f)
-                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 0.92f));       
         }
         catch
         {
