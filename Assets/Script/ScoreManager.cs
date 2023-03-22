@@ -15,6 +15,19 @@ public class ScoreManager : MonoBehaviour
     }
     public void PlayerOneScore(int value)
     {
+        try
+        {
+            GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
+
+            float randValue = Random.value;
+            if(randValue < .54f)
+                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+        }
+        catch
+        {
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+        }
+
         player1Score += value;
 
         // Suppose to be updating UI Builder Score aka Halldor's UI
@@ -23,6 +36,19 @@ public class ScoreManager : MonoBehaviour
     }
     public void PlayerTwoScore(int value)
     {
+        try
+        {
+            GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
+
+            float randValue = Random.value;
+            if (randValue < .54f)
+                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+        }
+        catch
+        {
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+        }
+
         player2Score += value;
         // Suppose to be updating UI Builder Score aka Halldor's UI
         if (player2Score < 10)
