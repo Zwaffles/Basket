@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
 
-        audioManager.PlayMusic("taratata");
+        audioManager.PlayMusic("Match Game");
     }
 
     public void ChangeScene()

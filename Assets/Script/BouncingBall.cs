@@ -163,7 +163,7 @@ public class BouncingBall : MonoBehaviour
     [SerializeField] bool isReversed = false;
     void OnCollisionEnter(Collision collision)
     {
-        GameManager.instance.audioManager.PlaySfx("bounce", Random.Range(0.64f, 1.3f));
+        GameManager.instance.audioManager.PlaySfx("Basket_Bounce_1-SFX", Random.Range(0.64f, 1.3f));
 
         if (collision.collider.CompareTag("PlayerOne"))
         {

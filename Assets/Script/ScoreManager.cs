@@ -17,6 +17,8 @@ public class ScoreManager : MonoBehaviour
     public void PlayerOneScore(int value)
     {
         GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+        GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.62f, 1.18f));
+        GameManager.instance.audioManager.PlayMusic("Victory");
 
         player1Score += value;
         if (player1Score < 10)
@@ -30,6 +32,8 @@ public class ScoreManager : MonoBehaviour
     public void PlayerTwoScore(int value)
     {
         GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 1.18f));
+        GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.62f, 1.18f));
+        GameManager.instance.audioManager.PlayMusic("Match Time Running out");
 
         player2Score += value;
         if (player2Score < 10)
