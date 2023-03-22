@@ -7,6 +7,10 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
+    public AudioManager audioManager { get; private set; }
+
     [SerializeField] GameObject AI;
     [SerializeField] GameObject playerTwo;
     [SerializeField] TextMeshProUGUI score;
@@ -30,6 +34,20 @@ public class GameManager : MonoBehaviour
     Scene currentScene;
     private void Awake()
     {
+        // Ensure that only one instance of the GameManager exists
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        // Find references to other managers in the scene
+        audioManager = FindObjectOfType<AudioManager>();
+
         changeCameraColor = FindObjectOfType<ChangeCameraColor>();
     }
     private void Start()
