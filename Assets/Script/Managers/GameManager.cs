@@ -62,7 +62,14 @@ public class GameManager : MonoBehaviour
 
         currentScene = SceneManager.GetActiveScene();
 
-        audioManager.PlayMusic("Match Game");
+        try
+        {
+            audioManager.PlayMusic("Match Game");
+        }
+        catch
+        {
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+        }
     }
 
     public void ChangeScene()

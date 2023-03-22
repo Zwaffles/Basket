@@ -99,7 +99,14 @@ public class BouncingBall : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        GameManager.instance.audioManager.PlaySfx("Basket_Bounce_1-SFX", Random.Range(0.64f, 1.3f));
+        try
+        {
+            GameManager.instance.audioManager.PlaySfx("Basket_Bounce_1-SFX", Random.Range(0.64f, 1.3f));
+        }
+        catch
+        {
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+        }
 
         if (collision.collider.CompareTag("PlayerOne"))
         {
