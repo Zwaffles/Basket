@@ -224,6 +224,28 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "right",
+                    "id": "889d3996-09cb-4b0f-bda7-52962ffb209d",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "2db45c21-881c-4fb6-899c-2578add7efd4",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "WASD",
                     "id": "64a91af6-7c40-49c1-9560-8ebc0262ffdb",
                     "path": "2DVector",
