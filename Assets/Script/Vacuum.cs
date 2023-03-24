@@ -13,11 +13,12 @@ public class Vacuum : MonoBehaviour
     ScoreManager scoreManager;
     GameManager gameManager;
 
-    private void Awake()
+    private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.instance;
         scoreManager = FindObjectOfType<ScoreManager>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))

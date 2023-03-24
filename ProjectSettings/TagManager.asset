@@ -22,6 +22,8 @@ TagManager:
   - DownSides
   - RightForce
   - LeftForce
+  - PlayerTwoScore
+  - VirtualCamera
   layers:
   - Default
   - TransparentFX

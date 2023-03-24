@@ -17,7 +17,7 @@ Basket {
     margin-bottom: 0;
 }
 
-.MainMenuButton:hover {
+.MainMenuButton:focus {
     width: 90%;
     height: 10%;
     margin-top: 8%;
@@ -57,7 +57,7 @@ Basket {
     transition-duration: 0.1s;
 }
 
-.Box_Container:hover {
+.Box_Container:focus {
     opacity: 1;
     transition-duration: 0.2s;
 }

@@ -32,7 +32,9 @@ public class ScoreManager : MonoBehaviour
 
         // Suppose to be updating UI Builder Score aka Halldor's UI
         if (player1Score < 10)
-            uiManager.FindAndSetText(uiManager.myVisualTreeAsset.CloneTree(), "UI-ScoreLeft-Text", "0" + (player1Score).ToString());
+        {
+            // Update Score
+        }
     }
     public void PlayerTwoScore(int value)
     {
@@ -52,7 +54,9 @@ public class ScoreManager : MonoBehaviour
         player2Score += value;
         // Suppose to be updating UI Builder Score aka Halldor's UI
         if (player2Score < 10)
-            uiManager.FindAndSetText(uiManager.myVisualTreeAsset.CloneTree(), "UI-ScoreRight-Text", "0" + (player2Score).ToString());
+        {
+            // Update Score
+        }
     }
 
     private void Update()

@@ -5,11 +5,34 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Cinemachine;
 
+public enum GameState
+{
+    Menu,
+    Play,
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     public AudioManager audioManager { get; private set; }
+    public UIManager uiManager { get; private set; }
+
+    [SerializeField]
+    private GameState currentState = GameState.Play;
+
+    public GameState CurrentState
+    {
+        get
+        {
+            return currentState;
+        }
+
+        set
+        {
+            currentState = value;
+        }
+    }
 
     [SerializeField] GameObject AI;
     [SerializeField] GameObject playerTwo;
@@ -47,16 +70,49 @@ public class GameManager : MonoBehaviour
 
         // Find references to other managers in the scene
         audioManager = FindObjectOfType<AudioManager>();
+        uiManager = FindObjectOfType<UIManager>();
 
         changeCameraColor = FindObjectOfType<ChangeCameraColor>();
     }
     private void Start()
     {
-        StartMatch();
+        if (currentState == GameState.Play)
+            StartMatch();
     }
 
-    private void StartMatch()
+    public void StartMatch()
     {
+        Debug.Log("we is startin");
+
+        uiManager.ToggleMainMenu(false);
+
+        currentState = GameState.Play;
+
+        if (AI == null)
+        {
+            AI = GameObject.FindWithTag("AI");
+        }
+
+        if(playerTwo == null)
+        {
+            playerTwo = GameObject.FindWithTag("PlayerTwo");
+        }
+
+        if(ball == null)
+        {
+            ball = GameObject.FindWithTag("Ball");
+        }
+
+        if(score == null)
+        {
+            score = GameObject.FindWithTag("PlayerTwoScore").GetComponent<TextMeshProUGUI>();
+        }
+
+        if(virtualCamera == null)
+        {
+            virtualCamera = GameObject.FindWithTag("VirtualCamera").GetComponent<CinemachineVirtualCamera>();
+        }
+
         if (virtualCamera != null)
             virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
@@ -75,6 +131,23 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
         }
+    }
+
+    public void InitializeScene(string scenePath)
+    {
+        StartCoroutine(LoadSceneAsync(scenePath));
+    }
+
+    private IEnumerator LoadSceneAsync(string scenePath)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scenePath);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        StartMatch();
     }
 
     public void ChangeScene()
@@ -112,12 +185,12 @@ public class GameManager : MonoBehaviour
 
     public void RespawnBall(int value)
     {
-        changeCameraColor.changeBGColor = true;
         timeSlowElapsedTime = timeSlowDuration;
         Time.timeScale = originalTimeScale * 0.25f;
         StartCoroutine("Respawn", value);
         ball.SetActive(false);
     }
+
     IEnumerator Respawn(int rightorLeft)
     {
         yield return new WaitForSeconds(.17f);
@@ -138,7 +211,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(virtualCameraNoise != null)
+            CameraShake();
+    }
 
+    private void CameraShake()
+    {
         if (shakeElapsedTime > 0)
         {
             virtualCameraNoise.m_AmplitudeGain = shakeAmplitude;
