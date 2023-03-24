@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1931658349}
-  scoreCanvas: {fileID: 0}
 --- !u!114 &1332100583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,9 +250,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  AI: {fileID: 0}
-  playerTwo: {fileID: 0}
-  score: {fileID: 0}
+  AI: {fileID: 5074653837261053860, guid: 362450502a82be04184f576ed4ce1130, type: 3}
+  playerTwo: {fileID: 2995791371725423829, guid: b347a7335b856de4ebddefc4dd5768df,
+    type: 3}
+  score: {fileID: 4295090821147388016, guid: d9e79163744f422489fcdb0eab1b6931, type: 3}
   ball: {fileID: 0}
   ballRightSpawn: {fileID: 1994957356852059593}
   ballLeftSpawn: {fileID: 1994957355426687905}

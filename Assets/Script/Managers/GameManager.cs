@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Cinemachine;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI score;
     [SerializeField] GameObject ball;
     [SerializeField] Transform ballRightSpawn;
-    [SerializeField] Transform ballLeftSpawn;
+    [SerializeField] Transform ballLeftSpawn;  
     Rigidbody ballRigidbody;
     ChangeCameraColor changeCameraColor;
     public CinemachineVirtualCamera virtualCamera;
@@ -73,6 +74,8 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
 
         changeCameraColor = FindObjectOfType<ChangeCameraColor>();
+
+        
     }
     private void Start()
     {
@@ -167,21 +170,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Version 02");
         }
     }
-    public void SwitchPlayers()
-    {
-        if (AI.activeSelf)
-        {
-            AI.SetActive(false);
-            playerTwo.SetActive(true);
-            score.color = Color.blue;
-        }
-        else if (!AI.activeSelf)
-        {
-            AI.SetActive(true);
-            playerTwo.SetActive(false);
-            score.color = Color.red;
-        }
-    }
+    
 
     public void RespawnBall(int value)
     {
