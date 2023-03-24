@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        StartMatch();
+    }
+
+    private void StartMatch()
+    {
         if (virtualCamera != null)
             virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
