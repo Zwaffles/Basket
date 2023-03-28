@@ -138,14 +138,14 @@ public class BouncingBall : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "RightEdge" && rb.velocity.y < 0 && !enteredLeftEdgeTrigger)
+        if (other.tag == "RightEdge" && !enteredLeftEdgeTrigger)
         {
             enteredRightEdgeTrigger = true;
             if (other.gameObject.name == "RightForce1")
             {
                 if (player1Rb.velocity.x < 0)
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player1Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
-                else if (player1Rb.velocity.x > 0)
+                else if (player1Rb.velocity.x >= 0)
                 {
                     rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
                 }
@@ -154,7 +154,7 @@ public class BouncingBall : MonoBehaviour
             {
                 if (player2Rb.velocity.x < 0)
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player2Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
-                else if (player2Rb.velocity.x > 0)
+                else if (player2Rb.velocity.x >= 0)
                 {
                     rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
                 }
@@ -163,20 +163,20 @@ public class BouncingBall : MonoBehaviour
             {
                 if (AIRb.velocity.x < 0)
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(AIRb.velocity.x * turningBySpeed), ForceMode.Impulse);
-                else if (player1Rb.velocity.x > 0)
+                else if (AIRb.velocity.x >= 0)
                 {
                     rb.AddForce(Vector3.left * edgesBoost, ForceMode.Impulse);
                 }
             }
         }
-        if (other.tag == "LeftEdge" && rb.velocity.y < 0 && !enteredRightEdgeTrigger)
+        else if (other.tag == "LeftEdge" && !enteredRightEdgeTrigger)
         {
             enteredLeftEdgeTrigger = true;
             if (other.gameObject.name == "LeftForce1")
             {
                 if (player1Rb.velocity.x > 0)
                     rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(player1Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
-                else if (player1Rb.velocity.x < 0)
+                else if (player1Rb.velocity.x <= 0)
                 {
                     rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
                 }
@@ -185,7 +185,7 @@ public class BouncingBall : MonoBehaviour
             {
                 if (player2Rb.velocity.x > 0)
                     rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(player2Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
-                else if (player2Rb.velocity.x < 0)
+                else if (player2Rb.velocity.x <= 0)
                 {
                     rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
                 }
@@ -194,7 +194,7 @@ public class BouncingBall : MonoBehaviour
             {
                 if (AIRb.velocity.x > 0)
                     rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(AIRb.velocity.x * turningBySpeed), ForceMode.Impulse);
-                else if (AIRb.velocity.x < 0)
+                else if (AIRb.velocity.x <= 0)
                 {
                     rb.AddForce(Vector3.right * edgesBoost, ForceMode.Impulse);
                 }
