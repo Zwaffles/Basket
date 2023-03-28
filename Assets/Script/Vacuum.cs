@@ -10,13 +10,13 @@ public class Vacuum : MonoBehaviour
     [Tooltip("Distance at which the ball will be sucked into the vacuum and a score will be added")]
     public float vacuumDistance;
     private Rigidbody rb;
-    ScoreManager scoreManager;
     GameManager gameManager;
+    ScoreManager scoreManager;
 
     private void Start()
     {
         gameManager = GameManager.instance;
-        scoreManager = FindObjectOfType<ScoreManager>();
+        scoreManager = GameManager.instance.scoreManager;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +39,7 @@ public class Vacuum : MonoBehaviour
                 if (this.gameObject.name == "Vacuum1")
                 {
 
-                    scoreManager.PlayerOneScore(2);
+                    scoreManager.PlayerOneScore(1);
 
                     gameManager.RespawnBall(1);
                     rb = null;
@@ -47,7 +47,7 @@ public class Vacuum : MonoBehaviour
 
                 if (this.gameObject.name == "Vacuum2")
                 {
-                    scoreManager.PlayerTwoScore(2);
+                    scoreManager.PlayerTwoScore(1);
                     gameManager.RespawnBall(-1);
                     rb = null;
                 }

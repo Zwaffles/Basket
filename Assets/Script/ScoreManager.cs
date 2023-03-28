@@ -1,18 +1,24 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class ScoreManager : MonoBehaviour
 {
+    private VisualElement root;
+    private TextElement player1ScoreText;
+    private TextElement player2ScoreText;
+
     public int player1Score;
     public int player2Score;
-    public TextMeshProUGUI player1ScoreText;
-    public TextMeshProUGUI player2ScoreText;
-    private UIManager uiManager;
 
-    private void Awake()
+    private void OnEnable()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        root = GetComponent<UIDocument>().rootVisualElement;
+
+        player1ScoreText = root.Q<TextElement>("UI-ScoreLeft-Text");
+        player2ScoreText = root.Q<TextElement>("UI-ScoreRight-Text");
     }
+
     public void PlayerOneScore(int value)
     {
         try
@@ -30,11 +36,9 @@ public class ScoreManager : MonoBehaviour
 
         player1Score += value;
 
-        // Suppose to be updating UI Builder Score aka Halldor's UI
-        if (player1Score < 10)
-        {
-            // Update Score
-        }
+        player1ScoreText.text = player1Score.ToString();
+
+        //add condition for player win/loss ?
     }
     public void PlayerTwoScore(int value)
     {
@@ -52,17 +56,9 @@ public class ScoreManager : MonoBehaviour
         }
 
         player2Score += value;
-        // Suppose to be updating UI Builder Score aka Halldor's UI
-        if (player2Score < 10)
-        {
-            // Update Score
-        }
-    }
 
-    private void Update()
-    {
-        // updating the basic score we currently have
-        player1ScoreText.text = player1Score.ToString();
         player2ScoreText.text = player2Score.ToString();
+
+        //add condition for player win/loss ?
     }
 }
