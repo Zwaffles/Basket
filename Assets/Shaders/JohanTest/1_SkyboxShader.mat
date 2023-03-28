@@ -48,10 +48,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CloudIntensity: 2.5
+    - _CloudIntensity: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _HorizonColor: {r: 0.5424528, g: 0.9123298, b: 1, a: 0}
-    - _SkyColor: {r: 0, g: 0.10034311, b: 0.6132076, a: 0}
+    - _HorizonColor: {r: 0, g: 0.7981026, b: 1, a: 0}
+    - _SkyColor: {r: 0, g: 0.23921585, b: 1, a: 0}
   m_BuildTextureStacks: []
