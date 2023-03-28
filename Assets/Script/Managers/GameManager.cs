@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public AudioManager audioManager { get; private set; }
     public UIManager uiManager { get; private set; }
+    public ScoreManager scoreManager { get; private set; }
 
     [SerializeField]
     private GameState currentState = GameState.Play;
@@ -37,7 +38,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject AI;
     [SerializeField] GameObject playerTwo;
-    [SerializeField] TextMeshProUGUI score;
     [SerializeField] GameObject ball;
     [SerializeField] Transform ballRightSpawn;
     [SerializeField] Transform ballLeftSpawn;  
@@ -72,15 +72,21 @@ public class GameManager : MonoBehaviour
         // Find references to other managers in the scene
         audioManager = FindObjectOfType<AudioManager>();
         uiManager = FindObjectOfType<UIManager>();
-
-        changeCameraColor = FindObjectOfType<ChangeCameraColor>();
-
-        
+        scoreManager = FindObjectOfType<ScoreManager>();      
     }
+
     private void Start()
     {
+        if (currentState == GameState.Menu)
+            StartMenu();
         if (currentState == GameState.Play)
             StartMatch();
+    }
+
+    public void StartMenu()
+    {
+        uiManager.ToggleMainMenu(true);
+        uiManager.ToggleScore(false);
     }
 
     public void StartMatch()
@@ -88,6 +94,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("we is startin");
 
         uiManager.ToggleMainMenu(false);
+        uiManager.ToggleScore(true);
 
         currentState = GameState.Play;
 
@@ -104,11 +111,6 @@ public class GameManager : MonoBehaviour
         if(ball == null)
         {
             ball = GameObject.FindWithTag("Ball");
-        }
-
-        if(score == null)
-        {
-            score = GameObject.FindWithTag("PlayerTwoScore").GetComponent<TextMeshProUGUI>();
         }
 
         if(virtualCamera == null)

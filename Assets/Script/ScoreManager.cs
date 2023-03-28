@@ -1,18 +1,59 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class ScoreManager : MonoBehaviour
 {
+    private VisualElement root;
+    private TextElement player1ScoreText;
+    private TextElement player2ScoreText;
+    private TextElement uiTimer;
+
+    private float timeSpent = 0;
+    private bool isRunning = false;
+
     public int player1Score;
     public int player2Score;
-    public TextMeshProUGUI player1ScoreText;
-    public TextMeshProUGUI player2ScoreText;
-    private UIManager uiManager;
 
-    private void Awake()
+    private void OnEnable()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        root = GetComponent<UIDocument>().rootVisualElement;
+
+        player1ScoreText = root.Q<TextElement>("UI-ScoreLeft-Text");
+        player2ScoreText = root.Q<TextElement>("UI-ScoreRight-Text");
+        uiTimer = root.Q<TextElement>("UI-Time-Text");
     }
+
+    private void Update()
+    {
+        if (isRunning)
+        {
+            timeSpent += Time.deltaTime;
+            UpdateTimerUI(timeSpent);
+        }
+    }
+
+    public void UpdateTimerUI(float timeSpent)
+    {
+        uiTimer.text = DisplayTime(timeSpent);
+    }
+
+    public void StartTimer()
+    {
+        isRunning = true;
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
+    }
+
+    public void ResetTimer()
+    {
+        timeSpent = 0f;
+        UpdateTimerUI(timeSpent);
+    }
+
     public void PlayerOneScore(int value)
     {
         try
@@ -30,12 +71,11 @@ public class ScoreManager : MonoBehaviour
 
         player1Score += value;
 
-        // Suppose to be updating UI Builder Score aka Halldor's UI
-        if (player1Score < 10)
-        {
-            // Update Score
-        }
+        player1ScoreText.text = player1Score.ToString();
+
+        //add condition for player win/loss ?
     }
+
     public void PlayerTwoScore(int value)
     {
         try
@@ -52,17 +92,17 @@ public class ScoreManager : MonoBehaviour
         }
 
         player2Score += value;
-        // Suppose to be updating UI Builder Score aka Halldor's UI
-        if (player2Score < 10)
-        {
-            // Update Score
-        }
+
+        player2ScoreText.text = player2Score.ToString();
+
+        //add condition for player win/loss ?
     }
 
-    private void Update()
+    // Converts a float "time in seconds" to a 00:00 formatted string
+    private string DisplayTime(float timeInSeconds)
     {
-        // updating the basic score we currently have
-        player1ScoreText.text = player1Score.ToString();
-        player2ScoreText.text = player2Score.ToString();
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60f);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60f);
+        return $"{minutes:00}:{seconds:00}";
     }
 }

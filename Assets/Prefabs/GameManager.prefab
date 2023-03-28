@@ -31,6 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1931658351}
+  - {fileID: 2048563361}
   m_Father: {fileID: 1994957355107275521}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1931658349}
+  score: {fileID: 2048563360}
 --- !u!114 &1332100583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +203,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soloScene: Assets/Scenes/Zweifel/Version 05.unity
+--- !u!1 &2048563359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048563361}
+  - component: {fileID: 2048563362}
+  - component: {fileID: 2048563360}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2048563361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048563359}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1332100582}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048563362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048563359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 93d538cf673478b4994ed9a1249e2f5e, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: c2f2bcbaa78c987429ca445190f72c3f,
+    type: 3}
+  m_SortingOrder: 0
+--- !u!114 &2048563360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048563359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06733668f58ab64283569700551430f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Score: 0
+  player2Score: 0
 --- !u!1 &1994957355107275535
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,10 +316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 1
-  AI: {fileID: 5074653837261053860, guid: 362450502a82be04184f576ed4ce1130, type: 3}
-  playerTwo: {fileID: 2995791371725423829, guid: b347a7335b856de4ebddefc4dd5768df,
-    type: 3}
-  score: {fileID: 4295090821147388016, guid: d9e79163744f422489fcdb0eab1b6931, type: 3}
+  AI: {fileID: 0}
+  playerTwo: {fileID: 0}
+  score: {fileID: 0}
   ball: {fileID: 0}
   ballRightSpawn: {fileID: 1994957356852059593}
   ballLeftSpawn: {fileID: 1994957355426687905}
