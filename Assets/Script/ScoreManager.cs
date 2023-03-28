@@ -7,6 +7,10 @@ public class ScoreManager : MonoBehaviour
     private VisualElement root;
     private TextElement player1ScoreText;
     private TextElement player2ScoreText;
+    private TextElement uiTimer;
+
+    private float timeSpent = 0;
+    private bool isRunning = false;
 
     public int player1Score;
     public int player2Score;
@@ -17,6 +21,37 @@ public class ScoreManager : MonoBehaviour
 
         player1ScoreText = root.Q<TextElement>("UI-ScoreLeft-Text");
         player2ScoreText = root.Q<TextElement>("UI-ScoreRight-Text");
+        uiTimer = root.Q<TextElement>("UI-Time-Text");
+    }
+
+    private void Update()
+    {
+        if (isRunning)
+        {
+            timeSpent += Time.deltaTime;
+            UpdateTimerUI(timeSpent);
+        }
+    }
+
+    public void UpdateTimerUI(float timeSpent)
+    {
+        uiTimer.text = DisplayTime(timeSpent);
+    }
+
+    public void StartTimer()
+    {
+        isRunning = true;
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
+    }
+
+    public void ResetTimer()
+    {
+        timeSpent = 0f;
+        UpdateTimerUI(timeSpent);
     }
 
     public void PlayerOneScore(int value)
@@ -40,6 +75,7 @@ public class ScoreManager : MonoBehaviour
 
         //add condition for player win/loss ?
     }
+
     public void PlayerTwoScore(int value)
     {
         try
@@ -60,5 +96,13 @@ public class ScoreManager : MonoBehaviour
         player2ScoreText.text = player2Score.ToString();
 
         //add condition for player win/loss ?
+    }
+
+    // Converts a float "time in seconds" to a 00:00 formatted string
+    private string DisplayTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60f);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60f);
+        return $"{minutes:00}:{seconds:00}";
     }
 }

@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
     {
         score.player1Score = 0; 
         score.player2Score = 0;
+        score.ResetTimer();
+        score.StartTimer();
         score.gameObject.SetActive(active);
     }
 }
