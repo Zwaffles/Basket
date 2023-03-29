@@ -108,17 +108,17 @@ public class BouncingBall : MonoBehaviour
 
         if (collision.collider.CompareTag("PlayerOne"))
         {
-            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
 
         if (collision.collider.CompareTag("PlayerTwo"))
         {
-            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
 
         if (collision.collider.CompareTag("AI"))
         {
-            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+            //rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
         }
         // objects with edges tags are the side walls over the baskets
         if (collision.collider.CompareTag("Edges"))
@@ -140,9 +140,11 @@ public class BouncingBall : MonoBehaviour
     {
         if (other.tag == "RightEdge" && !enteredLeftEdgeTrigger)
         {
+            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
             enteredRightEdgeTrigger = true;
             if (other.gameObject.name == "RightForce1")
             {
+                rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
                 if (player1Rb.velocity.x < 0)
                     rb.AddForce(Vector3.left * edgesBoost * Mathf.Abs(player1Rb.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (player1Rb.velocity.x >= 0)
@@ -171,6 +173,7 @@ public class BouncingBall : MonoBehaviour
         }
         else if (other.tag == "LeftEdge" && !enteredRightEdgeTrigger)
         {
+            rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
             enteredLeftEdgeTrigger = true;
             if (other.gameObject.name == "LeftForce1")
             {
