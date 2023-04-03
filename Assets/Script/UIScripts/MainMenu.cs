@@ -38,6 +38,9 @@ public class MainMenu : MonoBehaviour
 
     public void Submit(InputAction.CallbackContext context)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
         var phase = context.phase;
         if (phase != InputActionPhase.Performed)
             return;
@@ -46,7 +49,7 @@ public class MainMenu : MonoBehaviour
 
         if(focusedElement == soloButton)
         {
-            GameManager.instance.InitializeScene(soloScene);
+            GameManager.instance.InitializeScene(soloScene, isMultiplayer: false);
         }
 
         if(focusedElement == versusButton)

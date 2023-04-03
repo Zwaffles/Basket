@@ -35,6 +35,9 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateTimerUI(float timeSpent)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
         uiTimer.text = DisplayTime(timeSpent);
     }
 
