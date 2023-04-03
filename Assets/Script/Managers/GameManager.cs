@@ -107,9 +107,9 @@ public class GameManager : MonoBehaviour
         uiManager.ToggleMainMenu(false);
         uiManager.ToggleScore(true);
 
-        currentState = GameState.Play;
-
         playerConfigurationManager.AllowJoining(false);
+
+        currentState = GameState.Play;
 
         if (AI == null)
         {
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
 
             playerInput.neverAutoSwitchControlSchemes = false;
             playerConfigurationManager.HandlePlayerJoin(playerInput);
-            playerConfigurationManager.SetPlayerColor(0, player1Material);
+            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
         }
 
         originalTimeScale = Time.timeScale;
@@ -175,6 +175,17 @@ public class GameManager : MonoBehaviour
 
     public void InitializeScene(string scenePath, bool isMultiplayer = false)
     {
+        if (!isMultiplayer)
+        {
+            playerConfigurationManager.AllowJoining(true);
+            var playerController = Instantiate(playerControllerPrefab);
+            var playerInput = playerController.GetComponent<PlayerInput>();
+
+            playerInput.neverAutoSwitchControlSchemes = false;
+            playerConfigurationManager.HandlePlayerJoin(playerInput);
+            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+        }
+
         StartCoroutine(LoadSceneAsync(scenePath, isMultiplayer));
     }
 
