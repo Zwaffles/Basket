@@ -58,26 +58,31 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>(); // Get the input value for movement
     }
 
+    public void SetInputVector(Vector2 value)
+    {
+        moveInput = value;
+    }
+
     void Move()
     {
         // Calculate the player's velocity
         Vector2 playerVelocity = new Vector2(moveInput.x * step, rb.velocity.y);
 
-        // restrict movement to the left border
-        if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime < leftBorder && moveInput.x < 0)
-        {
-            step = speed;
-            float distanceToLeftBorder = leftBorder - transform.position.x;
-            playerVelocity.x = distanceToLeftBorder / Time.fixedDeltaTime;
-        }
+        //// restrict movement to the left border
+        //if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime < leftBorder && moveInput.x < 0)
+        //{
+        //    step = speed;
+        //    float distanceToLeftBorder = leftBorder - transform.position.x;
+        //    playerVelocity.x = distanceToLeftBorder / Time.fixedDeltaTime;
+        //}
 
-        // restrict movement to the right border
-        if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime > rightBorder && moveInput.x > 0)
-        {
-            step = speed;
-            float distanceToRightBorder = rightBorder - transform.position.x;
-            playerVelocity.x = distanceToRightBorder / Time.fixedDeltaTime;
-        }
+        //// restrict movement to the right border
+        //if (transform.position.x + playerVelocity.x * Time.fixedDeltaTime > rightBorder && moveInput.x > 0)
+        //{
+        //    step = speed;
+        //    float distanceToRightBorder = rightBorder - transform.position.x;
+        //    playerVelocity.x = distanceToRightBorder / Time.fixedDeltaTime;
+        //}
         //rb.velocity = playerVelocity; // Set the player's velocity
         rb.velocity = Vector2.Lerp(rb.velocity, playerVelocity, lerpConstant);
     }

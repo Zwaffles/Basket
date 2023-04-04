@@ -14,7 +14,15 @@ public class MainMenu : MonoBehaviour
     private Button optionsButton;
     private Button quitButton;
 
+    private Inputaction uiInput;
+
     public string soloScene;
+
+    private void Awake()
+    {
+        uiInput = new Inputaction();
+        uiInput.UI.Submit.performed += ctx => Submit(ctx);
+    }
 
     private void OnEnable()
     {
@@ -24,6 +32,19 @@ public class MainMenu : MonoBehaviour
         versusButton = root.Q<Button>("2PlayerPlayButton");
         optionsButton = root.Q<Button>("OptionsButton");
         quitButton = root.Q<Button>("QuitButton");
+
+        if (uiInput != null)
+        {
+            uiInput.Enable();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (uiInput != null)
+        {
+            uiInput.Disable();
+        }
     }
 
     private void Start()
@@ -38,6 +59,9 @@ public class MainMenu : MonoBehaviour
 
     public void Submit(InputAction.CallbackContext context)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
         var phase = context.phase;
         if (phase != InputActionPhase.Performed)
             return;
@@ -46,7 +70,7 @@ public class MainMenu : MonoBehaviour
 
         if(focusedElement == soloButton)
         {
-            GameManager.instance.InitializeScene(soloScene);
+            GameManager.instance.InitializeScene(soloScene, isMultiplayer: false);
         }
 
         if(focusedElement == versusButton)

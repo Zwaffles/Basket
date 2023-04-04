@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,6 +7,13 @@ public class UIManager : MonoBehaviour
     private GameObject mainMenu;
     [SerializeField]
     private ScoreManager score;
+
+    private PlayerInput playerInput;
+
+    private void OnEnable()
+    {
+
+    }
 
     public void ToggleMainMenu(bool active)
     {

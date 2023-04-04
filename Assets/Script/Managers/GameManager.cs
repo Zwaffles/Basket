@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Cinemachine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public enum GameState
 {
     Menu,
     Play,
+    Multiplayer,
 }
 
 public class GameManager : MonoBehaviour
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     public AudioManager audioManager { get; private set; }
     public UIManager uiManager { get; private set; }
     public ScoreManager scoreManager { get; private set; }
+    public PlayerConfigurationManager playerConfigurationManager { get; private set; }
 
     [SerializeField]
     private GameState currentState = GameState.Play;
@@ -36,6 +39,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField] GameObject playerControllerPrefab;
+    [SerializeField] Material player1Material;
     [SerializeField] GameObject AI;
     [SerializeField] GameObject playerTwo;
     [SerializeField] GameObject ball;
@@ -55,7 +60,10 @@ public class GameManager : MonoBehaviour
 
     private float originalTimeScale;
 
-    Scene currentScene;
+    private Scene currentScene;
+
+    private PlayerInput playerInput;
+
     private void Awake()
     {
         // Ensure that only one instance of the GameManager exists
@@ -72,7 +80,10 @@ public class GameManager : MonoBehaviour
         // Find references to other managers in the scene
         audioManager = FindObjectOfType<AudioManager>();
         uiManager = FindObjectOfType<UIManager>();
-        scoreManager = FindObjectOfType<ScoreManager>();      
+        scoreManager = FindObjectOfType<ScoreManager>();
+        playerConfigurationManager = FindObjectOfType<PlayerConfigurationManager>();
+
+        playerInput = GetComponent<PlayerInput>();
     }
 
     private void Start()
@@ -80,7 +91,9 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.Menu)
             StartMenu();
         if (currentState == GameState.Play)
-            StartMatch();
+            StartMatch(isMultiplayer: false);
+        if (CurrentState == GameState.Multiplayer)
+            StartMultiplayer();
     }
 
     public void StartMenu()
@@ -89,12 +102,12 @@ public class GameManager : MonoBehaviour
         uiManager.ToggleScore(false);
     }
 
-    public void StartMatch()
+    public void StartMatch(bool isMultiplayer)
     {
-        Debug.Log("we is startin");
-
         uiManager.ToggleMainMenu(false);
         uiManager.ToggleScore(true);
+
+        playerConfigurationManager.AllowJoining(false);
 
         currentState = GameState.Play;
 
@@ -122,7 +135,21 @@ public class GameManager : MonoBehaviour
             virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         ballRigidbody = ball.GetComponent<Rigidbody>();
-        playerTwo.SetActive(false);
+
+        if (isMultiplayer)
+        {
+            AI.SetActive(false);
+        }
+
+        else
+        {
+            var playerController = Instantiate(playerControllerPrefab);
+            var playerInput = playerController.GetComponent<PlayerInput>();
+
+            playerInput.neverAutoSwitchControlSchemes = false;
+            playerConfigurationManager.HandlePlayerJoin(playerInput);
+            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+        }
 
         originalTimeScale = Time.timeScale;
 
@@ -138,12 +165,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void InitializeScene(string scenePath)
+    public void StartMultiplayer()
     {
-        StartCoroutine(LoadSceneAsync(scenePath));
+        uiManager.ToggleMainMenu(false);
+        uiManager.ToggleScore(false);
+
+        playerConfigurationManager.AllowJoining(true);
     }
 
-    private IEnumerator LoadSceneAsync(string scenePath)
+    public void InitializeScene(string scenePath, bool isMultiplayer = false)
+    {
+        if (!isMultiplayer)
+        {
+            playerConfigurationManager.AllowJoining(true);
+            var playerController = Instantiate(playerControllerPrefab);
+            var playerInput = playerController.GetComponent<PlayerInput>();
+
+            playerInput.neverAutoSwitchControlSchemes = false;
+            playerConfigurationManager.HandlePlayerJoin(playerInput);
+            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+        }
+
+        StartCoroutine(LoadSceneAsync(scenePath, isMultiplayer));
+    }
+
+    private IEnumerator LoadSceneAsync(string scenePath, bool isMultiplayer)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scenePath);
 
@@ -152,7 +198,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        StartMatch();
+        StartMatch(isMultiplayer);
     }
 
     public void ChangeScene()

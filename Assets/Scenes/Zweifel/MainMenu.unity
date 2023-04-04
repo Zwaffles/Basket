@@ -379,11 +379,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 395504891294909895, guid: 2550ba4e9293cd54d828a6816929d20d,
-        type: 3}
-      propertyPath: soloScene
-      value: Assets/Scenes/Zweifel/Taher + Environment.unity
-      objectReference: {fileID: 0}
     - target: {fileID: 1994957355107275520, guid: 2550ba4e9293cd54d828a6816929d20d,
         type: 3}
       propertyPath: sceneStuff
@@ -457,6 +452,11 @@ PrefabInstance:
     - target: {fileID: 2929530371649865750, guid: 2550ba4e9293cd54d828a6816929d20d,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6371206983681024288, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_AllowJoining
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6776278569451114840, guid: 2550ba4e9293cd54d828a6816929d20d,
