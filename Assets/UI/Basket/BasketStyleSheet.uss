@@ -44,11 +44,11 @@ Basket {
 .ScoreAndTimerContainer {
     justify-content: center;
     align-items: center;
-    background-color: rgba(37, 40, 51, 0.13);
-    border-left-color: rgba(151, 157, 180, 0.13);
-    border-right-color: rgba(151, 157, 180, 0.13);
-    border-top-color: rgba(151, 157, 180, 0.13);
-    border-bottom-color: rgba(151, 157, 180, 0.13);
+    background-color: rgba(37, 40, 51, 0.19);
+    border-left-color: rgba(151, 157, 180, 0.19);
+    border-right-color: rgba(151, 157, 180, 0.19);
+    border-top-color: rgba(151, 157, 180, 0.19);
+    border-bottom-color: rgba(151, 157, 180, 0.19);
     flex-direction: row;
 }
 
