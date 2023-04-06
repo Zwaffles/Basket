@@ -12,6 +12,7 @@ public class Vacuum : MonoBehaviour
     private Rigidbody rb;
     GameManager gameManager;
     ScoreManager scoreManager;
+    [SerializeField] Collider[] blockCollider;
 
     private void Start()
     {
@@ -26,6 +27,10 @@ public class Vacuum : MonoBehaviour
             rb = other.GetComponent<Rigidbody>();
             // Apply a force to the rigidbody that pulls it towards the vacuum
             rb.AddForce((transform.position - rb.transform.position).normalized * pullForce, ForceMode.Force);
+            blockCollider[0].enabled = false;
+            blockCollider[1].enabled = false;
+            Invoke("EnableBlockColliders", 1f);
+            Invoke("EnableBlockColliders", 1f);
         }
     }
 
@@ -38,21 +43,29 @@ public class Vacuum : MonoBehaviour
             {
                 if (this.gameObject.name == "Vacuum1")
                 {
-
+                    
                     scoreManager.PlayerOneScore(1);
-
                     gameManager.RespawnBall(1);
                     rb = null;
+                    
                 }
 
                 if (this.gameObject.name == "Vacuum2")
                 {
+                    
                     scoreManager.PlayerTwoScore(1);
                     gameManager.RespawnBall(-1);
                     rb = null;
+                    
                 }
             }
         }
+    }
+
+    void EnableBlockColliders()
+    {
+        blockCollider[0].enabled = true;
+        blockCollider[1].enabled = true;
     }
     private void ResetShakeFrequency()
     {

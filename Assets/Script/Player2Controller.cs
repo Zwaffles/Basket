@@ -44,6 +44,7 @@ public class Player2Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        this.gameObject.SetActive(false);
     }
 
     void FixedUpdate()
