@@ -8,8 +8,9 @@ public class ScoreManager : MonoBehaviour
     private TextElement player1ScoreText;
     private TextElement player2ScoreText;
     private TextElement uiTimer;
+    [SerializeField] GameObject winnerText;
 
-    private float timeSpent = 0;
+    private float timeSpent = 500;
     private bool isRunning = false;
 
     public int player1Score;
@@ -31,9 +32,31 @@ public class ScoreManager : MonoBehaviour
             timeSpent += Time.deltaTime;
             UpdateTimerUI(timeSpent);
         }
-    }
 
-    public void UpdateTimerUI(float timeSpent)
+        if(timeSpent >= 10)
+        {
+            if(winnerText != null)
+            {
+                
+                if(player1Score > player2Score)
+                {
+                    winnerText.SetActive(true);
+                    winnerText.GetComponent<TextMeshPro>().text = "Congratulations " + "Player One"; 
+                }
+                if (player1Score < player2Score)
+                    {
+                        winnerText.SetActive(true);
+                        winnerText.GetComponent<TextMeshProUGUI>().text = "Congratulations " + "Player Two";
+                    }
+                else if(player1Score == player2Score)
+                {
+                    winnerText.SetActive(true);
+                    winnerText.GetComponent<TextMeshProUGUI>().text = "Draw";
+                }
+            }
+        }      
+    }
+public void UpdateTimerUI(float timeSpent)
     {
         if (!gameObject.activeInHierarchy)
             return;
