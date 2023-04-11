@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Zweifel/Taher + Environment.unity
     guid: 0628c2631e0a13c4c8923a56c6c6865a
+  - enabled: 1
+    path: Assets/Scenes/Zweifel/Multiplayer.unity
+    guid: 2e89cdcdd1673434d9b4efb5982cfc40
+  - enabled: 1
+    path: Assets/Scenes/Zweifel/MultiplayerMockMenu.unity
+    guid: b3210696032bd88469aeedef4a82be02
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 62ebf74b965b42c4180a6f4ad8a99abb,
       type: 2}
