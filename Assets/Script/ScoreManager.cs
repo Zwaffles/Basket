@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
             UpdateTimerUI(timeSpent);
         }
 
-        if(timeSpent >= 10)
+        if(timeSpent >= 200)
         {
             if(winnerText != null)
             {
