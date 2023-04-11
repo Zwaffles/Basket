@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         uiManager.ToggleMainMenu(false);
         uiManager.ToggleScore(true);
 
-        playerConfigurationManager.AllowJoining(false);
+        //playerConfigurationManager.AllowJoining(false);
 
         currentState = GameState.Play;
 
@@ -141,15 +141,15 @@ public class GameManager : MonoBehaviour
             AI.SetActive(false);
         }
 
-        else
-        {
-            var playerController = Instantiate(playerControllerPrefab);
-            var playerInput = playerController.GetComponent<PlayerInput>();
+        //else
+        //{
+        //    var playerController = Instantiate(playerControllerPrefab);
+        //    var playerInput = playerController.GetComponent<PlayerInput>();
 
-            playerInput.neverAutoSwitchControlSchemes = false;
-            playerConfigurationManager.HandlePlayerJoin(playerInput);
-            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
-        }
+        //    playerInput.neverAutoSwitchControlSchemes = false;
+        //    playerConfigurationManager.HandlePlayerJoin(playerInput);
+        //    playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+        //}
 
         originalTimeScale = Time.timeScale;
 
@@ -167,6 +167,11 @@ public class GameManager : MonoBehaviour
 
     public void StartMultiplayer()
     {
+        if(currentState != GameState.Multiplayer)
+        {
+            currentState = GameState.Multiplayer;
+        }
+
         uiManager.ToggleMainMenu(false);
         uiManager.ToggleScore(false);
 

@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     private Inputaction uiInput;
 
     public string soloScene;
+    public string multiScene;
 
     private void Awake()
     {
@@ -75,8 +76,9 @@ public class MainMenu : MonoBehaviour
 
         if(focusedElement == versusButton)
         {
-            //do some other stuff
-            Debug.LogWarning("No multiplayer yet :(");
+            SceneManager.LoadScene(multiScene);
+            GameManager.instance.StartMultiplayer();
+            this.gameObject.SetActive(false);
         }
 
         if(focusedElement == optionsButton)
@@ -105,18 +107,24 @@ public class MainMenuEditor : Editor
     public override void OnInspectorGUI()
     {
         var menu = target as MainMenu;
-        var oldScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(menu.soloScene);
+        var oldSoloScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(menu.soloScene);
+        var oldMultiScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(menu.multiScene);
 
         serializedObject.Update();
 
         EditorGUI.BeginChangeCheck();
-        var newScene = EditorGUILayout.ObjectField("Solo Scene", oldScene, typeof(SceneAsset), false) as SceneAsset;
+        var newSoloScene = EditorGUILayout.ObjectField("Solo Scene", oldSoloScene, typeof(SceneAsset), false) as SceneAsset;
+        var newMultiScene = EditorGUILayout.ObjectField("Multi Scene", oldMultiScene, typeof(SceneAsset), false) as SceneAsset;
 
         if (EditorGUI.EndChangeCheck())
         {
-            var newPath = AssetDatabase.GetAssetPath(newScene);
-            var scenePathProperty = serializedObject.FindProperty("soloScene");
-            scenePathProperty.stringValue = newPath;
+            var newSoloPath = AssetDatabase.GetAssetPath(newSoloScene);
+            var soloScenePathProperty = serializedObject.FindProperty("soloScene");
+            soloScenePathProperty.stringValue = newSoloPath;           
+            
+            var newMultiPath = AssetDatabase.GetAssetPath(newMultiScene);
+            var multiScenePathProperty = serializedObject.FindProperty("multiScene");
+            multiScenePathProperty.stringValue = newMultiPath;
         }
         serializedObject.ApplyModifiedProperties();
     }

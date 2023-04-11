@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soloScene: Assets/Scenes/Zweifel/Taher + Environment.unity
+  multiScene: Assets/Scenes/Zweifel/MultiplayerMockMenu.unity
 --- !u!1 &2048563359
 GameObject:
   m_ObjectHideFlags: 0
