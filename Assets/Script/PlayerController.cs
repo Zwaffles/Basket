@@ -24,20 +24,20 @@ public class PlayerController : MonoBehaviour
     [Tooltip("For View Only")]
     [SerializeField] float step = 0;
     [Tooltip("The speed at which the player moves")]
-    [SerializeField] float speed = 0;
+    [SerializeField] public float speed = 0;
     [HideInInspector]
     [Tooltip("The variable to keep track of the move direction")]
     public int moveDirection; // The variable to keep track of the move direction
     [Header("Sliding")]
     [SerializeField]
     [Range(0, 1)]
-    float lerpConstant;
+    public float lerpConstant;
 
     [Header("Rotation Settings")]
     [SerializeField]
-    float leanAngle = 5f;
+    public float leanAngle = 5f;
     [SerializeField]
-    float leanSpeed = 10f;
+    public float leanSpeed = 10f;
 
 
     Quaternion targetRotation;

@@ -19,10 +19,11 @@ public class CubeMover : MonoBehaviour
 
     [Header("Rotation Settings")]
     [SerializeField]
-    float leanAngle = 5f;
+    public float leanAngle = 5f;
     [SerializeField]
-    float leanSpeed = 10f;
+    public float leanSpeed = 10f;
     [SerializeField] float randomRangeFloat = .3f;
+    [SerializeField] public float ballChasing = 0.5f;
     Quaternion targetRotation;
     void Awake()
     {
@@ -48,7 +49,7 @@ public class CubeMover : MonoBehaviour
     void ChangeAIChase()
     {
         if (!collidingWithBall)
-            randomRangeFloat = Random.Range(-0.5f, +0.5f);
+            randomRangeFloat = Random.Range(-ballChasing, +ballChasing);
     }
     void Update()
     {

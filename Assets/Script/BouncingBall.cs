@@ -15,17 +15,17 @@ public class BouncingBall : MonoBehaviour
     #region Ball Variables
     [Header("Ball Variables")]
     [Tooltip("Multiplier for the velocity of the ball after it hits a paddle")]
-    [SerializeField] private float blockerBoost = 51f;
+    [SerializeField] public float blockerBoost = 51f;
     [Tooltip("Ball max speed")]
-    [SerializeField] float maxSpeed = 36;
+    [SerializeField] public float maxSpeed = 36;
     #endregion
 
     #region Inclination Variables
     [Header("Inclination Variables")]
     [Tooltip("The speed at which the ball moves in the direction of the paddle")]
-    [SerializeField] float turningBySpeed = .15f;
+    [SerializeField] public float turningBySpeed = .15f;
     [Tooltip("Boost for the velocity of the ball after it hits the edges of the paddle")]
-    [SerializeField] float edgesBoost = 1f;
+    [SerializeField] public float edgesBoost = 1f;
     #endregion
 
     #region General Variables
@@ -47,9 +47,9 @@ public class BouncingBall : MonoBehaviour
     #region Walls and Blockers
     [Header("Walls and Blockers")]
     [Tooltip("Added force to the side wall over the baskets")]
-    [SerializeField] float slowdownFactorTop = 0.1085f;
+    [SerializeField] public float slowdownFactorTop = 0.1085f;
     [Tooltip("Added force to the bottom of each basket")]
-    [SerializeField] float slowdownFactorBottom = .7f;
+    [SerializeField] public float slowdownFactorBottom = .7f;
     #endregion
 
     private void Awake()

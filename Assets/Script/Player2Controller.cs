@@ -24,7 +24,7 @@ public class Player2Controller : MonoBehaviour
     [Tooltip("For View Only")]
     [SerializeField] float step = 0;
     [Tooltip("The speed at which the player moves")]
-    [SerializeField] float speed = 0;
+    [SerializeField] public float speed = 0;
     private Vector2 moveInput; // The input value for movement
     [Tooltip("The variable to keep track of the move direction")]
     [HideInInspector]
@@ -32,13 +32,13 @@ public class Player2Controller : MonoBehaviour
     [Header("Sliding")]
     [SerializeField]
     [Range(0, 1)]
-    float lerpConstant;
+    public float lerpConstant;
 
     [Header("Rotation Settings")]
     [SerializeField]
-    float leanAngle = 5f;
+    public float leanAngle = 5f;
     [SerializeField]
-    float leanSpeed = 10f;
+    public float leanSpeed = 10f;
 
     Quaternion targetRotation;
     void Start()
