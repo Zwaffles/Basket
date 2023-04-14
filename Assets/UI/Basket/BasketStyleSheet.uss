@@ -9,7 +9,7 @@ Basket {
     background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/AlphaGUI/(O)-Un%20Targeted%20Button.png?fileID=2800000&guid=f04c7cb5d879194489feb4664a8beebc&type=3#(O)-Un Targeted Button');
     transition-duration: 0.1s;
     transform-origin: left;
-    font-size: 32px;
+    font-size: 58px;
     -unity-font-style: bold-and-italic;
     -unity-text-align: middle-center;
     padding-bottom: 4%;
@@ -32,7 +32,7 @@ Basket {
 }
 
 .ScoreText {
-    font-size: 32px;
+    font-size: 64px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
     justify-content: center;
@@ -60,4 +60,20 @@ Basket {
 .Box_Container:focus {
     opacity: 1;
     transition-duration: 0.2s;
+}
+
+.PlayerInputIcons {
+    width: 160px;
+    height: 160px;
+    align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    justify-content: flex-start;
+}
+
+.PlayerInputArrows {
+    width: 64px;
+    height: 64px;
 }
