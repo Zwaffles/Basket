@@ -46,9 +46,27 @@ public class VariablesModifier : MonoBehaviour
     [SerializeField] Slider leanAngelAIVar;
     [SerializeField] Slider leanSpeedAIVar;
     [SerializeField] Slider ballChasingAIVar;
+    //Transforms
+    [SerializeField] Slider paddleSize;
+    [SerializeField] Slider paddleYPosition;
+    [SerializeField] Slider ballSize;
+    [SerializeField] Slider hoopSize;
+    [SerializeField] Slider hoop1XPos;
+    [SerializeField] Slider hoop1YPos;
+    [SerializeField] Slider hoop1ZPos;
+    [SerializeField] Slider hoop2XPos;
+    [SerializeField] Slider hoop2YPos;
+    [SerializeField] Slider hoop2ZPos;
 
-    InputField[] inputfield = new InputField[25];
+    [SerializeField] GameObject applyButton;
 
+    InputField[] inputfield = new InputField[35];
+
+    Transform ballTransform;
+    [SerializeField] Transform[] hoopTransform;
+    Transform playerOneTransform;
+    Transform playerTwoTransform;
+    Transform botTransform;
 
     void Awake()
     {
@@ -60,6 +78,22 @@ public class VariablesModifier : MonoBehaviour
     }
     void Start()
     {
+        ballTransform = bouncingBall.gameObject.GetComponent<Transform>();
+        playerOneTransform = playerController.gameObject.GetComponent<Transform>();
+        //playerTwoTransform = player2Controller.gameObject.GetComponent<Transform>();
+        botTransform = cubeMover.gameObject.GetComponent<Transform>();
+
+        paddleSize.value = 0;
+        paddleYPosition.value = 0;
+        ballSize.value = 0;
+        hoopSize.value = 0;
+        hoop1XPos.value = 0;
+        hoop1YPos.value = 0;
+        hoop1ZPos.value = 0;
+        hoop2XPos.value = 0;
+        hoop2YPos.value = 0;
+        hoop2ZPos.value = 0;
+
         shakeDurationVar.value = 0.75f;
         shakeAmplitudeVar.value = 1.2f;
         shakeFrequencyVar.value = 2f;
@@ -119,6 +153,17 @@ public class VariablesModifier : MonoBehaviour
         inputfield[22] = leanAngelAIVar.GetComponentInChildren<InputField>();
         inputfield[23] = leanSpeedAIVar.GetComponentInChildren<InputField>();
         inputfield[24] = ballChasingAIVar.GetComponentInChildren<InputField>();
+        //
+        inputfield[25] = paddleSize.GetComponentInChildren<InputField>();
+        inputfield[26] = paddleYPosition.GetComponentInChildren<InputField>();
+        inputfield[27] = ballSize.GetComponentInChildren<InputField>();
+        inputfield[28] = hoopSize.GetComponentInChildren<InputField>();
+        inputfield[29] = hoop1XPos.GetComponentInChildren<InputField>();
+        inputfield[30] = hoop1YPos.GetComponentInChildren<InputField>();
+        inputfield[31] = hoop1ZPos.GetComponentInChildren<InputField>();
+        inputfield[32] = hoop2XPos.GetComponentInChildren<InputField>();
+        inputfield[33] = hoop2YPos.GetComponentInChildren<InputField>();
+        inputfield[34] = hoop2ZPos.GetComponentInChildren<InputField>();
 
         MenuButton();
     }
@@ -157,6 +202,25 @@ public class VariablesModifier : MonoBehaviour
         OnSliderValueChanged();
     }
 
+    public void OnSliderTransformValueChanged()
+    {
+
+        playerOneTransform.localScale = new Vector3(playerOneTransform.localScale.x + paddleSize.value, playerOneTransform.localScale.y, playerOneTransform.localScale.z);
+        //playerTwoTransform.localScale = new Vector3(playerTwoTransform.localScale.x + paddleSize.value, playerTwoTransform.localScale.y, playerTwoTransform.localScale.z);
+        botTransform.localScale = new Vector3(botTransform.localScale.x + paddleSize.value, botTransform.localScale.y, botTransform.localScale.z);
+
+        playerOneTransform.localPosition = new Vector3(playerOneTransform.localPosition.x, playerOneTransform.localPosition.y + paddleYPosition.value, playerOneTransform.localPosition.z);
+        //playerTwoTransform.localPosition = new Vector3(playerTwoTransform.localPosition.x, playerTwoTransform.localPosition.y * paddleYPosition.value, playerTwoTransform.localPosition.z);
+        botTransform.localPosition = new Vector3(botTransform.localPosition.x, botTransform.localPosition.y + paddleYPosition.value, botTransform.localPosition.z);
+
+        ballTransform.localScale = new Vector3(ballTransform.localScale.x + ballSize.value, ballTransform.localScale.y + ballSize.value, ballTransform.localScale.z + ballSize.value) ;
+
+        hoopTransform[0].position = new Vector3(hoopTransform[0].position.x + hoop1XPos.value, hoopTransform[0].position.y + hoop1YPos.value, hoopTransform[0].position.z + hoop1ZPos.value);
+        hoopTransform[1].position = new Vector3(hoopTransform[1].position.x + hoop2XPos.value, hoopTransform[1].position.y + hoop2YPos.value, hoopTransform[1].position.z + hoop2ZPos.value);
+
+        hoopTransform[0].localScale = new Vector3(hoopTransform[0].localScale.x + hoopSize.value, hoopTransform[0].localScale.y + hoopSize.value, hoopTransform[0].localScale.z + hoopSize.value);
+        hoopTransform[1].localScale = new Vector3(hoopTransform[1].localScale.x + hoopSize.value, hoopTransform[1].localScale.y + hoopSize.value, hoopTransform[1].localScale.z + hoopSize.value);
+    }
     public void OnSliderValueChanged()
     {
         inputfield[0].text = shakeDurationVar.value.ToString();
@@ -188,6 +252,17 @@ public class VariablesModifier : MonoBehaviour
         inputfield[22].text = leanAngelAIVar.value.ToString();
         inputfield[23].text = leanSpeedAIVar.value.ToString();
         inputfield[24].text = ballChasingAIVar.value.ToString();
+
+        inputfield[25].text = paddleSize.value.ToString();
+        inputfield[26].text = paddleYPosition.value.ToString();
+        inputfield[27].text = ballSize.value.ToString();
+        inputfield[28].text = hoopSize.value.ToString();
+        inputfield[29].text = hoop1XPos.value.ToString();
+        inputfield[30].text = hoop1YPos.value.ToString();
+        inputfield[31].text = hoop1ZPos.value.ToString();
+        inputfield[32].text = hoop2XPos.value.ToString();
+        inputfield[33].text = hoop2YPos.value.ToString();
+        inputfield[34].text = hoop2ZPos.value.ToString();
     }
     public void MenuButton()
     {
@@ -195,11 +270,13 @@ public class VariablesModifier : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             menuBackgrounds.SetActive(false);
+            applyButton.SetActive(false);
         }
         else if (!this.gameObject.activeSelf)
         {
             this.gameObject.SetActive(true);
             menuBackgrounds.SetActive(true);
+            applyButton.SetActive(true);
         }
     }
 }
