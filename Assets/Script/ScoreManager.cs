@@ -40,18 +40,18 @@ public class ScoreManager : MonoBehaviour
                 
                 if(player1Score > player2Score)
                 {
-                    winnerText.SetActive(true);
-                    winnerText.GetComponent<TextMeshPro>().text = "Congratulations " + "Player One"; 
+                    //winnerText.SetActive(true);
+                    //winnerText.GetComponent<TextMeshPro>().text = "Congratulations " + "Player One"; 
                 }
                 if (player1Score < player2Score)
                     {
-                        winnerText.SetActive(true);
-                        winnerText.GetComponent<TextMeshProUGUI>().text = "Congratulations " + "Player Two";
+                        //winnerText.SetActive(true);
+                        //winnerText.GetComponent<TextMeshProUGUI>().text = "Congratulations " + "Player Two";
                     }
                 else if(player1Score == player2Score)
                 {
-                    winnerText.SetActive(true);
-                    winnerText.GetComponent<TextMeshProUGUI>().text = "Draw";
+                    //winnerText.SetActive(true);
+                    //winnerText.GetComponent<TextMeshProUGUI>().text = "Draw";
                 }
             }
         }      

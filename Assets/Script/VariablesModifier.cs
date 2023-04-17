@@ -76,12 +76,16 @@ public class VariablesModifier : MonoBehaviour
         player2Controller = FindObjectOfType<Player2Controller>();
         cubeMover = FindObjectOfType<CubeMover>();
     }
-    void Start()
+    private void OnEnable()
     {
         ballTransform = bouncingBall.gameObject.GetComponent<Transform>();
         playerOneTransform = playerController.gameObject.GetComponent<Transform>();
         //playerTwoTransform = player2Controller.gameObject.GetComponent<Transform>();
         botTransform = cubeMover.gameObject.GetComponent<Transform>();
+    }
+    void Start()
+    {
+        
 
         paddleSize.value = 0;
         paddleYPosition.value = 0;
