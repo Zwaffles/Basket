@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (currentState == GameState.Menu)
             StartMenu();
         if (currentState == GameState.Play)
-            StartMatch(isMultiplayer: false);
+            InitializeScene(SceneManager.GetActiveScene().name, isMultiplayer: false);
         if (CurrentState == GameState.Multiplayer)
             StartMultiplayer();
     }

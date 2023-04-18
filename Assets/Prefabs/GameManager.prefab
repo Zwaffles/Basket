@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06733668f58ab64283569700551430f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winnerText: {fileID: 0}
   player1Score: 0
   player2Score: 0
 --- !u!1 &1994957355107275535
@@ -238,7 +239,7 @@ MonoBehaviour:
   shakeDuration: 0.75
   shakeAmplitude: 1.2
   shakeFrequency: 2
-  timeSlowDuration: 0.22
+  timeSlowDuration: 0.04
 --- !u!1 &1994957355426687904
 GameObject:
   m_ObjectHideFlags: 0
