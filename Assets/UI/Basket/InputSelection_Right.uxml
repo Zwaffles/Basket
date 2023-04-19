@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Basket/BasketStyleSheet.uss?fileID=7433441132597879392&amp;guid=19e73b561a796734c8578ad0e1848863&amp;type=3#BasketStyleSheet" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+        <ui:VisualElement name="LeftSection" style="align-items: center; justify-content: flex-start; height: 100%; flex-grow: 1; width: 24%;" />
+        <ui:VisualElement style="height: 100%; width: 16%;" />
+        <ui:VisualElement name="RightSection" style="align-items: center; justify-content: flex-start; height: 100%; flex-grow: 1; width: 24%;">
+            <ui:VisualElement name="LeftSliceTop" style="flex-grow: 0; align-items: stretch; justify-content: flex-end; width: 100%; height: 33%; flex-shrink: 1;">
+                <ui:Label text="Color" display-tooltip-when-elided="true" style="align-items: center; font-size: 64px; -unity-font-style: bold; padding-bottom: 0; -unity-text-align: middle-center; color: rgb(250, 250, 250); padding-left: 0; padding-right: 0; padding-top: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="LeftSliceMiddle" style="flex-grow: 0; align-items: center; justify-content: flex-start; width: 100%; height: 40%; flex-shrink: 1; margin-top: 4%;">
+                <ui:VisualElement name="LeftSelectionBox" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Box.png?fileID=2800000&amp;guid=33a7543ed05628f43b003afee1257d8d&amp;type=3#Box&apos;); width: 80%; height: 100%; opacity: 1; align-items: stretch; justify-content: center;">
+                    <ui:VisualElement name="ColorOptionsUpper" style="width: 100%; height: 50%; align-items: flex-end; flex-direction: row; justify-content: center; left: 16px;">
+                        <ui:Button display-tooltip-when-elided="true" name="GreenColor" class="GreenOptions" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); align-items: center; justify-content: center;">
+                            <ui:VisualElement name="CheckmarkGreen" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 0;" />
+                        </ui:Button>
+                        <ui:Button display-tooltip-when-elided="true" name="OrangeColor" class="OrangeOptions" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); align-items: center; justify-content: center;">
+                            <ui:VisualElement name="CheckmarkOrange" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 1;" />
+                        </ui:Button>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ColorOptionsLower" style="width: 100%; height: 50%; flex-direction: row; align-items: flex-start; justify-content: center;">
+                        <ui:Button display-tooltip-when-elided="true" name="BlueColor" class="BlueOptions" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); align-items: center; justify-content: center;">
+                            <ui:VisualElement name="CheckmarkBlue" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 0;" />
+                        </ui:Button>
+                        <ui:Button display-tooltip-when-elided="true" name="RedColor" class="RedOptions" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); align-items: center; justify-content: center;">
+                            <ui:VisualElement name="CheckmarkRed" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 0;" />
+                        </ui:Button>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
