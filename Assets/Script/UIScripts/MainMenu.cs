@@ -19,12 +19,6 @@ public class MainMenu : MonoBehaviour
     public string soloScene;
     public string multiScene;
 
-    private void Awake()
-    {
-        uiInput = new Inputaction();
-        uiInput.UI.Submit.performed += ctx => Submit(ctx);
-    }
-
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -33,19 +27,6 @@ public class MainMenu : MonoBehaviour
         versusButton = root.Q<Button>("2PlayerPlayButton");
         optionsButton = root.Q<Button>("OptionsButton");
         quitButton = root.Q<Button>("QuitButton");
-
-        if (uiInput != null)
-        {
-            uiInput.Enable();
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (uiInput != null)
-        {
-            uiInput.Disable();
-        }
     }
 
     private void Start()

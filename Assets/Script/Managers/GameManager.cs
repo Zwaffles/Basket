@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
 
     public void InitializeScene(string scenePath, bool isMultiplayer = false)
     {
-        if (!isMultiplayer)
+        if (!isMultiplayer && playerConfigurationManager.GetPlayerConfigurations().Count < 1)
         {
             playerConfigurationManager.AllowJoining(true);
             var playerController = Instantiate(playerControllerPrefab);

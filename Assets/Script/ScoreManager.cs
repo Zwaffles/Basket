@@ -80,6 +80,15 @@ public void UpdateTimerUI(float timeSpent)
         UpdateTimerUI(timeSpent);
     }
 
+    public void ResetScore()
+    {
+        player1Score = 0;
+        player2Score = 0;
+
+        player1ScoreText.text = "0";
+        player2ScoreText.text = "0";
+    }
+
     public void PlayerOneScore(int value)
     {
         try
