@@ -7,6 +7,8 @@ public class TestPadJump : MonoBehaviour
 
     public Rigidbody RB;
     public float jump;
+    public float speed;
+    private float Move;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +23,9 @@ public class TestPadJump : MonoBehaviour
         {
             RB.AddForce(new Vector3(RB.velocity.x, jump));
         }
+
+        Move = Input.GetAxis("Horizontal");
+
+        RB.velocity = new Vector2(speed * Move, RB.velocity.y);
     }
 }
