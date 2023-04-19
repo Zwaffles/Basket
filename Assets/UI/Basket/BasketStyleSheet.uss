@@ -77,3 +77,108 @@ Basket {
     width: 64px;
     height: 64px;
 }
+
+.ColorOptions {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.GreenOptions {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.1s;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Green-Box.png?fileID=2800000&guid=76b6bcda40b5eb4429fe2a907512bea9&type=3#Green-Box');
+}
+
+.GreenOptions:focus {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.2s;
+    scale: 1.1 1.1;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Green-Selected.png?fileID=2800000&guid=1ad56587a79ea094db7951b3e88f94d3&type=3#Green-Selected');
+    transition-timing-function: ease-out-back;
+}
+
+.OrangeOptions {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.1s;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Orange-Box.png?fileID=2800000&guid=52e2b1e1f7ab77743bc5636cafce28bb&type=3#Orange-Box');
+}
+
+.OrangeOptions:focus {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.2s;
+    scale: 1.1 1.1;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Orange-Selected.png?fileID=2800000&guid=1f15078cfb77cca46a87963e91ec7d73&type=3#Orange-Selected');
+    transition-timing-function: ease-out-back;
+}
+
+.BlueOptions {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.1s;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Blue-Box.png?fileID=2800000&guid=e88883772e56f014389f828c12d12067&type=3#Blue-Box');
+}
+
+.BlueOptions:focus {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.2s;
+    scale: 1.1 1.1;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Blue-Selected.png?fileID=2800000&guid=21e265f1f337c8843991a57c218f629b&type=3#Blue-Selected');
+    transition-timing-function: ease-out-back;
+}
+
+.RedOptions {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.1s;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Red-Box.png?fileID=2800000&guid=2d4ce50d489776c45a6dd5116159c0bc&type=3#Red-Box');
+}
+
+.RedOptions:focus {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.2s;
+    scale: 1.1 1.1;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Red-Selected.png?fileID=2800000&guid=288f2b07c2f975d40997aa62b35efb04&type=3#Red-Selected');
+    transition-timing-function: ease-out-back;
+}
