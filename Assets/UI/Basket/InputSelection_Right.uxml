@@ -14,7 +14,7 @@
                             <ui:VisualElement name="CheckmarkGreen" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 0;" />
                         </ui:Button>
                         <ui:Button display-tooltip-when-elided="true" name="OrangeColor" class="OrangeOptions" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); align-items: center; justify-content: center;">
-                            <ui:VisualElement name="CheckmarkOrange" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 1;" />
+                            <ui:VisualElement name="CheckmarkOrange" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Check%20Marker.png?fileID=2800000&amp;guid=5953ea685f83b56419e1632dfab2caa8&amp;type=3#Check Marker&apos;); align-items: center; justify-content: center; width: 50%; height: 75%; opacity: 0;" />
                         </ui:Button>
                     </ui:VisualElement>
                     <ui:VisualElement name="ColorOptionsLower" style="width: 100%; height: 50%; flex-direction: row; align-items: flex-start; justify-content: center;">
