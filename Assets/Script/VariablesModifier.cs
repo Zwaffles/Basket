@@ -7,7 +7,7 @@ public class VariablesModifier : MonoBehaviour
 {
     GameManager gameManager;
     BouncingBall bouncingBall;
-    PlayerController playerController;
+    PlayerController[] playerController;
     Player2Controller player2Controller;
     CubeMover cubeMover;
     [SerializeField] GameObject menuBackgrounds;
@@ -72,20 +72,17 @@ public class VariablesModifier : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         bouncingBall = FindObjectOfType<BouncingBall>();
-        playerController = FindObjectOfType<PlayerController>();
+        playerController = FindObjectsOfType<PlayerController>();
         player2Controller = FindObjectOfType<Player2Controller>();
         cubeMover = FindObjectOfType<CubeMover>();
     }
-    private void OnEnable()
-    {
-        ballTransform = bouncingBall.gameObject.GetComponent<Transform>();
-        playerOneTransform = playerController.gameObject.GetComponent<Transform>();
-        //playerTwoTransform = player2Controller.gameObject.GetComponent<Transform>();
-        botTransform = cubeMover.gameObject.GetComponent<Transform>();
-    }
     void Start()
     {
-        
+        ballTransform = bouncingBall.gameObject.GetComponent<Transform>();
+        //playerOneTransform = playerController.gameObject.GetComponent<Transform>();
+        //playerTwoTransform = player2Controller.gameObject.GetComponent<Transform>();
+        if (cubeMover != null)
+        botTransform = cubeMover.gameObject.GetComponent<Transform>();
 
         paddleSize.value = 0;
         paddleYPosition.value = 0;
@@ -186,44 +183,76 @@ public class VariablesModifier : MonoBehaviour
         bouncingBall.slowdownFactorTop = SlowFactorOverHoopWallVar.value;
         bouncingBall.slowdownFactorBottom = SlowFactorUnderHoopBlockerVar.value;
 
-        playerController.speed = speed1Var.value;
-        playerController.speedAcceleration = speedAcceleration1Var.value;
-        playerController.lerpConstant = lerping1Var.value;
-        playerController.leanAngle = leanAngel1Var.value;
-        playerController.leanSpeed = leanSpeed1Var.value;
-
+        foreach (PlayerController obj in playerController)
+        {
+            //playerOneTransform = obj.transform;
+            obj.speed = speed1Var.value;
+            obj.speedAcceleration = speedAcceleration1Var.value;
+            obj.lerpConstant = lerping1Var.value;
+            obj.leanAngle = leanAngel1Var.value;
+            obj.leanSpeed = leanSpeed1Var.value;
+        }
         //player2Controller.speed = speed2Var.value;
         //player2Controller.speedAcceleration = speedAcceleration2Var.value;
         //player2Controller.lerpConstant = lerping2Var.value;
         //player2Controller.leanAngle = leanAngel2Var.value;
         //player2Controller.leanSpeed = leanSpeed2Var.value;
-
-        cubeMover.speed = speedAIVar.value;
-        cubeMover.leanAngle = leanAngelAIVar.value;
-        cubeMover.leanSpeed = leanSpeedAIVar.value;
-        cubeMover.ballChasing = ballChasingAIVar.value;
+        if(cubeMover != null)
+        {
+            cubeMover.speed = speedAIVar.value;
+            cubeMover.leanAngle = leanAngelAIVar.value;
+            cubeMover.leanSpeed = leanSpeedAIVar.value;
+            cubeMover.ballChasing = ballChasingAIVar.value;
+        }
+        
 
         OnSliderValueChanged();
     }
 
     public void OnSliderTransformValueChanged()
     {
-
-        playerOneTransform.localScale = new Vector3(playerOneTransform.localScale.x + paddleSize.value, playerOneTransform.localScale.y, playerOneTransform.localScale.z);
+        foreach (PlayerController obj in playerController)
+        {
+            //obj.transform.localScale = new Vector3(obj.transform.localScale.x + paddleSize.value, obj.transform.localScale.y, obj.transform.localScale.z);
+            obj.transform.localScale += new Vector3(paddleSize.value, 0, 0);
+            //obj.transform.localPosition = new Vector3(obj.transform.localPosition.x, obj.transform.localPosition.y + paddleYPosition.value, obj.transform.localPosition.z);
+            obj.transform.localPosition += new Vector3(0, paddleYPosition.value, 0);
+        }
+        //playerOneTransform.localScale = new Vector3(playerOneTransform.localScale.x + paddleSize.value, playerOneTransform.localScale.y, playerOneTransform.localScale.z);
         //playerTwoTransform.localScale = new Vector3(playerTwoTransform.localScale.x + paddleSize.value, playerTwoTransform.localScale.y, playerTwoTransform.localScale.z);
-        botTransform.localScale = new Vector3(botTransform.localScale.x + paddleSize.value, botTransform.localScale.y, botTransform.localScale.z);
+        if(botTransform != null)
+        //botTransform.localScale = new Vector3(botTransform.localScale.x + paddleSize.value, botTransform.localScale.y, botTransform.localScale.z);
+        botTransform.localScale += new Vector3(paddleSize.value, 0, 0);
 
-        playerOneTransform.localPosition = new Vector3(playerOneTransform.localPosition.x, playerOneTransform.localPosition.y + paddleYPosition.value, playerOneTransform.localPosition.z);
+        //playerOneTransform.localPosition = new Vector3(playerOneTransform.localPosition.x, playerOneTransform.localPosition.y + paddleYPosition.value, playerOneTransform.localPosition.z);
         //playerTwoTransform.localPosition = new Vector3(playerTwoTransform.localPosition.x, playerTwoTransform.localPosition.y * paddleYPosition.value, playerTwoTransform.localPosition.z);
-        botTransform.localPosition = new Vector3(botTransform.localPosition.x, botTransform.localPosition.y + paddleYPosition.value, botTransform.localPosition.z);
+        if (botTransform != null)
+            //botTransform.localPosition = new Vector3(botTransform.localPosition.x, botTransform.localPosition.y + paddleYPosition.value, botTransform.localPosition.z);
+            botTransform.localPosition += new Vector3(0, paddleYPosition.value, 0);
+            //ballTransform.localScale = new Vector3(ballTransform.localScale.x + ballSize.value, ballTransform.localScale.y + ballSize.value, ballTransform.localScale.z + ballSize.value) ;
+            ballTransform.localScale += new Vector3(ballSize.value, ballSize.value, ballSize.value);
 
-        ballTransform.localScale = new Vector3(ballTransform.localScale.x + ballSize.value, ballTransform.localScale.y + ballSize.value, ballTransform.localScale.z + ballSize.value) ;
+        //hoopTransform[0].position = new Vector3(hoopTransform[0].position.x + hoop1XPos.value, hoopTransform[0].position.y + hoop1YPos.value, hoopTransform[0].position.z + hoop1ZPos.value);
+        hoopTransform[0].position += new Vector3(hoop1XPos.value, hoop1YPos.value, hoop1ZPos.value);
+        //hoopTransform[1].position = new Vector3(hoopTransform[1].position.x + hoop2XPos.value, hoopTransform[1].position.y + hoop2YPos.value, hoopTransform[1].position.z + hoop2ZPos.value);
+        hoopTransform[1].position += new Vector3(hoop2XPos.value, hoop2YPos.value, hoop2ZPos.value);
 
-        hoopTransform[0].position = new Vector3(hoopTransform[0].position.x + hoop1XPos.value, hoopTransform[0].position.y + hoop1YPos.value, hoopTransform[0].position.z + hoop1ZPos.value);
-        hoopTransform[1].position = new Vector3(hoopTransform[1].position.x + hoop2XPos.value, hoopTransform[1].position.y + hoop2YPos.value, hoopTransform[1].position.z + hoop2ZPos.value);
+        //hoopTransform[0].localScale = new Vector3(hoopTransform[0].localScale.x + hoopSize.value, hoopTransform[0].localScale.y + hoopSize.value, hoopTransform[0].localScale.z + hoopSize.value);
+        hoopTransform[0].localScale += new Vector3(hoopSize.value, hoopSize.value, hoopSize.value);
+        //hoopTransform[1].localScale = new Vector3(hoopTransform[1].localScale.x + hoopSize.value, hoopTransform[1].localScale.y + hoopSize.value, hoopTransform[1].localScale.z + hoopSize.value);
+        hoopTransform[1].localScale += new Vector3(hoopSize.value, hoopSize.value, hoopSize.value);
 
-        hoopTransform[0].localScale = new Vector3(hoopTransform[0].localScale.x + hoopSize.value, hoopTransform[0].localScale.y + hoopSize.value, hoopTransform[0].localScale.z + hoopSize.value);
-        hoopTransform[1].localScale = new Vector3(hoopTransform[1].localScale.x + hoopSize.value, hoopTransform[1].localScale.y + hoopSize.value, hoopTransform[1].localScale.z + hoopSize.value);
+        paddleSize.value = 0;
+        paddleYPosition.value = 0;
+        ballSize.value = 0;
+        hoopSize.value = 0;
+        hoop1XPos.value = 0;
+        hoop1YPos.value = 0;
+        hoop1ZPos.value = 0;
+        hoop2XPos.value = 0;
+        hoop2YPos.value = 0;
+        hoop2ZPos.value = 0;
+
     }
     public void OnSliderValueChanged()
     {
