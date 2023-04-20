@@ -1,13 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Basket/BasketStyleSheet.uss?fileID=7433441132597879392&amp;guid=19e73b561a796734c8578ad0e1848863&amp;type=3#BasketStyleSheet" />
     <ui:VisualElement name="Canvas" style="flex-grow: 1; align-items: stretch; justify-content: center; flex-direction: row;">
-        <ui:VisualElement name="LeftSection" style="align-items: stretch; justify-content: center; height: 100%; flex-grow: 1;">
+        <ui:VisualElement name="LeftSection" style="align-items: stretch; justify-content: center; height: 100%; flex-grow: 1; width: 24%;">
             <ui:VisualElement name="LeftSliceUpper" style="flex-grow: 0; align-items: center; justify-content: center; flex-shrink: 0; width: 100%; height: 33%;">
-                <ui:Label text="Player 1" display-tooltip-when-elided="true" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: bold-and-italic;" />
+                <ui:Label text="Player 1" display-tooltip-when-elided="true" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: bold-and-italic; color: rgb(241, 241, 241);" />
             </ui:VisualElement>
             <ui:VisualElement name="LeftSliceMiddle" style="flex-grow: 0; align-items: center; justify-content: flex-start; width: 100%; height: 33%; flex-shrink: 0;">
-                <ui:VisualElement name="P1-Container" style="flex-direction: row; align-items: center; justify-content: center; display: none;">
-                    <ui:VisualElement name="Player1" class="PlayerInputIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Player%20Icon.png?fileID=2800000&amp;guid=fd5b083587d8fca4d8159016a2aa1928&amp;type=3#Player Icon&apos;);">
+                <ui:VisualElement name="Left-Container" style="flex-direction: row; align-items: center; justify-content: center; display: flex; opacity: 0;">
+                    <ui:VisualElement name="LeftPlayer" class="PlayerInputIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Player%20Icon.png?fileID=2800000&amp;guid=fd5b083587d8fca4d8159016a2aa1928&amp;type=3#Player Icon&apos;);">
                         <ui:Label text="1" display-tooltip-when-elided="true" name="PlayerNumber" style="font-size: 64px; bottom: 40px; color: rgb(243, 243, 243); -unity-font-style: bold; -unity-text-align: middle-center;" />
                     </ui:VisualElement>
                     <ui:VisualElement name="ArrowRight" class="PlayerInputArrows" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ArrowRight.png?fileID=2800000&amp;guid=c5f35065a20733548809c8cbbb8912cf&amp;type=3#ArrowRight&apos;);" />
@@ -15,7 +15,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="LeftSliceLower" style="flex-grow: 0; width: 100%; height: 33%; flex-shrink: 0;" />
         </ui:VisualElement>
-        <ui:VisualElement name="MiddleSection" style="align-items: center; justify-content: center; height: 100%; flex-grow: 0;">
+        <ui:VisualElement name="MiddleSection" style="align-items: center; justify-content: center; height: 100%; flex-grow: 0; width: 16%;">
             <ui:VisualElement name="P1-Container" style="flex-direction: row; align-items: center; justify-content: center;">
                 <ui:VisualElement name="ArrowLeft" class="PlayerInputArrows" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ArrowLeft.png?fileID=2800000&amp;guid=ab8365a7dd8e12c449439c9f2a9a47fc&amp;type=3#ArrowLeft&apos;); width: 64px;" />
                 <ui:VisualElement name="Player1" class="PlayerInputIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Player%20Icon.png?fileID=2800000&amp;guid=fd5b083587d8fca4d8159016a2aa1928&amp;type=3#Player Icon&apos;);">
@@ -38,14 +38,14 @@
                 <ui:VisualElement name="ArrowRight" class="PlayerInputArrows" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ArrowRight.png?fileID=2800000&amp;guid=c5f35065a20733548809c8cbbb8912cf&amp;type=3#ArrowRight&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="RightSection" style="align-items: stretch; justify-content: center; height: 100%; flex-grow: 1;">
+        <ui:VisualElement name="RightSection" style="align-items: stretch; justify-content: center; height: 100%; flex-grow: 1; width: 24%;">
             <ui:VisualElement name="RightSliceUpper" style="flex-grow: 0; align-items: center; justify-content: center; flex-shrink: 0; width: 100%; height: 33%;">
-                <ui:Label text="Player 2" display-tooltip-when-elided="true" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: bold-and-italic;" />
+                <ui:Label text="Player 2" display-tooltip-when-elided="true" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: bold-and-italic; color: rgb(241, 241, 241);" />
             </ui:VisualElement>
             <ui:VisualElement name="RightSliceMiddle" style="flex-grow: 1; align-items: center; justify-content: flex-start; width: 100%; height: 33%;">
-                <ui:VisualElement name="P1-Container" style="flex-direction: row; align-items: center; justify-content: center; display: none;">
+                <ui:VisualElement name="Right-Container" style="flex-direction: row; align-items: center; justify-content: center; display: flex; opacity: 0;">
                     <ui:VisualElement name="ArrowLeft" class="PlayerInputArrows" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ArrowLeft.png?fileID=2800000&amp;guid=ab8365a7dd8e12c449439c9f2a9a47fc&amp;type=3#ArrowLeft&apos;); width: 64px;" />
-                    <ui:VisualElement name="Player1" class="PlayerInputIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Player%20Icon.png?fileID=2800000&amp;guid=fd5b083587d8fca4d8159016a2aa1928&amp;type=3#Player Icon&apos;);">
+                    <ui:VisualElement name="RightPlayer" class="PlayerInputIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Player%20Icon.png?fileID=2800000&amp;guid=fd5b083587d8fca4d8159016a2aa1928&amp;type=3#Player Icon&apos;);">
                         <ui:Label text="1" display-tooltip-when-elided="true" name="PlayerNumber" style="font-size: 64px; bottom: 40px; color: rgb(243, 243, 243); -unity-font-style: bold; -unity-text-align: middle-center;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
