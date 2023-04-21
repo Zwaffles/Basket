@@ -242,13 +242,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(.74f);
         if (rightorLeft == 1)
         {
-            ballRightSpawn.position = new Vector3 (Random.Range( 2,11), 16, 0);
+            ballRightSpawn.position = new Vector3 (Random.Range( 2,8), 16, 0);
             ball.transform.position = ballRightSpawn.position;
             ball.SetActive(true);
         }
         else if (rightorLeft == -1)
         {
-            ballLeftSpawn.position = new Vector3(Random.Range(-11, -2), 16, 0);
+            ballLeftSpawn.position = new Vector3(Random.Range(-8, -2), 16, 0);
             ball.transform.position = ballLeftSpawn.position;
             ball.SetActive(true);
         }
