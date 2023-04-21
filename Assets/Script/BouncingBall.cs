@@ -54,9 +54,14 @@ public class BouncingBall : MonoBehaviour
 
     private void Awake()
     {
+        
         playerController = FindObjectOfType<PlayerController>();
         player2Controller = FindObjectOfType<Player2Controller>();
         cubeMover = FindObjectOfType<CubeMover>();
+    }
+    private void OnEnable()
+    {
+        initialSpeed = Random.Range(5, 20);
     }
     void Start()
     {

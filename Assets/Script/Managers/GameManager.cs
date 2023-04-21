@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        
         // Ensure that only one instance of the GameManager exists
         if (instance == null)
         {
@@ -206,23 +207,23 @@ public class GameManager : MonoBehaviour
         StartMatch(isMultiplayer);
     }
 
-    public void ChangeScene()
-    {      
-        if (currentScene.name == "Version 02")
-        {
-            SceneManager.LoadScene("Version 03");
-        }
+    //public void ChangeScene()
+    //{      
+    //    if (currentScene.name == "Version 02")
+    //    {
+    //        SceneManager.LoadScene("Version 03");
+    //    }
 
-        if (currentScene.name == "Version 03")
-        {
-            SceneManager.LoadScene("Version 04");
-        }
+    //    if (currentScene.name == "Version 03")
+    //    {
+    //        SceneManager.LoadScene("Version 04");
+    //    }
 
-        if (currentScene.name == "Version 04")
-        {
-            SceneManager.LoadScene("Version 02");
-        }
-    }
+    //    if (currentScene.name == "Version 04")
+    //    {
+    //        SceneManager.LoadScene("Version 02");
+    //    }
+    //}
     
 
     public void RespawnBall(int value)
@@ -241,11 +242,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(.74f);
         if (rightorLeft == 1)
         {
+            ballRightSpawn.position = new Vector3 (Random.Range( 2,11), 16, 0);
             ball.transform.position = ballRightSpawn.position;
             ball.SetActive(true);
         }
         else if (rightorLeft == -1)
         {
+            ballLeftSpawn.position = new Vector3(Random.Range(-11, -2), 16, 0);
             ball.transform.position = ballLeftSpawn.position;
             ball.SetActive(true);
         }
