@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81f48097bbc08741ad2a7532c0a4f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soloScene: Assets/Scenes/Zweifel/Taher + Environment.unity
+  soloScene: Assets/Scenes/Zweifel/Taher + Enviroment.unity
   multiScene: Assets/Scenes/Zweifel/MultiplayerMockMenu.unity
 --- !u!1 &2048563359
 GameObject:
