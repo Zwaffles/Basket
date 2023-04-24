@@ -32,7 +32,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         playerConfigurations[index].IsReady = true;
         if(playerConfigurations.Count == maxPlayers && playerConfigurations.All(p => p.IsReady == true))
         {
-            GameManager.instance.InitializeScene("Taher + Environment", isMultiplayer: true);
+            GameManager.instance.InitializeScene("Taher + Enviroment", isMultiplayer: true);
         }
     }
 
