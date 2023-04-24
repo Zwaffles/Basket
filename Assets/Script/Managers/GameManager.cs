@@ -190,6 +190,7 @@ public class GameManager : MonoBehaviour
             playerInput.neverAutoSwitchControlSchemes = false;
             playerConfigurationManager.HandlePlayerJoin(playerInput);
             playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+            playerConfigurationManager.AllowJoining(false);
         }
 
         StartCoroutine(LoadSceneAsync(scenePath, isMultiplayer));
