@@ -83,7 +83,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Joystick"",
                     ""id"": ""49e28ca3-5abc-442a-875e-43ed79781268"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -116,7 +116,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Gamepad"",
                     ""id"": ""317eeb5f-6757-4093-abe5-f25af1f45b99"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -226,7 +226,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Joystick"",
                     ""id"": ""653ecf72-82f6-45b1-ae9d-3fd22078068d"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -259,7 +259,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Gamepad"",
                     ""id"": ""493ebd6c-093c-4340-aa3b-e89b1c4aaa69"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
