@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     private Scene currentScene;
 
     private PlayerInput playerInput;
-
+    
     private void Awake()
     {
         
@@ -83,8 +83,8 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         scoreManager = FindObjectOfType<ScoreManager>();
         playerConfigurationManager = FindObjectOfType<PlayerConfigurationManager>();
-
         playerInput = GetComponent<PlayerInput>();
+        
     }
 
     private void Start()
@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
             InitializeScene(SceneManager.GetActiveScene().name, isMultiplayer: false);
         if (CurrentState == GameState.Multiplayer)
             StartMultiplayer();
+
+        //scoreManager.winnerText = GameObject.FindGameObjectWithTag("WinnerText");
     }
 
     public void StartMenu()
