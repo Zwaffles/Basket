@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: f7fc376dd6121464394fb52e02771adc,
     type: 3}
-  m_NotificationBehavior: 3
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -58,7 +58,55 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f695173-9157-44b2-a6a6-b744cf1c4dbd
+    m_ActionName: Player/Move[/Keyboard/a,/Keyboard/d,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/rightStick/left,/SwitchProControllerHID/dpad/left,/SwitchProControllerHID/leftStick/right,/SwitchProControllerHID/rightStick/right,/SwitchProControllerHID/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1fd08218-b924-447d-becd-cd229c5bcd31
+    m_ActionName: Player/Move2[/Keyboard/leftArrow,/Keyboard/rightArrow,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/rightStick/left,/SwitchProControllerHID/leftStick/right,/SwitchProControllerHID/rightStick/right,/SwitchProControllerHID/dpad/right,/SwitchProControllerHID/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 46b82065-3aaf-4307-b178-f6f27a6bf8b8
+    m_ActionName: UI/Navigate[/SwitchProControllerHID/leftStick/up,/SwitchProControllerHID/rightStick/up,/SwitchProControllerHID/leftStick/down,/SwitchProControllerHID/rightStick/down,/SwitchProControllerHID/leftStick/left,/SwitchProControllerHID/rightStick/left,/SwitchProControllerHID/leftStick/right,/SwitchProControllerHID/rightStick/right,/SwitchProControllerHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b69a63b1-20fb-4013-86fe-29558cff0aec
+    m_ActionName: UI/Submit[/Keyboard/enter,/SwitchProControllerHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7692d00e-29b5-4e23-b097-f8353d4d542e
+    m_ActionName: UI/Cancel[/Keyboard/escape,/SwitchProControllerHID/select]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 89e046a4-4cf8-4847-8518-2f99d3403c18
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3436a2c-cbfc-4bf3-8b82-6465bbe98abc
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83618881-c4b8-4cb6-9b1b-7605326eb9fc
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a915c63-0ad9-4066-8222-e7a341947481
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a82caaf-66a7-4477-ae97-b515a4e3b5a1
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cfe5a777-5301-454d-a25a-d25d59c0498c
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d80fefb2-6681-40e7-bf17-dbaa13b3730b
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -76,6 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b6c49079daa740bdd48a9045231e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSetupMenuPrefab: {fileID: 3905861970071527396, guid: 861095d83c8e6044384e0e5b9539491e,
-    type: 3}
   input: {fileID: 1190228782864228205}
