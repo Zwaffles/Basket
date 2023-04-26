@@ -85,8 +85,8 @@ public void UpdateTimerUI(float timeSpent)
         player1Score = 0;
         player2Score = 0;
 
-        player1ScoreText.text = "0";
-        player2ScoreText.text = "0";
+        player1ScoreText.text = "00";
+        player2ScoreText.text = "00";
     }
 
     public void PlayerOneScore(int value)
@@ -106,7 +106,7 @@ public void UpdateTimerUI(float timeSpent)
 
         player1Score += value;
 
-        player1ScoreText.text = player1Score.ToString();
+        player1ScoreText.text = player1Score.ToString().PadLeft(2, '0');
 
         //add condition for player win/loss ?
     }
@@ -128,7 +128,7 @@ public void UpdateTimerUI(float timeSpent)
 
         player2Score += value;
 
-        player2ScoreText.text = player2Score.ToString();
+        player2ScoreText.text = player2Score.ToString().PadLeft(2, '0');
 
         //add condition for player win/loss ?
     }
