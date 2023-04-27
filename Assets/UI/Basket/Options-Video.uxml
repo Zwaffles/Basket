@@ -1,0 +1,82 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Basket/BasketStyleSheet.uss?fileID=7433441132597879392&amp;guid=19e73b561a796734c8578ad0e1848863&amp;type=3#BasketStyleSheet" />
+    <ui:VisualElement name="Canvas" style="flex-grow: 1; flex-direction: row; visibility: visible; overflow: hidden;">
+        <ui:VisualElement name="MenuContainer" style="width: 100%; height: 100%; justify-content: center; margin-left: 8%;">
+            <ui:VisualElement name="MenuBox" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsBG.png?fileID=2800000&amp;guid=038dd1064a5343d45ad8e9fee19abce4&amp;type=3#OptionsBG&apos;); width: 90%; height: 104%; flex-shrink: 0; align-items: stretch;">
+                <ui:VisualElement name="VideoOptionsContent" style="flex-grow: 1; margin-left: 8%; margin-right: 8%; margin-top: 4%; margin-bottom: 4%;">
+                    <ui:VisualElement name="TitleBox" style="flex-direction: row;">
+                        <ui:Label text="Video" display-tooltip-when-elided="true" name="TitleText" style="-unity-font-style: bold-and-italic; font-size: 100px; color: rgb(255, 255, 255); margin-left: 48px; margin-right: 48px; margin-top: 48px; margin-bottom: 48px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between;">
+                        <ui:Label text="Display Mode" display-tooltip-when-elided="true" name="OptionNameText" style="-unity-font-style: bold-and-italic; font-size: 50px; color: rgb(255, 255, 255); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: middle-left;" />
+                        <ui:VisualElement name="SettingsBox" style="justify-content: center; height: 100%; width: 40%; align-items: center; flex-direction: row;">
+                            <ui:VisualElement name="ArrowLeftBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowLeftImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsArrowLeft.png?fileID=2800000&amp;guid=8006d9a7282f87e4687f86f1b833e843&amp;type=3#OptionsArrowLeft&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="SettingContainer" style="justify-content: center; width: 64%; height: 100%;">
+                                <ui:VisualElement name="VisualElement" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsCurrentModeDisplay.png?fileID=2800000&amp;guid=ec18a7cc2ac1324408883f6fd1ab96ea&amp;type=3#OptionsCurrentModeDisplay&apos;); width: 100%; height: 100%; align-items: center; justify-content: center;">
+                                    <ui:Label text="Fullscreen" display-tooltip-when-elided="true" name="SettingText" style="width: 98%; height: 100px; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; right: 1%; bottom: 5px; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="ArrowRightBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowRightImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsAroowRight.png?fileID=2800000&amp;guid=2929cb7b96d9fbd4e8692e0b94663049&amp;type=3#OptionsAroowRight&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between;">
+                        <ui:Label text="Resolution" display-tooltip-when-elided="true" name="OptionNameText" style="-unity-font-style: bold-and-italic; font-size: 50px; color: rgb(255, 255, 255); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: middle-left;" />
+                        <ui:VisualElement name="SettingsBox" style="justify-content: center; height: 100%; width: 40%; align-items: center; flex-direction: row;">
+                            <ui:VisualElement name="ArrowLeftBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowLeftImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsArrowLeft.png?fileID=2800000&amp;guid=8006d9a7282f87e4687f86f1b833e843&amp;type=3#OptionsArrowLeft&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="SettingContainer" style="justify-content: center; width: 64%; height: 100%;">
+                                <ui:VisualElement name="VisualElement" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsCurrentModeDisplay.png?fileID=2800000&amp;guid=ec18a7cc2ac1324408883f6fd1ab96ea&amp;type=3#OptionsCurrentModeDisplay&apos;); width: 100%; height: 100%; align-items: center; justify-content: center;">
+                                    <ui:Label text="1920x1080" display-tooltip-when-elided="true" name="SettingText" style="width: 98%; height: 100px; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; right: 1%; bottom: 5px; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="ArrowRightBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowRightImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsAroowRight.png?fileID=2800000&amp;guid=2929cb7b96d9fbd4e8692e0b94663049&amp;type=3#OptionsAroowRight&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between;">
+                        <ui:Label text="Framerate Cap" display-tooltip-when-elided="true" name="OptionNameText" style="-unity-font-style: bold-and-italic; font-size: 50px; color: rgb(255, 255, 255); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: middle-left;" />
+                        <ui:VisualElement name="SettingsBox" style="justify-content: center; height: 100%; width: 40%; align-items: center; flex-direction: row;">
+                            <ui:VisualElement name="ArrowLeftBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowLeftImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsArrowLeft.png?fileID=2800000&amp;guid=8006d9a7282f87e4687f86f1b833e843&amp;type=3#OptionsArrowLeft&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="SettingContainer" style="justify-content: center; width: 64%; height: 100%;">
+                                <ui:VisualElement name="VisualElement" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsCurrentModeDisplay.png?fileID=2800000&amp;guid=ec18a7cc2ac1324408883f6fd1ab96ea&amp;type=3#OptionsCurrentModeDisplay&apos;); width: 100%; height: 100%; align-items: center; justify-content: center;">
+                                    <ui:Label text="60 fps" display-tooltip-when-elided="true" name="SettingText" style="width: 98%; height: 100px; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; right: 1%; bottom: 5px; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="ArrowRightBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowRightImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsAroowRight.png?fileID=2800000&amp;guid=2929cb7b96d9fbd4e8692e0b94663049&amp;type=3#OptionsAroowRight&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between;">
+                        <ui:Label text="V-Sync" display-tooltip-when-elided="true" name="OptionNameText" style="-unity-font-style: bold-and-italic; font-size: 50px; color: rgb(255, 255, 255); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: middle-left;" />
+                        <ui:VisualElement name="SettingsBox" style="justify-content: center; height: 100%; width: 40%; align-items: center; flex-direction: row;">
+                            <ui:VisualElement name="ArrowLeftBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowLeftImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsArrowLeft.png?fileID=2800000&amp;guid=8006d9a7282f87e4687f86f1b833e843&amp;type=3#OptionsArrowLeft&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="SettingContainer" style="justify-content: center; width: 64%; height: 100%;">
+                                <ui:VisualElement name="VisualElement" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsCurrentModeDisplay.png?fileID=2800000&amp;guid=ec18a7cc2ac1324408883f6fd1ab96ea&amp;type=3#OptionsCurrentModeDisplay&apos;); width: 100%; height: 100%; align-items: center; justify-content: center;">
+                                    <ui:Label text="Dynamic" display-tooltip-when-elided="true" name="SettingText" style="width: 98%; height: 100px; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; right: 1%; bottom: 5px; -unity-font-style: bold; color: rgb(255, 255, 255); font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="ArrowRightBox" style="justify-content: center; width: 25%; height: 100%; align-items: center;">
+                                <ui:VisualElement name="ArrowRightImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/OptionsMenu/OptionsAroowRight.png?fileID=2800000&amp;guid=2929cb7b96d9fbd4e8692e0b94663049&amp;type=3#OptionsAroowRight&apos;); width: 50%; height: 50%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ConfirmDefaultBox" style="flex-direction: row; justify-content: space-around; flex-grow: 1; align-items: flex-end;">
+                        <ui:Button text="Confirm" display-tooltip-when-elided="true" name="Confirm" class="OptionsButtons" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); font-size: 48px; -unity-text-align: middle-center; bottom: 16%;" />
+                        <ui:Button text="Default" display-tooltip-when-elided="true" name="Default" class="OptionsButtons" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); font-size: 48px; -unity-text-align: middle-center; bottom: 16%;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

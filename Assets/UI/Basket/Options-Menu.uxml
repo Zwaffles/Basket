@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Basket/BasketStyleSheet.uss?fileID=7433441132597879392&amp;guid=19e73b561a796734c8578ad0e1848863&amp;type=3#BasketStyleSheet" />
+    <ui:VisualElement name="Canvas" style="flex-grow: 1; flex-direction: row; visibility: visible; overflow: hidden;">
+        <ui:VisualElement name="MenuContainer" style="width: 40%; height: 100%; justify-content: center; margin-left: 8%;">
+            <ui:VisualElement name="MenuBox" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/AlphaGUI/(O)-Button%20Box.png?fileID=2800000&amp;guid=5ce8d91ca6c0da549b4640418cfb953a&amp;type=3#(O)-Button Box&apos;); width: 90%; height: 104%; flex-shrink: 0; align-items: stretch;">
+                <ui:VisualElement name="OptionsTitleTXT" style="margin-left: 16%; margin-top: 24%; margin-bottom: 8%; background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/AlphaGUI/Options.png?fileID=2800000&amp;guid=82fb9cb66a4a429449f006e73a08f5f0&amp;type=3#Options&apos;); width: 50%; height: 8%;" />
+                <ui:Button display-tooltip-when-elided="true" text="Video" name="VideoButton" class="MainManuButton MainMenuButton" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(88, 88, 88, 0); -unity-font-style: bold-and-italic;" />
+                <ui:Button display-tooltip-when-elided="true" text="Audio" name="AudioButton" class="MainManuButton MainMenuButton" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(88, 88, 88, 0); right: 2%;" />
+                <ui:Button display-tooltip-when-elided="true" text="Credits" name="CreditsButton" class="MainManuButton MainMenuButton" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(88, 88, 88, 0); right: 4%;" />
+                <ui:Button display-tooltip-when-elided="true" text="Return" name="ReturnButton" class="MainManuButton MainMenuButton" style="border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(88, 88, 88, 0); right: 6%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
