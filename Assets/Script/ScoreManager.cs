@@ -1,30 +1,47 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
+using UnityEditor.Rendering.LookDev;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
+    BouncingBall bouncingBall;
+
     private VisualElement root;
     private TextElement player1ScoreText;
     private TextElement player2ScoreText;
     private TextElement uiTimer;
-    [SerializeField] GameObject winnerText;
-
-    private float timeSpent = 500;
+    [SerializeField] TextMeshProUGUI winnerText;
+    [SerializeField] int matchTimeBeforeHittingTheScoreTarget = 600; // counted by seconnds
+    [SerializeField] int maxMatchTime = 900; // counted by seconds
+    [SerializeField] int scoreTarget = 10;
+    [SerializeField] InputField playerOneName;
+    [SerializeField] InputField playerTwoName;
+    [SerializeField] float timeSpent = 0;
+    [SerializeField] GameObject fireWork;
+    [SerializeField] GameObject extraTimeObject;
     private bool isRunning = false;
 
     public int player1Score;
     public int player2Score;
 
+    float currentBlockerBoost;
+    float currentMaxSpeed;
+    float currentEdgesBoost;
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
-
+        DontDestroyOnLoad(winnerText);
         player1ScoreText = root.Q<TextElement>("UI-ScoreLeft-Text");
         player2ScoreText = root.Q<TextElement>("UI-ScoreRight-Text");
         uiTimer = root.Q<TextElement>("UI-Time-Text");
+        bouncingBall = FindObjectOfType<BouncingBall>();
+        timeSpent = 0.1f;
+        
     }
-
     private void Update()
     {
         if (isRunning)
@@ -32,31 +49,110 @@ public class ScoreManager : MonoBehaviour
             timeSpent += Time.deltaTime;
             UpdateTimerUI(timeSpent);
         }
-
-        if(timeSpent >= 200)
+        if (timeSpent != 0)
         {
-            if(winnerText != null)
-            {
-                
-                if(player1Score > player2Score)
-                {
-                    //winnerText.SetActive(true);
-                    //winnerText.GetComponent<TextMeshPro>().text = "Congratulations " + "Player One"; 
-                }
-                if (player1Score < player2Score)
-                    {
-                        //winnerText.SetActive(true);
-                        //winnerText.GetComponent<TextMeshProUGUI>().text = "Congratulations " + "Player Two";
-                    }
-                else if(player1Score == player2Score)
-                {
-                    //winnerText.SetActive(true);
-                    //winnerText.GetComponent<TextMeshProUGUI>().text = "Draw";
-                }
-            }
-        }      
+            winCondition();
+        }
+
     }
-public void UpdateTimerUI(float timeSpent)
+    bool weHaveAWinner = false;
+    void winCondition()
+    {
+        // timespent is counted by seconds >> 600 seconds = 10 minutes
+        if (winnerText != null && timeSpent <= matchTimeBeforeHittingTheScoreTarget && timeSpent < maxMatchTime)
+        {
+            if (player1Score > scoreTarget && player1Score > player2Score + 1 && !weHaveAWinner)
+            {
+                winnerText.text = "Congratulations " + playerOneName.text;
+                GetMatchOverRules();
+                weHaveAWinner = true;
+            }
+            if (player2Score > scoreTarget && player2Score > player1Score + 1 && !weHaveAWinner)
+            {
+                winnerText.text = "Congratulations " + playerTwoName.text;
+                GetMatchOverRules();
+                weHaveAWinner = true;
+            }
+            else if(timeSpent >= matchTimeBeforeHittingTheScoreTarget)
+            {
+                extraTimeObject.SetActive(true);
+            }
+        }
+        if (winnerText != null && timeSpent > matchTimeBeforeHittingTheScoreTarget && timeSpent < maxMatchTime)
+        {
+            if (player1Score > player2Score + 1 && !weHaveAWinner)
+            {
+                winnerText.text = "Congratulations " + playerOneName.text;
+                weHaveAWinner = true;
+                GetMatchOverRules();
+            }
+            if (player2Score > player1Score + 1 && !weHaveAWinner)
+            {
+                winnerText.text = "Congratulations " + playerTwoName.text;
+                weHaveAWinner = true;
+                GetMatchOverRules();
+            }
+            else if (timeSpent >= matchTimeBeforeHittingTheScoreTarget)
+            {
+                extraTimeObject.SetActive(true);
+            }
+        }
+        if (winnerText != null && timeSpent >= maxMatchTime)
+        {
+            if (player1Score > player2Score + 1 && !weHaveAWinner)
+            {
+                winnerText.text = "Congratulations " + playerOneName.text;
+                weHaveAWinner = true;
+                GetMatchOverRules();
+            }
+            if (player2Score > player1Score + 1 && !weHaveAWinner)
+            {
+                winnerText.text = "Congratulations " + playerTwoName.text;
+                weHaveAWinner = true;
+                GetMatchOverRules();
+            }
+            else if (!weHaveAWinner)
+            {
+                winnerText.text = "Draw";
+                weHaveAWinner = true;
+                GetMatchOverRules();
+            }
+        }
+
+    }
+    //void SetCurrentRules()
+    //{
+    //    bouncingBall = FindObjectOfType<BouncingBall>();
+    //    currentBlockerBoost = bouncingBall.blockerBoost;
+    //    currentMaxSpeed = bouncingBall.maxSpeed;
+    //    currentEdgesBoost = bouncingBall.edgesBoost;
+    //}
+    void GetMatchOverRules()
+    {
+        Invoke("ResetRules", 7);
+        bouncingBall = FindObjectOfType<BouncingBall>();
+        bouncingBall.blockerBoost = 9;
+        bouncingBall.maxSpeed = 12;
+        bouncingBall.edgesBoost = 6;
+        fireWork.SetActive(true);
+        // This should be linked to later to the escape button
+
+    }
+    private void ResetRules()
+    {
+        Debug.Log("ResetRules");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //bouncingBall.rulesReset = true;
+        fireWork.SetActive(false);
+        timeSpent = 0;
+        weHaveAWinner = false;
+        winnerText.text = "";
+        //bouncingBall.blockerBoost = currentBlockerBoost;
+        //bouncingBall.maxSpeed = currentMaxSpeed;
+        //bouncingBall.edgesBoost = currentEdgesBoost;
+
+    }
+    public void UpdateTimerUI(float timeSpent)
     {
         if (!gameObject.activeInHierarchy)
             return;
@@ -96,7 +192,7 @@ public void UpdateTimerUI(float timeSpent)
             GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
 
             float randValue = Random.value;
-            if(randValue < .54f)
+            if (randValue < .54f)
                 GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
         }
         catch
@@ -119,7 +215,7 @@ public void UpdateTimerUI(float timeSpent)
 
             float randValue = Random.value;
             if (randValue < .54f)
-                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 0.92f));       
+                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 0.92f));
         }
         catch
         {

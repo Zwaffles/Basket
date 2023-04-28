@@ -51,17 +51,18 @@ public class BouncingBall : MonoBehaviour
     [Tooltip("Added force to the bottom of each basket")]
     [SerializeField] public float slowdownFactorBottom = .7f;
     #endregion
-
+     public bool rulesReset;
     private void Awake()
     {
-        
         playerController = FindObjectOfType<PlayerController>();
         player2Controller = FindObjectOfType<Player2Controller>();
         cubeMover = FindObjectOfType<CubeMover>();
+        rulesReset = false;
     }
     private void OnEnable()
     {
         initialSpeed = Random.Range(5, 20);
+        rulesReset = false;
     }
     void Start()
     {

@@ -24,6 +24,7 @@ TagManager:
   - LeftForce
   - PlayerTwoScore
   - VirtualCamera
+  - WinnerText
   layers:
   - Default
   - TransparentFX
