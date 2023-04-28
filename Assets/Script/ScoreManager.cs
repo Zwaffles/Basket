@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +30,7 @@ public class ScoreManager : MonoBehaviour
     float currentBlockerBoost;
     float currentMaxSpeed;
     float currentEdgesBoost;
+
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
