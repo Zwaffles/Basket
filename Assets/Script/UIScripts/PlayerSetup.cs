@@ -10,7 +10,7 @@ public class PlayerSetup : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.instance.uiManager.AddPlayerIndex(input.playerIndex);
-        //input.onActionTriggered
+        FindObjectOfType<InputSelection>().AddPlayerIndexToList(input.playerIndex);
+        //GameManager.instance.uiManager.AddPlayerIndex(input.playerIndex);
     }
 }
