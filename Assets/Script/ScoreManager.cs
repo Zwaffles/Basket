@@ -34,7 +34,7 @@ public class ScoreManager : MonoBehaviour
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
-        DontDestroyOnLoad(winnerText);
+        //DontDestroyOnLoad(winnerText);
         player1ScoreText = root.Q<TextElement>("UI-ScoreLeft-Text");
         player2ScoreText = root.Q<TextElement>("UI-ScoreRight-Text");
         uiTimer = root.Q<TextElement>("UI-Time-Text");
