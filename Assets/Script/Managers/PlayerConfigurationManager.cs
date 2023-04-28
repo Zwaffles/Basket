@@ -62,6 +62,8 @@ public class PlayerConfiguration
     {
         PlayerIndex = playerInput.playerIndex;
         Input = playerInput;
+        Input.notificationBehavior = PlayerNotifications.InvokeCSharpEvents;
+        Input.neverAutoSwitchControlSchemes = true;
     }
 
     public PlayerInput Input { get; set; }

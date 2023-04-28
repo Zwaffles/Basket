@@ -24,20 +24,27 @@ public class PlayerInputHandler : MonoBehaviour
     {
         playerConfiguration = _playerConfiguration;
         playerMesh.material = _playerConfiguration.PlayerMaterial;
+        //Debug.Log("setting up player " + playerConfiguration.PlayerIndex + " using the input scheme " + playerConfiguration.Input.currentControlScheme + " on the action map " + playerConfiguration.Input.currentActionMap + " with the device " + playerConfiguration.Input.devices[0].name);
         playerConfiguration.Input.onActionTriggered += Input_onActionTriggered;
     }
 
     private void Input_onActionTriggered(CallbackContext obj)
     {
+       // Debug.Log("is this getting triggered? the objects action name is " + obj.action.name + "and the controllers action name is" + controls.Player.Move.name);
+
         if(obj.action.name == controls.Player.Move.name)
         {
+           /// Debug.Log("i should be moving");
             OnMove(obj);
         }
     }
 
     private void OnMove(CallbackContext context)
     {
-        if (player != null)
-            player.SetInputVector(context.ReadValue<Vector2>());
+        if (player == null)
+            return;
+
+       // Debug.Log("literally moving rn because my movement value is " + context.ReadValue<Vector2>());
+        player.SetInputVector(context.ReadValue<Vector2>());
     }
 }

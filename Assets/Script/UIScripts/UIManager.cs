@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     private ScoreManager score;
     [SerializeField]
     private RestartButton restartButton;
+    [SerializeField]
+    private InputSelection inputSelection;
 
     private Inputaction uiInput;
 
@@ -72,5 +74,10 @@ public class UIManager : MonoBehaviour
             restartButton.RestartScene();
         }
 
+    }
+
+    public void AddPlayerIndex(int playerIndex)
+    {
+        inputSelection.AddPlayerIndexToList(playerIndex);
     }
 }
