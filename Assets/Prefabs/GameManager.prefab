@@ -808,6 +808,7 @@ MonoBehaviour:
   mainMenu: {fileID: 395504891294909895}
   score: {fileID: 2048563360}
   restartButton: {fileID: 6263983089299064892}
+  inputSelection: {fileID: 0}
 --- !u!1 &1498814559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soloScene: Assets/Scenes/Zweifel/Taher + Enviroment.unity
-  multiScene: Assets/Scenes/Zweifel/MultiplayerMockMenu.unity
+  multiScene: Assets/Scenes/Zweifel/MultiplayerMockMenu 1.unity
 --- !u!1 &2048563359
 GameObject:
   m_ObjectHideFlags: 0

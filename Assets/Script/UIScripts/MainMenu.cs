@@ -27,10 +27,7 @@ public class MainMenu : MonoBehaviour
         versusButton = root.Q<Button>("2PlayerPlayButton");
         optionsButton = root.Q<Button>("OptionsButton");
         quitButton = root.Q<Button>("QuitButton");
-    }
 
-    private void Start()
-    {
         FocusFirstElement(soloButton);
     }
 
@@ -72,6 +69,66 @@ public class MainMenu : MonoBehaviour
         {
             //quit game, duh
             Application.Quit();
+        }
+    }
+
+    public void Navigate(InputAction.CallbackContext context)
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        if (context.ReadValue<Vector2>() == Vector2.up)
+        {
+            var focusedElement = GetFocusedElement();
+
+            if (focusedElement == soloButton)
+            {
+                quitButton.Focus();
+            }
+
+            if (focusedElement == versusButton)
+            {
+                soloButton.Focus();
+            }
+
+            if (focusedElement == optionsButton)
+            {
+                versusButton.Focus();
+            }
+
+            if (focusedElement == quitButton)
+            {
+                optionsButton.Focus();
+            }
+        }
+
+        if (context.ReadValue<Vector2>() == Vector2.down)
+        {
+            var focusedElement = GetFocusedElement();
+
+            if (focusedElement == soloButton)
+            {
+                versusButton.Focus();
+            }
+
+            if (focusedElement == versusButton)
+            {
+                optionsButton.Focus();
+            }
+
+            if (focusedElement == optionsButton)
+            {
+                quitButton.Focus();
+            }
+
+            if (focusedElement == quitButton)
+            {
+                soloButton.Focus();
+            }
         }
     }
 

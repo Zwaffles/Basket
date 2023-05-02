@@ -103,6 +103,10 @@ public class GameManager : MonoBehaviour
     {
         uiManager.ToggleMainMenu(true);
         uiManager.ToggleScore(false);
+
+        currentState = GameState.Menu;
+
+        playerConfigurationManager.AllowJoining(false);
     }
 
     public void StartMatch(bool isMultiplayer)

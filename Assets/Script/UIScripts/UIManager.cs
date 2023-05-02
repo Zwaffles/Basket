@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
 
         uiInput.UI.Submit.performed += ctx => mainMenu.Submit(ctx);
         uiInput.UI.Cancel.performed += ctx => ToggleRestart(ctx);
+        uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
     }
 
     private void OnEnable()

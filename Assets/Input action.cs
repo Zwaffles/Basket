@@ -341,12 +341,12 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Navigate"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""46b82065-3aaf-4307-b178-f6f27a6bf8b8"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Submit"",
@@ -786,7 +786,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5a9d0ced-7aa4-47ae-ac66-d137c04d7c88"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
