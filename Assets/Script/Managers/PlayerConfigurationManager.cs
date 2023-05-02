@@ -22,6 +22,15 @@ public class PlayerConfigurationManager : MonoBehaviour
         return playerConfigurations;
     }
 
+    public void ClearPlayerConfigurations()
+    {
+        foreach(PlayerConfiguration player in playerConfigurations)
+        {
+            Destroy(player.Input.gameObject);
+        }
+        playerConfigurations.Clear();
+    }
+
     public void SetPlayerColor(int index, Material color)
     {
         playerConfigurations[index].PlayerMaterial = color;
