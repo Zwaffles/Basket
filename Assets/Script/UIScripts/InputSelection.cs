@@ -1005,6 +1005,7 @@ public class InputSelection : MonoBehaviour
         {
             player.Input.SwitchCurrentActionMap("Player");
         }
-        GameManager.instance.InitializeScene("Taher + Enviroment", isMultiplayer: true);
+        //GameManager.instance.InitializeScene("Taher + Enviroment", isMultiplayer: true);
+        GameManager.instance.InitializeScene("Marcus syntwave Theme", isMultiplayer: true);
     }
 }
