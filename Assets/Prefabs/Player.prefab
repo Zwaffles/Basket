@@ -401,7 +401,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5237284790505022955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -502,7 +502,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c0535f0acdbe849a74bf6ad0d52e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMesh: {fileID: 5237284790505022929}
+  playerMesh: {fileID: 1710362950144540323}
+  playerLight: {fileID: 5237284789347369938}
 --- !u!1 &5237284790981276876
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +727,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 35461085070369319}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1710362950144540323 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 6617419510e16224181daf62ee3ce7c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 35461085070369319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6389168779206144193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -817,6 +824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BasketPaddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3fe4125fb7843b4fa03dad0b2849add,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3fe4125fb7843b4fa03dad0b2849add, type: 3}

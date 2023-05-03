@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7446602678630527613}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -64,9 +64,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftColorSelector: {fileID: 0}
   rightColorSelector: {fileID: 0}
-  playerIcon: {fileID: 0}
-  playerConfirmIcon: {fileID: 0}
-  greenMaterial: {fileID: 0}
-  orangeMaterial: {fileID: 0}
-  blueMaterial: {fileID: 0}
-  redMaterial: {fileID: 0}
+  playerIcon: {fileID: 2800000, guid: fd5b083587d8fca4d8159016a2aa1928, type: 3}
+  playerConfirmIcon: {fileID: 2800000, guid: 750a2c7f2f34216459132b45462816b8, type: 3}
+  greenMaterial: {fileID: 2100000, guid: 80adf90fccdb0074aa34bb5be4001b80, type: 2}
+  orangeMaterial: {fileID: 2100000, guid: 124a80a7c13a3dd4182f7403bdbfaad0, type: 2}
+  blueMaterial: {fileID: 2100000, guid: c6901b9554b12634d808c9d1df915129, type: 2}
+  redMaterial: {fileID: 2100000, guid: aad9b76c636304846830438265d621c2, type: 2}

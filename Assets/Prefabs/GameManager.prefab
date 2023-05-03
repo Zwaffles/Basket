@@ -1189,16 +1189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winnerText: {fileID: 768728709}
-  matchTimeBeforeHittingTheScoreTarget: 300
-  maxMatchTime: 450
-  scoreTarget: 11
   playerOneName: {fileID: 1498814561}
   playerTwoName: {fileID: 63422049}
-  timeSpent: 0
   fireWork: {fileID: 7021901615620887315}
-  extraTimeObject: {fileID: 1056084985}
   player1Score: 0
   player2Score: 0
+  winByScore: 0
+  winByTime: 0
+  matchTime: 900
+  scoreTarget: 11
 --- !u!1 &1839884288919047331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1385,7 @@ MonoBehaviour:
   currentState: 1
   playerControllerPrefab: {fileID: 4838513383499909770, guid: 130b6bb9480a8e548b05be15707126ed,
     type: 3}
-  player1Material: {fileID: 2100000, guid: 638f8a79249bbbd4ebc87fb9b475a191, type: 2}
+  player1Material: {fileID: 2100000, guid: 80adf90fccdb0074aa34bb5be4001b80, type: 2}
   AI: {fileID: 0}
   playerTwo: {fileID: 0}
   ball: {fileID: 0}

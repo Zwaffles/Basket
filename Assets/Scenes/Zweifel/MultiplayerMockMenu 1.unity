@@ -473,40 +473,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
         type: 3}
-      propertyPath: playerIcon
-      value: 
-      objectReference: {fileID: 2800000, guid: fd5b083587d8fca4d8159016a2aa1928, type: 3}
-    - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
-        type: 3}
-      propertyPath: redMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 5cb9e01e427656c4684cda51d8997041, type: 2}
-    - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
-        type: 3}
-      propertyPath: blueMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 962f6a43b633aed439d0399fe3cb1b8d, type: 2}
-    - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
-        type: 3}
-      propertyPath: greenMaterial
-      value: 
-      objectReference: {fileID: 6544342956620024793, guid: bff9fd5d493e5c84aa5ee20b8b00609c,
-        type: 3}
-    - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
-        type: 3}
-      propertyPath: orangeMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 37def67b35ae4454983c10ce8e92ce85, type: 2}
-    - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
-        type: 3}
       propertyPath: leftColorSelector
       value: 
       objectReference: {fileID: 497254735}
-    - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
-        type: 3}
-      propertyPath: playerConfirmIcon
-      value: 
-      objectReference: {fileID: 2800000, guid: 750a2c7f2f34216459132b45462816b8, type: 3}
     - target: {fileID: 2598160189760824779, guid: 628e17c5ddccd99419e20ecfc180917b,
         type: 3}
       propertyPath: rightColorSelector

@@ -31,9 +31,10 @@ public class PlayerConfigurationManager : MonoBehaviour
         playerConfigurations.Clear();
     }
 
-    public void SetPlayerColor(int index, Material color)
+    public void SetPlayerColor(int index, Material material, Color color)
     {
-        playerConfigurations[index].PlayerMaterial = color;
+        playerConfigurations[index].PlayerMaterial = material;
+        playerConfigurations[index].PlayerColor = color;
     }
 
     public void ReadyPlayer(int index)
@@ -77,6 +78,7 @@ public class PlayerConfiguration
 
     public PlayerInput Input { get; set; }
     public Material PlayerMaterial { get; set; }
+    public Color PlayerColor { get; set; }
     public int PlayerIndex { get; set; }
     public bool IsReady { get; set; }
 }
