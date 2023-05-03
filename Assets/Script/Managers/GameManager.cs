@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
 
             playerInput.neverAutoSwitchControlSchemes = false;
             playerConfigurationManager.HandlePlayerJoin(playerInput);
-            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material, Color.green);
             playerConfigurationManager.AllowJoining(false);
         }
 

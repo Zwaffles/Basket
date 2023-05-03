@@ -445,6 +445,7 @@ public class InputSelection : MonoBehaviour
             {
                 case 0:
                     playerConfigs[0].PlayerMaterial = greenMaterial;
+                    playerConfigs[0].PlayerColor = Color.green;
 
                     if (!finalSelection)
                     {
@@ -463,6 +464,7 @@ public class InputSelection : MonoBehaviour
 
                 case 1:
                     playerConfigs[0].PlayerMaterial = orangeMaterial;
+                    playerConfigs[0].PlayerColor = new Color(1.0f, 0.64f, 0.0f);
 
                     if (!finalSelection)
                     {
@@ -481,6 +483,7 @@ public class InputSelection : MonoBehaviour
 
                 case 2:
                     playerConfigs[0].PlayerMaterial = blueMaterial;
+                    playerConfigs[0].PlayerColor = Color.blue;
 
                     if (!finalSelection)
                     {
@@ -499,6 +502,7 @@ public class InputSelection : MonoBehaviour
 
                 case 3:
                     playerConfigs[0].PlayerMaterial = redMaterial;
+                    playerConfigs[0].PlayerColor = Color.red;
 
                     if (!finalSelection)
                     {
@@ -797,6 +801,7 @@ public class InputSelection : MonoBehaviour
             {
                 case 0:
                     playerConfigs[1].PlayerMaterial = greenMaterial;
+                    playerConfigs[1].PlayerColor = Color.green;
 
                     if (!finalSelection)
                     {
@@ -815,6 +820,7 @@ public class InputSelection : MonoBehaviour
 
                 case 1:
                     playerConfigs[1].PlayerMaterial = orangeMaterial;
+                    playerConfigs[1].PlayerColor = new Color(1.0f, 0.64f, 0.0f);
 
                     if (!finalSelection)
                     {
@@ -833,6 +839,7 @@ public class InputSelection : MonoBehaviour
 
                 case 2:
                     playerConfigs[1].PlayerMaterial = blueMaterial;
+                    playerConfigs[1].PlayerColor = Color.blue;
 
                     if (!finalSelection)
                     {
@@ -851,6 +858,7 @@ public class InputSelection : MonoBehaviour
 
                 case 3:
                     playerConfigs[1].PlayerMaterial = redMaterial;
+                    playerConfigs[1].PlayerColor = Color.red;
 
                     if (!finalSelection)
                     {
