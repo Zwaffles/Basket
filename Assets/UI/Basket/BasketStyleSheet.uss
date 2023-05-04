@@ -227,7 +227,7 @@ Basket {
     background-color: rgba(255, 255, 255, 0);
 }
 
-.OptionSelection:focus {
+.OptionSelection:hover {
     padding-left: 2%;
     padding-right: 2%;
     padding-top: 2%;
