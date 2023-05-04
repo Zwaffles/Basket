@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Symthwave Squere Material
+  m_Name: SynthwaveTriangle Material 1
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _EMISSION
@@ -37,11 +37,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 7fe3e2842deb6464198553f4ad214dab, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0810b893658385642ac9f18aa340b716, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: e5be7fd155005cd49987c42324bb6012, type: 3}
+        m_Texture: {fileID: 2800000, guid: 863c71c4392f21e49b8d78f3ee9f0002, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -57,11 +57,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 7fe3e2842deb6464198553f4ad214dab, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0810b893658385642ac9f18aa340b716, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7fe3e2842deb6464198553f4ad214dab, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0810b893658385642ac9f18aa340b716, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -108,7 +108,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0
+    - _Metallic: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -121,8 +121,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.07524917, g: 0.27347508, b: 0.8396226, a: 1}
-    - _Color: {r: 0.07524914, g: 0.27347505, b: 0.8396226, a: 1}
-    - _EmissionColor: {r: 0.32747218, g: 0.39431, b: 5.3403134, a: 1}
+    - _BaseColor: {r: 0, g: 0, b: 0.5254902, a: 1}
+    - _Color: {r: 0, g: 0, b: 0.5254902, a: 1}
+    - _EmissionColor: {r: 1.6920912, g: 8.47419, b: 0.5767774, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
