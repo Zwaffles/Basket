@@ -7,8 +7,10 @@ public class UIManager : MonoBehaviour
     private MainMenu mainMenu;
     [SerializeField]
     private ScoreManager score;
+    //[SerializeField]
+    //private RestartButton restartButton;
     [SerializeField]
-    private RestartButton restartButton;
+    private GameObject pauseMenu;
     [SerializeField]
     private InputSelection inputSelection;
 
@@ -19,7 +21,9 @@ public class UIManager : MonoBehaviour
         uiInput = new Inputaction();
 
         uiInput.UI.Submit.performed += ctx => mainMenu.Submit(ctx);
-        uiInput.UI.Cancel.performed += ctx => ToggleRestart(ctx);
+        //uiInput.UI.Cancel.performed += ctx => ToggleRestart(ctx);
+        uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
+        uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
     }
 
     private void OnEnable()
@@ -51,7 +55,7 @@ public class UIManager : MonoBehaviour
         score.gameObject.SetActive(active);
     }
 
-    public void ToggleRestart(InputAction.CallbackContext context)
+    public void TogglePause(InputAction.CallbackContext context)
     {
         if (!gameObject.activeInHierarchy)
             return;
@@ -63,18 +67,43 @@ public class UIManager : MonoBehaviour
         if (GameManager.instance.CurrentState != GameState.Play)
             return;
 
-        if (!restartButton.gameObject.activeInHierarchy)
+        if (!pauseMenu.gameObject.activeInHierarchy)
         {
-            restartButton.gameObject.SetActive(true);
+            pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0f;
             return;
         }
 
-        if (restartButton.gameObject.activeInHierarchy)
+        if (pauseMenu.gameObject.activeInHierarchy)
         {
-            restartButton.RestartScene();
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
         }
-
     }
+
+    //public void ToggleRestart(InputAction.CallbackContext context)
+    //{
+    //    if (!gameObject.activeInHierarchy)
+    //        return;
+
+    //    var phase = context.phase;
+    //    if (phase != InputActionPhase.Performed)
+    //        return;
+
+    //    if (GameManager.instance.CurrentState != GameState.Play)
+    //        return;
+
+    //    if (!restartButton.gameObject.activeInHierarchy)
+    //    {
+    //        restartButton.gameObject.SetActive(true);
+    //        return;
+    //    }
+
+    //    if (restartButton.gameObject.activeInHierarchy)
+    //    {
+    //        restartButton.RestartScene();
+    //    }
+    //}
 
     public void AddPlayerIndex(int playerIndex)
     {

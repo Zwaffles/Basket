@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public enum InputSelectionState
@@ -87,6 +88,23 @@ public class InputSelection : MonoBehaviour
         rightContainer = root.Q<VisualElement>("Right-Container");
 
         player3Container.style.opacity = 0f;
+
+        playerConfigs = GameManager.instance.playerConfigurationManager.GetPlayerConfigurations();
+        if(playerConfigs.Count == 1)
+        {
+            SubscribePlayer1Input(playerConfigs[0].Input);
+        }
+
+        if (playerConfigs.Count == 2)
+        {
+            SubscribePlayer1Input(playerConfigs[0].Input);
+            SubscribePlayer2Input(playerConfigs[1].Input);
+        }
+    }
+
+    private void OnDisable()
+    {
+        
     }
 
     public void AddPlayerIndexToList(int playerIndex)
@@ -143,6 +161,43 @@ public class InputSelection : MonoBehaviour
         navigateAction.performed += Navigate2;
         submitAction.performed += Submit2;
         cancelAction.performed += Cancel2;
+    }
+
+    public void UnsubscribePlayerInputs()
+    {
+        playerConfigs = GameManager.instance.playerConfigurationManager.GetPlayerConfigurations();
+        if (playerConfigs.Count == 1)
+        {
+            var playerInputActionMap = playerConfigs[0].Input.currentActionMap;
+            navigateAction = playerInputActionMap.FindAction("Navigate");
+            submitAction = playerInputActionMap.FindAction("Submit");
+            cancelAction = playerInputActionMap.FindAction("Cancel");
+
+            navigateAction.performed -= Navigate;
+            submitAction.performed -= Submit;
+            cancelAction.performed -= Cancel;
+        }
+
+        if (playerConfigs.Count == 2)
+        {
+            var playerInputActionMap = playerConfigs[0].Input.currentActionMap;
+            navigateAction = playerInputActionMap.FindAction("Navigate");
+            submitAction = playerInputActionMap.FindAction("Submit");
+            cancelAction = playerInputActionMap.FindAction("Cancel");
+
+            navigateAction.performed -= Navigate;
+            submitAction.performed -= Submit;
+            cancelAction.performed -= Cancel;
+
+            playerInputActionMap = playerConfigs[1].Input.currentActionMap;
+            navigateAction = playerInputActionMap.FindAction("Navigate");
+            submitAction = playerInputActionMap.FindAction("Submit");
+            cancelAction = playerInputActionMap.FindAction("Cancel");
+
+            navigateAction.performed -= Navigate2;
+            submitAction.performed -= Submit2;
+            cancelAction.performed -= Cancel2;
+        }
     }
 
     private void Navigate(InputAction.CallbackContext context)
@@ -364,6 +419,8 @@ public class InputSelection : MonoBehaviour
             {
                 ColorSelection(ColorSelectionState.player1Selecting);
             }
+
+            return;
         }
 
         if (player1State == InputSelectionState.right)
@@ -375,6 +432,8 @@ public class InputSelection : MonoBehaviour
             {
                 ColorSelection(ColorSelectionState.player2Selecting);
             }
+
+            return;
         }
 
         if(colorSelectionState == ColorSelectionState.player1Selecting)
@@ -386,6 +445,7 @@ public class InputSelection : MonoBehaviour
             {
                 case 0:
                     playerConfigs[0].PlayerMaterial = greenMaterial;
+                    playerConfigs[0].PlayerColor = Color.green;
 
                     if (!finalSelection)
                     {
@@ -404,6 +464,7 @@ public class InputSelection : MonoBehaviour
 
                 case 1:
                     playerConfigs[0].PlayerMaterial = orangeMaterial;
+                    playerConfigs[0].PlayerColor = new Color(1.0f, 0.64f, 0.0f);
 
                     if (!finalSelection)
                     {
@@ -422,6 +483,7 @@ public class InputSelection : MonoBehaviour
 
                 case 2:
                     playerConfigs[0].PlayerMaterial = blueMaterial;
+                    playerConfigs[0].PlayerColor = Color.blue;
 
                     if (!finalSelection)
                     {
@@ -440,6 +502,7 @@ public class InputSelection : MonoBehaviour
 
                 case 3:
                     playerConfigs[0].PlayerMaterial = redMaterial;
+                    playerConfigs[0].PlayerColor = Color.red;
 
                     if (!finalSelection)
                     {
@@ -461,7 +524,37 @@ public class InputSelection : MonoBehaviour
 
     private void Cancel(InputAction.CallbackContext context)    
     {
+        if (!gameObject.activeInHierarchy)
+            return;
 
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        if (player1State != InputSelectionState.lockedLeft && player1State != InputSelectionState.lockedRight)
+        {
+            UnsubscribePlayerInputs();
+            foreach (PlayerConfiguration player in playerConfigs)
+            {
+                player.Input.SwitchCurrentActionMap("Player");
+            }
+            GameManager.instance.StartMenu();
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        if(player1State == InputSelectionState.lockedLeft)
+        {
+            player1State = InputSelectionState.left;
+            leftContainer.Q<VisualElement>("LeftPlayer").style.backgroundImage = playerIcon;
+            DisableColorSelection();
+        }
+
+        if (player1State == InputSelectionState.lockedRight)
+        {
+            player1State = InputSelectionState.right;
+            rightContainer.Q<VisualElement>("RightPlayer").style.backgroundImage = playerIcon;
+            DisableColorSelection();
+        }
     }
 
     private void Navigate2(InputAction.CallbackContext context)
@@ -708,6 +801,7 @@ public class InputSelection : MonoBehaviour
             {
                 case 0:
                     playerConfigs[1].PlayerMaterial = greenMaterial;
+                    playerConfigs[1].PlayerColor = Color.green;
 
                     if (!finalSelection)
                     {
@@ -726,6 +820,7 @@ public class InputSelection : MonoBehaviour
 
                 case 1:
                     playerConfigs[1].PlayerMaterial = orangeMaterial;
+                    playerConfigs[1].PlayerColor = new Color(1.0f, 0.64f, 0.0f);
 
                     if (!finalSelection)
                     {
@@ -744,6 +839,7 @@ public class InputSelection : MonoBehaviour
 
                 case 2:
                     playerConfigs[1].PlayerMaterial = blueMaterial;
+                    playerConfigs[1].PlayerColor = Color.blue;
 
                     if (!finalSelection)
                     {
@@ -762,6 +858,7 @@ public class InputSelection : MonoBehaviour
 
                 case 3:
                     playerConfigs[1].PlayerMaterial = redMaterial;
+                    playerConfigs[1].PlayerColor = Color.red;
 
                     if (!finalSelection)
                     {
@@ -783,7 +880,37 @@ public class InputSelection : MonoBehaviour
 
     private void Cancel2(InputAction.CallbackContext context)
     {
+        if (!gameObject.activeInHierarchy)
+            return;
 
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        if (player2State != InputSelectionState.lockedLeft && player2State != InputSelectionState.lockedRight)
+        {
+            UnsubscribePlayerInputs();
+            foreach (PlayerConfiguration player in playerConfigs)
+            {
+                player.Input.SwitchCurrentActionMap("Player");
+            }
+            GameManager.instance.StartMenu();
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        if (player2State == InputSelectionState.lockedLeft)
+        {
+            player2State = InputSelectionState.left;
+            leftContainer.Q<VisualElement>("LeftPlayer").style.backgroundImage = playerIcon;
+            DisableColorSelection();
+        }
+
+        if (player2State == InputSelectionState.lockedRight)
+        {
+            player2State = InputSelectionState.right;
+            rightContainer.Q<VisualElement>("RightPlayer").style.backgroundImage = playerIcon;
+            DisableColorSelection();
+        }
     }
 
     private void ColorSelection(ColorSelectionState state)
@@ -822,13 +949,63 @@ public class InputSelection : MonoBehaviour
         rightRoot.Q<VisualElement>("GreenColor").Focus();
     }
 
+    private void DisableColorSelection()
+    {
+        colorSelectionState = ColorSelectionState.notSelecting;
+        if(player1State == InputSelectionState.left || player2State == InputSelectionState.left || player1State == InputSelectionState.lockedLeft || player2State == InputSelectionState.lockedLeft)
+        {
+            leftContainer.style.opacity = 1f;
+        }
+
+        if (player1State == InputSelectionState.right || player2State == InputSelectionState.right || player1State == InputSelectionState.lockedRight || player2State == InputSelectionState.lockedRight)
+        {
+            rightContainer.style.opacity = 1f;
+        }
+
+        firstColor = -1;
+        currentColor = 0;
+        finalSelection = false;
+
+        if (rightColorSelector.activeInHierarchy)
+        {
+            rightRoot.Q<VisualElement>("GreenColor").style.opacity = 1f;
+            rightRoot.Q<VisualElement>("OrangeColor").style.opacity = 1f;
+            rightRoot.Q<VisualElement>("BlueColor").style.opacity = 1f;
+            rightRoot.Q<VisualElement>("RedColor").style.opacity = 1f;
+
+            rightRoot.Q<VisualElement>("CheckmarkGreen").style.opacity = 0f;
+            rightRoot.Q<VisualElement>("CheckmarkOrange").style.opacity = 0f;
+            rightRoot.Q<VisualElement>("CheckmarkBlue").style.opacity = 0f;
+            rightRoot.Q<VisualElement>("CheckmarkRed").style.opacity = 0f;
+
+            rightColorSelector.SetActive(false);
+        }
+
+        if (leftColorSelector.activeInHierarchy)
+        {
+            leftRoot.Q<VisualElement>("GreenColor").style.opacity = 1f;
+            leftRoot.Q<VisualElement>("OrangeColor").style.opacity = 1f;
+            leftRoot.Q<VisualElement>("BlueColor").style.opacity = 1f;
+            leftRoot.Q<VisualElement>("RedColor").style.opacity = 1f;
+
+            leftRoot.Q<VisualElement>("CheckmarkGreen").style.opacity = 0f;
+            leftRoot.Q<VisualElement>("CheckmarkOrange").style.opacity = 0f;
+            leftRoot.Q<VisualElement>("CheckmarkBlue").style.opacity = 0f;
+            leftRoot.Q<VisualElement>("CheckmarkRed").style.opacity = 0f;
+
+            leftColorSelector.SetActive(false);
+        }
+    }
+
     private void FinishSelection()
     {
         colorSelectionState = ColorSelectionState.hasSelected;
-        foreach(PlayerConfiguration player in playerConfigs)
+        UnsubscribePlayerInputs();
+        foreach (PlayerConfiguration player in playerConfigs)
         {
             player.Input.SwitchCurrentActionMap("Player");
         }
-        GameManager.instance.InitializeScene("Taher + Enviroment", isMultiplayer: true);
+        //GameManager.instance.InitializeScene("Taher + Enviroment", isMultiplayer: true);
+        GameManager.instance.InitializeScene("Marcus syntwave Theme", isMultiplayer: true);
     }
 }

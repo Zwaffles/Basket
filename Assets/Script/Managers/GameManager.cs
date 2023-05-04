@@ -101,8 +101,14 @@ public class GameManager : MonoBehaviour
 
     public void StartMenu()
     {
+        StopCoroutine("Respawn");
+
         uiManager.ToggleMainMenu(true);
         uiManager.ToggleScore(false);
+
+        currentState = GameState.Menu;
+
+        playerConfigurationManager.AllowJoining(false);
     }
 
     public void StartMatch(bool isMultiplayer)
@@ -183,15 +189,17 @@ public class GameManager : MonoBehaviour
 
     public void InitializeScene(string scenePath, bool isMultiplayer = false)
     {
-        if (!isMultiplayer && playerConfigurationManager.GetPlayerConfigurations().Count < 1)
+        if (!isMultiplayer)
         {
+            playerConfigurationManager.ClearPlayerConfigurations();
+
             playerConfigurationManager.AllowJoining(true);
             var playerController = Instantiate(playerControllerPrefab);
             var playerInput = playerController.GetComponent<PlayerInput>();
 
             playerInput.neverAutoSwitchControlSchemes = false;
             playerConfigurationManager.HandlePlayerJoin(playerInput);
-            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
+            playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material, Color.green);
             playerConfigurationManager.AllowJoining(false);
         }
 
@@ -255,12 +263,14 @@ public class GameManager : MonoBehaviour
             ball.transform.position = ballLeftSpawn.position;
             ball.SetActive(true);
         }
+
+        Time.timeScale = originalTimeScale;
     }
 
     private void Update()
     {
-        if(virtualCameraNoise != null)
-            CameraShake();
+        //if(virtualCameraNoise != null)
+        //    CameraShake();
     }
 
     private void CameraShake()

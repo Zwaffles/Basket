@@ -14,6 +14,9 @@ public class PlayerInputHandler : MonoBehaviour
 
     private Inputaction controls;
 
+    [SerializeField]
+    private Light playerLight;
+
     private void Awake()
     {
         player = GetComponent<PlayerController>();
@@ -24,6 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         playerConfiguration = _playerConfiguration;
         playerMesh.material = _playerConfiguration.PlayerMaterial;
+        playerLight.color = _playerConfiguration.PlayerColor;
         //Debug.Log("setting up player " + playerConfiguration.PlayerIndex + " using the input scheme " + playerConfiguration.Input.currentControlScheme + " on the action map " + playerConfiguration.Input.currentActionMap + " with the device " + playerConfiguration.Input.devices[0].name);
         playerConfiguration.Input.onActionTriggered += Input_onActionTriggered;
     }
