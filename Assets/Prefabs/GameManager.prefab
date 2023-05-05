@@ -1194,10 +1194,10 @@ MonoBehaviour:
   fireWork: {fileID: 7021901615620887315}
   player1Score: 0
   player2Score: 0
-  winByScore: 0
-  winByTime: 0
-  matchTime: 900
-  scoreTarget: 11
+  winByScore: 1
+  winByTime: 1
+  matchTime: 10
+  scoreTarget: 3
 --- !u!1 &760089509145347830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,10 +1618,10 @@ MonoBehaviour:
   ballRightSpawn: {fileID: 1994957356852059593}
   ballLeftSpawn: {fileID: 1994957355426687905}
   virtualCamera: {fileID: 0}
-  shakeDuration: 0.75
-  shakeAmplitude: 1.2
-  shakeFrequency: 2
-  timeSlowDuration: 0.04
+  shakeDuration: 0.4
+  shakeAmplitude: 0.61
+  shakeFrequency: 1
+  timeSlowDuration: 0.001
 --- !u!1 &1994957355426687904
 GameObject:
   m_ObjectHideFlags: 0
