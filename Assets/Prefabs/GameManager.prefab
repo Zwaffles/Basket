@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06733668f58ab64283569700551430f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winnerText: {fileID: 768728709}
+  winnerText: {fileID: 0}
   playerOneName: {fileID: 1498814561}
   playerTwoName: {fileID: 63422049}
   fireWork: {fileID: 7021901615620887315}

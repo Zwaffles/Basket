@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class VariablesModifier : MonoBehaviour
 {
     GameManager gameManager;
-    BouncingBall bouncingBall;
+    [SerializeField] BouncingBall bouncingBall;
     PlayerController[] playerController;
     Player2Controller player2Controller;
     CubeMover cubeMover;
@@ -71,7 +71,7 @@ public class VariablesModifier : MonoBehaviour
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        bouncingBall = FindObjectOfType<BouncingBall>();
+        //bouncingBall = FindObjectOfType<BouncingBall>();
         playerController = FindObjectsOfType<PlayerController>();
         player2Controller = FindObjectOfType<Player2Controller>();
         cubeMover = FindObjectOfType<CubeMover>();
