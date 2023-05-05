@@ -12,7 +12,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu;
     [SerializeField]
-    private InputSelection inputSelection;
+    private OptionsMenu optionsMenu;
+    [SerializeField]
+    private VideoMenu videoMenu;
+    [SerializeField]
+    private AudioMenu audioMenu;
 
     private Inputaction uiInput;
 
@@ -21,9 +25,15 @@ public class UIManager : MonoBehaviour
         uiInput = new Inputaction();
 
         uiInput.UI.Submit.performed += ctx => mainMenu.Submit(ctx);
-        //uiInput.UI.Cancel.performed += ctx => ToggleRestart(ctx);
-        uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
+        uiInput.UI.Submit.performed += ctx => optionsMenu.Submit(ctx);
+        uiInput.UI.Submit.performed += ctx => videoMenu.Submit(ctx);
+
         uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
+        uiInput.UI.Navigate.performed += ctx => optionsMenu.Navigate(ctx);
+        uiInput.UI.Navigate.performed += ctx => videoMenu.Navigate(ctx);
+
+        uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
+
     }
 
     private void OnEnable()
@@ -45,6 +55,21 @@ public class UIManager : MonoBehaviour
     public void ToggleMainMenu(bool active)
     {
         mainMenu.gameObject.SetActive(active);
+    }
+
+    public void ToggleOptionsMenu(bool active)
+    {
+        optionsMenu.gameObject.SetActive(active);
+    }
+
+    public void ToggleVideoMenu(bool active)
+    {
+        videoMenu.gameObject.SetActive(active);
+    }
+
+    public void ToggleAudioMenu(bool active)
+    {
+        audioMenu.gameObject.SetActive(active);
     }
 
     public void ToggleScore(bool active)
@@ -104,9 +129,4 @@ public class UIManager : MonoBehaviour
     //        restartButton.RestartScene();
     //    }
     //}
-
-    public void AddPlayerIndex(int playerIndex)
-    {
-        inputSelection.AddPlayerIndexToList(playerIndex);
-    }
 }
