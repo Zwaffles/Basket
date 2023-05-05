@@ -101,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     public void StartMenu()
     {
+        StopCoroutine("Respawn");
+
         uiManager.ToggleMainMenu(true);
         uiManager.ToggleScore(false);
 
@@ -261,12 +263,14 @@ public class GameManager : MonoBehaviour
             ball.transform.position = ballLeftSpawn.position;
             ball.SetActive(true);
         }
+
+        Time.timeScale = originalTimeScale;
     }
 
     private void Update()
     {
-        if(virtualCameraNoise != null)
-            CameraShake();
+        //if(virtualCameraNoise != null)
+        //    CameraShake();
     }
 
     private void CameraShake()
