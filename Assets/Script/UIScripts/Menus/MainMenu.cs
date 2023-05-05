@@ -7,6 +7,9 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
+    public string soloScene;
+    public string multiScene;
+
     private VisualElement root;
 
     private Button soloButton;
@@ -14,13 +17,13 @@ public class MainMenu : MonoBehaviour
     private Button optionsButton;
     private Button quitButton;
 
-    private Inputaction uiInput;
-
-    public string soloScene;
-    public string multiScene;
+    private float ignoreInputTime;
+    private bool inputEnabled;
 
     private void OnEnable()
     {
+        inputEnabled = false;
+
         root = GetComponent<UIDocument>().rootVisualElement;
 
         soloButton = root.Q<Button>("1PlayerPlayButton");
@@ -29,6 +32,15 @@ public class MainMenu : MonoBehaviour
         quitButton = root.Q<Button>("QuitButton");
 
         FocusFirstElement(soloButton);
+        ignoreInputTime = Time.time + .25f;
+    }
+
+    private void Update()
+    {
+        if (Time.time > ignoreInputTime)
+        {
+            inputEnabled = true;
+        }
     }
 
     public void FocusFirstElement(VisualElement firstElement)
@@ -38,6 +50,9 @@ public class MainMenu : MonoBehaviour
 
     public void Submit(InputAction.CallbackContext context)
     {
+        if (!inputEnabled)
+            return;
+
         if (!gameObject.activeInHierarchy)
             return;
 
@@ -56,13 +71,13 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene(multiScene);
             GameManager.instance.StartMultiplayer();
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         if(focusedElement == optionsButton)
         {
-            //do some OPTIONS stuff
-            Debug.LogWarning("No options menu yet :(");
+            GameManager.instance.uiManager.ToggleOptionsMenu(true);
+            gameObject.SetActive(false);
         }
 
         if(focusedElement == quitButton)
