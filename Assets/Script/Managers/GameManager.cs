@@ -264,13 +264,13 @@ public class GameManager : MonoBehaviour
             ball.SetActive(true);
         }
 
-        Time.timeScale = originalTimeScale;
+        //Time.timeScale = originalTimeScale;
     }
 
     private void Update()
     {
-        //if(virtualCameraNoise != null)
-        //    CameraShake();
+        if(virtualCameraNoise != null)
+            CameraShake();
     }
 
     private void CameraShake()
