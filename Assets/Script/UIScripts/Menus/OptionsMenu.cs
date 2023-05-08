@@ -72,7 +72,9 @@ public class OptionsMenu : MonoBehaviour
 
         if (focusedElement == creditsButton)
         {
-            Debug.LogWarning("Credits not yet implemented :(");
+            GameManager.instance.uiManager.ToggleCreditMenu(true);
+            gameObject.SetActive(false);
+            //Debug.LogWarning("Credits not yet implemented :(");
         }
 
         if (focusedElement == returnButton)
