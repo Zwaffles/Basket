@@ -27,10 +27,12 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Submit.performed += ctx => mainMenu.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => optionsMenu.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => videoMenu.Submit(ctx);
+        uiInput.UI.Submit.performed += ctx => audioMenu.Submit(ctx);
 
         uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => optionsMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => videoMenu.Navigate(ctx);
+        uiInput.UI.Navigate.performed += ctx => audioMenu.Navigate(ctx);
 
         uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
 

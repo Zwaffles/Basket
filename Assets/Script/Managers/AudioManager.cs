@@ -6,16 +6,19 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private List<AudioSource> sfxSources;
+    private AudioSource voiceSource;
     private AudioSource musicSource;
 
     [SerializeField, Tooltip("The Amount of Available SFX Sources")]
     private int numberOfSFXSources = 5; 
 
-    public float SfxVolume { get; set; } = 1f;
-    public float MusicVolume { get; set; } = .4f;
-    public float MasterVolume { get; set; } = 1f;
+    public float SfxVolume { get; set; } = .5f;
+    public float VoiceVolume { get; set; } = .5f;
+    public float MusicVolume { get; set; } = .5f;
+    public float MasterVolume { get; set; } = .5f;
 
     private Dictionary<string, AudioClip> sfxClipsDict;
+    private Dictionary<string, AudioClip> voiceClipsDict;
     private Dictionary<string, AudioClip> musicClipsDict;
 
     private void Awake()
@@ -26,6 +29,8 @@ public class AudioManager : MonoBehaviour
             sfxSources.Add(gameObject.AddComponent<AudioSource>());
         }
 
+        voiceSource = gameObject.AddComponent<AudioSource>();
+
         musicSource = gameObject.AddComponent<AudioSource>();
 
         // Populate the sfx clips dictionary
@@ -34,8 +39,16 @@ public class AudioManager : MonoBehaviour
         foreach (AudioClip clip in sfxClips)
         {
             sfxClipsDict.Add(clip.name, clip);
-        }        
-        
+        }
+
+        // Populate the sfx clips dictionary
+        voiceClipsDict = new Dictionary<string, AudioClip>();
+        AudioClip[] voiceClips = Resources.LoadAll<AudioClip>("Audio/Voice");
+        foreach (AudioClip clip in voiceClips)
+        {
+            voiceClipsDict.Add(clip.name, clip);
+        }
+
         // Populate the music clips dictionary
         musicClipsDict = new Dictionary<string, AudioClip>();
         AudioClip[] musicClips = Resources.LoadAll<AudioClip>("Audio/Music");
@@ -57,6 +70,20 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning($"Audio clip {clipName} not found in sfx dictionary.");
+        }
+    }
+
+    public void PlayVoice(string clipName, float pitch = 1f)
+    {
+        AudioClip clip;
+        if (sfxClipsDict.TryGetValue(clipName, out clip))
+        {
+            voiceSource.pitch = pitch;
+            voiceSource.PlayOneShot(clip, VoiceVolume * MasterVolume);
+        }
+        else
+        {
+            Debug.LogWarning($"Audio clip {clipName} not found in voicec dictionary.");
         }
     }
 
@@ -115,12 +142,14 @@ public class AudioManager : MonoBehaviour
     public void PauseAudio()
     {
         sfxSources.ForEach(source => source.Pause());
+        voiceSource.Pause();
         musicSource.Pause();
     }
 
     public void UnPauseAudio()
     {
         sfxSources.ForEach(source => source.UnPause());
+        voiceSource.UnPause();
         musicSource.UnPause();
     }
 
