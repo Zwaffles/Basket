@@ -1,3 +1,4 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Basket/CreditsV1.uss?fileID=7433441132597879392&amp;guid=ad377c11213c96b4b8b5c361fe37c482&amp;type=3#CreditsV1" />
+    <ui:ListView focusable="true" name="Credits" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Plchldr_Credits.png?fileID=2800000&amp;guid=ba59bab416f8f9b4c8817b3d7edc976c&amp;type=3#Plchldr_Credits&apos;); -unity-slice-top: 0; -unity-slice-bottom: 0; height: 300%; max-height: 300%; min-height: 300%; flex-direction: column; flex-wrap: nowrap; transform-origin: center; translate: 0 0;" />
 </ui:UXML>
