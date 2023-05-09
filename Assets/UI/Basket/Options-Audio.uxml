@@ -7,7 +7,7 @@
                     <ui:VisualElement name="TitleBox" style="flex-direction: row;">
                         <ui:Label text="Audio" display-tooltip-when-elided="true" name="TitleText" style="-unity-font-style: bold-and-italic; font-size: 100px; color: rgb(255, 255, 255); margin-left: 48px; margin-right: 48px; margin-top: 48px; margin-bottom: 48px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
+                    <ui:VisualElement name="OptionBox" focusable="true" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
                         <ui:VisualElement name="SliderNameBox" style="height: 100%; width: 24%;">
                             <ui:Label text="Master" display-tooltip-when-elided="true" name="SliderNameText" style="color: rgb(255, 255, 255); font-size: 48px; -unity-font-style: bold-and-italic;" />
                         </ui:VisualElement>
@@ -18,7 +18,7 @@
                             <ui:Label text="50%" display-tooltip-when-elided="true" name="MasterAmountText" style="color: rgb(255, 255, 255); font-size: 40px; -unity-font-style: bold;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
+                    <ui:VisualElement name="OptionBox" focusable="true" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
                         <ui:VisualElement name="SliderNameBox" style="height: 100%; width: 24%;">
                             <ui:Label text="Music" display-tooltip-when-elided="true" name="SliderNameText" style="color: rgb(255, 255, 255); font-size: 48px; -unity-font-style: bold-and-italic;" />
                         </ui:VisualElement>
@@ -29,7 +29,7 @@
                             <ui:Label text="50%" display-tooltip-when-elided="true" name="MusicAmountText" style="color: rgb(255, 255, 255); font-size: 40px; -unity-font-style: bold;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
+                    <ui:VisualElement name="OptionBox" focusable="true" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
                         <ui:VisualElement name="SliderNameBox" style="height: 100%; width: 24%;">
                             <ui:Label text="SFX" display-tooltip-when-elided="true" name="SliderNameText" style="color: rgb(255, 255, 255); font-size: 48px; -unity-font-style: bold-and-italic;" />
                         </ui:VisualElement>
@@ -40,7 +40,7 @@
                             <ui:Label text="50%" display-tooltip-when-elided="true" name="SFXAmountText" style="color: rgb(255, 255, 255); font-size: 40px; -unity-font-style: bold;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="OptionBox" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
+                    <ui:VisualElement name="OptionBox" focusable="true" class="OptionSelection" style="flex-direction: row; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0;">
                         <ui:VisualElement name="SliderNameBox" style="height: 100%; width: 24%;">
                             <ui:Label text="Voice" display-tooltip-when-elided="true" name="SliderNameText" style="color: rgb(255, 255, 255); font-size: 48px; -unity-font-style: bold-and-italic;" />
                         </ui:VisualElement>
