@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Navigate.performed += ctx => optionsMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => videoMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => audioMenu.Navigate(ctx);
+        uiInput.UI.Navigate.performed += ctx => creditScroll.Navigate(ctx);
 
         uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
 
