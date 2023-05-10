@@ -45,6 +45,7 @@ public class ScoreManager : MonoBehaviour
         uiTimer = root.Q<TextElement>("UI-Time-Text");
         bouncingBall = FindObjectOfType<BouncingBall>();
         timeSpent = 0.1f;
+        fireWork.SetActive(false);
 
     }
     private void Update()
@@ -58,10 +59,7 @@ public class ScoreManager : MonoBehaviour
         {
             WinCondition();
         }
-
     }
-
-
     void WinCondition()
     {
         if (winByScore)
