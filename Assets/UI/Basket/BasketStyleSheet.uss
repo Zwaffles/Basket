@@ -1,3 +1,7 @@
+:root {
+    -unity-font-definition: url('project://database/Assets/UI/Basket/Fonts/Audiowide-Regular.ttf?fileID=12800000&guid=a9e80cc9cc847a145b2c572b7a6ea927&type=3#Audiowide-Regular');
+}
+
 Basket {
 }
 
@@ -233,4 +237,16 @@ Basket {
     padding-top: 2%;
     padding-bottom: 2%;
     background-color: rgb(63, 63, 63);
+}
+
+.GreenOptions {
+    width: 40%;
+    height: 70%;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    transition-duration: 0.1s;
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Green-Box.png?fileID=2800000&guid=76b6bcda40b5eb4429fe2a907512bea9&type=3#Green-Box');
+    -unity-font: url('project://database/Assets/UI/Basket/Fonts/Audiowide-Regular.ttf?fileID=12800000&guid=a9e80cc9cc847a145b2c572b7a6ea927&type=3#Audiowide-Regular');
 }
