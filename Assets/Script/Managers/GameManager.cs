@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     private PlayerInput playerInput;
 
+    [SerializeField] bool multiBallsMode = false;
+
     [SerializeField] float MaxtimeForWarning = 4;
     [SerializeField] float timeBeforeWarningRespawn = 2; //seconds
     [SerializeField] GameObject[] warningSign;
@@ -244,12 +246,13 @@ public class GameManager : MonoBehaviour
     //        SceneManager.LoadScene("Version 02");
     //    }
     //}
-    
 
+    
     public void RespawnBall(int value)
     {
         timeSlowElapsedTime = timeSlowDuration;
         Time.timeScale = originalTimeScale * 0.25f;
+        if(!multiBallsMode)
         StartCoroutine("Respawn", value);
         ball.SetActive(false);
         ResetWarning(-1);
