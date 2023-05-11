@@ -120,17 +120,25 @@ public class CreditScroll : MonoBehaviour
             return;
 
         var phase = context.phase;
-        if (phase != InputActionPhase.Performed)
+
+        if (phase == InputActionPhase.Started)
+        {
+
+            if (context.ReadValue<Vector2>() == Vector2.up)
+            {
+                currentScrollSpeed = -reverseScrollSpeed;
+            }
+            else if (context.ReadValue<Vector2>() == Vector2.down)
+            {
+                currentScrollSpeed = fastForwardScrollSpeed;
+            }
+
+        }
+
+        if (context.canceled != true)
             return;
 
-        if (context.ReadValue<Vector2>() == Vector2.up)
-        {
-            currentScrollSpeed = -reverseScrollSpeed;
-        }
-        else if (context.ReadValue<Vector2>() == Vector2.down)
-        {
-            currentScrollSpeed = fastForwardScrollSpeed;
-        }
+        currentScrollSpeed = scrollSpeed;
 
     }
 
