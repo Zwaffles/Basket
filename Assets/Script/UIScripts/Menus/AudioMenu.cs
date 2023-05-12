@@ -9,6 +9,11 @@ public class AudioMenu : MonoBehaviour
 {
     private VisualElement root;
 
+    private VisualElement masterContainer;
+    private VisualElement musicContainer;
+    private VisualElement sfxContainer;
+    private VisualElement voiceContainer;
+
     private SliderInt masterSlider;
     private SliderInt musicSlider;
     private SliderInt sfxSlider;
@@ -37,6 +42,11 @@ public class AudioMenu : MonoBehaviour
 
         root = GetComponent<UIDocument>().rootVisualElement;
 
+        masterContainer = root.Q<VisualElement>("MasterContainer");
+        musicContainer = root.Q<VisualElement>("MusicContainer");
+        sfxContainer = root.Q<VisualElement>("SFXContainer");
+        voiceContainer = root.Q<VisualElement>("VoiceContainer");
+
         masterSlider = root.Q<SliderInt>("MasterSlider");
         musicSlider = root.Q<SliderInt>("MusicSlider");
         sfxSlider = root.Q<SliderInt>("SFXSlider");
@@ -50,7 +60,7 @@ public class AudioMenu : MonoBehaviour
         confirmButton = root.Q<Button>("Confirm");
         defaultButton = root.Q<Button>("Default");
 
-        FocusFirstElement(masterSlider);
+        FocusFirstElement(masterContainer);
         ignoreInputTime = Time.time + .25f;
 
         InitializeAudioMenu();
@@ -114,6 +124,11 @@ public class AudioMenu : MonoBehaviour
 
         if (focusedElement == defaultButton)
         {
+            masterValue = defaultSliderValue;
+            musicValue = defaultSliderValue;
+            sfxValue = defaultSliderValue;
+            voiceValue = defaultSliderValue;
+
             masterSlider.value = defaultSliderValue;
             musicSlider.value = defaultSliderValue;
             sfxSlider.value = defaultSliderValue;
@@ -139,34 +154,34 @@ public class AudioMenu : MonoBehaviour
         {
             var focusedElement = GetFocusedElement();
 
-            if (focusedElement == masterSlider)
+            if (focusedElement == masterContainer)
             {
                 confirmButton.Focus();
             }
 
-            if (focusedElement == musicSlider)
+            if (focusedElement == musicContainer)
             {
-                masterSlider.Focus();
+                masterContainer.Focus();
             }
 
-            if (focusedElement == sfxSlider)
+            if (focusedElement == sfxContainer)
             {
-                musicSlider.Focus();
+                musicContainer.Focus();
             }
 
-            if (focusedElement == voiceSlider)
+            if (focusedElement == voiceContainer)
             {
-                sfxSlider.Focus();
+                sfxContainer.Focus();
             }
 
             if (focusedElement == confirmButton)
             {
-                voiceSlider.Focus();
+                voiceContainer.Focus();
             }
 
             if (focusedElement == defaultButton)
             {
-                voiceSlider.Focus();
+                voiceContainer.Focus();
             }
         }
 
@@ -174,34 +189,34 @@ public class AudioMenu : MonoBehaviour
         {
             var focusedElement = GetFocusedElement();
 
-            if (focusedElement == masterSlider)
+            if (focusedElement == masterContainer)
             {
-                musicSlider.Focus();
+                musicContainer.Focus();
             }
 
-            if (focusedElement == musicSlider)
+            if (focusedElement == musicContainer)
             {
-                sfxSlider.Focus();
+                sfxContainer.Focus();
             }
 
-            if (focusedElement == sfxSlider)
+            if (focusedElement == sfxContainer)
             {
-                voiceSlider.Focus();
+                voiceContainer.Focus();
             }
 
-            if (focusedElement == voiceSlider)
+            if (focusedElement == voiceContainer)
             {
                 confirmButton.Focus();
             }
 
             if (focusedElement == confirmButton)
             {
-                masterSlider.Focus();
+                masterContainer.Focus();
             }
 
             if (focusedElement == defaultButton)
             {
-                masterSlider.Focus();
+                masterContainer.Focus();
             }
         }
 
@@ -209,28 +224,28 @@ public class AudioMenu : MonoBehaviour
         {
             var focusedElement = GetFocusedElement();
 
-            if (focusedElement == masterSlider)
+            if (focusedElement == masterContainer)
             {
                 masterValue = Math.Min(100, Math.Max(0, masterValue - 10));
                 masterSlider.value = masterValue;
                 masterAmount.text = masterValue.ToString();
             }
 
-            if (focusedElement == musicSlider)
+            if (focusedElement == musicContainer)
             {
                 musicValue = Math.Min(100, Math.Max(0, musicValue - 10));
                 musicSlider.value = musicValue;
                 musicAmount.text = musicValue.ToString();
             }
 
-            if (focusedElement == sfxSlider)
+            if (focusedElement == sfxContainer)
             {
                 sfxValue = Math.Min(100, Math.Max(0, sfxValue - 10));
                 sfxSlider.value = sfxValue;
                 sfxAmount.text = sfxValue.ToString();
             }
 
-            if (focusedElement == voiceSlider)
+            if (focusedElement == voiceContainer)
             {
                 voiceValue = Math.Min(100, Math.Max(0, voiceValue - 10));
                 voiceSlider.value = voiceValue;
@@ -247,28 +262,28 @@ public class AudioMenu : MonoBehaviour
         {
             var focusedElement = GetFocusedElement();
 
-            if (focusedElement == masterSlider)
+            if (focusedElement == masterContainer)
             {
                 masterValue = Math.Min(100, Math.Max(0, masterValue + 10));
                 masterSlider.value = masterValue;
                 masterAmount.text = masterValue.ToString();
             }
 
-            if (focusedElement == musicSlider)
+            if (focusedElement == musicContainer)
             {
                 musicValue = Math.Min(100, Math.Max(0, musicValue + 10));
                 musicSlider.value = musicValue;
                 musicAmount.text = musicValue.ToString();
             }
 
-            if (focusedElement == sfxSlider)
+            if (focusedElement == sfxContainer)
             {
                 sfxValue = Math.Min(100, Math.Max(0, sfxValue + 10));
                 sfxSlider.value = sfxValue;
                 sfxAmount.text = sfxValue.ToString();
             }
 
-            if (focusedElement == voiceSlider)
+            if (focusedElement == voiceContainer)
             {
                 voiceValue = Math.Min(100, Math.Max(0, voiceValue + 10));
                 voiceSlider.value = voiceValue;
