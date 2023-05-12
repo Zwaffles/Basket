@@ -92,6 +92,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "HyperX",
+                    "id": "a875ec1c-8c96-4f44-9e41-1c30776696ed",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "c42debf5-fb6b-4671-bb95-0800f619c13f",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "0cd17dbe-df47-4e31-902f-87658618ccf6",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a80e67df-2aae-49f5-9237-7300a35b73e4",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "01615892-9c33-4e21-92ad-e1ef92241805",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "Gamepad",
                     "id": "317eeb5f-6757-4093-abe5-f25af1f45b99",
                     "path": "2DVector(mode=2)",
@@ -197,6 +252,61 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Move2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "HyperX",
+                    "id": "e75cebb0-6ef2-421b-847c-23021b713a0b",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move2",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "b33b5158-68ba-4fd4-95d3-444c62a2ace6",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "aa4a9d8f-cffa-4509-b5fc-9641c56f8f30",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "b51ffd77-4cad-46c9-a17e-849b9c0e62a1",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Move2",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "94d6dcde-5eb2-4811-a70c-90573e7faa11",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
                     "action": "Move2",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -617,6 +727,105 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Joystick",
+                    "id": "87bd0db4-f269-4d29-ae87-53d495f61100",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "8b6a8105-1b3d-4f4e-90f0-3e9e7c0de59d",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "up",
+                    "id": "20aed770-b27e-4a8e-b5fd-e3bbe0fd8972",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "4f83656e-cba1-4ae7-932e-0613331a096e",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "3189203b-fe9a-44de-b066-69e0840c78fb",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a600086b-0f9a-4d41-9628-6a6c91cc3722",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "a44219e9-0a81-4ed1-9293-f580cffa2c52",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "84254ff3-e950-49d6-a8f0-4d730d6ed658",
+                    "path": "<HID::HP, Inc HyperX Clutch>/hat/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ba53b45a-ac72-4f05-af22-13676ae9f564",
+                    "path": "<HID::HP, Inc HyperX Clutch>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "Keyboard",
                     "id": "ff527021-f211-4c02-933e-5976594c46ed",
                     "path": "2DVector",
@@ -752,6 +961,17 @@
                     "name": "",
                     "id": "c8533f10-7074-4944-88bb-1bb480edb94b",
                     "path": "<Joystick>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c06284b-470f-42cd-97d0-79bf7bfea048",
+                    "path": "<HID::HP, Inc HyperX Clutch>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
