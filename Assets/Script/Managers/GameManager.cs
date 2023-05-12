@@ -63,7 +63,15 @@ public class GameManager : MonoBehaviour
     private Scene currentScene;
 
     private PlayerInput playerInput;
-    
+
+    [SerializeField] bool multiBallsMode = false;
+
+    [SerializeField] float MaxtimeForWarning = 4;
+    [SerializeField] float timeBeforeWarningRespawn = 2; //seconds
+    [SerializeField] GameObject[] warningSign;
+
+    bool warningSignIsOn1 = false;
+    bool warningSignIsOn2 = false;
     private void Awake()
     {
         
@@ -96,7 +104,10 @@ public class GameManager : MonoBehaviour
         if (CurrentState == GameState.Multiplayer)
             StartMultiplayer();
 
-        //scoreManager.winnerText = GameObject.FindGameObjectWithTag("WinnerText");
+        currentTimeBeforeRespawningCausedByWarning1 = MaxtimeForWarning;
+        currentTimeBeforeRespawningCausedByWarning2 = MaxtimeForWarning;
+        warningSign[0].SetActive(false);
+        warningSign[1].SetActive(false);
     }
 
     public void StartMenu()
@@ -235,19 +246,22 @@ public class GameManager : MonoBehaviour
     //        SceneManager.LoadScene("Version 02");
     //    }
     //}
-    
 
+    
     public void RespawnBall(int value)
     {
         timeSlowElapsedTime = timeSlowDuration;
         Time.timeScale = originalTimeScale * 0.25f;
+        if(!multiBallsMode)
         StartCoroutine("Respawn", value);
         ball.SetActive(false);
+        ResetWarning(-1);
+        ResetWarning(1);
     }
 
     IEnumerator Respawn(int rightorLeft)
     {
-        yield return new WaitForSeconds(.17f);
+        yield return new WaitForSeconds(.02f);
         shakeElapsedTime = shakeDuration;
         ballRigidbody.velocity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(.74f);
@@ -269,10 +283,97 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(virtualCameraNoise != null)
+        if (virtualCameraNoise != null)
             CameraShake();
+
+        if(!warningSignIsOn1)
+        ShowWarningSign1();
+
+        if (!warningSignIsOn2)
+            ShowWarningSign2();
+
+        if (ball != null)
+        if(ball.transform.position.x > -0.72f)
+        {
+            ResetWarning(1);
+        }
+
+        if (ball != null)
+            if (ball.transform.position.x < -0.72f)
+            {
+                ResetWarning(-1);
+            }
+    }
+    
+    void ResetWarning(int value)
+    {
+        if(value == 1)
+        {
+            currentTimeBeforeRespawningCausedByWarning1 = MaxtimeForWarning;
+            warningSignIsOn1 = false;
+            warningSign[0].SetActive(false);
+        }
+        if(value == -1)
+        {
+            currentTimeBeforeRespawningCausedByWarning2 = MaxtimeForWarning;
+            warningSignIsOn2 = false;
+            warningSign[1].SetActive(false);
+        }
+        
     }
 
+    [SerializeField] float currentTimeBeforeRespawningCausedByWarning1; //Seconds left player
+    [SerializeField] float currentTimeBeforeRespawningCausedByWarning2; //Seconds right player
+    
+    void ShowWarningSign1()
+    {
+        if (ball != null)
+            if (ball.transform.position.x < -0.72f && !warningSignIsOn1)
+            {
+                currentTimeBeforeRespawningCausedByWarning1 -= Time.deltaTime;
+                if (currentTimeBeforeRespawningCausedByWarning1 <= 0)
+                {
+                    warningSignIsOn1 = true;
+                    StartCoroutine("WarningIsOn1",1);
+                    warningSign[0].SetActive(true);
+                }
+            }
+    }
+    void ShowWarningSign2()
+    {
+        
+        if (ball != null)
+            if (ball.transform.position.x > -0.72f && !warningSignIsOn2)
+            {
+                currentTimeBeforeRespawningCausedByWarning2 -= Time.deltaTime;
+                if (currentTimeBeforeRespawningCausedByWarning2 <= 0)
+                {
+                    warningSignIsOn2 = true;
+                    StartCoroutine("WarningIsOn2", -1);
+                    warningSign[1].SetActive(true);
+                }
+            }
+    }
+    IEnumerator WarningIsOn1(int value)
+    {
+        yield return new WaitForSeconds(timeBeforeWarningRespawn);
+            if (warningSignIsOn1)
+            {
+                warningSignIsOn1 = false;
+                RespawnBall(value);
+                currentTimeBeforeRespawningCausedByWarning1 = MaxtimeForWarning;
+            }
+    }
+    IEnumerator WarningIsOn2(int value)
+    {
+        yield return new WaitForSeconds(timeBeforeWarningRespawn);
+        if (warningSignIsOn2)
+        {
+            warningSignIsOn2 = false;
+            RespawnBall(value);
+            currentTimeBeforeRespawningCausedByWarning2 = MaxtimeForWarning;
+        }
+    }
     private void CameraShake()
     {
         if (shakeElapsedTime > 0)
