@@ -2254,7 +2254,7 @@ MonoBehaviour:
   scrollSpeed: 100
   reverseScrollSpeed: 50
   fastForwardScrollSpeed: 200
-  maxScroll: 2150
+  maxScroll: 2425
   creditsHoldTimeTop: 0.5
   creditsHoldTimeBottom: 0.5
 --- !u!1 &3014744733978716361

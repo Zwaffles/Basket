@@ -1,0 +1,13 @@
+.NameSize {
+    font-size: 28px;
+}
+
+.Header2Size {
+    font-size: 32px;
+    -unity-font-style: bold;
+}
+
+.Header1Size {
+    font-size: 40px;
+    -unity-font-style: bold;
+}
