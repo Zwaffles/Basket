@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     public float timeSlowDuration = 0.1f;
     private float timeSlowElapsedTime = 0f;
 
-    private float originalTimeScale;
+    private float originalTimeScale = 1f;
 
     private Scene currentScene;
 
@@ -172,8 +172,6 @@ public class GameManager : MonoBehaviour
         //    playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material);
         //}
 
-        originalTimeScale = Time.timeScale;
-
         currentScene = SceneManager.GetActiveScene();
 
         try
@@ -235,8 +233,8 @@ public class GameManager : MonoBehaviour
     
     public void RespawnBall(int value)
     {
-        timeSlowElapsedTime = timeSlowDuration;
         Time.timeScale = originalTimeScale * 0.25f;
+        Invoke("ResetTimeScale", timeSlowDuration);
         if(!multiBallsMode)
         StartCoroutine("Respawn", value);
         if(ball != null)
@@ -263,8 +261,6 @@ public class GameManager : MonoBehaviour
             ball.transform.position = ballLeftSpawn.position;
             ball.SetActive(true);
         }
-
-        //Time.timeScale = originalTimeScale;
     }
 
     private void Update()
@@ -306,6 +302,11 @@ public class GameManager : MonoBehaviour
             warningSign[1].SetActive(false);
         }
         
+    }
+
+    void ResetTimeScale()
+    {
+        Time.timeScale = originalTimeScale;
     }
 
     [SerializeField] float currentTimeBeforeRespawningCausedByWarning1; //Seconds left player
@@ -381,7 +382,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = originalTimeScale;
             timeSlowElapsedTime = 0f;
         }
     }

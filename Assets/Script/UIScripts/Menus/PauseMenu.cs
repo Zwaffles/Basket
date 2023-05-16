@@ -1,17 +1,131 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField]
+    private VisualElement root;
+
     private Button resumeButton;
+    private Button restartButton;
+    private Button leaveButton;
+    private Button quitButton;
 
     private void OnEnable()
     {
-        resumeButton.Select();
+        root = GetComponent<UIDocument>().rootVisualElement;
+
+        resumeButton = root.Q<Button>("Resume");
+        restartButton = root.Q<Button>("Restart");
+        leaveButton = root.Q<Button>("LeaveMatch");
+        quitButton = root.Q<Button>("Quit");
+
+        FocusFirstElement(resumeButton);
+    }
+
+    public void FocusFirstElement(VisualElement firstElement)
+    {
+        firstElement.Focus();
+    }
+
+    public void Submit(InputAction.CallbackContext context)
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        var focusedElement = GetFocusedElement();
+
+        if (focusedElement == resumeButton)
+        {
+            Resume();
+        }
+
+        if (focusedElement == restartButton)
+        {
+            Restart();
+        }
+
+        if (focusedElement == leaveButton)
+        {
+            LeaveMatch();
+        }
+
+        if (focusedElement == quitButton)
+        {
+            Quit();
+        }
+    }
+
+    public void Navigate(InputAction.CallbackContext context)
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        if (context.ReadValue<Vector2>() == Vector2.up)
+        {
+            var focusedElement = GetFocusedElement();
+
+            if (focusedElement == resumeButton)
+            {
+                quitButton.Focus();
+            }
+
+            if (focusedElement == restartButton)
+            {
+                resumeButton.Focus();
+            }
+
+            if (focusedElement == leaveButton)
+            {
+                restartButton.Focus();
+            }
+
+            if (focusedElement == quitButton)
+            {
+                leaveButton.Focus();
+            }
+        }
+
+        if (context.ReadValue<Vector2>() == Vector2.down)
+        {
+            var focusedElement = GetFocusedElement();
+
+            if (focusedElement == resumeButton)
+            {
+                restartButton.Focus();
+            }
+
+            if (focusedElement == restartButton)
+            {
+                leaveButton.Focus();
+            }
+
+            if (focusedElement == leaveButton)
+            {
+                quitButton.Focus();
+            }
+
+            if (focusedElement == quitButton)
+            {
+                resumeButton.Focus();
+            }
+        }
+    }
+
+    public Focusable GetFocusedElement()
+    {
+        return root.focusController.focusedElement;
     }
 
     public void Resume()

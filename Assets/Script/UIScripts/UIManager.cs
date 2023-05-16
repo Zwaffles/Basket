@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     //[SerializeField]
     //private RestartButton restartButton;
     [SerializeField]
-    private GameObject pauseMenu;
+    private PauseMenu pauseMenu;
     [SerializeField]
     private OptionsMenu optionsMenu;
     [SerializeField]
@@ -31,11 +31,13 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Submit.performed += ctx => videoMenu.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => audioMenu.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => creditScroll.Submit(ctx);
+        uiInput.UI.Submit.performed += ctx => pauseMenu.Submit(ctx);
 
         uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => optionsMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => videoMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => audioMenu.Navigate(ctx);
+        uiInput.UI.Navigate.performed += ctx => pauseMenu.Navigate(ctx);
         
         uiInput.UI.Navigate.started += ctx => creditScroll.Navigate(ctx);
         uiInput.UI.Navigate.canceled += ctx => creditScroll.Navigate(ctx);
@@ -107,6 +109,9 @@ public void ToggleScore(bool active)
 
         if (!pauseMenu.gameObject.activeInHierarchy)
         {
+            if (Time.timeScale == 0)
+                return;
+
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0f;
             return;
@@ -114,7 +119,7 @@ public void ToggleScore(bool active)
 
         if (pauseMenu.gameObject.activeInHierarchy)
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1f;
         }
     }
