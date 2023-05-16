@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -25,6 +26,8 @@ public class CubeMover : MonoBehaviour
     [SerializeField] float randomRangeFloat = .3f;
     [SerializeField] public float ballChasing = 0.5f;
     Quaternion targetRotation;
+
+    [SerializeField] bool multiBalls = false;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,8 +56,21 @@ public class CubeMover : MonoBehaviour
     }
     void Update()
     {
-        Vector3 direction = ((target.transform.position) - transform.position + new Vector3(randomRangeFloat, 0, 0)).normalized;
-        rb.velocity = direction * speed;
+        if(multiBalls)
+        SwitchTarget();
+
+        if (target != null)
+        {
+            Vector3 direction = ((target.transform.position) - transform.position + new Vector3(randomRangeFloat, 0, 0)).normalized;
+            rb.velocity = direction * speed;
+        }    
+    }
+    void SwitchTarget()
+    {
+        if (target == null || !target.activeSelf)
+        {
+            target = FindObjectOfType<BouncingBall>().gameObject;
+        }
     }
     void Rotate()
     {
