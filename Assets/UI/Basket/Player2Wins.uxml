@@ -1,9 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Basket/BasketStyleSheet.uss?fileID=7433441132597879392&amp;guid=19e73b561a796734c8578ad0e1848863&amp;type=3#BasketStyleSheet" />
     <ui:VisualElement name="Canvas" style="flex-grow: 1; justify-content: center;">
-        <ui:VisualElement name="Container" style="justify-content: space-between; align-items: stretch; width: 100%; height: 32%;">
+        <ui:VisualElement name="Container" class="pop-animation-hide WinContainer" style="justify-content: space-between; align-items: stretch; width: 100%; height: 32%;">
             <ui:VisualElement name="TopLine" style="width: 100%; height: 8%; background-color: rgba(24, 24, 24, 0.64);" />
             <ui:VisualElement name="MiddleLine" style="width: 100%; height: 75%; background-color: rgba(25, 25, 25, 0.64); align-items: center; justify-content: center;">
-                <ui:VisualElement name="Player1WinsImage" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/PLAYER%202%20WINS!.png?fileID=2800000&amp;guid=13a2c7e4dd03fd14b8176a2177b0ddde&amp;type=3#PLAYER 2 WINS!&apos;); width: 75%; height: 50%;" />
+                <ui:VisualElement name="WinImage" class="WinTextHidden" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/PLAYER%202%20WINS!.png?fileID=2800000&amp;guid=13a2c7e4dd03fd14b8176a2177b0ddde&amp;type=3#PLAYER 2 WINS!&apos;); width: 75%; height: 50%;" />
             </ui:VisualElement>
             <ui:VisualElement name="BottomLine" style="width: 100%; height: 8%; background-color: rgba(25, 25, 25, 0.64);" />
         </ui:VisualElement>
