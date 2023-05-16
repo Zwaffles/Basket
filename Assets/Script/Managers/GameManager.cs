@@ -178,7 +178,10 @@ public class GameManager : MonoBehaviour
 
         try
         {
-            audioManager.PlayMusic("Match Game");
+            // Old
+            //audioManager.PlayMusic("Match Game");
+            // New
+            audioManager.PlayMusic("Vonboff_-_Hit_the_bits");
         }
         catch
         {
