@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerInput playerInput;
 
-    [SerializeField] bool multiBallsMode = false;
+    [SerializeField] public bool multiBallsMode = false;
 
     [SerializeField] float MaxtimeForWarning = 4;
     [SerializeField] float timeBeforeWarningRespawn = 2; //seconds
@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
         if (virtualCamera != null)
             virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
+        if(!multiBallsMode)
         ballRigidbody = ball.GetComponent<Rigidbody>();
 
         if (isMultiplayer)
@@ -226,25 +227,6 @@ public class GameManager : MonoBehaviour
 
         StartMatch(isMultiplayer);
     }
-
-    //public void ChangeScene()
-    //{      
-    //    if (currentScene.name == "Version 02")
-    //    {
-    //        SceneManager.LoadScene("Version 03");
-    //    }
-
-    //    if (currentScene.name == "Version 03")
-    //    {
-    //        SceneManager.LoadScene("Version 04");
-    //    }
-
-    //    if (currentScene.name == "Version 04")
-    //    {
-    //        SceneManager.LoadScene("Version 02");
-    //    }
-    //}
-
     
     public void RespawnBall(int value)
     {
@@ -252,6 +234,7 @@ public class GameManager : MonoBehaviour
         Invoke("ResetTimeScale", timeSlowDuration);
         if(!multiBallsMode)
         StartCoroutine("Respawn", value);
+        if(ball != null)
         ball.SetActive(false);
         ResetWarning(-1);
         ResetWarning(1);
