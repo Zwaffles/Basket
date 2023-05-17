@@ -153,6 +153,17 @@ public class VideoMenu : MonoBehaviour
         if (phase != InputActionPhase.Performed)
             return;
 
+        try
+        {
+            // New
+            GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+
+        }
+        catch
+        {
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+        }
+
         var focusedElement = GetFocusedElement();
 
         if (focusedElement == confirmButton)

@@ -21,6 +21,9 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, AudioClip> voiceClipsDict;
     private Dictionary<string, AudioClip> musicClipsDict;
 
+    // Ludwig said the music was too loud by default - Johan
+    private const float musicVolumeFactor = .45f;
+
     private void Awake()
     {
         sfxSources = new List<AudioSource>();
@@ -125,7 +128,7 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = clip;
             musicSource.loop = loop;
             musicSource.pitch = pitch;
-            musicSource.volume = MusicVolume * MasterVolume;
+            musicSource.volume = MusicVolume * MasterVolume * musicVolumeFactor;
             musicSource.Play();
         }
         else

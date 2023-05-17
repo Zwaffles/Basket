@@ -238,10 +238,15 @@ public class ScoreManager : MonoBehaviour
         try
         {
             GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
+            // New
+            GameManager.instance.audioManager.PlaySfx("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
 
             float randValue = Random.value;
-            if (randValue < .54f)
+            if (randValue < .54f) 
+            {
+                // Old
                 GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
+            }
         }
         catch
         {
@@ -260,10 +265,15 @@ public class ScoreManager : MonoBehaviour
         try
         {
             GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
+            // New
+            GameManager.instance.audioManager.PlaySfx("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
 
             float randValue = Random.value;
             if (randValue < .54f)
-                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.62f, 0.92f));
+            {
+                // Old
+                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
+            }
         }
         catch
         {
