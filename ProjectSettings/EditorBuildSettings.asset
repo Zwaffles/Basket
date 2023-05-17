@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Zweifel/NewMainMenu.unity
+    guid: 43718480c8f4fd544b4a377df9e74940
+  - enabled: 0
     path: Assets/Scenes/Zweifel/MainMenu.unity
     guid: 8c480c89f4c112e4fb9f7f577eb4a799
   - enabled: 1
