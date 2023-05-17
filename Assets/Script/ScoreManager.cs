@@ -239,7 +239,7 @@ public class ScoreManager : MonoBehaviour
         {
             GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
             // New
-            GameManager.instance.audioManager.PlaySfx("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
+            GameManager.instance.audioManager.PlayVoice("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
 
             float randValue = Random.value;
             if (randValue < .54f) 
@@ -266,7 +266,7 @@ public class ScoreManager : MonoBehaviour
         {
             GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
             // New
-            GameManager.instance.audioManager.PlaySfx("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
+            GameManager.instance.audioManager.PlayVoice("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
 
             float randValue = Random.value;
             if (randValue < .54f)

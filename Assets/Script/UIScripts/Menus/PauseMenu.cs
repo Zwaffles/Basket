@@ -72,17 +72,6 @@ public class PauseMenu : MonoBehaviour
         if (phase != InputActionPhase.Performed)
             return;
 
-        try
-        {
-            // New
-            GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
-
-        }
-        catch
-        {
-            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
-        }
-
         if (context.ReadValue<Vector2>() == Vector2.up)
         {
             var focusedElement = GetFocusedElement();
@@ -106,6 +95,18 @@ public class PauseMenu : MonoBehaviour
             {
                 leaveButton.Focus();
             }
+
+            try
+            {
+                // New
+                GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+
+            }
+            catch
+            {
+                Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+            }
+
         }
 
         if (context.ReadValue<Vector2>() == Vector2.down)
@@ -131,6 +132,18 @@ public class PauseMenu : MonoBehaviour
             {
                 resumeButton.Focus();
             }
+
+            try
+            {
+                // New
+                GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+
+            }
+            catch
+            {
+                Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+            }
+
         }
     }
 

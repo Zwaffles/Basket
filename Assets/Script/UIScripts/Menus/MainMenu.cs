@@ -96,17 +96,6 @@ public class MainMenu : MonoBehaviour
         if (phase != InputActionPhase.Performed)
             return;
 
-        try
-        {
-            // New
-            GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
-
-        }
-        catch
-        {
-            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
-        }
-
         if (context.ReadValue<Vector2>() == Vector2.up)
         {
             var focusedElement = GetFocusedElement();
@@ -130,6 +119,18 @@ public class MainMenu : MonoBehaviour
             {
                 optionsButton.Focus();
             }
+
+            try
+            {
+                // New
+                GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+
+            }
+            catch
+            {
+                Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+            }
+
         }
 
         if (context.ReadValue<Vector2>() == Vector2.down)
@@ -155,6 +156,18 @@ public class MainMenu : MonoBehaviour
             {
                 soloButton.Focus();
             }
+
+            try
+            {
+                // New
+                GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+
+            }
+            catch
+            {
+                Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+            }
+
         }
     }
 
