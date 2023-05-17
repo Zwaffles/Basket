@@ -31,7 +31,7 @@ public class Fadetoblack : MonoBehaviour
 
     private void togglefade()
     {
-        //Requiers that _blackscreen already has the .BlackScreen from the style sheet on it to work
+        //Requiers that _blackscreen already has the .BlackScreen from the style sheet to work
         _blackscreen.ToggleInClassList(BLACKSCREEN);
     }
 }
