@@ -289,16 +289,25 @@ Basket {
 .WinTextHidden {
     translate: -1800px 0;
     transition-duration: 0.75s;
-    transition-delay: 0.50s;
+    transition-delay: 0.5s;
     transition-timing-function: ease-out-back;
 }
 
 .WinContainer {
     transition-property: opacity;
-    transition-duration: 0.50;
+    transition-duration: 0.5;
     transition-timing-function: ease-out;
 }
 
 .pop-animation-hide {
     opacity: 0;
+}
+
+#BlackScreen {
+    transition-duration: 0.75s;
+    transition-timing-function: ease-out;
+}
+
+.BlackScreen {
+    background-color: rgba(10, 10, 10, 255);
 }

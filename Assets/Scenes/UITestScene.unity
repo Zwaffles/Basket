@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 717166591}
   - component: {fileID: 717166592}
   - component: {fileID: 717166593}
+  - component: {fileID: 717166594}
   m_Layer: 0
   m_Name: UI-Proto
   m_TagString: Untagged
@@ -316,7 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 93d538cf673478b4994ed9a1249e2f5e, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 9920936dfbcf0a9479e519adeabb7891,
+  sourceAsset: {fileID: 9197481963319205126, guid: 775ae7f1c6379284cad166a271f948a9,
     type: 3}
   m_SortingOrder: 1
 --- !u!114 &717166593
@@ -326,9 +327,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717166590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4b118db36a796147b2fa65400e5f7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &717166594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717166590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7bf8834cacb6e49829d0a3bc3549d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &999619238

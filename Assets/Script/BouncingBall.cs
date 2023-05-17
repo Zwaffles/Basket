@@ -103,7 +103,7 @@ public class BouncingBall : MonoBehaviour
     {
         try
         {
-            GameManager.instance.audioManager.PlaySfx("Basket_Bounce_1-SFX", Random.Range(0.64f, 1.3f));
+            GameManager.instance.audioManager.PlaySfx("Basket Ball Hit " + Mathf.CeilToInt(Random.Range(0f, 5f)), 1.1f); //Random.Range(0.64f, 1.3f)
         }
         catch
         {

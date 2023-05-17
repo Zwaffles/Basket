@@ -15,16 +15,13 @@ public class WinscreenAnim : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         _wincontainer = root.Q<VisualElement>("Container");
-        Debug.Log(_wincontainer);
         _wintexthidden = root.Q<VisualElement>("WinImage");
-        Debug.Log(_wintexthidden.ToString());
         _wincontainer.RegisterCallback<TransitionEndEvent>(Container_TransitionEnd);
     }
     
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log(_wincontainer.ToString());
         _wincontainer.ToggleInClassList(POPUP_ANIMATION);
     }
     
