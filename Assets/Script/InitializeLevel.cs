@@ -17,16 +17,27 @@ public class InitializeLevel : MonoBehaviour
 
     private int currentCountdown; // Current countdown number
 
+    private GameManager gameManager;
 
     public void Start()
     {
+        gameManager = GameManager.instance;
+
         Destroy(previewPlayer);
 
-        var playerConfigurations = GameManager.instance.playerConfigurationManager.GetPlayerConfigurations().ToArray();
+        var playerConfigurations = gameManager.playerConfigurationManager.GetPlayerConfigurations().ToArray();
         for(int i = 0; i < playerConfigurations.Length; i++)
         {
-            var player = Instantiate(playerPrefab, playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
-            player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigurations[i]);
+            if (gameManager.player1Left)
+            {
+                var player = Instantiate(playerPrefab, playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
+                player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigurations[i]);
+            }
+            else
+            {
+                var player = Instantiate(playerPrefab, playerSpawns[(i + 1) % 2].position, playerSpawns[(i + 1) % 2].rotation, gameObject.transform);
+                player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigurations[i]);
+            }
         }
 
         StartCoroutine(StartCountdown());
@@ -41,7 +52,7 @@ public class InitializeLevel : MonoBehaviour
         try
         {
             // New
-            GameManager.instance.audioManager.PlayVoice("Ready_-Noel_-Deep2");
+            gameManager.audioManager.PlayVoice("Ready_-Noel_-Deep2");
         }
         catch
         {
@@ -76,7 +87,7 @@ public class InitializeLevel : MonoBehaviour
                 try
                 {
                     // New
-                    GameManager.instance.audioManager.PlayVoice("Go_-_Noel_-_Deep");
+                    gameManager.audioManager.PlayVoice("Go_-_Noel_-_Deep");
                     // Alt
                     //GameManager.instance.audioManager.PlayVoice("Start_-_Noel_-_Deep");
 
@@ -97,7 +108,7 @@ public class InitializeLevel : MonoBehaviour
 
         try
         {
-            GameManager.instance.audioManager.PlayMusic("Vonboff_-_Hit_the_bits");
+            gameManager.audioManager.PlayMusic("Vonboff_-_Hit_the_bits");
         }
         catch
         {

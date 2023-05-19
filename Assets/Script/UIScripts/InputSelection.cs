@@ -75,8 +75,12 @@ public class InputSelection : MonoBehaviour
     [SerializeField]
     private Material redMaterial;
 
+    private GameManager gameManager;
+
     private void OnEnable()
     {
+        gameManager = GameManager.instance;
+
         root = GetComponent<UIDocument>().rootVisualElement;
         rightRoot = rightColorSelector.GetComponent<UIDocument>().rootVisualElement;
 
@@ -89,7 +93,7 @@ public class InputSelection : MonoBehaviour
 
         player3Container.style.opacity = 0f;
 
-        playerConfigs = GameManager.instance.playerConfigurationManager.GetPlayerConfigurations();
+        playerConfigs = gameManager.playerConfigurationManager.GetPlayerConfigurations();
         if(playerConfigs.Count == 1)
         {
             SubscribePlayer1Input(playerConfigs[0].Input);
@@ -110,7 +114,7 @@ public class InputSelection : MonoBehaviour
     public void AddPlayerIndexToList(int playerIndex)
     {
         playerIndexes.Add(playerIndex);
-        playerConfigs = GameManager.instance.playerConfigurationManager.GetPlayerConfigurations();
+        playerConfigs = gameManager.playerConfigurationManager.GetPlayerConfigurations();
 
         if(playerIndex == 0)
         {
@@ -165,7 +169,7 @@ public class InputSelection : MonoBehaviour
 
     public void UnsubscribePlayerInputs()
     {
-        playerConfigs = GameManager.instance.playerConfigurationManager.GetPlayerConfigurations();
+        playerConfigs = gameManager.playerConfigurationManager.GetPlayerConfigurations();
         if (playerConfigs.Count == 1)
         {
             var playerInputActionMap = playerConfigs[0].Input.currentActionMap;
@@ -458,7 +462,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkGreen").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: false);
                     }
                     return;
 
@@ -477,7 +481,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkOrange").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: false);
                     }
                     return;
 
@@ -496,7 +500,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkBlue").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: false);
                     }
                     return;
 
@@ -515,7 +519,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkRed").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: false);
                     }
                     return;
             }
@@ -538,8 +542,8 @@ public class InputSelection : MonoBehaviour
             {
                 player.Input.SwitchCurrentActionMap("Player");
             }
-            GameManager.instance.StartMenu();
-            SceneManager.LoadScene("MainMenu");
+            gameManager.StartMenu();
+            SceneManager.LoadScene("NewMainMenu");
         }
 
         if(player1State == InputSelectionState.lockedLeft)
@@ -814,7 +818,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkGreen").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: true);
                     }
                     return;
 
@@ -833,7 +837,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkOrange").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: true);
                     }
                     return;
 
@@ -852,7 +856,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkBlue").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: true);
                     }
                     return;
 
@@ -871,7 +875,7 @@ public class InputSelection : MonoBehaviour
                     else
                     {
                         rightRoot.Q<VisualElement>("CheckmarkRed").style.opacity = 1f;
-                        FinishSelection();
+                        FinishSelection(player1SpawnLeft: true);
                     }
                     return;
             }
@@ -894,8 +898,8 @@ public class InputSelection : MonoBehaviour
             {
                 player.Input.SwitchCurrentActionMap("Player");
             }
-            GameManager.instance.StartMenu();
-            SceneManager.LoadScene("MainMenu");
+            gameManager.StartMenu();
+            SceneManager.LoadScene("NewMainMenu");
         }
 
         if (player2State == InputSelectionState.lockedLeft)
@@ -997,8 +1001,10 @@ public class InputSelection : MonoBehaviour
         }
     }
 
-    private void FinishSelection()
+    private void FinishSelection(bool player1SpawnLeft)
     {
+        gameManager.player1Left = player1SpawnLeft;
+
         colorSelectionState = ColorSelectionState.hasSelected;
         UnsubscribePlayerInputs();
         foreach (PlayerConfiguration player in playerConfigs)

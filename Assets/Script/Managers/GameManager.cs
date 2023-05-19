@@ -72,6 +72,9 @@ public class GameManager : MonoBehaviour
 
     bool warningSignIsOn1 = false;
     bool warningSignIsOn2 = false;
+
+    public bool player1Left { get; set; } = true;
+
     private void Awake()
     {
         

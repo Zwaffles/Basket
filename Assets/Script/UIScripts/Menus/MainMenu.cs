@@ -20,6 +20,8 @@ public class MainMenu : MonoBehaviour
     private float ignoreInputTime;
     private bool inputEnabled;
 
+    private GameManager gameManager;
+
     private void OnEnable()
     {
         inputEnabled = false;
@@ -33,6 +35,12 @@ public class MainMenu : MonoBehaviour
 
         FocusFirstElement(soloButton);
         ignoreInputTime = Time.time + .25f;
+    }
+
+    private void Start()
+    {
+        gameManager = GameManager.instance;
+        gameManager.player1Left = true;
     }
 
     private void Update()
@@ -64,19 +72,19 @@ public class MainMenu : MonoBehaviour
 
         if(focusedElement == soloButton)
         {
-            GameManager.instance.InitializeScene(soloScene, isMultiplayer: false);
+            gameManager.InitializeScene(soloScene, isMultiplayer: false);
         }
 
         if(focusedElement == versusButton)
         {
             SceneManager.LoadScene(multiScene);
-            GameManager.instance.StartMultiplayer();
+            gameManager.StartMultiplayer();
             gameObject.SetActive(false);
         }
 
         if(focusedElement == optionsButton)
         {
-            GameManager.instance.uiManager.ToggleOptionsMenu(true);
+            gameManager.uiManager.ToggleOptionsMenu(true);
             gameObject.SetActive(false);
         }
 
@@ -123,7 +131,7 @@ public class MainMenu : MonoBehaviour
             try
             {
                 // New
-                GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+                gameManager.audioManager.PlaySfx("Pop Sound 1");
 
             }
             catch
@@ -160,7 +168,7 @@ public class MainMenu : MonoBehaviour
             try
             {
                 // New
-                GameManager.instance.audioManager.PlaySfx("Pop Sound 1");
+                gameManager.audioManager.PlaySfx("Pop Sound 1");
 
             }
             catch
