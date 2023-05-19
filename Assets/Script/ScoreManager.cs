@@ -108,7 +108,7 @@ public class ScoreManager : MonoBehaviour
         }
         if(multiBallsScene)
         {
-            if(player1Score + player2Score == 13)
+            if(player1Score + player2Score == 15)
             {
                 lookForNoTarget = true;
                 if (player1Score > player2Score)
@@ -122,6 +122,30 @@ public class ScoreManager : MonoBehaviour
                     winnerText.text = "Congratulations " + playerTwoName.text;
                     GetMatchOverRules();
                     weHaveAWinner = true;
+                }
+            }
+        }
+        if (winByTime)
+        {
+            if (timeSpent >= matchTime)
+            {
+                if (player1Score > player2Score)
+                {
+                    winnerText.text = "Congratulations " + playerOneName.text;
+                    GetMatchOverRules();
+                    weHaveAWinner = true;
+                }
+                if (player2Score > player1Score)
+                {
+                    winnerText.text = "Congratulations " + playerTwoName.text;
+                    GetMatchOverRules();
+                    weHaveAWinner = true;
+                }
+                else if (player1Score == player2Score)
+                {
+                    winnerText.text = "Draw";
+                    weHaveAWinner = true;
+                    GetMatchOverRules();
                 }
             }
         }
