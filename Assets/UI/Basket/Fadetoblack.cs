@@ -10,6 +10,8 @@ public class Fadetoblack : MonoBehaviour
 
     private const string BLACKSCREEN = "BlackScreen";
 
+    [SerializeField]
+    private bool destroyOnTransitionEnd;
 
     private void Awake()
     {
@@ -26,7 +28,8 @@ public class Fadetoblack : MonoBehaviour
 
     private void BlackScreen_TransitionEnd(TransitionEndEvent evt)
     {
-        //Add stuff here that you want to run after the fade is done
+        if(destroyOnTransitionEnd)
+            Destroy(gameObject);
     }
 
     private void togglefade()

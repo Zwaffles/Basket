@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class WinscreenAnim : MonoBehaviour
@@ -10,7 +11,12 @@ public class WinscreenAnim : MonoBehaviour
     private VisualElement _wintexthidden;
 
     private const string POPUP_ANIMATION = "pop-animation-hide";
-    
+
+    [SerializeField]
+    private bool destroyOnTransitionEnd;
+    [SerializeField, Tooltip("Duration which the UI element stays active after the animation is finished")]
+    private float duration = .5f;
+
     private void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -28,5 +34,16 @@ public class WinscreenAnim : MonoBehaviour
     private void Container_TransitionEnd(TransitionEndEvent evt)
     {
         _wintexthidden.style.translate = new StyleTranslate(new Translate(0, 0, 0));
+
+        if(destroyOnTransitionEnd)
+            Destroy(gameObject, duration);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.audioManager.StopMusic();
+        GameManager.instance.StartMenu();
+        SceneManager.LoadScene("NewMainMenu");
+        Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
     }
 }

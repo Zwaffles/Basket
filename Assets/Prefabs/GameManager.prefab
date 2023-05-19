@@ -1107,6 +1107,13 @@ MonoBehaviour:
   videoMenu: {fileID: 1171656765331027445}
   audioMenu: {fileID: 3547360371867688338}
   creditScroll: {fileID: 717552071535887167}
+  player1Wins: {fileID: 8390327378950988256, guid: 1b66956cc892d9743bdc73ffbc424e1d,
+    type: 3}
+  player2Wins: {fileID: 5161310295312184497, guid: 8d4e21bee171d6f40a0df2281b65b238,
+    type: 3}
+  draw: {fileID: 2997838743283846042, guid: c1c2c6c31bcfc594f81e31d3b02a2ef1, type: 3}
+  fadeToBlack: {fileID: 7904383253755177388, guid: d04fc08dff47cc142be6fbbcdbaeebd3,
+    type: 3}
 --- !u!1 &1498814559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1504,8 @@ MonoBehaviour:
   winByTime: 1
   matchTime: 150
   scoreTarget: 9
+  multiBallsScene: 0
+  lookForNoTarget: 0
 --- !u!1 &183491844386447123
 GameObject:
   m_ObjectHideFlags: 0

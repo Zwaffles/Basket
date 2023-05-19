@@ -39,6 +39,9 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] bool multiBallsScene = false;
     [HideInInspector] public bool lookForNoTarget = false;
+
+    private UIManager uiManager;
+
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -48,8 +51,13 @@ public class ScoreManager : MonoBehaviour
         bouncingBall = FindObjectOfType<BouncingBall>();
         timeSpent = 0.1f;
         fireWork.SetActive(false);
-
     }
+
+    private void Start()
+    {
+        uiManager = GameManager.instance.uiManager;
+    }
+
     private void Update()
     {
         if (isRunning)
@@ -70,13 +78,13 @@ public class ScoreManager : MonoBehaviour
             {
                 if (player1Score >= scoreTarget)
                 {
-                    winnerText.text = "Congratulations " + playerOneName.text;
+                    Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
                 if (player2Score >= scoreTarget)
                 {
-                    winnerText.text = "Congratulations " + playerTwoName.text;
+                    Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
@@ -87,19 +95,19 @@ public class ScoreManager : MonoBehaviour
                 {
                     if (player1Score > player2Score)
                     {
-                        winnerText.text = "Congratulations " + playerOneName.text;
+                        Instantiate(uiManager.player1Wins);
                         GetMatchOverRules();
                         weHaveAWinner = true;
                     }
                     if (player2Score > player1Score)
                     {
-                        winnerText.text = "Congratulations " + playerTwoName.text;
+                        Instantiate(uiManager.player2Wins);
                         GetMatchOverRules();
                         weHaveAWinner = true;
                     }
                     else if (player1Score == player2Score)
                     {
-                        winnerText.text = "Draw";
+                        Instantiate(uiManager.draw);
                         weHaveAWinner = true;
                         GetMatchOverRules();
                     }
@@ -113,13 +121,13 @@ public class ScoreManager : MonoBehaviour
                 lookForNoTarget = true;
                 if (player1Score > player2Score)
                 {
-                    winnerText.text = "Congratulations " + playerOneName.text;
+                    Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
                 if (player2Score > player1Score)
                 {
-                    winnerText.text = "Congratulations " + playerTwoName.text;
+                    Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
@@ -131,19 +139,19 @@ public class ScoreManager : MonoBehaviour
             {
                 if (player1Score > player2Score)
                 {
-                    winnerText.text = "Congratulations " + playerOneName.text;
+                    Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
                 if (player2Score > player1Score)
                 {
-                    winnerText.text = "Congratulations " + playerTwoName.text;
+                    Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
                 else if (player1Score == player2Score)
                 {
-                    winnerText.text = "Draw";
+                    Instantiate(uiManager.draw);
                     weHaveAWinner = true;
                     GetMatchOverRules();
                 }

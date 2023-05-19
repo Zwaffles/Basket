@@ -20,6 +20,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private CreditScroll creditScroll;
 
+    public WinscreenAnim player1Wins;
+    public WinscreenAnim player2Wins;
+    public WinscreenAnim draw;
+
+    public Fadetoblack fadeToBlack;
+
     private Inputaction uiInput;
 
     private void Awake()
@@ -87,7 +93,7 @@ public class UIManager : MonoBehaviour
         creditScroll.gameObject.SetActive(active);
     }
 
-public void ToggleScore(bool active)
+    public void ToggleScore(bool active)
     {
         score.ResetScore();
         score.ResetTimer();

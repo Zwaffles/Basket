@@ -543,6 +543,7 @@ public class InputSelection : MonoBehaviour
                 player.Input.SwitchCurrentActionMap("Player");
             }
             gameManager.StartMenu();
+            Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
             SceneManager.LoadScene("NewMainMenu");
         }
 
@@ -899,6 +900,7 @@ public class InputSelection : MonoBehaviour
                 player.Input.SwitchCurrentActionMap("Player");
             }
             gameManager.StartMenu();
+            Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
             SceneManager.LoadScene("NewMainMenu");
         }
 

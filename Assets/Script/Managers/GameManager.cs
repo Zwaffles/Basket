@@ -101,7 +101,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         if (currentState == GameState.Menu)
+        {
             StartMenu();
+            Instantiate(uiManager.fadeToBlack, uiManager.transform);
+        }
+
         if (currentState == GameState.Play)
             InitializeScene(SceneManager.GetActiveScene().name, isMultiplayer: false);
         if (CurrentState == GameState.Multiplayer)
@@ -116,6 +120,7 @@ public class GameManager : MonoBehaviour
     public void StartMenu()
     {
         StopCoroutine("Respawn");
+        ResetWarnings();
 
         uiManager.ToggleMainMenu(true);
         uiManager.ToggleScore(false);
@@ -206,6 +211,8 @@ public class GameManager : MonoBehaviour
 
     public void InitializeScene(string scenePath, bool isMultiplayer = false)
     {
+        StartCoroutine(LoadSceneAsync(scenePath, isMultiplayer));
+
         if (!isMultiplayer)
         {
             playerConfigurationManager.ClearPlayerConfigurations();
@@ -219,8 +226,6 @@ public class GameManager : MonoBehaviour
             playerConfigurationManager.SetPlayerColor(playerInput.playerIndex, player1Material, Color.green);
             playerConfigurationManager.AllowJoining(false);
         }
-
-        StartCoroutine(LoadSceneAsync(scenePath, isMultiplayer));
     }
 
     private IEnumerator LoadSceneAsync(string scenePath, bool isMultiplayer)
@@ -305,7 +310,17 @@ public class GameManager : MonoBehaviour
             warningSignIsOn2 = false;
             warningSign[1].SetActive(false);
         }
-        
+    }
+
+    void ResetWarnings()
+    {
+        currentTimeBeforeRespawningCausedByWarning1 = MaxtimeForWarning;
+        warningSignIsOn1 = false;
+        warningSign[0].SetActive(false);
+
+        currentTimeBeforeRespawningCausedByWarning2 = MaxtimeForWarning;
+        warningSignIsOn2 = false;
+        warningSign[1].SetActive(false);
     }
 
     void ResetTimeScale()

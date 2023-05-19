@@ -161,6 +161,7 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         GameManager.instance.uiManager.ToggleScore(true);
+        GameManager.instance.audioManager.StopMusic();
 
         if (GameManager.instance.playerConfigurationManager.GetPlayerConfigurations().Count > 1)
             GameManager.instance.InitializeScene(SceneManager.GetActiveScene().name, isMultiplayer: true);
@@ -178,6 +179,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.instance.StartMenu();
         SceneManager.LoadScene("NewMainMenu");
+        Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
     }
 
     public void Quit()

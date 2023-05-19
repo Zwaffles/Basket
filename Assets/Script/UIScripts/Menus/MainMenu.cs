@@ -78,6 +78,7 @@ public class MainMenu : MonoBehaviour
         if(focusedElement == versusButton)
         {
             SceneManager.LoadScene(multiScene);
+            Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
             gameManager.StartMultiplayer();
             gameObject.SetActive(false);
         }
