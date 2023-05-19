@@ -37,6 +37,8 @@ public class ScoreManager : MonoBehaviour
     float currentMaxSpeed;
     float currentEdgesBoost;
 
+    [SerializeField] bool multiBallsScene = false;
+    [HideInInspector] public bool lookForNoTarget = false;
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -62,25 +64,53 @@ public class ScoreManager : MonoBehaviour
     }
     void WinCondition()
     {
-        if (winByScore)
+        if (!multiBallsScene)
         {
-            if (player1Score >= scoreTarget)
+            if (winByScore)
             {
-                winnerText.text = "Congratulations " + playerOneName.text;
-                GetMatchOverRules();
-                weHaveAWinner = true;
+                if (player1Score >= scoreTarget)
+                {
+                    winnerText.text = "Congratulations " + playerOneName.text;
+                    GetMatchOverRules();
+                    weHaveAWinner = true;
+                }
+                if (player2Score >= scoreTarget)
+                {
+                    winnerText.text = "Congratulations " + playerTwoName.text;
+                    GetMatchOverRules();
+                    weHaveAWinner = true;
+                }
             }
-            if (player2Score >= scoreTarget)
+            if (winByTime)
             {
-                winnerText.text = "Congratulations " + playerTwoName.text;
-                GetMatchOverRules();
-                weHaveAWinner = true;
+                if (timeSpent >= matchTime)
+                {
+                    if (player1Score > player2Score)
+                    {
+                        winnerText.text = "Congratulations " + playerOneName.text;
+                        GetMatchOverRules();
+                        weHaveAWinner = true;
+                    }
+                    if (player2Score > player1Score)
+                    {
+                        winnerText.text = "Congratulations " + playerTwoName.text;
+                        GetMatchOverRules();
+                        weHaveAWinner = true;
+                    }
+                    else if (player1Score == player2Score)
+                    {
+                        winnerText.text = "Draw";
+                        weHaveAWinner = true;
+                        GetMatchOverRules();
+                    }
+                }
             }
         }
-        if (winByTime)
+        if(multiBallsScene)
         {
-            if (timeSpent >= matchTime)
+            if(player1Score + player2Score == 13)
             {
+                lookForNoTarget = true;
                 if (player1Score > player2Score)
                 {
                     winnerText.text = "Congratulations " + playerOneName.text;
@@ -93,87 +123,10 @@ public class ScoreManager : MonoBehaviour
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
-                else if (player1Score == player2Score)
-                {
-                    winnerText.text = "Draw";
-                    weHaveAWinner = true;
-                    GetMatchOverRules();
-                }
             }
         }
     }
 
-    //void winCondition()
-    //{
-    //    // timespent is counted by seconds >> 600 seconds = 10 minutes
-    //    if (winnerText != null && timeSpent <= matchTimeBeforeHittingTheScoreTarget && timeSpent < maxMatchTime)
-    //    {
-    //        if (player1Score > scoreTarget && player1Score > player2Score + 1 && !weHaveAWinner)
-    //        {
-    //            winnerText.text = "Congratulations " + playerOneName.text;
-    //            GetMatchOverRules();
-    //            weHaveAWinner = true;
-    //        }
-    //        if (player2Score > scoreTarget && player2Score > player1Score + 1 && !weHaveAWinner)
-    //        {
-    //            winnerText.text = "Congratulations " + playerTwoName.text;
-    //            GetMatchOverRules();
-    //            weHaveAWinner = true;
-    //        }
-    //        else if(timeSpent >= matchTimeBeforeHittingTheScoreTarget)
-    //        {
-    //            extraTimeObject.SetActive(true);
-    //        }
-    //    }
-    //    if (winnerText != null && timeSpent > matchTimeBeforeHittingTheScoreTarget && timeSpent < maxMatchTime)
-    //    {
-    //        if (player1Score > player2Score + 1 && !weHaveAWinner)
-    //        {
-    //            winnerText.text = "Congratulations " + playerOneName.text;
-    //            weHaveAWinner = true;
-    //            GetMatchOverRules();
-    //        }
-    //        if (player2Score > player1Score + 1 && !weHaveAWinner)
-    //        {
-    //            winnerText.text = "Congratulations " + playerTwoName.text;
-    //            weHaveAWinner = true;
-    //            GetMatchOverRules();
-    //        }
-    //        else if (timeSpent >= matchTimeBeforeHittingTheScoreTarget)
-    //        {
-    //            extraTimeObject.SetActive(true);
-    //        }
-    //    }
-    //    if (winnerText != null && timeSpent >= maxMatchTime)
-    //    {
-    //        if (player1Score > player2Score + 1 && !weHaveAWinner)
-    //        {
-    //            winnerText.text = "Congratulations " + playerOneName.text;
-    //            weHaveAWinner = true;
-    //            GetMatchOverRules();
-    //        }
-    //        if (player2Score > player1Score + 1 && !weHaveAWinner)
-    //        {
-    //            winnerText.text = "Congratulations " + playerTwoName.text;
-    //            weHaveAWinner = true;
-    //            GetMatchOverRules();
-    //        }
-    //        else if (!weHaveAWinner)
-    //        {
-    //            winnerText.text = "Draw";
-    //            weHaveAWinner = true;
-    //            GetMatchOverRules();
-    //        }
-    //    }
-
-    //}
-    //void SetCurrentRules()
-    //{
-    //    bouncingBall = FindObjectOfType<BouncingBall>();
-    //    currentBlockerBoost = bouncingBall.blockerBoost;
-    //    currentMaxSpeed = bouncingBall.maxSpeed;
-    //    currentEdgesBoost = bouncingBall.edgesBoost;
-    //}
     void GetMatchOverRules()
     {
         if (weHaveAWinner)
@@ -184,22 +137,6 @@ public class ScoreManager : MonoBehaviour
             fireWork.SetActive(true);
         }
     }
-    //private void AdjustRules()
-    //{
-    //    bouncingBall = FindObjectOfType<BouncingBall>();
-    //    bouncingBall.blockerBoost = 9;
-    //    bouncingBall.maxSpeed = 12;
-    //    bouncingBall.edgesBoost = 6;
-        // This should be linked to later to the escape button
-
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //bouncingBall.rulesReset = true;
-        //fireWork.SetActive(false);          
-        //winnerText.text = "";
-        //bouncingBall.blockerBoost = currentBlockerBoost;
-        //bouncingBall.maxSpeed = currentMaxSpeed;
-        //bouncingBall.edgesBoost = currentEdgesBoost;
-    //}
     public void UpdateTimerUI(float timeSpent)
     {
         if (!gameObject.activeInHierarchy)

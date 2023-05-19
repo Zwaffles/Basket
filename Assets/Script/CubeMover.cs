@@ -69,6 +69,7 @@ public class CubeMover : MonoBehaviour
     {
         if (target == null || !target.activeSelf)
         {
+            if(!FindObjectOfType<ScoreManager>().lookForNoTarget)
             target = FindObjectOfType<BouncingBall>().gameObject;
         }
     }
