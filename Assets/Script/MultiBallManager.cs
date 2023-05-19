@@ -25,7 +25,7 @@ public class MultiBallManager : MonoBehaviour
         balls[4].SetActive(true);
         yield return new WaitForSeconds(.0f);
         balls[5].SetActive(true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.7f);
         balls[6].SetActive(true);
         yield return new WaitForSeconds(.0f);
         balls[7].SetActive(true);
@@ -39,7 +39,7 @@ public class MultiBallManager : MonoBehaviour
         balls[11].SetActive(true);
         yield return new WaitForSeconds(0f);
         balls[12].SetActive(true);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.9f);
         balls[13].SetActive(true);
         yield return new WaitForSeconds(0f);
         balls[14].SetActive(true);
