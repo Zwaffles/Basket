@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, AudioClip> musicClipsDict;
 
     // Ludwig said the music was too loud by default - Johan
+    // You can change the individual music clip to a lower volume in the inspector!!! >:3 - Evil Andreas
+    // But fine, I'll let this const slide... for now - Less Evil Andreas
     private const float musicVolumeFactor = .45f;
 
     private void Awake()
@@ -44,7 +46,7 @@ public class AudioManager : MonoBehaviour
             sfxClipsDict.Add(clip.name, clip);
         }
 
-        // Populate the sfx clips dictionary
+        // Populate the voice clips dictionary
         voiceClipsDict = new Dictionary<string, AudioClip>();
         AudioClip[] voiceClips = Resources.LoadAll<AudioClip>("Audio/Voice");
         foreach (AudioClip clip in voiceClips)

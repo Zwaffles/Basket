@@ -12,7 +12,6 @@ public class PauseMenu : MonoBehaviour
     private Button resumeButton;
     private Button restartButton;
     private Button leaveButton;
-    private Button quitButton;
 
     private void OnEnable()
     {
@@ -21,7 +20,6 @@ public class PauseMenu : MonoBehaviour
         resumeButton = root.Q<Button>("Resume");
         restartButton = root.Q<Button>("Restart");
         leaveButton = root.Q<Button>("LeaveMatch");
-        quitButton = root.Q<Button>("Quit");
 
         FocusFirstElement(resumeButton);
     }
@@ -56,11 +54,6 @@ public class PauseMenu : MonoBehaviour
         {
             LeaveMatch();
         }
-
-        if (focusedElement == quitButton)
-        {
-            Quit();
-        }
     }
 
     public void Navigate(InputAction.CallbackContext context)
@@ -78,7 +71,7 @@ public class PauseMenu : MonoBehaviour
 
             if (focusedElement == resumeButton)
             {
-                quitButton.Focus();
+                leaveButton.Focus();
             }
 
             if (focusedElement == restartButton)
@@ -89,11 +82,6 @@ public class PauseMenu : MonoBehaviour
             if (focusedElement == leaveButton)
             {
                 restartButton.Focus();
-            }
-
-            if (focusedElement == quitButton)
-            {
-                leaveButton.Focus();
             }
 
             try
@@ -124,11 +112,6 @@ public class PauseMenu : MonoBehaviour
             }
 
             if (focusedElement == leaveButton)
-            {
-                quitButton.Focus();
-            }
-
-            if (focusedElement == quitButton)
             {
                 resumeButton.Focus();
             }
@@ -180,10 +163,5 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.StartMenu();
         SceneManager.LoadScene("NewMainMenu");
         Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
     }
 }
