@@ -44,7 +44,7 @@ public class Vacuum : MonoBehaviour
     }
     IEnumerator DeactivateBall(GameObject ball)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0f);
         ball.SetActive(false);
         if (rb != null)
         {

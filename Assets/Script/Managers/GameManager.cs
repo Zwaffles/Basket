@@ -333,7 +333,7 @@ public class GameManager : MonoBehaviour
     
     void ShowWarningSign1()
     {
-        if (ball != null)
+        if (ball != null && !multiBallsMode)
             if (ball.transform.position.x < -0.72f && !warningSignIsOn1)
             {
                 currentTimeBeforeRespawningCausedByWarning1 -= Time.deltaTime;
@@ -348,7 +348,7 @@ public class GameManager : MonoBehaviour
     void ShowWarningSign2()
     {
         
-        if (ball != null)
+        if (ball != null && !multiBallsMode)
             if (ball.transform.position.x > -0.72f && !warningSignIsOn2)
             {
                 currentTimeBeforeRespawningCausedByWarning2 -= Time.deltaTime;
