@@ -8,6 +8,7 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     public string soloScene;
+    public string multiBallScene;
     public string multiScene;
 
     private VisualElement root;
@@ -72,7 +73,10 @@ public class MainMenu : MonoBehaviour
 
         if(focusedElement == soloButton)
         {
-            gameManager.InitializeScene(soloScene, isMultiplayer: false);
+            if(gameManager.multiBallsMode)
+                gameManager.InitializeScene(multiBallScene, isMultiplayer: false);
+            else
+                gameManager.InitializeScene(soloScene, isMultiplayer: false);
         }
 
         if(focusedElement == versusButton)
@@ -194,20 +198,26 @@ public class MainMenuEditor : Editor
     {
         var menu = target as MainMenu;
         var oldSoloScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(menu.soloScene);
+        var oldMultiBallScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(menu.multiBallScene);
         var oldMultiScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(menu.multiScene);
 
         serializedObject.Update();
 
         EditorGUI.BeginChangeCheck();
         var newSoloScene = EditorGUILayout.ObjectField("Solo Scene", oldSoloScene, typeof(SceneAsset), false) as SceneAsset;
+        var newMultiBallScene = EditorGUILayout.ObjectField("Multi-Ball Scene", oldMultiBallScene, typeof(SceneAsset), false) as SceneAsset;
         var newMultiScene = EditorGUILayout.ObjectField("Multi Scene", oldMultiScene, typeof(SceneAsset), false) as SceneAsset;
 
         if (EditorGUI.EndChangeCheck())
         {
             var newSoloPath = AssetDatabase.GetAssetPath(newSoloScene);
             var soloScenePathProperty = serializedObject.FindProperty("soloScene");
-            soloScenePathProperty.stringValue = newSoloPath;           
-            
+            soloScenePathProperty.stringValue = newSoloPath;
+
+            var newMultiBallPath = AssetDatabase.GetAssetPath(newMultiBallScene);
+            var multiBallScenePathProperty = serializedObject.FindProperty("multiBallScene");
+            multiBallScenePathProperty.stringValue = newMultiBallPath;
+
             var newMultiPath = AssetDatabase.GetAssetPath(newMultiScene);
             var multiScenePathProperty = serializedObject.FindProperty("multiScene");
             multiScenePathProperty.stringValue = newMultiPath;

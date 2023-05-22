@@ -37,7 +37,6 @@ public class ScoreManager : MonoBehaviour
     float currentMaxSpeed;
     float currentEdgesBoost;
 
-    [SerializeField] bool multiBallsScene = false;
     [HideInInspector] public bool lookForNoTarget = false;
 
     private UIManager uiManager;
@@ -72,7 +71,7 @@ public class ScoreManager : MonoBehaviour
     }
     void WinCondition()
     {
-        if (!multiBallsScene)
+        if (!GameManager.instance.multiBallsMode)
         {
             if (winByScore)
             {
@@ -114,7 +113,7 @@ public class ScoreManager : MonoBehaviour
                 }
             }
         }
-        if(multiBallsScene)
+        if(GameManager.instance.multiBallsMode)
         {
             if(player1Score + player2Score == 15)
             {

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,14 +20,16 @@ public class UIManager : MonoBehaviour
     private AudioMenu audioMenu;
     [SerializeField]
     private CreditScroll creditScroll;
+    [SerializeField]
+    private TextMeshProUGUI mayhemText;
+
+    private Inputaction uiInput;
 
     public WinscreenAnim player1Wins;
     public WinscreenAnim player2Wins;
     public WinscreenAnim draw;
 
     public Fadetoblack fadeToBlack;
-
-    private Inputaction uiInput;
 
     private void Awake()
     {
@@ -50,6 +53,7 @@ public class UIManager : MonoBehaviour
 
         uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
 
+        uiInput.UI.GameModeToggle.performed += ctx => ToggleGameMode(ctx);
     }
 
     private void OnEnable()
@@ -71,6 +75,7 @@ public class UIManager : MonoBehaviour
     public void ToggleMainMenu(bool active)
     {
         mainMenu.gameObject.SetActive(active);
+        mayhemText.gameObject.SetActive(active);
     }
 
     public void ToggleOptionsMenu(bool active)
@@ -127,6 +132,30 @@ public class UIManager : MonoBehaviour
         {
             pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1f;
+        }
+    }
+
+    public void ToggleGameMode(InputAction.CallbackContext context)
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        if (GameManager.instance.CurrentState != GameState.Menu)
+            return;
+
+        if (GameManager.instance.multiBallsMode)
+        {
+            mayhemText.text = "Mayhem: off";
+            GameManager.instance.multiBallsMode = false;
+        }
+        else
+        {
+            mayhemText.text = "Mayhem: on";
+            GameManager.instance.multiBallsMode = true;
         }
     }
 
