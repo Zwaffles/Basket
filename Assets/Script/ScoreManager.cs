@@ -55,6 +55,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         uiManager = GameManager.instance.uiManager;
+        
     }
 
     private void Update()
@@ -115,7 +116,7 @@ public class ScoreManager : MonoBehaviour
         }
         if(GameManager.instance.multiBallsMode)
         {
-            if(player1Score + player2Score == 15)
+            if(player1Score + player2Score > 14)
             {
                 lookForNoTarget = true;
                 if (player1Score > player2Score)
@@ -123,13 +124,19 @@ public class ScoreManager : MonoBehaviour
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
+                    //FindObjectOfType<CubeMover>().multiBalls = false;
                 }
                 if (player2Score > player1Score)
                 {
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
+                    //FindObjectOfType<CubeMover>().multiBalls = false;
                 }
+            }
+            if(player1Score + player2Score < 15)
+            {
+                lookForNoTarget = false;
             }
         }
         if (winByTime)

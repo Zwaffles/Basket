@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.413
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 23469712}
-  m_IndirectSpecularColor: {r: 0.01453285, g: 0.009515559, b: 0.017954906, a: 0.413}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.413}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4143,6 +4143,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 31.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 31.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4301202948184929865, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294177779
+      objectReference: {fileID: 0}
     - target: {fileID: 4513623109487360870, guid: 2550ba4e9293cd54d828a6816929d20d,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4182,6 +4217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5870345109165168251, guid: 2550ba4e9293cd54d828a6816929d20d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 229.78
       objectReference: {fileID: 0}
     - target: {fileID: 6371206983681024288, guid: 2550ba4e9293cd54d828a6816929d20d,
         type: 3}

@@ -27,12 +27,13 @@ public class CubeMover : MonoBehaviour
     [SerializeField] public float ballChasing = 0.5f;
     Quaternion targetRotation;
 
-    [SerializeField] bool multiBalls = false;
+    [SerializeField] bool multiBalls;
+    bool collidingWithBall = false;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
-    bool collidingWithBall = false;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ball")
@@ -69,7 +70,7 @@ public class CubeMover : MonoBehaviour
     {
         if (target == null || !target.activeSelf)
         {
-            if(!FindObjectOfType<ScoreManager>().lookForNoTarget)
+            //if(!FindObjectOfType<ScoreManager>().lookForNoTarget)
             target = FindObjectOfType<BouncingBall>().gameObject;
         }
     }
@@ -92,7 +93,8 @@ public class CubeMover : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Rotate();
+        if (target != null)
+            Rotate();
         // Cube move direction
         if (transform.position.x > previousPosition.x)
         {

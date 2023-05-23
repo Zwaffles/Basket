@@ -53,12 +53,12 @@
             <ui:VisualElement name="RightSliceLower" style="flex-grow: 1; align-items: flex-end; justify-content: flex-end; width: 100%; height: 33%;">
                 <ui:VisualElement name="InstructionsContainer" style="flex-direction: row;">
                     <ui:VisualElement style="flex-direction: row; align-items: center; background-color: rgba(19, 19, 19, 0.29);">
-                        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Switch_A.png?fileID=2800000&amp;guid=c28cb6c185b236c40a53b5da42dab48d&amp;type=3#Switch_A&apos;); width: 64px; height: 64px; align-items: center; justify-content: center;" />
-                        <ui:Label text="Confirm" display-tooltip-when-elided="true" name="Instructions1" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241);" />
+                        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Xbox/XboxSeriesX_A.png?fileID=2800000&amp;guid=a43665fb7d133074f89b55b2e3244451&amp;type=3#XboxSeriesX_A&apos;); width: 64px; height: 64px; align-items: center; justify-content: center;" />
+                        <ui:Label text="Confirm" display-tooltip-when-elided="true" name="Instructions1" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241); -unity-text-outline-width: 2px;" />
                     </ui:VisualElement>
                     <ui:VisualElement style="flex-direction: row; align-items: center; background-color: rgba(20, 20, 20, 0.29);">
-                        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/Switch_B.png?fileID=2800000&amp;guid=2cdb20fe33e1b524492b9b2e32e593a6&amp;type=3#Switch_B&apos;); width: 64px; height: 64px;" />
-                        <ui:Label text="Return" display-tooltip-when-elided="true" name="Instructions2" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241);" />
+                        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Xbox/XboxSeriesX_B.png?fileID=2800000&amp;guid=10e2b281e4434c644a1e5870fcf5213b&amp;type=3#XboxSeriesX_B&apos;); width: 64px; height: 64px;" />
+                        <ui:Label text="Return" display-tooltip-when-elided="true" name="Instructions2" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241); -unity-text-outline-width: 2px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
