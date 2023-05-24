@@ -173,6 +173,7 @@ public class ScoreManager : MonoBehaviour
             timeSpent = 0;
             weHaveAWinner = false;
             fireWork.SetActive(true);
+            GameManager.instance.RemoveBall();
         }
     }
     public void UpdateTimerUI(float timeSpent)
