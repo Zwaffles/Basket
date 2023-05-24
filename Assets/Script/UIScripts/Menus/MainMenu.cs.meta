@@ -3,7 +3,9 @@ guid: d81f48097bbc08741ad2a7532c0a4f31
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - emptyCheckbox: {fileID: 2800000, guid: 2f50dace184a6274c8d154271d9d3518, type: 3}
+  - filledCheckbox: {fileID: 2800000, guid: 01f3e21b8cbf6aa4ab7f47b6023743df, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

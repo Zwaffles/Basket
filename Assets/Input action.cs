@@ -969,7 +969,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9588b010-a4cc-476b-8ee9-962d0765703a"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -1024,7 +1024,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5a9d0ced-7aa4-47ae-ac66-d137c04d7c88"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -1211,7 +1211,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ffacd82b-9d04-4e73-bd50-f7d6025021c7"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""path"": ""<Keyboard>/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -1222,7 +1222,7 @@ public partial class @Inputaction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bf295f6c-2274-4b55-a9fc-7f33cf7bfdc7"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
