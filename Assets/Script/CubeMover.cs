@@ -71,6 +71,7 @@ public class CubeMover : MonoBehaviour
         if (target == null || !target.activeSelf)
         {
             //if(!FindObjectOfType<ScoreManager>().lookForNoTarget)
+            if(GameObject.Find("Ball"))
             target = FindObjectOfType<BouncingBall>().gameObject;
         }
     }

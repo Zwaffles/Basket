@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
 
     private VisualElement root;
 
+    private VisualElement activeIndicator;
+
     private Button soloButton;
     private Button versusButton;
     private Button optionsButton;
@@ -23,11 +25,16 @@ public class MainMenu : MonoBehaviour
 
     private GameManager gameManager;
 
+    public Texture2D emptyCheckbox;
+    public Texture2D filledCheckbox;
+
     private void OnEnable()
     {
         inputEnabled = false;
 
         root = GetComponent<UIDocument>().rootVisualElement;
+
+        activeIndicator = root.Q<VisualElement>("ActiveIndicator");
 
         soloButton = root.Q<Button>("1PlayerPlayButton");
         versusButton = root.Q<Button>("2PlayerPlayButton");
@@ -188,6 +195,30 @@ public class MainMenu : MonoBehaviour
     {
         return root.focusController.focusedElement;
     }
+
+    public void ToggleGameMode(InputAction.CallbackContext context)
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        if (GameManager.instance.CurrentState != GameState.Menu)
+            return;
+
+        if (GameManager.instance.multiBallsMode)
+        {
+            activeIndicator.style.backgroundImage = emptyCheckbox;
+            GameManager.instance.multiBallsMode = false;
+        }
+        else
+        {
+            activeIndicator.style.backgroundImage = filledCheckbox;
+            GameManager.instance.multiBallsMode = true;
+        }
+    }
 }
 
 #if UNITY_EDITOR
@@ -222,6 +253,13 @@ public class MainMenuEditor : Editor
             var multiScenePathProperty = serializedObject.FindProperty("multiScene");
             multiScenePathProperty.stringValue = newMultiPath;
         }
+
+        var emptyCheckboxProperty = serializedObject.FindProperty("emptyCheckbox");
+        EditorGUILayout.PropertyField(emptyCheckboxProperty);
+
+        var filledCheckboxProperty = serializedObject.FindProperty("filledCheckbox");
+        EditorGUILayout.PropertyField(filledCheckboxProperty);
+
         serializedObject.ApplyModifiedProperties();
     }
 }

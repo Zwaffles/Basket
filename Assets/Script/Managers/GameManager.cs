@@ -246,12 +246,22 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = originalTimeScale * 0.25f;
         Invoke("ResetTimeScale", timeSlowDuration);
+
         if(!multiBallsMode)
-        StartCoroutine("Respawn", value);
+            StartCoroutine("Respawn", value);
+
         if(ball != null)
-        ball.SetActive(false);
+            ball.SetActive(false);
+
         ResetWarning(-1);
         ResetWarning(1);
+    }
+
+    public void RemoveBall()
+    {
+        StopCoroutine("Respawn");
+        ball.SetActive(false);
+        ball.transform.position = Vector3.zero;
     }
 
     IEnumerator Respawn(int rightorLeft)
@@ -280,7 +290,7 @@ public class GameManager : MonoBehaviour
             CameraShake();
 
         if(!warningSignIsOn1)
-        ShowWarningSign1();
+            ShowWarningSign1();
 
         if (!warningSignIsOn2)
             ShowWarningSign2();
