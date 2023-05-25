@@ -78,12 +78,14 @@ public class ScoreManager : MonoBehaviour
             {
                 if (player1Score >= scoreTarget)
                 {
+                    HandleFirstOfManyAchievement(false);
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
                 if (player2Score >= scoreTarget)
                 {
+                    HandleFirstOfManyAchievement(true);
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -95,12 +97,14 @@ public class ScoreManager : MonoBehaviour
                 {
                     if (player1Score > player2Score)
                     {
+                        HandleFirstOfManyAchievement(false);
                         Instantiate(uiManager.player1Wins);
                         GetMatchOverRules();
                         weHaveAWinner = true;
                     }
                     if (player2Score > player1Score)
                     {
+                        HandleFirstOfManyAchievement(true);
                         Instantiate(uiManager.player2Wins);
                         GetMatchOverRules();
                         weHaveAWinner = true;
@@ -121,6 +125,7 @@ public class ScoreManager : MonoBehaviour
                 lookForNoTarget = true;
                 if (player1Score > player2Score)
                 {
+                    HandleFirstOfManyAchievement(false);
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -128,6 +133,7 @@ public class ScoreManager : MonoBehaviour
                 }
                 if (player2Score > player1Score)
                 {
+                    HandleFirstOfManyAchievement(true);
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -145,12 +151,14 @@ public class ScoreManager : MonoBehaviour
             {
                 if (player1Score > player2Score)
                 {
+                    HandleFirstOfManyAchievement(false);
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
                 }
                 if (player2Score > player1Score)
                 {
+                    HandleFirstOfManyAchievement(true);
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -165,6 +173,21 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    private void HandleFirstOfManyAchievement(bool player2Won)
+    {
+
+        if (player2Won)
+        {
+            if (!GameManager.instance.AI.activeInHierarchy)
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.FirstOfMany);
+        }
+        else
+        {
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.FirstOfMany);
+        }
+
+    }
+
     void GetMatchOverRules()
     {
         if (weHaveAWinner)
@@ -173,6 +196,7 @@ public class ScoreManager : MonoBehaviour
             timeSpent = 0;
             weHaveAWinner = false;
             fireWork.SetActive(true);
+
         }
     }
     public void UpdateTimerUI(float timeSpent)

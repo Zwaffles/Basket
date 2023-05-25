@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager { get; private set; }
     public ScoreManager scoreManager { get; private set; }
     public PlayerConfigurationManager playerConfigurationManager { get; private set; }
+    public AchievementManager achievementManager { get; private set; }
 
     [SerializeField]
     private GameState currentState = GameState.Play;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject playerControllerPrefab;
     [SerializeField] Material player1Material;
-    [SerializeField] GameObject AI;
+    [SerializeField] public GameObject AI { get; private set; }
     [SerializeField] GameObject playerTwo;
     [SerializeField] GameObject ball;
     [SerializeField] Transform ballRightSpawn;
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
         playerConfigurationManager = FindObjectOfType<PlayerConfigurationManager>();
         playerInput = GetComponent<PlayerInput>();
+        achievementManager = FindObjectOfType<AchievementManager>();
         
     }
 
