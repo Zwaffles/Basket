@@ -113,6 +113,9 @@ public class GameManager : MonoBehaviour
         if (CurrentState == GameState.Multiplayer)
             StartMultiplayer();
 
+        // Hides the cursor...
+        Cursor.visible = false;
+
         currentTimeBeforeRespawningCausedByWarning1 = MaxtimeForWarning;
         currentTimeBeforeRespawningCausedByWarning2 = MaxtimeForWarning;
         warningSign[0].SetActive(false);
