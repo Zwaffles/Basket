@@ -320,7 +320,7 @@ MonoBehaviour:
   leanSpeed: 1.5
   randomRangeFloat: 0.2
   ballChasing: 0.5
-  multiBalls: 0
+  multiBalls: 1
 --- !u!64 &3124727700643346865
 MeshCollider:
   m_ObjectHideFlags: 0
