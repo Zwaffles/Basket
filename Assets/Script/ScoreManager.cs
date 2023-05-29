@@ -41,6 +41,9 @@ public class ScoreManager : MonoBehaviour
 
     private UIManager uiManager;
 
+    private bool player1hasAchievedFivePointLead = false;
+    private bool player2hasAchievedFivePointLead = false;
+
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -79,6 +82,8 @@ public class ScoreManager : MonoBehaviour
                 if (player1Score >= scoreTarget)
                 {
                     HandleFirstOfManyAchievement(false);
+                    HandleComebackTimeAchievement(false);
+
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -86,6 +91,8 @@ public class ScoreManager : MonoBehaviour
                 if (player2Score >= scoreTarget)
                 {
                     HandleFirstOfManyAchievement(true);
+                    HandleComebackTimeAchievement(true);
+
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -98,6 +105,8 @@ public class ScoreManager : MonoBehaviour
                     if (player1Score > player2Score)
                     {
                         HandleFirstOfManyAchievement(false);
+                        HandleComebackTimeAchievement(false);
+
                         Instantiate(uiManager.player1Wins);
                         GetMatchOverRules();
                         weHaveAWinner = true;
@@ -105,6 +114,8 @@ public class ScoreManager : MonoBehaviour
                     if (player2Score > player1Score)
                     {
                         HandleFirstOfManyAchievement(true);
+                        HandleComebackTimeAchievement(true);
+
                         Instantiate(uiManager.player2Wins);
                         GetMatchOverRules();
                         weHaveAWinner = true;
@@ -126,6 +137,8 @@ public class ScoreManager : MonoBehaviour
                 if (player1Score > player2Score)
                 {
                     HandleFirstOfManyAchievement(false);
+                    HandleComebackTimeAchievement(false);
+
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -134,6 +147,8 @@ public class ScoreManager : MonoBehaviour
                 if (player2Score > player1Score)
                 {
                     HandleFirstOfManyAchievement(true);
+                    HandleComebackTimeAchievement(true);
+
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -152,6 +167,8 @@ public class ScoreManager : MonoBehaviour
                 if (player1Score > player2Score)
                 {
                     HandleFirstOfManyAchievement(false);
+                    HandleComebackTimeAchievement(false);
+
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -159,6 +176,8 @@ public class ScoreManager : MonoBehaviour
                 if (player2Score > player1Score)
                 {
                     HandleFirstOfManyAchievement(true);
+                    HandleComebackTimeAchievement(true);
+
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
                     weHaveAWinner = true;
@@ -184,6 +203,35 @@ public class ScoreManager : MonoBehaviour
         else
         {
             GameManager.instance.achievementManager.GiveAchievement(Achievement.FirstOfMany);
+        }
+
+    }
+
+    private void CheckForFivePointLead()
+    {
+
+        if (player2Score + 4 < player1Score) player1hasAchievedFivePointLead = true;
+        if (player1Score + 4 < player2Score) player2hasAchievedFivePointLead = true;
+
+    }
+
+    private void HandleComebackTimeAchievement(bool player2Won)
+    {
+
+        if (player2Won)
+        {
+            
+            if (!player1hasAchievedFivePointLead) return;
+
+            if (!GameManager.instance.AI.activeInHierarchy)
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.ComebackTime);
+        }
+        else
+        {
+
+            if (!player2hasAchievedFivePointLead) return;
+            
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.ComebackTime);
         }
 
     }
@@ -257,6 +305,9 @@ public class ScoreManager : MonoBehaviour
         player1ScoreText.text = player1Score.ToString().PadLeft(2, '0');
 
         //add condition for player win/loss ?
+
+        CheckForFivePointLead();
+
     }
 
     public void PlayerTwoScore(int value)
@@ -284,6 +335,9 @@ public class ScoreManager : MonoBehaviour
         player2ScoreText.text = player2Score.ToString().PadLeft(2, '0');
 
         //add condition for player win/loss ?
+
+        CheckForFivePointLead();
+
     }
 
     // Converts a float "time in seconds" to a 00:00 formatted string
