@@ -41,6 +41,21 @@ public class AchievementManager : MonoBehaviour
 
         ClearQueue();
 
+        /*
+
+        Use this code to delete all your achievements
+
+        SteamUserStats.ClearAchievement("ACH_COMEBACK");
+        SteamUserStats.ClearAchievement("ACH_FIRST_WIN");
+        SteamUserStats.ClearAchievement("ACH_SCORE_FIVE");
+        SteamUserStats.ClearAchievement("ACH_NEAR_MISS");
+        SteamUserStats.ClearAchievement("ACH_PLAY_MULTIPLAYER");
+        SteamUserStats.ClearAchievement("ACH_THREE_CONSECUTIVE");
+        SteamUserStats.ClearAchievement("ACH_SELF_GOAL");
+        SteamUserStats.StoreStats();
+
+        */
+
     }
 
     private void GiveAchievement(string achievement)

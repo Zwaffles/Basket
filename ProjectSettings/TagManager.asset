@@ -25,6 +25,7 @@ TagManager:
   - PlayerTwoScore
   - VirtualCamera
   - WinnerText
+  - Rim
   layers:
   - Default
   - TransparentFX

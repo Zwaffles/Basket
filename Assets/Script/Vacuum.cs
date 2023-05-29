@@ -51,7 +51,7 @@ public class Vacuum : MonoBehaviour
                 if (this.gameObject.name == "Vacuum1")
                 {
 
-                    scoreManager.PlayerOneScore(1);
+                    scoreManager.PlayerOneScore(1, ball);
                     //gameManager.RespawnBall(1);
                     rb = null;
 
@@ -60,12 +60,13 @@ public class Vacuum : MonoBehaviour
                 if (this.gameObject.name == "Vacuum2")
                 {
 
-                    scoreManager.PlayerTwoScore(1);
+                    scoreManager.PlayerTwoScore(1, ball);
                     //gameManager.RespawnBall(-1);
                     rb = null;
             }
         }
     }
+
     private void FixedUpdate()
     {
         if (rb != null)
@@ -76,7 +77,7 @@ public class Vacuum : MonoBehaviour
                 if (this.gameObject.name == "Vacuum1")
                 {
                     
-                    scoreManager.PlayerOneScore(1);
+                    scoreManager.PlayerOneScore(1, rb.gameObject);
                     gameManager.RespawnBall(1);
                     rb = null;
                     
@@ -85,7 +86,7 @@ public class Vacuum : MonoBehaviour
                 if (this.gameObject.name == "Vacuum2")
                 {
                     
-                    scoreManager.PlayerTwoScore(1);
+                    scoreManager.PlayerTwoScore(1, rb.gameObject);
                     gameManager.RespawnBall(-1);
                     rb = null;
                     
@@ -93,6 +94,7 @@ public class Vacuum : MonoBehaviour
             }
         }
     }
+
     void EnableBlockColliders()
     {
         blockCollider[0].enabled = true;

@@ -52,12 +52,20 @@ public class BouncingBall : MonoBehaviour
     [SerializeField] public float slowdownFactorBottom = .7f;
     #endregion
      public bool rulesReset;
+
+    public bool lastTouchedPlayer1 { get; private set; }
+    public bool lastTouchedPlayer2 { get; private set; }
+    private bool hasTouchedRim = false;
+
     private void Awake()
     {
         playerController = FindObjectOfType<PlayerController>();
         player2Controller = FindObjectOfType<Player2Controller>();
         cubeMover = FindObjectOfType<CubeMover>();
         rulesReset = false;
+
+        lastTouchedPlayer1 = false;
+        lastTouchedPlayer2 = false;
     }
     private void OnEnable()
     {
@@ -116,16 +124,46 @@ public class BouncingBall : MonoBehaviour
         if (collision.collider.CompareTag("PlayerOne"))
         {
             //rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+            
+            lastTouchedPlayer1 = true;
+            lastTouchedPlayer2 = false;
+
+            if (hasTouchedRim)
+            {
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.LickTheRing);
+                hasTouchedRim = false;
+            }
+
         }
 
         if (collision.collider.CompareTag("PlayerTwo"))
         {
             //rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+
+            lastTouchedPlayer1 = false;
+            lastTouchedPlayer2 = true;
+
+            if (hasTouchedRim)
+            {
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.LickTheRing);
+                hasTouchedRim = false;
+            }
+
         }
 
         if (collision.collider.CompareTag("AI"))
         {
             //rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
+
+            lastTouchedPlayer1 = false;
+            lastTouchedPlayer2 = false;
+
+            if (hasTouchedRim)
+            {
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.LickTheRing);
+                hasTouchedRim = false;
+            }
+
         }
         // objects with edges tags are the side walls over the baskets
         if (collision.collider.CompareTag("Edges"))
@@ -136,12 +174,30 @@ public class BouncingBall : MonoBehaviour
         if (collision.collider.CompareTag("DownSides"))
         {
             rb.velocity *= slowdownFactorBottom;
+
+            if (hasTouchedRim)
+            {
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.LickTheRing);
+                hasTouchedRim = false;
+            }
         }
         // object with Ground tag is the ground
         if (collision.collider.CompareTag("Ground"))
         {
             rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+            
+            if (hasTouchedRim)
+            {
+                GameManager.instance.achievementManager.GiveAchievement(Achievement.LickTheRing);
+                hasTouchedRim = false;
+            }
         }
+
+        if (collision.collider.CompareTag("Rim") && transform.position.y > 11.5f)
+        {
+            hasTouchedRim = true;
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -227,4 +283,14 @@ public class BouncingBall : MonoBehaviour
             enteredLeftEdgeTrigger = false;
         }
     }
+
+    #region Achievements
+
+    private void OnDisable()
+    {
+        hasTouchedRim = false;
+    }
+
+    #endregion
+
 }

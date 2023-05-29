@@ -41,9 +41,6 @@ public class ScoreManager : MonoBehaviour
 
     private UIManager uiManager;
 
-    private bool player1hasAchievedFivePointLead = false;
-    private bool player2hasAchievedFivePointLead = false;
-
     private void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -81,8 +78,7 @@ public class ScoreManager : MonoBehaviour
             {
                 if (player1Score >= scoreTarget)
                 {
-                    HandleFirstOfManyAchievement(false);
-                    HandleComebackTimeAchievement(false);
+                    HandleEndOfMatchAchievements(false);
 
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
@@ -90,8 +86,7 @@ public class ScoreManager : MonoBehaviour
                 }
                 if (player2Score >= scoreTarget)
                 {
-                    HandleFirstOfManyAchievement(true);
-                    HandleComebackTimeAchievement(true);
+                    HandleEndOfMatchAchievements(true);
 
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
@@ -104,8 +99,7 @@ public class ScoreManager : MonoBehaviour
                 {
                     if (player1Score > player2Score)
                     {
-                        HandleFirstOfManyAchievement(false);
-                        HandleComebackTimeAchievement(false);
+                        HandleEndOfMatchAchievements(false);
 
                         Instantiate(uiManager.player1Wins);
                         GetMatchOverRules();
@@ -113,8 +107,7 @@ public class ScoreManager : MonoBehaviour
                     }
                     if (player2Score > player1Score)
                     {
-                        HandleFirstOfManyAchievement(true);
-                        HandleComebackTimeAchievement(true);
+                        HandleEndOfMatchAchievements(true);
 
                         Instantiate(uiManager.player2Wins);
                         GetMatchOverRules();
@@ -122,6 +115,8 @@ public class ScoreManager : MonoBehaviour
                     }
                     else if (player1Score == player2Score)
                     {
+                        HandleEndOfMatchAchievements(true, true);
+
                         Instantiate(uiManager.draw);
                         weHaveAWinner = true;
                         GetMatchOverRules();
@@ -136,8 +131,7 @@ public class ScoreManager : MonoBehaviour
                 lookForNoTarget = true;
                 if (player1Score > player2Score)
                 {
-                    HandleFirstOfManyAchievement(false);
-                    HandleComebackTimeAchievement(false);
+                    HandleEndOfMatchAchievements(false);
 
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
@@ -146,8 +140,7 @@ public class ScoreManager : MonoBehaviour
                 }
                 if (player2Score > player1Score)
                 {
-                    HandleFirstOfManyAchievement(true);
-                    HandleComebackTimeAchievement(true);
+                    HandleEndOfMatchAchievements(true);
 
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
@@ -166,8 +159,7 @@ public class ScoreManager : MonoBehaviour
             {
                 if (player1Score > player2Score)
                 {
-                    HandleFirstOfManyAchievement(false);
-                    HandleComebackTimeAchievement(false);
+                    HandleEndOfMatchAchievements(false);
 
                     Instantiate(uiManager.player1Wins);
                     GetMatchOverRules();
@@ -175,8 +167,7 @@ public class ScoreManager : MonoBehaviour
                 }
                 if (player2Score > player1Score)
                 {
-                    HandleFirstOfManyAchievement(true);
-                    HandleComebackTimeAchievement(true);
+                    HandleEndOfMatchAchievements(true);
 
                     Instantiate(uiManager.player2Wins);
                     GetMatchOverRules();
@@ -184,12 +175,43 @@ public class ScoreManager : MonoBehaviour
                 }
                 else if (player1Score == player2Score)
                 {
+                    HandleEndOfMatchAchievements(true, true);
+
                     Instantiate(uiManager.draw);
                     weHaveAWinner = true;
                     GetMatchOverRules();
                 }
             }
         }
+    }
+
+    #region Achievements
+
+    private bool player1hasAchievedFivePointLead = false;
+    private bool player2hasAchievedFivePointLead = false;
+
+    private int player1ConsecutiveGoals = 0;
+    private int player2ConsecutiveGoals = 0;
+    private bool player1hasAchievedThreeConsecutiveGoals = false;
+    private bool player2hasAchievedThreeConsecutiveGoals = false;
+
+    private bool player1hasAchievedFiveGoals = false;
+    private bool player2hasAchievedFiveGoals = false;
+
+    private bool player1hasScoredSelfGoal = false;
+    private bool player2hasScoredSelfGoal = false;
+
+    private void HandleEndOfMatchAchievements(bool player2Won, bool draw = false)
+    {
+
+        HandleSeeYouInTheCourtAchievement();
+
+        if (!draw)
+        {
+            HandleComebackTimeAchievement(player2Won);
+            HandleFirstOfManyAchievement(player2Won);
+        }
+
     }
 
     private void HandleFirstOfManyAchievement(bool player2Won)
@@ -204,14 +226,6 @@ public class ScoreManager : MonoBehaviour
         {
             GameManager.instance.achievementManager.GiveAchievement(Achievement.FirstOfMany);
         }
-
-    }
-
-    private void CheckForFivePointLead()
-    {
-
-        if (player2Score + 4 < player1Score) player1hasAchievedFivePointLead = true;
-        if (player1Score + 4 < player2Score) player2hasAchievedFivePointLead = true;
 
     }
 
@@ -235,6 +249,43 @@ public class ScoreManager : MonoBehaviour
         }
 
     }
+
+    private void HandleSeeYouInTheCourtAchievement()
+    {
+        if (!GameManager.instance.AI.activeInHierarchy)
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.SeeYouInCourt);
+    }
+
+    private void HandleWeOnlyShoot3PointersAchievement()
+    {
+
+        if (player1hasAchievedThreeConsecutiveGoals) 
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.WeOnlyShoot3Pointers);
+
+        if (player2hasAchievedThreeConsecutiveGoals && !GameManager.instance.AI.activeInHierarchy)
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.WeOnlyShoot3Pointers);
+
+    }
+
+    private void HandleKeepTheShotsComingAchievement()
+    {
+        if (player1hasAchievedFiveGoals)
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.KeepTheShotsComing);
+
+        if (player2hasAchievedFiveGoals && !GameManager.instance.AI.activeInHierarchy)
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.KeepTheShotsComing);
+    }
+
+    private void HandleWhoseHoopAchievement()
+    {
+        if (player1hasScoredSelfGoal)
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.WhoseHoop);
+
+        if (player2hasScoredSelfGoal && !GameManager.instance.AI.activeInHierarchy)
+            GameManager.instance.achievementManager.GiveAchievement(Achievement.WhoseHoop);
+    }
+
+    #endregion
 
     void GetMatchOverRules()
     {
@@ -280,7 +331,7 @@ public class ScoreManager : MonoBehaviour
         player2ScoreText.text = "00";
     }
 
-    public void PlayerOneScore(int value)
+    public void PlayerOneScore(int value, GameObject ball)
     {
         try
         {
@@ -306,11 +357,33 @@ public class ScoreManager : MonoBehaviour
 
         //add condition for player win/loss ?
 
-        CheckForFivePointLead();
+        // Achievement-stuff
+
+        if (player2Score + 4 < player1Score) player1hasAchievedFivePointLead = true;
+
+        player1ConsecutiveGoals += value;
+        player2ConsecutiveGoals = 0;
+
+        if (player1ConsecutiveGoals > 2) player1hasAchievedThreeConsecutiveGoals = true;
+        HandleWeOnlyShoot3PointersAchievement();
+
+        if (player1Score > 4) player1hasAchievedFiveGoals = true;
+        HandleKeepTheShotsComingAchievement();
+
+        try
+        {
+            BouncingBall bouncingBall = ball.GetComponent<BouncingBall>();
+            if (bouncingBall.lastTouchedPlayer2) player2hasScoredSelfGoal = true;
+            HandleWhoseHoopAchievement();
+        }
+        catch
+        {
+            Debug.LogWarning("Gameobject sent is not a bouncing ball (anymore at least)");
+        }
 
     }
 
-    public void PlayerTwoScore(int value)
+    public void PlayerTwoScore(int value, GameObject ball)
     {
         try
         {
@@ -336,7 +409,29 @@ public class ScoreManager : MonoBehaviour
 
         //add condition for player win/loss ?
 
-        CheckForFivePointLead();
+        // Achievement-stuff
+
+        if (player1Score + 4 < player2Score) player2hasAchievedFivePointLead = true;
+
+        player1ConsecutiveGoals = 0;
+        player2ConsecutiveGoals += value;
+
+        if (player2ConsecutiveGoals > 2) player2hasAchievedThreeConsecutiveGoals = true;
+        HandleWeOnlyShoot3PointersAchievement();
+
+        if (player2Score > 4) player2hasAchievedFiveGoals = true;
+        HandleKeepTheShotsComingAchievement();
+
+        try
+        {
+            BouncingBall bouncingBall = ball.GetComponent<BouncingBall>();
+            if (bouncingBall.lastTouchedPlayer1) player1hasScoredSelfGoal = true;
+            HandleWhoseHoopAchievement();
+        }
+        catch
+        {
+            Debug.LogWarning("Gameobject sent is not a bouncing ball (anymore at least)");
+        }
 
     }
 
