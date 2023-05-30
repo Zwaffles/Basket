@@ -52,7 +52,7 @@ public class InitializeLevel : MonoBehaviour
         try
         {
             // New
-            gameManager.audioManager.PlayVoice("Ready_-Noel_-Deep2");
+            gameManager.audioManager.PlayVoice("Robot3_Are_you_ready");
         }
         catch
         {
@@ -87,7 +87,7 @@ public class InitializeLevel : MonoBehaviour
                 try
                 {
                     // New
-                    gameManager.audioManager.PlayVoice("Go_-_Noel_-_Deep");
+                    gameManager.audioManager.PlayVoice("Robot3_Go");
                     // Alt
                     //GameManager.instance.audioManager.PlayVoice("Start_-_Noel_-_Deep");
 

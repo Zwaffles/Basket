@@ -333,23 +333,6 @@ public class ScoreManager : MonoBehaviour
 
     public void PlayerOneScore(int value, GameObject ball)
     {
-        try
-        {
-            GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
-            // New
-            GameManager.instance.audioManager.PlayVoice("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
-
-            float randValue = Random.value;
-            if (randValue < .54f) 
-            {
-                // Old
-                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
-            }
-        }
-        catch
-        {
-            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
-        }
 
         player1Score += value;
 
@@ -370,6 +353,7 @@ public class ScoreManager : MonoBehaviour
         if (player1Score > 4) player1hasAchievedFiveGoals = true;
         HandleKeepTheShotsComingAchievement();
 
+        // Whose Hoop?
         try
         {
             BouncingBall bouncingBall = ball.GetComponent<BouncingBall>();
@@ -381,27 +365,20 @@ public class ScoreManager : MonoBehaviour
             Debug.LogWarning("Gameobject sent is not a bouncing ball (anymore at least)");
         }
 
+        // SFX
+        PlayScoringSFX(
+            player2hasScoredSelfGoal,
+            player1hasAchievedFivePointLead,
+            player1hasAchievedThreeConsecutiveGoals,
+            player1hasAchievedFiveGoals
+            );
+
+        player2hasScoredSelfGoal = false;
+
     }
 
     public void PlayerTwoScore(int value, GameObject ball)
     {
-        try
-        {
-            GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
-            // New
-            GameManager.instance.audioManager.PlayVoice("Score_-Noel_-Deep", Random.Range(0.92f, 1.18f));
-
-            float randValue = Random.value;
-            if (randValue < .54f)
-            {
-                // Old
-                GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
-            }
-        }
-        catch
-        {
-            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
-        }
 
         player2Score += value;
 
@@ -432,6 +409,124 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.LogWarning("Gameobject sent is not a bouncing ball (anymore at least)");
         }
+
+        // SFX
+        PlayScoringSFX(
+            player1hasScoredSelfGoal,
+            player2hasAchievedFivePointLead,
+            player2hasAchievedThreeConsecutiveGoals,
+            player2hasAchievedFiveGoals
+            );
+
+        player1hasScoredSelfGoal = false;
+
+    }
+
+    // Achievement-tied SFX flags
+    private bool hasPlayedNothingButNet = false;
+    private bool hasPlayedSwoosh = false;
+    private bool hasPlayedUglyShot = false;
+    private bool hasPlayedWow = false;
+
+    private void PlayScoringSFX(bool wasSelfGoal, bool hasFivePointLead, bool hasThreeConsecutive, bool hasFivePoints)
+    {
+
+        try
+        {
+
+            if (HandleSelfGoalSFX(wasSelfGoal)) return;
+
+            if (hasFivePointLead && !hasPlayedSwoosh)
+            {
+                GameManager.instance.audioManager.PlayVoice("Robot3_Swoosh", Random.Range(0.92f, 1.18f));
+                hasPlayedSwoosh = true;
+            }
+            else if (hasThreeConsecutive && !hasPlayedNothingButNet)
+            {
+                GameManager.instance.audioManager.PlayVoice("Robot3_Nothing_but_net", Random.Range(0.92f, 1.18f));
+                hasPlayedNothingButNet = true;
+            }
+            else if (hasFivePoints && !hasPlayedWow)
+            {
+                GameManager.instance.audioManager.PlayVoice("Robot3_Wow", Random.Range(0.92f, 1.18f));
+                hasPlayedWow = true;
+            }
+            else
+            {
+
+                // Yep, this is skewed, but cool to have some are rarer than others, no?
+                int voiceClipToPlay = Mathf.CeilToInt(Random.Range(0.8f, 3.5f));
+
+                switch (voiceClipToPlay)
+                {
+
+                    case 1:
+                        GameManager.instance.audioManager.PlayVoice("Robot3_Boom", Random.Range(0.92f, 1.18f));
+                        break;
+                    case 2:
+                        GameManager.instance.audioManager.PlayVoice("Robot3_Score", Random.Range(0.92f, 1.18f));
+                        break;
+                    case 3:
+                        GameManager.instance.audioManager.PlayVoice("Robot3_Slam_dunk", Random.Range(0.92f, 1.18f));
+                        break;
+                    default:
+                        GameManager.instance.audioManager.PlayVoice("Robot3_Insane_shot", Random.Range(0.92f, 1.18f));
+                        break;
+
+                }
+
+            }
+
+        }
+        catch
+        {
+
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+
+        }
+
+    }
+
+    private bool HandleSelfGoalSFX(bool wasSelfGoal)
+    {
+
+        // The clap doesn't play on self goals
+        if (wasSelfGoal)
+        {
+
+            if (!hasPlayedUglyShot)
+            {
+                GameManager.instance.audioManager.PlayVoice("Robot3_Ugly_shot", Random.Range(0.92f, 1.18f));
+                hasPlayedUglyShot = true;
+                return true;
+            }
+
+        }
+        else
+        {
+
+            // Yep, this is skewed, but cool to have some are rarer than others, no?
+            int SFXToPlay = Mathf.CeilToInt(Random.Range(0.9f, 2.7f));
+
+            switch (SFXToPlay)
+            {
+
+                case 1:
+                    GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
+                    GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
+                    break;
+                case 2:
+                    GameManager.instance.audioManager.PlaySfx("Goal_ClapClapClap", Random.Range(0.94f, 1.24f));
+                    break;
+                default:
+                    GameManager.instance.audioManager.PlaySfx("airhorn", Random.Range(0.92f, 1.18f));
+                    break;
+
+            }
+
+        }
+
+        return false;
 
     }
 
