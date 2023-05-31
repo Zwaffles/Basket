@@ -133,6 +133,9 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Menu;
 
         playerConfigurationManager.AllowJoining(false);
+
+        StartCoroutine(startMenuMusic());
+
     }
 
     public void StartMatch(bool isMultiplayer)
@@ -419,4 +422,22 @@ public class GameManager : MonoBehaviour
             timeSlowElapsedTime = 0f;
         }
     }
+
+    private IEnumerator startMenuMusic()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        if (audioManager.GetCurrentMusic().Equals("Von_-_Bits_and_beats")) yield break;
+
+        try
+        {
+            audioManager.PlayMusic("Von_-_Bits_and_beats");
+        }
+        catch
+        {
+            Debug.LogWarning("AudioManager not found. Perhaps you're not using the GameManager prefab?");
+        }
+
+    }
+
 }

@@ -158,6 +158,23 @@ public class AudioManager : MonoBehaviour
         musicSource.UnPause();
     }
 
+    public string GetCurrentMusic()
+    {
+
+        string result;
+
+        try
+        {
+            result = musicSource.clip.name;
+        }
+        catch
+        {
+            result = "Noel";
+        }
+        
+        return result;
+    }
+
     private AudioSource GetAvailableSfxSource()
     {
         foreach (AudioSource source in sfxSources)

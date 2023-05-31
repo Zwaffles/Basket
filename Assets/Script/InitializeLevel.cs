@@ -53,6 +53,7 @@ public class InitializeLevel : MonoBehaviour
         {
             // New
             gameManager.audioManager.PlayVoice("Robot3_Are_you_ready");
+            gameManager.audioManager.StopMusic();
         }
         catch
         {
