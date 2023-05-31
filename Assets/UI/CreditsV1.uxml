@@ -12,7 +12,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="TaherB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Programming" display-tooltip-when-elided="true" name="TaherC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Programmer" display-tooltip-when-elided="true" name="TaherC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="NoelBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -23,7 +23,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Art" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Artist" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="MattiasBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -45,7 +45,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Art" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Artist" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="GunnarBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -67,7 +67,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Design" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Designer" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="MaxBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -78,7 +78,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Design" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Designer" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="LudwigBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -89,7 +89,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Design" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Designer" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="JohanBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -100,7 +100,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Programming" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Producer / Programmer" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="OlleBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -111,7 +111,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Design" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Designer" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="MarcusBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -122,7 +122,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Art" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Artist" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:GroupBox name="AndreasBox" style="flex-direction: row; justify-content: center; padding-left: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-top: 0;">
@@ -133,7 +133,7 @@
                 <ui:Label text="-" display-tooltip-when-elided="true" name="NoelB_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px; align-items: stretch;" />
             </ui:GroupBox>
             <ui:GroupBox style="width: 50%; padding-left: 0; margin-right: 0; margin-left: 0; padding-bottom: 0; padding-top: 0; margin-bottom: 0; margin-top: 0;">
-                <ui:Label text="Programming" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
+                <ui:Label text="Programmer" display-tooltip-when-elided="true" name="NoelC_Entry" class="NameSize" style="-unity-text-align: upper-left; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); margin-left: 4px; padding-left: 2px;" />
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:Label text="Quality Assurance" display-tooltip-when-elided="true" name="QualityAssurance_Headline" class="Header2Size" style="-unity-text-align: upper-center; margin-top: 3%; margin-bottom: 1%; padding-top: 0; -unity-font-style: bold; color: rgb(255, 255, 255); padding-left: 2px; margin-left: 4px;" />
@@ -149,6 +149,7 @@
             </ui:GroupBox>
         </ui:GroupBox>
         <ui:Label text="With Special Thanks to" display-tooltip-when-elided="true" name="Thanks_Headline" class="Header2Size" style="-unity-text-align: upper-center; margin-top: 12%; margin-bottom: 1%; padding-top: 0; color: rgb(255, 255, 255); padding-left: 2px;" />
+        <ui:Label text="Boden Gamecamp" display-tooltip-when-elided="true" name="Krister_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); padding-left: 2px; margin-left: 4px;" />
         <ui:Label text="Krister Karlsson" display-tooltip-when-elided="true" name="Krister_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); padding-left: 2px; margin-left: 4px;" />
         <ui:Label text="Sebastian Ojala" display-tooltip-when-elided="true" name="Sebastian_Entry" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); padding-left: 2px; margin-left: 4px;" />
         <ui:Label text="Rye Terrell" display-tooltip-when-elided="true" name="Rye_Terrell" class="NameSize" style="-unity-text-align: upper-center; margin-top: 1%; margin-bottom: 1%; color: rgb(255, 255, 255); padding-left: 2px; margin-left: 4px;" />
