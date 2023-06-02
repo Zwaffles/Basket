@@ -36,6 +36,9 @@ public class AudioMenu : MonoBehaviour
     private int sfxValue;
     private int voiceValue;
 
+    private GameManager gameManager;
+    private AudioManager audioManager;
+
     private void OnEnable()
     {
         inputEnabled = false;
@@ -63,6 +66,9 @@ public class AudioMenu : MonoBehaviour
         FocusFirstElement(masterContainer);
         ignoreInputTime = Time.time + .25f;
 
+        gameManager = GameManager.instance;
+        audioManager = gameManager.audioManager;
+
         InitializeAudioMenu();
     }
 
@@ -73,10 +79,10 @@ public class AudioMenu : MonoBehaviour
 
     private void InitializeAudioMenu()
     {
-        masterValue = (int)(GameManager.instance.audioManager.MasterVolume * 100);
-        musicValue = (int)(GameManager.instance.audioManager.MusicVolume * 100);
-        sfxValue = (int)(GameManager.instance.audioManager.SfxVolume * 100);
-        voiceValue = (int)(GameManager.instance.audioManager.VoiceVolume * 100);
+        masterValue = (int)(audioManager.MasterVolume * 100);
+        musicValue = (int)(audioManager.MusicVolume * 100);
+        sfxValue = (int)(audioManager.SfxVolume * 100);
+        voiceValue = (int)(audioManager.VoiceVolume * 100);
 
         masterSlider.value = masterValue;
         musicSlider.value = musicValue;
@@ -113,12 +119,10 @@ public class AudioMenu : MonoBehaviour
 
         if (focusedElement == confirmButton)
         {
-            GameManager.instance.audioManager.MasterVolume = (float)masterValue / 100;
-            GameManager.instance.audioManager.MusicVolume = (float)musicValue / 100;
-            GameManager.instance.audioManager.SfxVolume = (float)sfxValue / 100;
-            GameManager.instance.audioManager.VoiceVolume = (float)voiceValue / 100;
+            audioManager.ChangeAudioSettings(master: (float)masterValue / 100, music: (float)musicValue / 100, sfx: (float)sfxValue / 100, voice: (float)voiceValue / 100);
 
-            GameManager.instance.uiManager.ToggleOptionsMenu(true);
+            gameManager.uiManager.ToggleOptionsMenu(true);
+
             gameObject.SetActive(false);
         }
 

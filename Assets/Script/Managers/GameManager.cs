@@ -127,6 +127,8 @@ public class GameManager : MonoBehaviour
         StopCoroutine("Respawn");
         ResetWarnings();
 
+        player1Left = true;
+
         uiManager.ToggleMainMenu(true);
         uiManager.ToggleScore(false);
 

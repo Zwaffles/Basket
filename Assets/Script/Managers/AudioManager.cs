@@ -158,6 +158,16 @@ public class AudioManager : MonoBehaviour
         musicSource.UnPause();
     }
 
+    public void ChangeAudioSettings(float master, float music, float sfx, float voice)
+    {
+        MasterVolume = master;
+        MusicVolume = music;
+        SfxVolume = sfx;
+        VoiceVolume = voice;
+
+        musicSource.volume = MusicVolume * MasterVolume * musicVolumeFactor;
+    }
+
     public string GetCurrentMusic()
     {
 
