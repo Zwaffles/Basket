@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEditor;
 using System.Collections;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
@@ -43,6 +44,16 @@ public class MainMenu : MonoBehaviour
 
         FocusFirstElement(soloButton);
         ignoreInputTime = Time.time + .25f;
+
+        try
+        {
+            activeIndicator.style.backgroundImage = GameManager.instance.multiBallsMode ? filledCheckbox : emptyCheckbox;
+        }
+        catch
+        {
+            Debug.LogWarning("Noel");
+            Debug.LogError("Actually GameManager hasn't loaded in yet ;)");
+        }
     }
 
     private void Start()

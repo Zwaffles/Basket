@@ -244,6 +244,7 @@ public class BouncingBall : MonoBehaviour
             enteredLeftEdgeTrigger = true;
             if (other.gameObject.name == "LeftForce1")
             {
+                rb.AddForce(Vector3.up * blockerBoost, ForceMode.Impulse);
                 if (otherRB.velocity.x > 0)
                     rb.AddForce(Vector3.right * edgesBoost * Mathf.Abs(otherRB.velocity.x * turningBySpeed), ForceMode.Impulse);
                 else if (otherRB.velocity.x <= 0)
