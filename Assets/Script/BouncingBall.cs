@@ -175,11 +175,6 @@ public class BouncingBall : MonoBehaviour
         {
             rb.velocity *= slowdownFactorBottom;
 
-            if (hasTouchedRim)
-            {
-                GameManager.instance.achievementManager.GiveAchievement(Achievement.LickTheRing);
-                hasTouchedRim = false;
-            }
         }
         // object with Ground tag is the ground
         if (collision.collider.CompareTag("Ground"))
