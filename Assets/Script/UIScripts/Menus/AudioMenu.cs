@@ -119,7 +119,8 @@ public class AudioMenu : MonoBehaviour
 
         if (focusedElement == confirmButton)
         {
-            audioManager.ChangeAudioSettings(master: (float)masterValue / 100, music: (float)musicValue / 100, sfx: (float)sfxValue / 100, voice: (float)voiceValue / 100);
+            //audioManager.ChangeAudioSettings(master: (float)masterValue / 100, music: (float)musicValue / 100, sfx: (float)sfxValue / 100, voice: (float)voiceValue / 100);
+            SetVolumes();
 
             gameManager.uiManager.ToggleOptionsMenu(true);
 
@@ -233,6 +234,7 @@ public class AudioMenu : MonoBehaviour
                 masterValue = Math.Min(100, Math.Max(0, masterValue - 10));
                 masterSlider.value = masterValue;
                 masterAmount.text = masterValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == musicContainer)
@@ -240,6 +242,7 @@ public class AudioMenu : MonoBehaviour
                 musicValue = Math.Min(100, Math.Max(0, musicValue - 10));
                 musicSlider.value = musicValue;
                 musicAmount.text = musicValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == sfxContainer)
@@ -247,6 +250,7 @@ public class AudioMenu : MonoBehaviour
                 sfxValue = Math.Min(100, Math.Max(0, sfxValue - 10));
                 sfxSlider.value = sfxValue;
                 sfxAmount.text = sfxValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == voiceContainer)
@@ -254,6 +258,7 @@ public class AudioMenu : MonoBehaviour
                 voiceValue = Math.Min(100, Math.Max(0, voiceValue - 10));
                 voiceSlider.value = voiceValue;
                 voiceAmount.text = voiceValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == defaultButton)
@@ -271,6 +276,7 @@ public class AudioMenu : MonoBehaviour
                 masterValue = Math.Min(100, Math.Max(0, masterValue + 10));
                 masterSlider.value = masterValue;
                 masterAmount.text = masterValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == musicContainer)
@@ -278,6 +284,7 @@ public class AudioMenu : MonoBehaviour
                 musicValue = Math.Min(100, Math.Max(0, musicValue + 10));
                 musicSlider.value = musicValue;
                 musicAmount.text = musicValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == sfxContainer)
@@ -285,6 +292,7 @@ public class AudioMenu : MonoBehaviour
                 sfxValue = Math.Min(100, Math.Max(0, sfxValue + 10));
                 sfxSlider.value = sfxValue;
                 sfxAmount.text = sfxValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == voiceContainer)
@@ -292,6 +300,7 @@ public class AudioMenu : MonoBehaviour
                 voiceValue = Math.Min(100, Math.Max(0, voiceValue + 10));
                 voiceSlider.value = voiceValue;
                 voiceAmount.text = voiceValue.ToString();
+                SetVolumes();
             }
 
             if (focusedElement == confirmButton)
@@ -305,4 +314,10 @@ public class AudioMenu : MonoBehaviour
     {
         return root.focusController.focusedElement;
     }
+
+    private void SetVolumes()
+    {
+        audioManager.ChangeAudioSettings(master: (float)masterValue / 100, music: (float)musicValue / 100, sfx: (float)sfxValue / 100, voice: (float)voiceValue / 100);
+    }
+
 }
