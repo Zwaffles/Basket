@@ -212,6 +212,8 @@ public class ScoreManager : MonoBehaviour
             HandleFirstOfManyAchievement(player2Won);
         }
 
+        GameManager.instance.achievementManager.AddStat(Stat.GamesPlayed, 1);
+
     }
 
     private void HandleFirstOfManyAchievement(bool player2Won)

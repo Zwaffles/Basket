@@ -14,6 +14,11 @@ public enum Achievement
     KeepTheShotsComing
 }
 
+public enum Stat
+{
+    GamesPlayed
+}
+
 public class AchievementManager : MonoBehaviour
 {
     protected Callback<UserStatsReceived_t> m_UserStatsReceived;
@@ -21,12 +26,16 @@ public class AchievementManager : MonoBehaviour
     private bool hasReceivedUserStats = false;
     private List<string> achievementQueue = new List<string>();
 
+    private Dictionary<Stat, int> statsQueue = new Dictionary<Stat, int>();
+
     private void OnEnable()
     {
 
         if (!SteamManager.Initialized) return;
 
         m_UserStatsReceived = Callback<UserStatsReceived_t>.Create(OnUserStatReceived);
+
+        statsQueue.Add(Stat.GamesPlayed, 0);
 
         SteamUserStats.RequestCurrentStats();
 
@@ -39,7 +48,8 @@ public class AchievementManager : MonoBehaviour
 
         hasReceivedUserStats = true;
 
-        ClearQueue();
+        ClearAchievementQueue();
+        ClearStatQueue();
 
         /*
 
@@ -113,7 +123,46 @@ public class AchievementManager : MonoBehaviour
 
     }
 
-    private void ClearQueue()
+    public void AddStat(Stat stat, int value)
+    {
+
+        string statReference = "Noel";
+
+        switch (stat)
+        {
+            case Stat.GamesPlayed:
+                statReference = "stat_games";
+                break;
+            default:
+                break;
+        }
+
+        if (statReference.Equals("Noel")) return;
+
+        if (hasReceivedUserStats)
+        {
+
+            int currentValue;
+            SteamUserStats.GetStat(statReference, out currentValue);
+            SteamUserStats.SetStat(statReference, currentValue + value);
+            SteamUserStats.StoreStats();
+
+            Debug.Log(currentValue);
+
+        }
+        else
+        {
+
+            if (statsQueue.ContainsKey(stat))
+            {
+                statsQueue[stat] += value;
+            }
+
+        }
+
+    }
+
+    private void ClearAchievementQueue()
     {
 
         foreach(string s in achievementQueue)
@@ -122,6 +171,15 @@ public class AchievementManager : MonoBehaviour
         }
 
         achievementQueue.Clear();
+
+    }
+
+    private void ClearStatQueue()
+    {
+
+        if (statsQueue.ContainsKey(Stat.GamesPlayed)) AddStat(Stat.GamesPlayed, statsQueue[Stat.GamesPlayed]);
+
+        statsQueue.Clear();
 
     }
 
