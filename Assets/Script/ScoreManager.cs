@@ -214,6 +214,27 @@ public class ScoreManager : MonoBehaviour
 
         GameManager.instance.achievementManager.AddStat(Stat.GamesPlayed, 1);
 
+        ResetVariables();
+
+    }
+
+    private void ResetVariables()
+    {
+
+        player1hasAchievedFivePointLead = false;
+        player2hasAchievedFivePointLead = false;
+
+        player1ConsecutiveGoals = 0;
+        player2ConsecutiveGoals = 0;
+        player1hasAchievedThreeConsecutiveGoals = false;
+        player2hasAchievedThreeConsecutiveGoals = false;
+
+        player1hasAchievedFiveGoals = false;
+        player2hasAchievedFiveGoals = false;
+
+        player1hasScoredSelfGoal = false;
+        player2hasScoredSelfGoal = false;
+
     }
 
     private void HandleFirstOfManyAchievement(bool player2Won)
