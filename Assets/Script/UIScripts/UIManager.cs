@@ -115,6 +115,16 @@ public class UIManager : MonoBehaviour
         if (GameManager.instance.CurrentState != GameState.Play)
             return;
 
+        try
+        {
+            if (FindObjectOfType<WinscreenAnim>().gameObject.activeInHierarchy)
+                return;
+        }
+        catch
+        {
+
+        }
+
         if (!pauseMenu.gameObject.activeInHierarchy)
         {
             if (Time.timeScale == 0)
