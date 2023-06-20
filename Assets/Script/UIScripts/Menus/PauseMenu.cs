@@ -143,6 +143,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
+
         GameManager.instance.uiManager.ToggleScore(true);
         GameManager.instance.audioManager.StopMusic();
 

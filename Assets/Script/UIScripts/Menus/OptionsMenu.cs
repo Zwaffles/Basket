@@ -10,6 +10,7 @@ public class OptionsMenu : MonoBehaviour
 
     private Button videoButton;
     private Button audioButton;
+    private Button languageButton;
     private Button creditsButton;
     private Button returnButton;
 
@@ -24,6 +25,7 @@ public class OptionsMenu : MonoBehaviour
 
         videoButton = root.Q<Button>("VideoButton");
         audioButton = root.Q<Button>("AudioButton");
+        languageButton = root.Q<Button>("LanguageButton");
         creditsButton = root.Q<Button>("CreditsButton");
         returnButton = root.Q<Button>("ReturnButton");
 
@@ -70,6 +72,12 @@ public class OptionsMenu : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+        if (focusedElement == languageButton)
+        {
+            GameManager.instance.uiManager.ToggleLanguageMenu(true);
+            gameObject.SetActive(false);
+        }
+
         if (focusedElement == creditsButton)
         {
             GameManager.instance.uiManager.ToggleCreditMenu(true);
@@ -107,9 +115,14 @@ public class OptionsMenu : MonoBehaviour
                 videoButton.Focus();
             }
 
-            if (focusedElement == creditsButton)
+            if (focusedElement == languageButton)
             {
                 audioButton.Focus();
+            }
+
+            if (focusedElement == creditsButton)
+            {
+                languageButton.Focus();
             }
 
             if (focusedElement == returnButton)
@@ -140,6 +153,11 @@ public class OptionsMenu : MonoBehaviour
             }
 
             if (focusedElement == audioButton)
+            {
+                languageButton.Focus();
+            }
+
+            if (focusedElement == languageButton)
             {
                 creditsButton.Focus();
             }

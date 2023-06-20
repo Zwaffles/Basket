@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private AudioMenu audioMenu;
     [SerializeField]
+    private LanguageMenu languageMenu;
+    [SerializeField]
     private CreditScroll creditScroll;
 
     private Inputaction uiInput;
@@ -39,13 +41,15 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Submit.performed += ctx => audioMenu.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => creditScroll.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => pauseMenu.Submit(ctx);
+        uiInput.UI.Submit.performed += ctx => languageMenu.Submit(ctx);
 
         uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => optionsMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => videoMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => audioMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => pauseMenu.Navigate(ctx);
-        
+        uiInput.UI.Navigate.performed += ctx => languageMenu.Navigate(ctx);
+
         uiInput.UI.Navigate.started += ctx => creditScroll.Navigate(ctx);
         uiInput.UI.Navigate.canceled += ctx => creditScroll.Navigate(ctx);
 
@@ -93,6 +97,11 @@ public class UIManager : MonoBehaviour
     public void ToggleCreditMenu(bool active)
     {
         creditScroll.gameObject.SetActive(active);
+    }
+
+    public void ToggleLanguageMenu(bool active)
+    {
+        languageMenu.gameObject.SetActive(active);
     }
 
     public void ToggleScore(bool active)

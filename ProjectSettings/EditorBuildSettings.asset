@@ -27,5 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Zweifel/MultiBalls.unity
     guid: 1ecd2dd40ee4ab84ea21265eec4054b8
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: cbed30da339b93c4b8b1aa8714af2b03,
+      type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 62ebf74b965b42c4180a6f4ad8a99abb,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: b1dc499893bec7a41b4772c0fc883efb,
       type: 2}

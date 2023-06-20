@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Text
+  m_TableCollectionNameGuidString: 561bb5e01c4fcc34397f847f67a9881c
+  m_Entries:
+  - m_Id: 116333178880
+    m_Key: SOLO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1061163069440
+    m_Key: VERSUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1482703204352
+    m_Key: OPTIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699200593920
+    m_Key: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4670432964608
+    m_Key: MAYHEM_MODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16194694246400
+    m_Key: VIDEO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16250377826304
+    m_Key: AUDIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16267192791040
+    m_Key: CREDITS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16308968058880
+    m_Key: RETURN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16338927972352
+    m_Key: MASTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16362013421568
+    m_Key: MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16389960069120
+    m_Key: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16413288787968
+    m_Key: VOICE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16435296301056
+    m_Key: CONFIRM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16459925254144
+    m_Key: DEFAULT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489117609984
+    m_Key: PLAYER1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16540795629568
+    m_Key: PLAYER2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16853757816832
+    m_Key: DISPLAY_MODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16886808932352
+    m_Key: RESOLUTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16918886969344
+    m_Key: FRAMERATE_CAP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16960897118208
+    m_Key: V_SYNC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17107395768320
+    m_Key: FULLSCREEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17190237466624
+    m_Key: BORDERLESS_WINDOWED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17242720792576
+    m_Key: WINDOWED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17283355209728
+    m_Key: UNLIMITED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17334760599552
+    m_Key: ENABLED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17354658377728
+    m_Key: DISABLED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17422908092416
+    m_Key: LANGUAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17445859323904
+    m_Key: MENUS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19189351804928
+    m_Key: FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23352508903424
+    m_Key: GO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23368229154816
+    m_Key: PAUSED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23386176581632
+    m_Key: RESUME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23404803485696
+    m_Key: RESTART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23422587334656
+    m_Key: LEAVE_MATCH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87211345145856
+    m_Key: COLOR
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8375044307526352920
+  references:
+    version: 2
+    RefIds:
+    - rid: 8375044307526352920
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1687273221162

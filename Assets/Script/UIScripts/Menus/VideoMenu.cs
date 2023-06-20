@@ -75,6 +75,7 @@ public class VideoMenu : MonoBehaviour
     {
         // Get supported resolutions and add them to the list
         resolutions = Screen.resolutions;
+
         for (int i = 0; i < resolutions.Length; i++)
         {
             Resolution resolution = resolutions[i];
