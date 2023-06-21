@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 843610986}
-  m_IndirectSpecularColor: {r: 0.043001473, g: 0.024645336, b: 0.0549589, a: 1}
+  m_IndirectSpecularColor: {r: 0.04307246, g: 0.024648316, b: 0.054893386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -484,6 +484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 497254736}
   - component: {fileID: 497254737}
+  - component: {fileID: 497254738}
   m_Layer: 0
   m_Name: LeftInputSelection
   m_TagString: Untagged
@@ -523,6 +524,21 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 57ece2f26327bd9448e352ada6e5ec9f,
     type: 3}
   m_SortingOrder: 0
+--- !u!114 &497254738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497254735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ee88dffe0fcfb459954e5201c32a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table:
+    m_TableReference:
+      m_TableCollectionName: GUID:561bb5e01c4fcc34397f847f67a9881c
 --- !u!1 &497387790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1483118924}
   - component: {fileID: 1483118925}
+  - component: {fileID: 1483118926}
   m_Layer: 0
   m_Name: RightInputSelection
   m_TagString: Untagged
@@ -1263,6 +1280,21 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 33fbfabd07c554d46b3c84efd12fde99,
     type: 3}
   m_SortingOrder: 0
+--- !u!114 &1483118926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483118923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ee88dffe0fcfb459954e5201c32a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table:
+    m_TableReference:
+      m_TableCollectionName: GUID:561bb5e01c4fcc34397f847f67a9881c
 --- !u!1001 &1578723336
 PrefabInstance:
   m_ObjectHideFlags: 0

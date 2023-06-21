@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7035984345883658707}
   - component: {fileID: 1342294231921153770}
   - component: {fileID: 2598160189760824779}
+  - component: {fileID: 4196413747710030128}
   m_Layer: 5
   m_Name: InputSelection
   m_TagString: Untagged
@@ -70,3 +71,18 @@ MonoBehaviour:
   orangeMaterial: {fileID: 2100000, guid: 124a80a7c13a3dd4182f7403bdbfaad0, type: 2}
   blueMaterial: {fileID: 2100000, guid: c6901b9554b12634d808c9d1df915129, type: 2}
   redMaterial: {fileID: 2100000, guid: aad9b76c636304846830438265d621c2, type: 2}
+--- !u!114 &4196413747710030128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7446602678630527613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ee88dffe0fcfb459954e5201c32a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table:
+    m_TableReference:
+      m_TableCollectionName: GUID:561bb5e01c4fcc34397f847f67a9881c

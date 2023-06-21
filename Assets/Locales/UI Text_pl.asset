@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: 561bb5e01c4fcc34397f847f67a9881c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 116333178880
+    m_Localized: Solo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1061163069440
+    m_Localized: Przeciwko
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1482703204352
+    m_Localized: Opcje
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699200593920
+    m_Localized: "Wyjd\u017A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4670432964608
+    m_Localized: Tryb Chaosu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16194694246400
+    m_Localized: Wideo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16250377826304
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16267192791040
+    m_Localized: "Napisy Ko\u0144cowe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16308968058880
+    m_Localized: "Powr\xF3t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16338927972352
+    m_Localized: Mistrz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16362013421568
+    m_Localized: Muzyka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16389960069120
+    m_Localized: "Efekty D\u017Awi\u0119kowe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16413288787968
+    m_Localized: "G\u0142os"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16435296301056
+    m_Localized: "Potwierd\u017A"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16459925254144
+    m_Localized: "Domy\u015Blny"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489117609984
+    m_Localized: Gracz 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16540795629568
+    m_Localized: Gracz 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16853757816832
+    m_Localized: "Tryb Wy\u015Bwietlania"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16886808932352
+    m_Localized: "Rozdzielczo\u015B\u0107"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16918886969344
+    m_Localized: "Limit Klatek na Sekund\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16960897118208
+    m_Localized: Synchronizacja Pionowa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17107395768320
+    m_Localized: "Pe\u0142ny Ekran"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17190237466624
+    m_Localized: Okno bez Obramowania
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17242720792576
+    m_Localized: Okno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17283355209728
+    m_Localized: Bez Limitu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17334760599552
+    m_Localized: "W\u0142\u0105czone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17354658377728
+    m_Localized: "Wy\u0142\u0105czone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17422908092416
+    m_Localized: "J\u0119zyk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17445859323904
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19189351804928
+    m_Localized: FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23352508903424
+    m_Localized: Start!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23368229154816
+    m_Localized: Wstrzymano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23386176581632
+    m_Localized: "Wzn\xF3w"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23404803485696
+    m_Localized: Restartuj
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23422587334656
+    m_Localized: "Opu\u015B\u0107 Mecz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87211345145856
+    m_Localized: Kolor
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

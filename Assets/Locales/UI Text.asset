@@ -15,7 +15,18 @@ MonoBehaviour:
   m_SharedTableData: {fileID: 11400000, guid: 561bb5e01c4fcc34397f847f67a9881c, type: 2}
   m_Tables:
   - {fileID: 11400000, guid: 7f4ee6c41528a27459b74fcad15e5346, type: 2}
-  - {fileID: 11400000, guid: 64f08a1360fbb944db7e054898f65567, type: 2}
+  - {fileID: 11400000, guid: 193cd97b305775947926052c8242cdfa, type: 2}
+  - {fileID: 11400000, guid: 80d644806caa6774fa175f224491aade, type: 2}
+  - {fileID: 11400000, guid: e5c62ba0161a4f3419f9ec6869595a22, type: 2}
+  - {fileID: 11400000, guid: c21721d8ceaa3db419f455f5544094d9, type: 2}
+  - {fileID: 11400000, guid: 633939efa4a078b45a91e6a8a7d93c75, type: 2}
+  - {fileID: 11400000, guid: 2a1a1ffb6587c964290bf2b49df88608, type: 2}
+  - {fileID: 11400000, guid: e5c7e3b04ea7fae43ba5a771ea1d6bcd, type: 2}
+  - {fileID: 11400000, guid: 05f7eb91fc7bd2f4683014b5352ef3c7, type: 2}
+  - {fileID: 11400000, guid: 4bb060268b0fae340ace8f8976575caf, type: 2}
+  - {fileID: 11400000, guid: c42bfbdbbe6c6c341963934efb80acf1, type: 2}
+  - {fileID: 11400000, guid: 20120b6b55ee5324b871d88627c51738, type: 2}
+  - {fileID: 11400000, guid: efc5e5c5d749e4a41864a79260aa52ba, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

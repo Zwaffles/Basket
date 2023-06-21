@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_haw
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: haw
+  m_SharedData: {fileID: 11400000, guid: 561bb5e01c4fcc34397f847f67a9881c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 116333178880
+    m_Localized: "H\u0101nau"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1061163069440
+    m_Localized: "K\u016B'ikahi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1482703204352
+    m_Localized: Koho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699200593920
+    m_Localized: Ho'omaha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4670432964608
+    m_Localized: He Pono 'ino
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16194694246400
+    m_Localized: Ki'i'oni'o
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16250377826304
+    m_Localized: Mele
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16267192791040
+    m_Localized: Ho'omana'o
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16308968058880
+    m_Localized: Ho'i
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16338927972352
+    m_Localized: Kahuna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16362013421568
+    m_Localized: Mele
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16389960069120
+    m_Localized: "H\u014D'ailona ho'okani"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16413288787968
+    m_Localized: Leo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16435296301056
+    m_Localized: "H\u014D'ike"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16459925254144
+    m_Localized: Ka Waiwai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489117609984
+    m_Localized: "Mea p\u0101'ani 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16540795629568
+    m_Localized: "Mea p\u0101'ani 2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16853757816832
+    m_Localized: Huahana ho'okomo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16886808932352
+    m_Localized: "Ho'ol\u0101l\u0101"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16918886969344
+    m_Localized: Ka pono o ke ki'eki'e 'ana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16960897118208
+    m_Localized: "H\u014D'ike 'ana i n\u0101 l\u012Bholiho"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17107395768320
+    m_Localized: Ka maka nui
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17190237466624
+    m_Localized: Ke a'o ana i ka puka 'ole 'ia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17242720792576
+    m_Localized: Ke a'o ana i ka puka
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17283355209728
+    m_Localized: "'A'ole i k\u016Bpono"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17334760599552
+    m_Localized: "Ho'\u0101la"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17354658377728
+    m_Localized: "H\u014D'ole"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17422908092416
+    m_Localized: "'\u014Clelo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17445859323904
+    m_Localized: "N\u0101 papa 'ai"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19189351804928
+    m_Localized: FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23352508903424
+    m_Localized: E hele!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23368229154816
+    m_Localized: I ka pau 'ana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23386176581632
+    m_Localized: E ho'omau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23404803485696
+    m_Localized: E ho'omaka hou
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23422587334656
+    m_Localized: "Ha\u02BBalele i ka p\u0101\u02BBani"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87211345145856
+    m_Localized: Waiwai
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

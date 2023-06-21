@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_tr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: 561bb5e01c4fcc34397f847f67a9881c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 116333178880
+    m_Localized: Tekli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1061163069440
+    m_Localized: "Kar\u015F\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1482703204352
+    m_Localized: "Se\xE7enekler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699200593920
+    m_Localized: "\xC7\u0131k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4670432964608
+    m_Localized: "Karga\u015Fa Modu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16194694246400
+    m_Localized: Video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16250377826304
+    m_Localized: Ses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16267192791040
+    m_Localized: Krediler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16308968058880
+    m_Localized: "Geri d\xF6n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16338927972352
+    m_Localized: Usta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16362013421568
+    m_Localized: "M\xFCzik"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16389960069120
+    m_Localized: Ses Efektleri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16413288787968
+    m_Localized: Ses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16435296301056
+    m_Localized: Onayla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16459925254144
+    m_Localized: "Varsay\u0131lan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489117609984
+    m_Localized: Oyuncu 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16540795629568
+    m_Localized: Oyuncu 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16853757816832
+    m_Localized: Ekran Modu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16886808932352
+    m_Localized: "\xC7\xF6z\xFCn\xFCrl\xFCk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16918886969344
+    m_Localized: "Kare H\u0131z\u0131 S\u0131n\u0131r\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16960897118208
+    m_Localized: Dikey Senkronizasyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17107395768320
+    m_Localized: Tam Ekran
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17190237466624
+    m_Localized: "Kenars\u0131z Pencere Modu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17242720792576
+    m_Localized: Pencere Modu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17283355209728
+    m_Localized: "S\u0131n\u0131rs\u0131z"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17334760599552
+    m_Localized: Etkin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17354658377728
+    m_Localized: "Devre d\u0131\u015F\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17422908092416
+    m_Localized: Dil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17445859323904
+    m_Localized: "Men\xFCler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19189351804928
+    m_Localized: FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23352508903424
+    m_Localized: Git!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23368229154816
+    m_Localized: "Duraklat\u0131ld\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23386176581632
+    m_Localized: Devam et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23404803485696
+    m_Localized: "Yeniden Ba\u015Flat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23422587334656
+    m_Localized: "Ma\xE7\u0131 Terk Etmek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87211345145856
+    m_Localized: Renk
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

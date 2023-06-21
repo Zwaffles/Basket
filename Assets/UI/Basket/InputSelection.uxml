@@ -3,7 +3,7 @@
     <ui:VisualElement name="Canvas" style="flex-grow: 1; align-items: stretch; justify-content: center; flex-direction: row;">
         <ui:VisualElement name="LeftSection" style="align-items: stretch; justify-content: center; height: 100%; flex-grow: 1; width: 24%;">
             <ui:VisualElement name="LeftSliceUpper" style="flex-grow: 0; align-items: center; justify-content: center; flex-shrink: 0; width: 100%; height: 33%;">
-                <ui:Label text="Player 1" display-tooltip-when-elided="true" class="BorderAndShadowForText" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: italic; color: rgb(241, 241, 241);" />
+                <ui:Label text="#PLAYER1" display-tooltip-when-elided="true" class="BorderAndShadowForText" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: italic; color: rgb(241, 241, 241);" />
             </ui:VisualElement>
             <ui:VisualElement name="LeftSliceMiddle" style="flex-grow: 0; align-items: center; justify-content: flex-start; width: 100%; height: 33%; flex-shrink: 0;">
                 <ui:VisualElement name="Left-Container" style="flex-direction: row; align-items: center; justify-content: center; display: flex; opacity: 0;">
@@ -40,7 +40,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="RightSection" style="align-items: stretch; justify-content: center; height: 100%; flex-grow: 1; width: 24%;">
             <ui:VisualElement name="RightSliceUpper" style="flex-grow: 0; align-items: center; justify-content: center; flex-shrink: 0; width: 100%; height: 33%;">
-                <ui:Label text="Player 2" display-tooltip-when-elided="true" class="BorderAndShadowForText" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: italic; color: rgb(241, 241, 241);" />
+                <ui:Label text="#PLAYER2" display-tooltip-when-elided="true" class="BorderAndShadowForText" style="flex-shrink: 0; flex-grow: 0; -unity-text-align: middle-center; white-space: nowrap; font-size: 116px; -unity-font-style: italic; color: rgb(241, 241, 241);" />
             </ui:VisualElement>
             <ui:VisualElement name="RightSliceMiddle" style="flex-grow: 1; align-items: center; justify-content: flex-start; width: 100%; height: 33%;">
                 <ui:VisualElement name="Right-Container" style="flex-direction: row; align-items: center; justify-content: center; display: flex; opacity: 0;">
@@ -54,11 +54,11 @@
                 <ui:VisualElement name="InstructionsContainer" style="flex-direction: row;">
                     <ui:VisualElement style="flex-direction: row; align-items: center; background-color: rgba(19, 19, 19, 0.29);">
                         <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Xbox/XboxSeriesX_A.png?fileID=2800000&amp;guid=a43665fb7d133074f89b55b2e3244451&amp;type=3#XboxSeriesX_A&apos;); width: 64px; height: 64px; align-items: center; justify-content: center;" />
-                        <ui:Label text="Confirm" display-tooltip-when-elided="true" name="Instructions1" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241); -unity-text-outline-width: 2px;" />
+                        <ui:Label text="#CONFIRM" display-tooltip-when-elided="true" name="Instructions1" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241); -unity-text-outline-width: 2px;" />
                     </ui:VisualElement>
                     <ui:VisualElement style="flex-direction: row; align-items: center; background-color: rgba(20, 20, 20, 0.29);">
                         <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Xbox/XboxSeriesX_B.png?fileID=2800000&amp;guid=10e2b281e4434c644a1e5870fcf5213b&amp;type=3#XboxSeriesX_B&apos;); width: 64px; height: 64px;" />
-                        <ui:Label text="Return" display-tooltip-when-elided="true" name="Instructions2" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241); -unity-text-outline-width: 2px;" />
+                        <ui:Label text="#RETURN" display-tooltip-when-elided="true" name="Instructions2" class="BorderAndShadowForText" style="font-size: 32px; padding-left: 16px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px; -unity-font-style: bold; color: rgb(241, 241, 241); -unity-text-outline-width: 2px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

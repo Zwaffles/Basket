@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -46,6 +46,56 @@ public class InitializeLevel : MonoBehaviour
     private IEnumerator StartCountdown()
     {
 
+        string goString = "GO!";
+
+        if (PlayerPrefs.GetString("selected-locale") != null)
+        {
+            switch (PlayerPrefs.GetString("selected-locale"))
+            {
+                case "en":
+                    goString = "GO!";
+                    break;
+                case "fr":
+                    goString = "Aller!";
+                    break;
+                case "de":
+                    goString = "Los!";
+                    break;
+                case "haw":
+                    goString = "E hele!";
+                    break;
+                case "it":
+                    goString = "Vai!";
+                    break;
+                case "pl":
+                    goString = "Start!";
+                    break;
+                case "pt-BR":
+                    goString = "Ir!";
+                    break;
+                case "ru":
+                    goString = "Вперёд!";
+                    break;
+                case "es":
+                    goString = "¡Ir!";
+                    break;
+                case "tr":
+                    goString = "Git!";
+                    break;
+                case "uk":
+                    goString = "Почати!";
+                    break;
+                case "zh-Hans":
+                    goString = "GO!";
+                    break;
+                case "ja":
+                    goString = "GO!";
+                    break;
+                default:
+                    goString = "GO!";
+                    break;
+            }
+        }
 
         Time.timeScale = 0f; // Pause the game by setting the time scale to 0
 
@@ -64,7 +114,7 @@ public class InitializeLevel : MonoBehaviour
 
         for (currentCountdown = 3; currentCountdown >= 0; currentCountdown--)
         {
-            countdownText.text = currentCountdown == 0 ? "GO!" : currentCountdown.ToString(); // Update the UI text element
+            countdownText.text = currentCountdown == 0 ? goString : currentCountdown.ToString(); // Update the UI text element
 
             yield return new WaitForSecondsRealtime(countdownDuration / 4);
 

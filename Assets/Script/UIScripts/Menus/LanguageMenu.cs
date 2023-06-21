@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +8,18 @@ using UnityEngine.UIElements;
 public enum Language
 {
     English,
-    Icelandic
+    French,
+    German,
+    Hawaiian,
+    Italian,
+    Polish,
+    Portuguese,
+    Russian,
+    Spanish,
+    Turkish,
+    Ukrainian,
+    Chinese,
+    Japanese
 }
 
 public class LanguageMenu : MonoBehaviour
@@ -58,8 +69,41 @@ public class LanguageMenu : MonoBehaviour
             case Language.English:
                 menuLanguageText.text = "English";
                 break;
-            case Language.Icelandic:
-                menuLanguageText.text = "�slenska";
+            case Language.French:
+                menuLanguageText.text = "Français";
+                break;
+            case Language.German:
+                menuLanguageText.text = "Deutsch";
+                break;
+            case Language.Hawaiian:
+                menuLanguageText.text = "ʻŌlelo Hawaiʻi";
+                break;
+            case Language.Italian:
+                menuLanguageText.text = "Italiano";
+                break;
+            case Language.Polish:
+                menuLanguageText.text = "Polski";
+                break;
+            case Language.Portuguese:
+                menuLanguageText.text = "Português Brasileiro";
+                break;
+            case Language.Russian:
+                menuLanguageText.text = "Русский";
+                break;
+            case Language.Spanish:
+                menuLanguageText.text = "Español";
+                break;
+            case Language.Turkish:
+                menuLanguageText.text = "Türkçe";
+                break;
+            case Language.Ukrainian:
+                menuLanguageText.text = "Українська";
+                break;
+            case Language.Chinese:
+                menuLanguageText.text = "中文";
+                break;
+            case Language.Japanese:
+                menuLanguageText.text = "日本語";
                 break;
         }
 
@@ -182,12 +226,56 @@ public class LanguageMenu : MonoBehaviour
                 switch (currentLanguage)
                 {
                     case Language.English:
-                        menuLanguageText.text = "�slenska";
-                        currentLanguage = Language.Icelandic;
+                        menuLanguageText.text = "日本語";
+                        currentLanguage = Language.Japanese;
                         return;
-                    case Language.Icelandic:
+                    case Language.French:
                         menuLanguageText.text = "English";
                         currentLanguage = Language.English;
+                        return;
+                    case Language.German:
+                        menuLanguageText.text = "Français";
+                        currentLanguage = Language.French;
+                        return;
+                    case Language.Hawaiian:
+                        menuLanguageText.text = "Deutsch";
+                        currentLanguage = Language.German;
+                        return;
+                    case Language.Italian:
+                        menuLanguageText.text = "ʻŌlelo Hawaiʻi";
+                        currentLanguage = Language.Hawaiian;
+                        return;
+                    case Language.Polish:
+                        menuLanguageText.text = "Italiano";
+                        currentLanguage = Language.Italian;
+                        return;
+                    case Language.Portuguese:
+                        menuLanguageText.text = "Polski";
+                        currentLanguage = Language.Polish;
+                        return;
+                    case Language.Russian:
+                        menuLanguageText.text = "Português Brasileiro";
+                        currentLanguage = Language.Portuguese;
+                        return;
+                    case Language.Spanish:
+                        menuLanguageText.text = "Русский";
+                        currentLanguage = Language.Russian;
+                        return;
+                    case Language.Turkish:
+                        menuLanguageText.text = "Español";
+                        currentLanguage = Language.Spanish;
+                        return;
+                    case Language.Ukrainian:
+                        menuLanguageText.text = "Türkçe";
+                        currentLanguage = Language.Turkish;
+                        return;
+                    case Language.Chinese:
+                        menuLanguageText.text = "Українська";
+                        currentLanguage = Language.Ukrainian;
+                        return;
+                    case Language.Japanese:
+                        menuLanguageText.text = "中文";
+                        currentLanguage = Language.Chinese;
                         return;
                 }
 
@@ -211,10 +299,54 @@ public class LanguageMenu : MonoBehaviour
                 switch (currentLanguage)
                 {
                     case Language.English:
-                        menuLanguageText.text = "�slenska";
-                        currentLanguage = Language.Icelandic;
+                        menuLanguageText.text = "Français";
+                        currentLanguage = Language.French;
                         return;
-                    case Language.Icelandic:
+                    case Language.French:
+                        menuLanguageText.text = "Deutsch";
+                        currentLanguage = Language.German;
+                        return;
+                    case Language.German:
+                        menuLanguageText.text = "ʻŌlelo Hawaiʻi";
+                        currentLanguage = Language.Hawaiian;
+                        return;
+                    case Language.Hawaiian:
+                        menuLanguageText.text = "Italiano";
+                        currentLanguage = Language.Italian;
+                        return;
+                    case Language.Italian:
+                        menuLanguageText.text = "Polski";
+                        currentLanguage = Language.Polish;
+                        return;
+                    case Language.Polish:
+                        menuLanguageText.text = "Português Brasileiro";
+                        currentLanguage = Language.Portuguese;
+                        return;
+                    case Language.Portuguese:
+                        menuLanguageText.text = "Русский";
+                        currentLanguage = Language.Russian;
+                        return;
+                    case Language.Russian:
+                        menuLanguageText.text = "Español";
+                        currentLanguage = Language.Spanish;
+                        return;
+                    case Language.Spanish:
+                        menuLanguageText.text = "Türkçe";
+                        currentLanguage = Language.Turkish;
+                        return;
+                    case Language.Turkish:
+                        menuLanguageText.text = "Українська";
+                        currentLanguage = Language.Ukrainian;
+                        return;
+                    case Language.Ukrainian:
+                        menuLanguageText.text = "中文";
+                        currentLanguage = Language.Chinese;
+                        return;
+                    case Language.Chinese:
+                        menuLanguageText.text = "日本語";
+                        currentLanguage = Language.Japanese;
+                        return;
+                    case Language.Japanese:
                         menuLanguageText.text = "English";
                         currentLanguage = Language.English;
                         return;
@@ -243,8 +375,30 @@ public class LanguageMenu : MonoBehaviour
         {
             case Language.English:
                 return "en";
-            case Language.Icelandic:
-                return "is";
+            case Language.French:
+                return "fr";
+            case Language.German:
+                return "de";
+            case Language.Hawaiian:
+                return "haw";
+            case Language.Italian:
+                return "it";
+            case Language.Polish:
+                return "pl";
+            case Language.Portuguese:
+                return "pt-BR";
+            case Language.Russian:
+                return "ru";
+            case Language.Spanish:
+                return "es";
+            case Language.Turkish:
+                return "tr";
+            case Language.Ukrainian:
+                return "uk";
+            case Language.Chinese:
+                return "zh-Hans";
+            case Language.Japanese:
+                return "ja";
             default:
                 return "en";
         }
@@ -256,8 +410,30 @@ public class LanguageMenu : MonoBehaviour
         {
             case "en":
                 return Language.English;
-            case "is":
-                return Language.Icelandic;
+            case "fr":
+                return Language.French;
+            case "de":
+                return Language.German;
+            case "haw":
+                return Language.Hawaiian;
+            case "it":
+                return Language.Italian;
+            case "pl":
+                return Language.Polish;
+            case "pt-BR":
+                return Language.Portuguese;
+            case "ru":
+                return Language.Russian;
+            case "es":
+                return Language.Spanish;
+            case "tr":
+                return Language.Turkish;
+            case "uk":
+                return Language.Ukrainian;
+            case "zh-Hans":
+                return Language.Chinese;
+            case "ja":
+                return Language.Japanese;
             default:
                 return Language.English;
         }
@@ -270,8 +446,41 @@ public class LanguageMenu : MonoBehaviour
             case Language.English:
                 LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
                 return;
-            case Language.Icelandic:
+            case Language.French:
                 LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+                return;
+            case Language.German:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[2];
+                return;
+            case Language.Hawaiian:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[3];
+                return;
+            case Language.Italian:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[4];
+                return;
+            case Language.Polish:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[5];
+                return;
+            case Language.Portuguese:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[6];
+                return;
+            case Language.Russian:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[7];
+                return;
+            case Language.Spanish:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[8];
+                return;
+            case Language.Turkish:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[9];
+                return;
+            case Language.Ukrainian:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[10];
+                return;
+            case Language.Chinese:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[11];
+                return;
+            case Language.Japanese:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[12];
                 return;
             default:
 
