@@ -19,7 +19,8 @@ public enum Language
     Turkish,
     Ukrainian,
     Chinese,
-    Japanese
+    Japanese,
+    Icelandic
 }
 
 public class LanguageMenu : MonoBehaviour
@@ -104,6 +105,9 @@ public class LanguageMenu : MonoBehaviour
                 break;
             case Language.Japanese:
                 menuLanguageText.text = "日本語";
+                break;
+            case Language.Icelandic:
+                menuLanguageText.text = "Íslenska";
                 break;
         }
 
@@ -226,8 +230,8 @@ public class LanguageMenu : MonoBehaviour
                 switch (currentLanguage)
                 {
                     case Language.English:
-                        menuLanguageText.text = "日本語";
-                        currentLanguage = Language.Japanese;
+                        menuLanguageText.text = "Íslenska";
+                        currentLanguage = Language.Icelandic;
                         return;
                     case Language.French:
                         menuLanguageText.text = "English";
@@ -276,6 +280,10 @@ public class LanguageMenu : MonoBehaviour
                     case Language.Japanese:
                         menuLanguageText.text = "中文";
                         currentLanguage = Language.Chinese;
+                        return;
+                    case Language.Icelandic:
+                        menuLanguageText.text = "日本語";
+                        currentLanguage = Language.Japanese;
                         return;
                 }
 
@@ -347,6 +355,10 @@ public class LanguageMenu : MonoBehaviour
                         currentLanguage = Language.Japanese;
                         return;
                     case Language.Japanese:
+                        menuLanguageText.text = "Íslenska";
+                        currentLanguage = Language.Icelandic;
+                        return;
+                    case Language.Icelandic:
                         menuLanguageText.text = "English";
                         currentLanguage = Language.English;
                         return;
@@ -399,6 +411,8 @@ public class LanguageMenu : MonoBehaviour
                 return "zh-Hans";
             case Language.Japanese:
                 return "ja";
+            case Language.Icelandic:
+                return "is";
             default:
                 return "en";
         }
@@ -434,6 +448,8 @@ public class LanguageMenu : MonoBehaviour
                 return Language.Chinese;
             case "ja":
                 return Language.Japanese;
+            case "is":
+                return Language.Icelandic;
             default:
                 return Language.English;
         }
@@ -481,6 +497,9 @@ public class LanguageMenu : MonoBehaviour
                 return;
             case Language.Japanese:
                 LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[12];
+                return;
+            case Language.Icelandic:
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[13];
                 return;
             default:
 

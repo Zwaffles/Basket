@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_is
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: is
+  m_SharedData: {fileID: 11400000, guid: 561bb5e01c4fcc34397f847f67a9881c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 116333178880
+    m_Localized: Einmanaleikur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1061163069440
+    m_Localized: "Andst\xE6\xF0ur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1482703204352
+    m_Localized: Stillingar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699200593920
+    m_Localized: "H\xE6tta"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4670432964608
+    m_Localized: Hamstur Hamur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16194694246400
+    m_Localized: Myndband
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16250377826304
+    m_Localized: "Hlj\xF3\xF0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16267192791040
+    m_Localized: "\xDEakkir"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16308968058880
+    m_Localized: Aftur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16338927972352
+    m_Localized: Meistari
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16362013421568
+    m_Localized: "T\xF3nlist"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16389960069120
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16413288787968
+    m_Localized: "R\xF6dd"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16435296301056
+    m_Localized: "Sta\xF0festa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16459925254144
+    m_Localized: "Sj\xE1lfgefi\xF0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489117609984
+    m_Localized: "Leikma\xF0ur 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16540795629568
+    m_Localized: "Leikma\xF0ur 2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16853757816832
+    m_Localized: "Birtingarm\xF3d"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16886808932352
+    m_Localized: Upplausn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16918886969344
+    m_Localized: "Kafahra\xF0atiltaka"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16960897118208
+    m_Localized: V-Sync
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17107395768320
+    m_Localized: "Fullskj\xE1r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17190237466624
+    m_Localized: "Skj\xE1rglas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17242720792576
+    m_Localized: "Gluggastj\xF3rn"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17283355209728
+    m_Localized: "Takm\xF6rklaus"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17334760599552
+    m_Localized: Virkt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17354658377728
+    m_Localized: "\xD3virkur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17422908092416
+    m_Localized: "Tungum\xE1l"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17445859323904
+    m_Localized: Valmyndir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19189351804928
+    m_Localized: FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23352508903424
+    m_Localized: "\xC1fram!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23368229154816
+    m_Localized: "P\xE1su\xF0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23386176581632
+    m_Localized: "Halda \xE1fram"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23404803485696
+    m_Localized: "Endurr\xE6sa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87211345145856
+    m_Localized: Litur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23422587334656
+    m_Localized: Yfirgefa leikinn
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

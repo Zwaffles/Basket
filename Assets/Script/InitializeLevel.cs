@@ -91,6 +91,9 @@ public class InitializeLevel : MonoBehaviour
                 case "ja":
                     goString = "GO!";
                     break;
+                case "is":
+                    goString = "Áfram!";
+                    break;
                 default:
                     goString = "GO!";
                     break;
