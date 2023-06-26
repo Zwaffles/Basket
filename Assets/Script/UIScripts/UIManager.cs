@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private LanguageMenu languageMenu;
     [SerializeField]
+    private ModeMenu modeMenu;
+    [SerializeField]
     private CreditScroll creditScroll;
 
     private Inputaction uiInput;
@@ -55,6 +57,7 @@ public class UIManager : MonoBehaviour
 
         uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
 
+        // This is for Mayhem Mode
         uiInput.UI.GameModeToggle.performed += ctx => mainMenu.ToggleGameMode(ctx);
     }
 
