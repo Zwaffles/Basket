@@ -309,5 +309,31 @@ Basket {
 }
 
 .BlackScreen {
-    background-color: rgba(10, 10, 10, 255);
+    background-color: rgb(10, 10, 10);
+}
+
+.ModeSelectionButton {
+    color: rgb(255, 255, 255);
+    -unity-font-style: italic;
+    -unity-text-align: middle-center;
+    font-size: 64px;
+    scale: 1 1;
+    transition-timing-function: ease-in;
+    transition-duration: 0.1s;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ModeSelection.png?fileID=2800000&guid=6605f9984e5582248a0684aea06665ab&type=3#ModeSelection');
+    -unity-background-image-tint-color: rgba(209, 209, 209, 255);
+}
+
+.ModeSelectionButton:focus {
+    color: rgb(12, 12, 12);
+    -unity-font-style: italic;
+    -unity-text-align: middle-center;
+    font-size: 64px;
+    scale: 1.1 1.1;
+    transition-timing-function: ease-out;
+    transition-duration: 0.25s;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ModeSelectionHilight.png?fileID=2800000&guid=a15561d8830789b4aaf61c0cc4e8ee6a&type=3#ModeSelectionHilight');
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
