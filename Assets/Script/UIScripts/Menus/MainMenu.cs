@@ -14,8 +14,6 @@ public class MainMenu : MonoBehaviour
 
     private VisualElement root;
 
-    private VisualElement activeIndicator;
-
     private Button soloButton;
     private Button versusButton;
     private Button optionsButton;
@@ -35,8 +33,6 @@ public class MainMenu : MonoBehaviour
 
         root = GetComponent<UIDocument>().rootVisualElement;
 
-        activeIndicator = root.Q<VisualElement>("ActiveIndicator");
-
         soloButton = root.Q<Button>("1PlayerPlayButton");
         versusButton = root.Q<Button>("2PlayerPlayButton");
         optionsButton = root.Q<Button>("OptionsButton");
@@ -45,15 +41,6 @@ public class MainMenu : MonoBehaviour
         FocusFirstElement(soloButton);
         ignoreInputTime = Time.time + .25f;
 
-        try
-        {
-            activeIndicator.style.backgroundImage = GameManager.instance.multiBallsMode ? filledCheckbox : emptyCheckbox;
-        }
-        catch
-        {
-            Debug.LogWarning("Noel");
-            Debug.LogError("Actually GameManager hasn't loaded in yet ;)");
-        }
     }
 
     private void Start()
@@ -91,18 +78,35 @@ public class MainMenu : MonoBehaviour
 
         if(focusedElement == soloButton)
         {
+
+            gameManager.uiManager.ToggleModeMenu(true);
+            gameObject.SetActive(false);
+
+            /* was
+ 
             if(gameManager.multiBallsMode)
                 gameManager.InitializeScene(multiBallScene, isMultiplayer: false);
             else
                 gameManager.InitializeScene(soloScene, isMultiplayer: false);
+
+            */
         }
 
         if(focusedElement == versusButton)
         {
+
+            gameManager.uiManager.ToggleModeMenu(true, true);
+            gameObject.SetActive(false);
+
+            /* was
+
             SceneManager.LoadScene(multiScene);
             Instantiate(GameManager.instance.uiManager.fadeToBlack, GameManager.instance.uiManager.transform);
             gameManager.StartMultiplayer();
             gameObject.SetActive(false);
+
+            */
+
         }
 
         if(focusedElement == optionsButton)
@@ -207,29 +211,6 @@ public class MainMenu : MonoBehaviour
         return root.focusController.focusedElement;
     }
 
-    public void ToggleGameMode(InputAction.CallbackContext context)
-    {
-        if (!gameObject.activeInHierarchy)
-            return;
-
-        var phase = context.phase;
-        if (phase != InputActionPhase.Performed)
-            return;
-
-        if (GameManager.instance.CurrentState != GameState.Menu)
-            return;
-
-        if (GameManager.instance.multiBallsMode)
-        {
-            activeIndicator.style.backgroundImage = emptyCheckbox;
-            GameManager.instance.multiBallsMode = false;
-        }
-        else
-        {
-            activeIndicator.style.backgroundImage = filledCheckbox;
-            GameManager.instance.multiBallsMode = true;
-        }
-    }
 }
 
 #if UNITY_EDITOR

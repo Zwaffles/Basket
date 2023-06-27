@@ -142,7 +142,8 @@ public class GameManager : MonoBehaviour
 
     public void StartMatch(bool isMultiplayer)
     {
-        uiManager.ToggleMainMenu(false);
+        //uiManager.ToggleMainMenu(false);
+        uiManager.ToggleModeMenu(false);
         uiManager.ToggleScore(true);
 
         //playerConfigurationManager.AllowJoining(false);
@@ -213,7 +214,8 @@ public class GameManager : MonoBehaviour
             currentState = GameState.Multiplayer;
         }
 
-        uiManager.ToggleMainMenu(false);
+        //uiManager.ToggleMainMenu(false);
+        uiManager.ToggleModeMenu(false);
         uiManager.ToggleScore(false);
 
         playerConfigurationManager.AllowJoining(true);

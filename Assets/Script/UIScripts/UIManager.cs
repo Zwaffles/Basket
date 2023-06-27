@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Submit.performed += ctx => creditScroll.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => pauseMenu.Submit(ctx);
         uiInput.UI.Submit.performed += ctx => languageMenu.Submit(ctx);
+        uiInput.UI.Submit.performed += ctx => modeMenu.Submit(ctx);
 
         uiInput.UI.Navigate.performed += ctx => mainMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => optionsMenu.Navigate(ctx);
@@ -51,14 +52,15 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Navigate.performed += ctx => audioMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => pauseMenu.Navigate(ctx);
         uiInput.UI.Navigate.performed += ctx => languageMenu.Navigate(ctx);
+        uiInput.UI.Navigate.performed += ctx => modeMenu.Navigate(ctx);
 
         uiInput.UI.Navigate.started += ctx => creditScroll.Navigate(ctx);
         uiInput.UI.Navigate.canceled += ctx => creditScroll.Navigate(ctx);
 
+        uiInput.UI.Cancel.performed += ctx => modeMenu.Cancel(ctx);
+
         uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
 
-        // This is for Mayhem Mode
-        uiInput.UI.GameModeToggle.performed += ctx => mainMenu.ToggleGameMode(ctx);
     }
 
     private void OnEnable()
@@ -105,6 +107,12 @@ public class UIManager : MonoBehaviour
     public void ToggleLanguageMenu(bool active)
     {
         languageMenu.gameObject.SetActive(active);
+    }
+
+    public void ToggleModeMenu(bool active, bool isMultiplayer = false)
+    {
+        modeMenu.ToggleMultiplayer(isMultiplayer);
+        modeMenu.gameObject.SetActive(active);
     }
 
     public void ToggleScore(bool active)

@@ -1896,6 +1896,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb65894ea61b994479eea38e1bba92e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soloScene: Assets/Scenes/Zweifel/Marcus syntwave Theme.unity
+  multiBallScene: Assets/Scenes/Zweifel/MultiBalls.unity
+  multiScene: Assets/Scenes/Zweifel/MultiplayerMockMenu 1.unity
 --- !u!1 &1054798687031330760
 GameObject:
   m_ObjectHideFlags: 0

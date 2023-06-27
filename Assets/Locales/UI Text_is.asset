@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4670432964608
-    m_Localized: Hamstur Hamur
+    m_Localized: Hamstur
     m_Metadata:
       m_Items: []
   - m_Id: 16194694246400
@@ -160,6 +160,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 23422587334656
     m_Localized: Yfirgefa leikinn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2635106985951232
+    m_Localized: "K\xF6rfu"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647309831094272
+    m_Localized: "J\xF3han Rosenberg"
     m_Metadata:
       m_Items: []
   references:

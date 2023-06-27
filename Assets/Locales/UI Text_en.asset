@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4670432964608
-    m_Localized: Mayhem Mode
+    m_Localized: Mayhem
     m_Metadata:
       m_Items: []
   - m_Id: 16194694246400
@@ -160,6 +160,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 87211345145856
     m_Localized: Color
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2635106985951232
+    m_Localized: Standard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2647309831094272
+    m_Localized: John Rosenberg
     m_Metadata:
       m_Items: []
   references:
