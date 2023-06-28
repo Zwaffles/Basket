@@ -142,4 +142,19 @@ public class CreditScroll : MonoBehaviour
 
     }
 
+    public void Cancel(InputAction.CallbackContext context)
+    {
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        GameManager.instance.uiManager.ToggleOptionsMenu(true);
+        gameObject.SetActive(false);
+
+    }
+
 }

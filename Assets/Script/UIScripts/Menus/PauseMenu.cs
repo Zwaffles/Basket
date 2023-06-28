@@ -141,6 +141,14 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void Cancel(InputAction.CallbackContext context)
+    {
+
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
+
+    }
+
     public void Restart()
     {
 

@@ -39,6 +39,11 @@ public class AudioMenu : MonoBehaviour
     private GameManager gameManager;
     private AudioManager audioManager;
 
+    private int initialMasterValue;
+    private int initialMusicValue;
+    private int initialSFXValue;
+    private int initialVoiceValue;
+
     private void OnEnable()
     {
         inputEnabled = false;
@@ -70,6 +75,12 @@ public class AudioMenu : MonoBehaviour
         audioManager = gameManager.audioManager;
 
         InitializeAudioMenu();
+
+        initialMasterValue = masterValue;
+        initialMusicValue = musicValue;
+        initialSFXValue = sfxValue;
+        initialVoiceValue = voiceValue;
+
     }
 
     public void FocusFirstElement(VisualElement firstElement)
@@ -318,6 +329,27 @@ public class AudioMenu : MonoBehaviour
     private void SetVolumes()
     {
         audioManager.ChangeAudioSettings(master: (float)masterValue / 100, music: (float)musicValue / 100, sfx: (float)sfxValue / 100, voice: (float)voiceValue / 100);
+    }
+
+    public void Cancel(InputAction.CallbackContext context)
+    {
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        masterValue = initialMasterValue;
+        musicValue = initialMusicValue;
+        sfxValue = initialSFXValue;
+        voiceValue = initialVoiceValue;
+        SetVolumes();
+
+        GameManager.instance.uiManager.ToggleOptionsMenu(true);
+        gameObject.SetActive(false);
+
     }
 
 }

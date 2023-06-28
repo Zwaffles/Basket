@@ -190,4 +190,20 @@ public class OptionsMenu : MonoBehaviour
     {
         return root.focusController.focusedElement;
     }
+
+    public void Cancel(InputAction.CallbackContext context)
+    {
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        GameManager.instance.uiManager.ToggleMainMenu(true);
+        gameObject.SetActive(false);
+
+    }
+
 }

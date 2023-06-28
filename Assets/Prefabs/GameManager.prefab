@@ -2526,9 +2526,9 @@ MonoBehaviour:
   scrollSpeed: 100
   reverseScrollSpeed: 50
   fastForwardScrollSpeed: 200
-  maxScroll: 2425
+  maxScroll: 2600
   creditsHoldTimeTop: 0.5
-  creditsHoldTimeBottom: 0.5
+  creditsHoldTimeBottom: 1
 --- !u!114 &3534105309236677571
 MonoBehaviour:
   m_ObjectHideFlags: 0

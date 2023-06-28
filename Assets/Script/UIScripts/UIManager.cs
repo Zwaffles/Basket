@@ -58,6 +58,12 @@ public class UIManager : MonoBehaviour
         uiInput.UI.Navigate.canceled += ctx => creditScroll.Navigate(ctx);
 
         uiInput.UI.Cancel.performed += ctx => modeMenu.Cancel(ctx);
+        uiInput.UI.Cancel.performed += ctx => optionsMenu.Cancel(ctx);
+        uiInput.UI.Cancel.performed += ctx => videoMenu.Cancel(ctx);
+        uiInput.UI.Cancel.performed += ctx => audioMenu.Cancel(ctx);
+        uiInput.UI.Cancel.performed += ctx => pauseMenu.Cancel(ctx);
+        uiInput.UI.Cancel.performed += ctx => languageMenu.Cancel(ctx);
+        uiInput.UI.Cancel.performed += ctx => creditScroll.Cancel(ctx);
 
         uiInput.UI.Pause.performed += ctx => TogglePause(ctx);
 

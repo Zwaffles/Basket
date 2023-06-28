@@ -41,6 +41,8 @@ public class LanguageMenu : MonoBehaviour
     private const Language defaultLanguage = Language.English;
     private Language currentLanguage = defaultLanguage;
 
+    private Language initialLanguage;
+
     private void OnEnable()
     {
         inputEnabled = false;
@@ -58,6 +60,8 @@ public class LanguageMenu : MonoBehaviour
         ignoreInputTime = Time.time + .25f;
 
         InitializeVideoMenu();
+
+        initialLanguage = currentLanguage;
     }
 
     private void InitializeVideoMenu()
@@ -505,6 +509,25 @@ public class LanguageMenu : MonoBehaviour
 
                 return;
         }
+    }
+
+    public void Cancel(InputAction.CallbackContext context)
+    {
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        var phase = context.phase;
+        if (phase != InputActionPhase.Performed)
+            return;
+
+        currentLanguage = initialLanguage;
+        PlayerPrefs.SetString("selected-locale", GetLocaleFromLanguage(currentLanguage));
+        SetLocaleFromLanguage(currentLanguage);
+
+        GameManager.instance.uiManager.ToggleOptionsMenu(true);
+        gameObject.SetActive(false);
+
     }
 
 }
