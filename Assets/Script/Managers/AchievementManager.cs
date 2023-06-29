@@ -6,6 +6,8 @@ using Steamworks;
 public enum Achievement
 {
     FirstOfMany,
+    SecondOfMany,
+    ThirdOfMany,
     ComebackTime,
     LickTheRing,
     WhoseHoop,
@@ -116,6 +118,12 @@ public class AchievementManager : MonoBehaviour
             case Achievement.WhoseHoop:
                 GiveAchievement("ACH_SELF_GOAL");
                 break;
+            case Achievement.SecondOfMany:
+                GiveAchievement("ACH_TENTH_GAME");
+                break;
+            case Achievement.ThirdOfMany:
+                GiveAchievement("ACH_HUNDRETH_GAME");
+                break;
             default:
                 break;
 
@@ -157,6 +165,40 @@ public class AchievementManager : MonoBehaviour
             {
                 statsQueue[stat] += value;
             }
+
+        }
+
+    }
+
+    public int GetStat(Stat stat)
+    {
+
+        string statReference = "Noel";
+
+        switch (stat)
+        {
+            case Stat.GamesPlayed:
+                statReference = "stat_games";
+                break;
+            default:
+                break;
+        }
+
+        if (statReference.Equals("Noel")) return -1;
+
+        if (hasReceivedUserStats)
+        {
+
+            int currentValue;
+            SteamUserStats.GetStat(statReference, out currentValue);
+
+            return currentValue;
+
+        }
+        else
+        {
+
+            return -1;
 
         }
 

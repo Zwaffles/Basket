@@ -214,6 +214,10 @@ public class ScoreManager : MonoBehaviour
 
         GameManager.instance.achievementManager.AddStat(Stat.GamesPlayed, 1);
 
+        int playedGames = GameManager.instance.achievementManager.GetStat(Stat.GamesPlayed);
+        if (playedGames >= 10) GameManager.instance.achievementManager.GiveAchievement(Achievement.SecondOfMany);
+        if (playedGames >= 100) GameManager.instance.achievementManager.GiveAchievement(Achievement.ThirdOfMany);
+
         ResetVariables();
 
     }

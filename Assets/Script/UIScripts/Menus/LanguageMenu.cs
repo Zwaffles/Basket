@@ -266,8 +266,10 @@ public class LanguageMenu : MonoBehaviour
                         currentLanguage = Language.Portuguese;
                         return;
                     case Language.Spanish:
-                        menuLanguageText.text = "Русский";
-                        currentLanguage = Language.Russian;
+                        menuLanguageText.text = "Português Brasileiro";
+                        currentLanguage = Language.Portuguese;
+                        //menuLanguageText.text = "Русский";
+                        //currentLanguage = Language.Russian;
                         return;
                     case Language.Turkish:
                         menuLanguageText.text = "Español";
@@ -278,16 +280,22 @@ public class LanguageMenu : MonoBehaviour
                         currentLanguage = Language.Turkish;
                         return;
                     case Language.Chinese:
-                        menuLanguageText.text = "Українська";
-                        currentLanguage = Language.Ukrainian;
+                        menuLanguageText.text = "Türkçe";
+                        currentLanguage = Language.Turkish;
+                        //menuLanguageText.text = "Українська";
+                        //currentLanguage = Language.Ukrainian;
                         return;
                     case Language.Japanese:
-                        menuLanguageText.text = "中文";
-                        currentLanguage = Language.Chinese;
+                        menuLanguageText.text = "Türkçe";
+                        currentLanguage = Language.Turkish;
+                        //menuLanguageText.text = "中文";
+                        //currentLanguage = Language.Chinese;
                         return;
                     case Language.Icelandic:
-                        menuLanguageText.text = "日本語";
-                        currentLanguage = Language.Japanese;
+                        menuLanguageText.text = "Türkçe";
+                        currentLanguage = Language.Turkish;
+                        //menuLanguageText.text = "日本語";
+                        //currentLanguage = Language.Japanese;
                         return;
                 }
 
@@ -335,8 +343,10 @@ public class LanguageMenu : MonoBehaviour
                         currentLanguage = Language.Portuguese;
                         return;
                     case Language.Portuguese:
-                        menuLanguageText.text = "Русский";
-                        currentLanguage = Language.Russian;
+                        menuLanguageText.text = "Español";
+                        currentLanguage = Language.Spanish;
+                        //menuLanguageText.text = "Русский";
+                        //currentLanguage = Language.Russian;
                         return;
                     case Language.Russian:
                         menuLanguageText.text = "Español";
@@ -347,16 +357,22 @@ public class LanguageMenu : MonoBehaviour
                         currentLanguage = Language.Turkish;
                         return;
                     case Language.Turkish:
-                        menuLanguageText.text = "Українська";
-                        currentLanguage = Language.Ukrainian;
+                        menuLanguageText.text = "Íslenska";
+                        currentLanguage = Language.Icelandic;
+                        //menuLanguageText.text = "Українська";
+                        //currentLanguage = Language.Ukrainian;
                         return;
                     case Language.Ukrainian:
-                        menuLanguageText.text = "中文";
-                        currentLanguage = Language.Chinese;
+                        menuLanguageText.text = "Íslenska";
+                        currentLanguage = Language.Icelandic;
+                        //menuLanguageText.text = "中文";
+                        //currentLanguage = Language.Chinese;
                         return;
                     case Language.Chinese:
-                        menuLanguageText.text = "日本語";
-                        currentLanguage = Language.Japanese;
+                        menuLanguageText.text = "Íslenska";
+                        currentLanguage = Language.Icelandic;
+                        //menuLanguageText.text = "日本語";
+                        //currentLanguage = Language.Japanese;
                         return;
                     case Language.Japanese:
                         menuLanguageText.text = "Íslenska";
