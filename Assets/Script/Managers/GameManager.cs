@@ -254,11 +254,13 @@ public class GameManager : MonoBehaviour
     
     public void RespawnBall(int value)
     {
+
+        if (multiBallsMode) return;
+        
         Time.timeScale = originalTimeScale * 0.25f;
         Invoke("ResetTimeScale", timeSlowDuration);
 
-        if(!multiBallsMode)
-            StartCoroutine("Respawn", value);
+        StartCoroutine("Respawn", value);
 
         if(ball != null)
             ball.SetActive(false);
