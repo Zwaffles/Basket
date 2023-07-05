@@ -27,6 +27,7 @@ public class WinscreenAnim : MonoBehaviour
     
     private IEnumerator Start()
     {
+        GameManager.instance.audioManager.FadeOutMusic(18f);
         yield return new WaitForSeconds(0.5f);
         _wincontainer.ToggleInClassList(POPUP_ANIMATION);
     }

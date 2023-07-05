@@ -26,6 +26,10 @@ public class AudioManager : MonoBehaviour
     // But fine, I'll let this const slide... for now - Less Evil Andreas
     private const float musicVolumeFactor = .45f;
 
+    private float musicFadeOutFactor = 1f;
+    private float fadeOutSpeed = 1f;
+    private bool isFadingOut = false;
+
     private void Awake()
     {
         sfxSources = new List<AudioSource>();
@@ -61,6 +65,31 @@ public class AudioManager : MonoBehaviour
         {
             musicClipsDict.Add(clip.name, clip);
         }
+    }
+
+    private void Update()
+    {
+        
+        if (isFadingOut)
+        {
+            musicFadeOutFactor -= fadeOutSpeed * Time.deltaTime;
+            if (musicFadeOutFactor < 0f)
+            {
+                isFadingOut = false;
+                musicFadeOutFactor = 0f;
+            }
+        }
+        else if (musicFadeOutFactor < 1f)
+        {
+            musicFadeOutFactor += fadeOutSpeed * Time.deltaTime;
+            if (musicFadeOutFactor > 1f)
+            {
+                musicFadeOutFactor = 1f;
+            }
+        }
+
+        musicSource.volume = MusicVolume * MasterVolume * musicVolumeFactor * musicFadeOutFactor;
+
     }
 
     public void PlaySfx(string clipName, float pitch = 1f)
@@ -142,6 +171,12 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+
+    public void FadeOutMusic(float duration)
+    {
+        fadeOutSpeed = 2 / duration;
+        isFadingOut = true;
     }
 
     public void PauseAudio()
