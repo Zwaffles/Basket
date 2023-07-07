@@ -8,15 +8,15 @@ Basket {
 .MainMenuButton {
     width: 90%;
     height: 10%;
-    margin-left: 14%;
-    margin-top: 8%;
+    margin-left: 16%;
+    margin-top: 48px;
     background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/AlphaGUI/(O)-Un%20Targeted%20Button.png?fileID=2800000&guid=f04c7cb5d879194489feb4664a8beebc&type=3#(O)-Un Targeted Button');
     transition-duration: 0.1s;
     transform-origin: left;
     font-size: 58px;
     -unity-font-style: italic;
     -unity-text-align: middle-center;
-    padding-bottom: 4%;
+    padding-bottom: 16px;
     color: rgb(245, 245, 245);
     margin-bottom: 0;
 }
@@ -24,15 +24,15 @@ Basket {
 .MainMenuButton:focus {
     width: 90%;
     height: 10%;
-    margin-top: 8%;
+    margin-top: 64px;
     background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/AlphaGUI/Targeted%20Button.png?fileID=2800000&guid=3d403d1b52a6bd74081abf6e62eb97a2&type=3#Targeted Button');
     transition-duration: 0.2s;
     transform-origin: left;
     scale: 1.1 1.1;
-    margin-left: 14%;
+    margin-left: 160px;
     left: 2%;
     color: rgb(5, 5, 5);
-    padding-bottom: 4%;
+    padding-bottom: 16px;
     -unity-font-style: italic;
 }
 
@@ -322,7 +322,7 @@ Basket {
     transition-duration: 0.1s;
     background-color: rgba(0, 0, 0, 0);
     background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ModeSelection.png?fileID=2800000&guid=6605f9984e5582248a0684aea06665ab&type=3#ModeSelection');
-    -unity-background-image-tint-color: rgba(209, 209, 209, 255);
+    -unity-background-image-tint-color: rgb(209, 209, 209);
 }
 
 .ModeSelectionButton:focus {
