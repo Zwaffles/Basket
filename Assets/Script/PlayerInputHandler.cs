@@ -30,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
         playerLight.color = _playerConfiguration.PlayerColor;
         //Debug.Log("setting up player " + playerConfiguration.PlayerIndex + " using the input scheme " + playerConfiguration.Input.currentControlScheme + " on the action map " + playerConfiguration.Input.currentActionMap + " with the device " + playerConfiguration.Input.devices[0].name);
         playerConfiguration.Input.onActionTriggered += Input_onActionTriggered;
+        playerConfiguration.Input.onDeviceLost += OnDeviceLost;
     }
 
     private void Input_onActionTriggered(CallbackContext obj)
@@ -51,4 +52,10 @@ public class PlayerInputHandler : MonoBehaviour
        // Debug.Log("literally moving rn because my movement value is " + context.ReadValue<Vector2>());
         player.SetInputVector(context.ReadValue<Vector2>());
     }
+
+    private void OnDeviceLost(UnityEngine.InputSystem.PlayerInput context)
+    {
+        GameManager.instance.uiManager.Pause();
+    }
+
 }

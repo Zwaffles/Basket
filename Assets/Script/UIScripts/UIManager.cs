@@ -168,6 +168,68 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void TogglePause(bool shouldPause)
+    {
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        if (GameManager.instance.CurrentState != GameState.Play)
+            return;
+
+        try
+        {
+            if (FindObjectOfType<WinscreenAnim>().gameObject.activeInHierarchy)
+                return;
+        }
+        catch
+        {
+
+        }
+
+        if (shouldPause)
+        {
+            if (Time.timeScale == 0)
+                return;
+
+            pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+            return;
+        }
+        else
+        {
+            pauseMenu.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
+
+    }
+
+    public void Pause()
+    {
+
+        if (!gameObject.activeInHierarchy)
+            return;
+
+        if (GameManager.instance.CurrentState != GameState.Play)
+            return;
+
+        try
+        {
+            if (FindObjectOfType<WinscreenAnim>().gameObject.activeInHierarchy)
+                return;
+        }
+        catch
+        {
+
+        }
+
+        if (Time.timeScale == 0)
+            return;
+
+        pauseMenu.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+
     //public void ToggleRestart(InputAction.CallbackContext context)
     //{
     //    if (!gameObject.activeInHierarchy)
