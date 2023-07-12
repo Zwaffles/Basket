@@ -337,3 +337,8 @@ Basket {
     background-image: url('project://database/Assets/UI/Basket/Basket-UIGUI/Prototype/ModeSelectionHilight.png?fileID=2800000&guid=a15561d8830789b4aaf61c0cc4e8ee6a&type=3#ModeSelectionHilight');
     -unity-background-image-tint-color: rgb(255, 255, 255);
 }
+
+.ControlIcons {
+    width: 64px;
+    height: 64px;
+}

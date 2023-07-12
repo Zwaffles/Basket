@@ -13,7 +13,19 @@
                     <ui:VisualElement name="ArrowRight" class="PlayerInputArrows" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ArrowRightWhite.png?fileID=2800000&amp;guid=ad7461c2d6f78784eb7c3456f00a6d8e&amp;type=3#ArrowRightWhite&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="LeftSliceLower" style="flex-grow: 0; width: 100%; height: 33%; flex-shrink: 0;" />
+            <ui:VisualElement name="LeftSliceLower" style="flex-grow: 0; width: 100%; height: 33%; flex-shrink: 0; flex-direction: column; align-items: flex-start; justify-content: flex-end;">
+                <ui:VisualElement name="UpperTextContainer" style="align-items: flex-start; justify-content: center; width: 100%; background-color: rgba(19, 19, 19, 0.29);">
+                    <ui:Label text="Controls:" display-tooltip-when-elided="true" name="ControlsText" class="BorderAndShadowForText" style="color: rgb(241, 241, 241); font-size: 32px; -unity-font-style: bold; -unity-text-outline-width: 2px; margin-left: 32px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="LowerIconContainer" style="justify-content: flex-start; align-items: center; width: 100%; flex-direction: row; background-color: rgba(19, 19, 19, 0.29); padding-left: 32px;">
+                    <ui:VisualElement name="Controls1" class="ControlIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Keyboard/A_Key_Light.png?fileID=2800000&amp;guid=f517ec5730d7c9f42a179c1ff061a29d&amp;type=3#A_Key_Light&apos;);" />
+                    <ui:VisualElement name="Controls1" class="ControlIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Keyboard/D_Key_Light.png?fileID=2800000&amp;guid=8b3058d603e9b1845a89655741d7c1d9&amp;type=3#D_Key_Light&apos;);" />
+                    <ui:VisualElement name="Controls1" class="ControlIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Keyboard/Space_Key_Light.png?fileID=2800000&amp;guid=a20c7712e587916498dbc8dfc907aacd&amp;type=3#Space_Key_Light&apos;); width: 96px; height: 96px; margin-right: 24px;" />
+                    <ui:VisualElement name="Controls2" class="ControlIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Keyboard/Arrow_Left_Key_Light.png?fileID=2800000&amp;guid=5080382f439805e43ac7a19d7c24df9b&amp;type=3#Arrow_Left_Key_Light&apos;); margin-left: 24px;" />
+                    <ui:VisualElement name="Controls2" class="ControlIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Keyboard/Arrow_Right_Key_Light.png?fileID=2800000&amp;guid=915c71ff3741dc94ebdc0f13edd68363&amp;type=3#Arrow_Right_Key_Light&apos;);" />
+                    <ui:VisualElement name="Controls2" class="ControlIcons" style="background-image: url(&apos;project://database/Assets/UI/Basket/Basket-UIGUI/ButtonPrompts/Keyboard/Enter_Key_Light.png?fileID=2800000&amp;guid=8eccf5e84c81ad041bbee774a883a4c8&amp;type=3#Enter_Key_Light&apos;);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="MiddleSection" style="align-items: center; justify-content: center; height: 100%; flex-grow: 0; width: 16%;">
             <ui:VisualElement name="P1-Container" style="flex-direction: row; align-items: center; justify-content: center;">
